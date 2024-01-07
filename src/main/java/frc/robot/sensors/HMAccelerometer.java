@@ -19,7 +19,8 @@ public class HMAccelerometer {
 	private LinearFilter filterAR;
 	
 	public HMAccelerometer() {
-		accel = new BuiltInAccelerometer(Accelerometer.Range.k4G);
+		//accel = new BuiltInAccelerometer(Accelerometer.Range.k4G);
+		accel = new BuiltInAccelerometer();
 		
 		filterZ = LinearFilter.movingAverage(5); // filter over n iterations
 		filterAR = LinearFilter.movingAverage(5); // filter over n iterations

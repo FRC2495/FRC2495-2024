@@ -1,12 +1,12 @@
 package frc.robot.commands.mouth;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 
 import frc.robot.subsystems.Mouth;
 import frc.robot.subsystems.Mouth.Position;
 
 // To set mouth open
-public class MouthOpen extends CommandBase {
+public class MouthOpen extends Command {
 
 	
 	private Mouth mouth;

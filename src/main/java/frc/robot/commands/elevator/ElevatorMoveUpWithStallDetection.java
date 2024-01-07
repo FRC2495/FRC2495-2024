@@ -1,7 +1,7 @@
 
 package frc.robot.commands.elevator;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 
 import frc.robot.subsystems.Elevator;
 
@@ -9,7 +9,7 @@ import frc.robot.subsystems.Elevator;
 /**
  *
  */
-public class ElevatorMoveUpWithStallDetection extends CommandBase {
+public class ElevatorMoveUpWithStallDetection extends Command {
 
 	private Elevator elevator;
 

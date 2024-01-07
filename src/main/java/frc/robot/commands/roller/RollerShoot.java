@@ -11,14 +11,14 @@
 
 package frc.robot.commands.roller;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 
 import frc.robot.subsystems.Roller;
 
 /**
  *
  */
-public class RollerShoot extends CommandBase {
+public class RollerShoot extends Command {
 
 	private Roller roller;
 

@@ -1,14 +1,14 @@
 
 package frc.robot.commands.neck;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 
 import frc.robot.subsystems.Neck;
 
 /**
  *
  */
-public class NeckMoveDownWithStallDetection extends CommandBase {
+public class NeckMoveDownWithStallDetection extends Command {
 
 	private Neck neck;
 

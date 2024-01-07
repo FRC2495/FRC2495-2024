@@ -1,14 +1,14 @@
 
 package frc.robot.commands.drawer;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 
 import frc.robot.subsystems.Drawer;
 
 /**
  *
  */
-public class DrawerRetractWithStallDetection extends CommandBase {
+public class DrawerRetractWithStallDetection extends Command {
 
 	private Drawer drawer;
 

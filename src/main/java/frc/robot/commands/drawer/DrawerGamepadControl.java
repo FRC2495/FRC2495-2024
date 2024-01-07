@@ -1,14 +1,14 @@
 
 package frc.robot.commands.drawer;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.subsystems.Drawer;
 
 /**
  *
  */
-public class DrawerGamepadControl extends CommandBase {
+public class DrawerGamepadControl extends Command {
 
 	private Drawer drawer;
 	private XboxController gamepad;

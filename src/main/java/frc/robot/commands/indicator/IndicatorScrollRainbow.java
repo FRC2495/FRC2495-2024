@@ -1,14 +1,14 @@
 
 package frc.robot.commands.indicator;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 
 import frc.robot.subsystems.Indicator;
 
 /**
  *
  */
-public class IndicatorScrollRainbow extends CommandBase {
+public class IndicatorScrollRainbow extends Command {
 
 	private Indicator indicator;
 

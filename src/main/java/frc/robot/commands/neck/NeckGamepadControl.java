@@ -1,14 +1,14 @@
 
 package frc.robot.commands.neck;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.subsystems.Neck;
 
 /**
  *
  */
-public class NeckGamepadControl extends CommandBase {
+public class NeckGamepadControl extends Command {
 
 	private Neck neck;
 	private XboxController gamepad;

@@ -1,7 +1,7 @@
 
 package frc.robot.commands.elevator;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj.Joystick;
 
 import frc.robot.subsystems.Elevator;
@@ -10,7 +10,7 @@ import frc.robot.subsystems.SwerveDrivetrain;
 /**
  *
  */
-public class ElevatorJoystickControl extends CommandBase {
+public class ElevatorJoystickControl extends Command {
 
 	private Elevator elevator;
 	//private SwerveDrivetrain drivetrain;
