@@ -60,6 +60,7 @@ import frc.robot.commands.elevator.*;
 import frc.robot.commands.drawer.*;
 import frc.robot.commands.neck.*;
 import frc.robot.commands.roller.*;
+import frc.robot.interfaces.ICamera;
 import frc.robot.commands.mouth.*;
 import frc.robot.commands.indicator.*;
 import frc.robot.commands.groups.*;
@@ -157,6 +158,8 @@ public class RobotContainer {
 	// sensors
 
 	private final HMAccelerometer accelerometer = new HMAccelerometer();
+
+	private final ICamera camera = new LimelightCamera();
 
 	// motorized devices
 
@@ -584,6 +587,11 @@ public class RobotContainer {
 	public HMAccelerometer getAccelerometer()
 	{
 		return accelerometer;
+	}
+
+	public ICamera getCamera()
+	{
+		return camera;
 	}
 
 	public SwerveDrivetrain getDrivetrain()
