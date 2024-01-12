@@ -335,9 +335,9 @@ public class RobotContainer {
 			//.onTrue(new MoveInUShapeInReverse(drivetrain, this, 1));
 
 		joyMain.button(6)
-			.onTrue(new MoveInReverse(drivetrain, this, 3));
+			//.onTrue(new MoveInReverse(drivetrain, this, 3));
 			//.onTrue(new DrivetrainTurnAngleUsingPidController(drivetrain, 90));
-
+			.onTrue(new DrivetrainTurnUsingCamera(drivetrain, camera));
 
 		joyMain.button(7)
 			.whileTrue(new RollerJoystickControl(roller, drivetrain, getMainJoystick()));
