@@ -5,9 +5,11 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 //import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+/*import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.ControlMode;*/
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkBase.IdleMode;
 
 import frc.robot.interfaces.*;
 //import frc.robot.RobotContainer;
@@ -30,13 +32,13 @@ public class Roller extends SubsystemBase implements IRoller{
 	static final int WAIT_MS = 1000;
 	static final int TIMEOUT_MS = 5000;
 
-	static final int TALON_TIMEOUT_MS = 20;
+	static final int SPARKMAX_TIMEOUT_MS = 20;
 
 	static final int ROLL_DISTANCE_INCHES = 13;
 	static final int RELEASE_DISTANCE_INCHES = 17;
 	static final int SHOOT_DISTANCE_INCHES = 17;
 	
-	WPI_TalonSRX roller;
+	CANSparkMax roller;
 	//BaseMotorController grasperLeft; 
 		
 	boolean isRolling;
@@ -44,16 +46,16 @@ public class Roller extends SubsystemBase implements IRoller{
 	boolean isShooting;
 	
 		
-	public Roller(WPI_TalonSRX roller_in) {
+	public Roller(CANSparkMax roller_in) {
 		
 		roller = roller_in;
 
-		roller.configFactoryDefault();
+		roller.restoreFactoryDefaults();
 		
 		// Mode of operation during Neutral output may be set by using the setNeutralMode() function.
 		// As of right now, there are two options when setting the neutral mode of a motor controller,
 		// brake and coast.
-		roller.setNeutralMode(NeutralMode.Coast);
+		roller.setIdleMode(IdleMode.kCoast);
 		
 		// Motor controller output direction can be set by calling the setInverted() function as seen below.
 		// Note: Regardless of invert value, the LEDs will blink green when positive output is requested (by robot code or firmware closed loop).
@@ -89,7 +91,7 @@ public class Roller extends SubsystemBase implements IRoller{
 	public void roll() {
 		//SwitchedCamera.setUsbCamera(Ports.UsbCamera.GRASPER_CAMERA);
 
-		roller.set(ControlMode.PercentOutput, REDUCED_PCT_OUTPUT);
+		roller.set(REDUCED_PCT_OUTPUT);
 		
 		isRolling = true;
 		isReleasing = false;
@@ -99,7 +101,7 @@ public class Roller extends SubsystemBase implements IRoller{
 	public void release() {
 		//SwitchedCamera.setUsbCamera(Ports.UsbCamera.GRASPER_CAMERA);
 
-		roller.set(ControlMode.PercentOutput, -ALMOST_MAX_PCT_OUTPUT);
+		roller.set(-ALMOST_MAX_PCT_OUTPUT);
 		
 		isReleasing = true;
 		isRolling = false;
@@ -109,7 +111,7 @@ public class Roller extends SubsystemBase implements IRoller{
 	public void shoot() {
 		//SwitchedCamera.setUsbCamera(Ports.UsbCamera.GRASPER_CAMERA);
 
-		roller.set(ControlMode.PercentOutput, -MAX_PCT_OUTPUT);
+		roller.set(-MAX_PCT_OUTPUT);
 		
 		isRolling = true;
 		isReleasing = false;
@@ -118,7 +120,7 @@ public class Roller extends SubsystemBase implements IRoller{
 	
 	
 	public void stop() {
-		roller.set(ControlMode.PercentOutput, 0);
+		roller.set(0);
 		
 		isRolling = false;
 		isReleasing = false;
@@ -129,11 +131,11 @@ public class Roller extends SubsystemBase implements IRoller{
 	// NOTE THAT THIS METHOD WILL IMPACT BOTH OPEN AND CLOSED LOOP MODES
 	public void setNominalAndPeakOutputs(double peakOutput)
 	{
-		roller.configPeakOutputForward(peakOutput, TALON_TIMEOUT_MS);
-		roller.configPeakOutputReverse(-peakOutput, TALON_TIMEOUT_MS);
+		/*roller.configPeakOutputForward(peakOutput, SPARKMAX_TIMEOUT_MS);
+		roller.configPeakOutputReverse(-peakOutput, SPARKMAX_TIMEOUT_MS);
 
-		roller.configNominalOutputForward(0, TALON_TIMEOUT_MS);
-		roller.configNominalOutputReverse(0, TALON_TIMEOUT_MS);
+		roller.configNominalOutputForward(0, SPARKMAX_TIMEOUT_MS);
+		roller.configNominalOutputReverse(0, SPARKMAX_TIMEOUT_MS);*/
 	}
 	
 	public boolean isRolling(){
@@ -151,7 +153,7 @@ public class Roller extends SubsystemBase implements IRoller{
 	// for debug purpose only
 	public void joystickControl(Joystick joystick)
 	{
-		roller.set(ControlMode.PercentOutput, joystick.getY());
+		roller.set(joystick.getY());
 	}
 
 	

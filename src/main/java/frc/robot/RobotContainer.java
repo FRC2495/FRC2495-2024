@@ -30,6 +30,8 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -179,7 +181,7 @@ public class RobotContainer {
 	
 	private final /*I*/Neck neck = new Neck(neck_master);
 
-	private final WPI_TalonSRX roller_master = new WPI_TalonSRX(Ports.CAN.ROLLER);
+	private final CANSparkMax roller_master = new CANSparkMax(Ports.CAN.ROLLER, MotorType.kBrushless);
 	
 	private final /*I*/Roller roller = new Roller(roller_master);
 	
