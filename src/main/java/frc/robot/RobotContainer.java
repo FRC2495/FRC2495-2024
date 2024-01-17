@@ -21,7 +21,8 @@ import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 //import edu.wpi.first.wpilibj.XboxController.Button;
 //import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 //import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
-import edu.wpi.first.wpilibj2.command.button.CommandXboxController; 
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 //import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -56,6 +57,7 @@ import frc.robot.subsystems.Roller;
 import frc.robot.subsystems.Compressor;
 import frc.robot.subsystems.Mouth;
 import frc.robot.subsystems.Indicator;
+import frc.robot.subsystems.Shooter;
 
 import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.elevator.*;
@@ -182,9 +184,15 @@ public class RobotContainer {
 	private final /*I*/Neck neck = new Neck(neck_master);
 
 	private final CANSparkMax roller_master = new CANSparkMax(Ports.CAN.ROLLER, MotorType.kBrushless);
-	
+
 	private final /*I*/Roller roller = new Roller(roller_master);
-	
+
+	private final CANSparkMax shooter_master = new CANSparkMax(Ports.CAN.SHOOTER_MASTER, MotorType.kBrushless);
+
+	private final CANSparkMax shooter_follower = new CANSparkMax(Ports.CAN.SHOOTER_FOLLOWER, MotorType.kBrushless);
+
+	private final /*I*/Shooter shooter = new Shooter(shooter_master, shooter_follower);
+
 	// pneumatic devices
 
 	private final Compressor compressor = new Compressor();

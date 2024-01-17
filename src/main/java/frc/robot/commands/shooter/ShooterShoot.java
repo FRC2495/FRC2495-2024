@@ -9,29 +9,29 @@
 // it from being updated in the future.
 
 
-package frc.robot.commands.roller;
+package frc.robot.commands.shooter;
 
 import edu.wpi.first.wpilibj2.command.Command;
 
-import frc.robot.subsystems.Roller;
+import frc.robot.subsystems.Shooter;
 
 /**
  *
  */
-public class RollerShoot extends Command {
+public class ShooterShoot extends Command {
 
-	private Roller roller;
+	private Shooter shooter;
 
-	public RollerShoot(Roller roller) {
-		this.roller = roller;
-		addRequirements(roller);
+	public ShooterShoot(Shooter shooter) {
+		this.shooter = shooter;
+		addRequirements(shooter);
 	}
 
 	// Called just before this Command runs the first time
 	@Override
 	public void initialize() {
-		System.out.println("RollerShoot: initialize");
-		roller.release();
+		System.out.println("ShooterShoot: initialize");
+		shooter.shoot();
 	
 	}
 

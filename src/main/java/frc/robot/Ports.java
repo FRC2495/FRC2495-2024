@@ -158,6 +158,8 @@ public class Ports {
 			public static final int DRAWER = 11;
 			public static final int NECK = 12;
 			public static final int ROLLER = 13;
+			public static final int SHOOTER_MASTER = 14;
+			public static final int SHOOTER_FOLLOWER = 15;
 		}
 		
 		/**
