@@ -64,6 +64,9 @@ import frc.robot.commands.elevator.*;
 import frc.robot.commands.drawer.*;
 import frc.robot.commands.neck.*;
 import frc.robot.commands.roller.*;
+import frc.robot.commands.shooter.ShooterShoot;
+import frc.robot.commands.shooter.ShooterStopForever;
+import frc.robot.commands.shooter.ShooterTake;
 import frc.robot.interfaces.ICamera;
 import frc.robot.commands.mouth.*;
 import frc.robot.commands.indicator.*;
@@ -304,6 +307,8 @@ public class RobotContainer {
 		
 		roller.setDefaultCommand(new RollerStopForever(roller)); // we stop by default
 
+		shooter.setDefaultCommand(new ShooterStopForever(shooter)); // we stop by default
+
 		compressor.checkCompressor(); //we compress in the background
 
 		indicator.setDefaultCommand(new IndicatorScrollRainbow(indicator)); // temp
@@ -390,10 +395,12 @@ public class RobotContainer {
 
 
 		copilotGamepad.leftTrigger()
-			.onTrue(new DrawerRetractWithStallDetection(drawer));
+			//.onTrue(new DrawerRetractWithStallDetection(drawer));
+			.whileTrue(new ShooterTake(shooter));
 
 		copilotGamepad.rightTrigger()
-			.onTrue(new DrawerExtendWithStallDetection(drawer));
+			//.onTrue(new DrawerExtendWithStallDetection(drawer));
+			.whileTrue(new ShooterShoot(shooter));
 
 
 		copilotGamepad.povDown()
