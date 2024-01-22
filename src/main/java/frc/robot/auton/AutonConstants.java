@@ -5,8 +5,8 @@ public class AutonConstants {
     // Fixed auton distances
 
     // All Starting Position Distances
-    public static final double DISTANCE_TO_PICKUP_NOTE_METERS = 5;
-    public static final double DISTANCE_FROM_STARTING_POSITION_TO_LEAVE_COMMUNITY_METERS = 20;
+    public static final double DISTANCE_TO_PICKUP_NOTE_METERS = 5; //todo fix
+    public static final double DISTANCE_FROM_STARTING_POSITION_TO_LEAVE_COMMUNITY_METERS = 20; //todo fix
 
     // Starting Position One + Six(?) Distances
     public static final double DISTANCE_FROM_CONE_NODE_TO_AREA_BEFORE_FIRST_TURN = 37;
