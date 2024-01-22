@@ -16,19 +16,19 @@ import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.roller.*;
 
 
-public class PickupCube extends ParallelCommandGroup{
+public class PickupNote extends ParallelCommandGroup{
     
-    public PickupCube(SwerveDrivetrain drivetrain, RobotContainer container, Neck neck, Roller roller) {
+    public PickupNote(SwerveDrivetrain drivetrain, RobotContainer container, Roller roller) {
 
         addCommands(
 
             new RollerTimedRoll(roller, .5),
 
-            new DrivetrainSwerveRelative(drivetrain, container, createAreaBeforeCubePickupTrajectory(container))        
+            new DrivetrainSwerveRelative(drivetrain, container, createAreaBeforeNotePickupTrajectory(container))        
         );
     }
     
-    public Trajectory createAreaBeforeCubePickupTrajectory(RobotContainer container) {
+    public Trajectory createAreaBeforeNotePickupTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -36,7 +36,7 @@ public class PickupCube extends ParallelCommandGroup{
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_AREA_BEFORE_FIRST_CUBE_PICKUP_TO_CUBE_PICKUP_METERS, 0, Rotation2d.fromDegrees(0)),
+			new Pose2d(AutonConstants.DISTANCE_TO_PICKUP_NOTE_METERS, 0, Rotation2d.fromDegrees(0)),
 			container.createTrajectoryConfig());
 
 		return trajectory;
