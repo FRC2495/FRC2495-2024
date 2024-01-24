@@ -21,9 +21,9 @@ import frc.robot.subsystems.*;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
-public class PickupFirstNote extends ParallelCommandGroup {
+public class PickupSecondNote extends ParallelCommandGroup {
 
-    public PickupFirstNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller){
+    public PickupSecondNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller){
 
         addCommands(
 
@@ -46,7 +46,7 @@ public class PickupFirstNote extends ParallelCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_AREA_TO_SHOOT_PRELOAD_TO_PICKUP_SECOND_NOTE_X, AutonConstants.DISTANCE_FROM_AREA_TO_SHOOT_PRELOAD_TO_PICKUP_SECOND_NOTE_Y, Rotation2d.fromDegrees(135)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_AREA_TO_SHOOT_PRELOAD_TO_SECOND_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_AREA_TO_SHOOT_PRELOAD_TO_SECOND_NOTE_PICKUP_Y, Rotation2d.fromDegrees(135)),
             container.createReverseTrajectoryConfig());
 
 		return trajectory;

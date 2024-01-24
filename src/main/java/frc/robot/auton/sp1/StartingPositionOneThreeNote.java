@@ -31,9 +31,16 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
             new ShooterTimedShoot(shooter, 0.5),
 
-            new PickupFirstNote(container, drivetrain, roller),
+            new PickupSecondNote(container, drivetrain, roller),
             
-            new ShooterTimedShoot(shooter, 0.5) // will have to change in some way to compensate for the distance
+            new ShooterTimedShoot(shooter, 0.5), // will have to change in some way to compensate for the distance
+
+            new PickupThirdNote(container, drivetrain, roller),
+
+            new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
+
+			new ShooterTimedShoot(shooter, 0.5) // will have to change in some way to compensate for the distance
+
         ); 
   
     }
@@ -47,6 +54,20 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_TO_AREA_TO_SHOOT_PRELOAD_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_TO_AREA_TO_SHOOT_PRELOAD_Y, Rotation2d.fromDegrees(120)),
+            container.createReverseTrajectoryConfig());
+
+		return trajectory;
+	}
+    
+    public Trajectory createShootSecondNoteTrajectory(RobotContainer container) {
+		// An example trajectory to follow. All units in meters.
+		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+			// Start at the origin facing the -X direction
+			new Pose2d(AutonConstants.DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_THIRD_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_THIRD_NOTE_PICKUP_Y, Rotation2d.fromDegrees(180)),
+			// Pass through these waypoints
+			List.of(),
+			// End straight ahead of where we started, facing forward
+			new Pose2d(AutonConstants.DISTANCE_FROM_THIRD_NOTE_PICKUP_TO_SHOOT_THIRD_NOTE_X, AutonConstants.DISTANCE_FROM_THIRD_NOTE_PICKUP_TO_SHOOT_THIRD_NOTE_Y, Rotation2d.fromDegrees(155)),
             container.createReverseTrajectoryConfig());
 
 		return trajectory;

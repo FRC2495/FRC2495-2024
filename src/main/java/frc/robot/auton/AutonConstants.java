@@ -13,10 +13,12 @@ public class AutonConstants {
     public static final double STARTING_POSITION_SP3_Y_VALUE = 7.05;
     public static final double DISTANCE_FROM_STARTING_POSITION_TO_AREA_TO_SHOOT_PRELOAD_X = 1.93;
     public static final double DISTANCE_FROM_STARTING_POSITION_TO_AREA_TO_SHOOT_PRELOAD_Y = 6.57;
-    public static final double DISTANCE_FROM_AREA_TO_SHOOT_PRELOAD_TO_PICKUP_SECOND_NOTE_X = 2.65;
-    public static final double DISTANCE_FROM_AREA_TO_SHOOT_PRELOAD_TO_PICKUP_SECOND_NOTE_Y = 6.70;
-    //public static final double DISTANCE_FROM_ = 6.70;
-    //public static final double DISTANCE_FROM_AREA_TO_SHOOT_PRELOAD_TO_PICKUP_SECOND_NOTE_Y = 6.70;
+    public static final double DISTANCE_FROM_AREA_TO_SHOOT_PRELOAD_TO_SECOND_NOTE_PICKUP_X = 2.65;
+    public static final double DISTANCE_FROM_AREA_TO_SHOOT_PRELOAD_TO_SECOND_NOTE_PICKUP_Y = 6.70;
+    public static final double DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_THIRD_NOTE_PICKUP_X = 7.73;
+    public static final double DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_THIRD_NOTE_PICKUP_Y = 7.40;
+    public static final double DISTANCE_FROM_THIRD_NOTE_PICKUP_TO_SHOOT_THIRD_NOTE_X = 4.59;
+    public static final double DISTANCE_FROM_THIRD_NOTE_PICKUP_TO_SHOOT_THIRD_NOTE_Y = 6.93;
     // Fixed auton angles
 
     // Starting Position One + Six(?) Angles
