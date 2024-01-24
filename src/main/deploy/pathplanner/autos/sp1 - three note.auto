@@ -1,0 +1,37 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 1.05,
+      "y": 7.05
+    },
+    "rotation": 0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "sp1 - shoot first and pickup second"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "sp1 - shoot second then pickup third"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "sp1 - shoot third"
+          }
+        }
+      ]
+    }
+  },
+  "folder": null,
+  "choreoAuto": false
+}
