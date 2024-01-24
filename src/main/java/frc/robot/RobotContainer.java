@@ -516,9 +516,9 @@ public class RobotContainer {
 				return new CompletelyLeaveCommunity(drivetrain, this);
 				//break;
 
-			case AUTON_TEST_HARDCODED_MOVE_2:
+			/*case AUTON_TEST_HARDCODED_MOVE_2:
 				return new MoveInNonBumpKTurn(drivetrain, this);
-				//break;
+				//break;*/
 
 			case AUTON_CUSTOM:
 				return new CustomAuton(gamePieceSelected, startPosition, mainTarget, cameraOption, sonarOption, autonOption,
