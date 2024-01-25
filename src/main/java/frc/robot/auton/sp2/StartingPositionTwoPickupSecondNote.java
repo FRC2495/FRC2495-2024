@@ -1,4 +1,4 @@
-package frc.robot.auton.sp1;
+package frc.robot.auton.sp2;
 
 import java.util.List;
 
@@ -21,34 +21,34 @@ import frc.robot.subsystems.*;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
-public class PickupThirdNote extends ParallelCommandGroup {
+public class StartingPositionTwoPickupSecondNote extends ParallelCommandGroup {
 
-    public PickupThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller){
+    public StartingPositionTwoPickupSecondNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller){
 
         addCommands(
 
 			new RollerTimedRoll(roller, 3),
 
-            new DrivetrainSwerveRelative(drivetrain, container, createPickupThirdNoteTrajectory(container))
- 
+            new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container))
             
         ); 
   
     }
    
-    public Trajectory createPickupThirdNoteTrajectory(RobotContainer container) {
+    
+    public Trajectory createPickupSecondNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
-			new Pose2d(AutonConstants.DISTANCE_FROM_AREA_TO_SHOOT_PRELOAD_TO_SECOND_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_AREA_TO_SHOOT_PRELOAD_TO_SECOND_NOTE_PICKUP_Y, Rotation2d.fromDegrees(135)),
+			new Pose2d(AutonConstants.STARTING_POSITION_2_X_VALUE, AutonConstants.STARTING_POSITION_2_Y_VALUE, Rotation2d.fromDegrees(180.0)),
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_THIRD_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_THIRD_NOTE_PICKUP_Y, Rotation2d.fromDegrees(180)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_Y, Rotation2d.fromDegrees(180)),
             container.createReverseTrajectoryConfig());
 
 		return trajectory;
-	}
+	}	
 
 
 }
