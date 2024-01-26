@@ -41,7 +41,19 @@ public class AutonConstants {
     public static final double DISTANCE_FROM_THIRD_NOTE_PICKUP_TO_SHOOT_X = 2.17;
     public static final double DISTANCE_FROM_THIRD_NOTE_PICKUP_TO_SHOOT_Y = 4.02;
 
-
+    // Starting Position Four = Three Note Distances (all in meters)
+    public static final double STARTING_POSITION_4_X_VALUE = 15.50;
+    public static final double STARTING_POSITION_4_Y_VALUE = 7.11;
+    public static final double DISTANCE_FROM_STARTING_POSITION_4_TO_SHOOT_PRELOAD_X = 14.69;
+    public static final double DISTANCE_FROM_STARTING_POSITION_4_TO_SHOOT_PRELOAD_Y = 6.67;
+    public static final double DISTANCE_FROM_SHOOT_PRELOAD_TO_SECOND_PICKUP_X = 14.12;
+    public static final double DISTANCE_FROM_SHOOT_PRELOAD_TO_SECOND_PICKUP_Y = 6.99;
+    public static final double DISTANCE_FROM_SECOND_PICKUP_TO_SHOOT_SECOND_NOTE_X = 12.78;
+    public static final double DISTANCE_FROM_SECOND_PICKUP_TO_SHOOT_SECOND_NOTE_Y = 6.71;
+    public static final double DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_THIRD_PICKUP_X = 8.89;
+    public static final double DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_THIRD_PICKUP_Y = 7.41;
+    public static final double DISTANCE_FROM_THIRD_PICKUP_TO_SHOOT_X = 12.55;
+    public static final double DISTANCE_FROM_THIRD_PICKUP_TO_SHOOT_Y = 6.77;
     // Fixed auton angles
 
     // Starting Position One + Six(?) Angles
