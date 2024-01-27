@@ -109,10 +109,9 @@ public class RobotContainer {
 	private SendableChooser<String> autonChooser = new SendableChooser<>();
 
 	public static final String GAME_PIECE_NONE = "None";
-	public static final String GAME_PIECE_1_CONE = "1 Cone";
-	public static final String GAME_PIECE_2_CONES = "2 Cones";
-	public static final String GAME_PIECE_1_CUBE = "1 Cube";
-	public static final String GAME_PIECE_2_CUBES = "2 Cubes";
+	public static final String GAME_PIECE_1_NOTE = "1 Note";
+	public static final String GAME_PIECE_2_NOTES = "2 Notes";
+	public static final String GAME_PIECE_3_NOTES = "3 Notes";
 	private String gamePieceSelected;
 	private SendableChooser<String> gamePieceChooser = new SendableChooser<>();
 	
@@ -125,11 +124,7 @@ public class RobotContainer {
 	private String startPosition;
 	private SendableChooser<String> startPositionChooser = new SendableChooser<>();
 
-	public static final String MAIN_TARGET_CONE_NODE = "Cone Node";
-	public static final String MAIN_TARGET_CUBE_NODE = "Cube Node";
-	public static final String MAIN_TARGET_TWO_CONE_NODES = "Two Cone Nodes";
-	public static final String MAIN_TARGET_TWO_CUBE_NODES = "Two Cube Nodes";
-	public static final String MAIN_TARGET_CHARGING_STATION = "Charging Station";
+	public static final String MAIN_TARGET_SPEAKER = "Speaker";
 	public static final String MAIN_TARGET_NOWHERE = "Nowhere";
 	private String mainTarget;
 	private SendableChooser<String> mainTargetChooser = new SendableChooser<>();
@@ -153,12 +148,10 @@ public class RobotContainer {
 	private String releaseSelected;
 	private SendableChooser<String> releaseChooser = new SendableChooser<>();
 
-	public static final String AUTON_OPTION_JUST_DROP_CONE = "Just Drop Cone";
-	public static final String AUTON_OPTION_JUST_DROP_CUBE = "Just Drop Cube";
-	public static final String AUTON_OPTION_ALSO_DOCK = "Also Dock";
+	public static final String AUTON_OPTION_JUST_SHOOT_NOTE = "Just Shoot Note";
 	public static final String AUTON_OPTION_LEAVE_COMMUNITY = "Leave Community";
-	public static final String AUTON_OPTION_ALSO_PICKUP_CONE = "Also Pickup Cone";
-	public static final String AUTON_OPTION_ALSO_PICKUP_CUBE = "Also Pickup Cube";
+	public static final String AUTON_OPTION_PICKUP_NOTE_AT_MIDLINE = "Pickup Note at Midline";
+	public static final String AUTON_OPTION_PICKUP_NOTE_AT_WING = "Pickup Note at Wing";
 	private String autonOption;
 	private SendableChooser<String> autonOptionChooser = new SendableChooser<>();
 
@@ -236,10 +229,9 @@ public class RobotContainer {
 		SmartDashboard.putData("Auto choices", autonChooser);
 
 		gamePieceChooser.setDefaultOption("None", GAME_PIECE_NONE);
-		gamePieceChooser.addOption("1 Cone", GAME_PIECE_1_CONE);
-		gamePieceChooser.addOption("2 Cones", GAME_PIECE_2_CONES);
-		gamePieceChooser.addOption("1 Cube", GAME_PIECE_1_CUBE);
-		gamePieceChooser.addOption("2 Cubes", GAME_PIECE_2_CUBES);
+		gamePieceChooser.addOption("1 Note", GAME_PIECE_1_NOTE);
+		gamePieceChooser.addOption("2 Notes", GAME_PIECE_2_NOTES);
+		gamePieceChooser.addOption("3 Notes", GAME_PIECE_3_NOTES);
 		SmartDashboard.putData("Game piece choices", gamePieceChooser);
 
 		startPositionChooser.setDefaultOption("Starting Position 1", START_POSITION_1);
@@ -251,11 +243,7 @@ public class RobotContainer {
 		SmartDashboard.putData("Start positions", startPositionChooser);
 
 		mainTargetChooser.setDefaultOption("To Nowhere", MAIN_TARGET_NOWHERE);
-		mainTargetChooser.addOption("Cone Node", MAIN_TARGET_CONE_NODE);
-		mainTargetChooser.addOption("Cube Node", MAIN_TARGET_CUBE_NODE);
-		mainTargetChooser.addOption("Two Cone Nodes", MAIN_TARGET_TWO_CONE_NODES);
-		mainTargetChooser.addOption("Two Cube Nodes", MAIN_TARGET_TWO_CUBE_NODES);
-		mainTargetChooser.addOption("Charging Station", MAIN_TARGET_CHARGING_STATION);
+		mainTargetChooser.addOption("Speaker", MAIN_TARGET_SPEAKER);
 		SmartDashboard.putData("Main targets", mainTargetChooser);
 		
 		cameraOptionChooser.setDefaultOption("Always", CAMERA_OPTION_USE_ALWAYS);
@@ -274,12 +262,10 @@ public class RobotContainer {
 		releaseChooser.addOption("Don't release", CLAW_OPTION_DONT_RELEASE);
 		SmartDashboard.putData("Release options", releaseChooser);
 
-		autonOptionChooser.setDefaultOption("Just Drop Cone", AUTON_OPTION_JUST_DROP_CONE);
-		autonOptionChooser.setDefaultOption("Just Drop Cube", AUTON_OPTION_JUST_DROP_CUBE);
-		autonOptionChooser.addOption("Also Dock", AUTON_OPTION_ALSO_DOCK);
+		autonOptionChooser.setDefaultOption("Just Shoot Note", AUTON_OPTION_JUST_SHOOT_NOTE);
 		autonOptionChooser.addOption("Leave Community", AUTON_OPTION_LEAVE_COMMUNITY);
-		autonOptionChooser.addOption("Also Pickup Cone", AUTON_OPTION_ALSO_PICKUP_CONE);
-		autonOptionChooser.addOption("Also Pickup Cube", AUTON_OPTION_ALSO_PICKUP_CUBE);
+		autonOptionChooser.addOption("Pickup Note At Midline", AUTON_OPTION_PICKUP_NOTE_AT_MIDLINE);
+		autonOptionChooser.addOption("Pickup Note At Wing", AUTON_OPTION_PICKUP_NOTE_AT_WING);
 	
 		SmartDashboard.putData("Auton options", autonOptionChooser);
 		
@@ -521,8 +507,7 @@ public class RobotContainer {
 				//break;*/
 
 			case AUTON_CUSTOM:
-				return new CustomAuton(gamePieceSelected, startPosition, mainTarget, cameraOption, sonarOption, autonOption,
-					drivetrain, this, elevator, drawer, roller, neck, mouth);
+				return new CustomAuton(gamePieceSelected, startPosition, mainTarget, cameraOption, sonarOption, autonOption, drivetrain, this, elevator, drawer, roller, neck, mouth, shooter);
 				//break;
 
 			case AUTON_DO_NOTHING:
