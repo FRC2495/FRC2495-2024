@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 import frc.robot.RobotContainer;
 import frc.robot.auton.sp1.StartingPositionOneThreeNote;
+import frc.robot.auton.sp2.StartingPositionTwoPickupSecondNote;
 import frc.robot.auton.sp2.StartingPositionTwoTwoNote;
 import frc.robot.auton.sp4.StartingPositionFourThreeNote;
 //import frc.robot.auton.common.*;
