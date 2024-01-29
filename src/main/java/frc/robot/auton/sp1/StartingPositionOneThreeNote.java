@@ -49,11 +49,11 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
-			new Pose2d(AutonConstants.STARTING_POSITION_1_X_VALUE, AutonConstants.STARTING_POSITION_1_Y_VALUE, Rotation2d.fromDegrees(180.0)),
+			new Pose2d(AutonConstants.STARTING_POSITION_1_X_VALUE-AutonConstants.STARTING_POSITION_1_X_VALUE, AutonConstants.STARTING_POSITION_1_Y_VALUE-AutonConstants.STARTING_POSITION_1_Y_VALUE, Rotation2d.fromDegrees(180.0)),
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_AREA_TO_SHOOT_PRELOAD_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_AREA_TO_SHOOT_PRELOAD_Y, Rotation2d.fromDegrees(120)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_AREA_TO_SHOOT_PRELOAD_X-AutonConstants.STARTING_POSITION_1_X_VALUE, AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_AREA_TO_SHOOT_PRELOAD_Y-AutonConstants.STARTING_POSITION_1_Y_VALUE, Rotation2d.fromDegrees(120)),
             container.createReverseTrajectoryConfig());
 
 		return trajectory;
