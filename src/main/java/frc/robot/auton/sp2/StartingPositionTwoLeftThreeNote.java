@@ -13,7 +13,7 @@ import frc.robot.RobotContainer;
 import frc.robot.auton.AutonConstants;
 import frc.robot.auton.common.*;
 import frc.robot.commands.drivetrain.*;
-import frc.robot.commands.shooter.*;
+import frc.robot.commands.simpleshooter.*;
 import frc.robot.commands.mouth.*;
 import frc.robot.subsystems.*;
 //import frc.robot.auton.sp2.*;

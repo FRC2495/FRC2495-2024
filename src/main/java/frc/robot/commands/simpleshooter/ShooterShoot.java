@@ -9,7 +9,7 @@
 // it from being updated in the future.
 
 
-package frc.robot.commands.shooter;
+package frc.robot.commands.simpleshooter;
 
 import edu.wpi.first.wpilibj2.command.Command;
 
