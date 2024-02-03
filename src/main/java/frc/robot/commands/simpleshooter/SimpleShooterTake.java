@@ -1,18 +1,18 @@
 
 package frc.robot.commands.simpleshooter;
 
-import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.Command;
 
 import frc.robot.subsystems.SimpleShooter;
 
 /**
  *
  */
-public class ShooterStop extends InstantCommand {
+public class SimpleShooterTake extends Command {
 
 	private SimpleShooter shooter;
 
-	public ShooterStop(SimpleShooter shooter) {
+	public SimpleShooterTake(SimpleShooter shooter) {
 		this.shooter = shooter;
 		addRequirements(shooter);
 	}
@@ -20,9 +20,8 @@ public class ShooterStop extends InstantCommand {
 	// Called just before this Command runs the first time
 	@Override
 	public void initialize() {
-		System.out.println("ShooterShop: initialize");
-		shooter.stop();
-	
+		System.out.println("ShooterTake: initialize");
+		shooter.take();
 	}
 
 }

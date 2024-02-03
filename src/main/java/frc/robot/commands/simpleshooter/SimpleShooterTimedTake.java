@@ -14,14 +14,14 @@ import frc.robot.subsystems.SimpleShooter;
 /**
  * Add your docs here.
  */
-public class ShooterTimedShoot extends WaitCommand {
+public class SimpleShooterTimedTake extends WaitCommand {
 
 	private SimpleShooter shooter;
 
 	/**
 	 * Add your docs here.
 	 */
-	public ShooterTimedShoot(SimpleShooter shooter, double timeout) {
+	public SimpleShooterTimedTake(SimpleShooter shooter, double timeout) {
 		super(timeout);
 		this.shooter = shooter;
 		addRequirements(shooter);
@@ -39,9 +39,9 @@ public class ShooterTimedShoot extends WaitCommand {
 	// Called just before this Command runs the first time
 	@Override
 	public void initialize() {
-		System.out.println("ShooterTimedShoot: initialize");
+		System.out.println("ShooterTimedTake: initialize");
 		super.initialize();
-		shooter.shoot();
+		shooter.take();
 
 	}
 
@@ -54,7 +54,7 @@ public class ShooterTimedShoot extends WaitCommand {
 	// Called once after timeout
 	@Override
 	public void end(boolean interrupted) {
-		System.out.println("ShooterTimedShoot: end");
+		System.out.println("ShooterTimedTake: end");
 		
 		super.end(interrupted);
 	}

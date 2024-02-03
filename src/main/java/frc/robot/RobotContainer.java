@@ -64,9 +64,9 @@ import frc.robot.commands.elevator.*;
 import frc.robot.commands.drawer.*;
 import frc.robot.commands.neck.*;
 import frc.robot.commands.roller.*;
-import frc.robot.commands.simpleshooter.ShooterShoot;
-import frc.robot.commands.simpleshooter.ShooterStopForever;
-import frc.robot.commands.simpleshooter.ShooterTake;
+import frc.robot.commands.simpleshooter.SimpleShooterShoot;
+import frc.robot.commands.simpleshooter.SimpleShooterStopForever;
+import frc.robot.commands.simpleshooter.SimpleShooterTake;
 import frc.robot.interfaces.ICamera;
 import frc.robot.commands.mouth.*;
 import frc.robot.commands.indicator.*;
@@ -293,7 +293,7 @@ public class RobotContainer {
 		
 		roller.setDefaultCommand(new RollerStopForever(roller)); // we stop by default
 
-		shooter.setDefaultCommand(new ShooterStopForever(shooter)); // we stop by default
+		shooter.setDefaultCommand(new SimpleShooterStopForever(shooter)); // we stop by default
 
 		compressor.checkCompressor(); //we compress in the background
 
@@ -382,11 +382,11 @@ public class RobotContainer {
 
 		copilotGamepad.leftTrigger()
 			//.onTrue(new DrawerRetractWithStallDetection(drawer));
-			.whileTrue(new ShooterTake(shooter));
+			.whileTrue(new SimpleShooterTake(shooter));
 
 		copilotGamepad.rightTrigger()
 			//.onTrue(new DrawerExtendWithStallDetection(drawer));
-			.whileTrue(new ShooterShoot(shooter));
+			.whileTrue(new SimpleShooterShoot(shooter));
 
 
 		copilotGamepad.povDown()

@@ -18,11 +18,11 @@ import frc.robot.subsystems.SimpleShooter;
 /**
  *
  */
-public class ShooterShoot extends Command {
+public class SimpleShooterShoot extends Command {
 
 	private SimpleShooter shooter;
 
-	public ShooterShoot(SimpleShooter shooter) {
+	public SimpleShooterShoot(SimpleShooter shooter) {
 		this.shooter = shooter;
 		addRequirements(shooter);
 	}

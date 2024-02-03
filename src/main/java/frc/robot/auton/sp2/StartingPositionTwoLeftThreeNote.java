@@ -27,19 +27,19 @@ public class StartingPositionTwoLeftThreeNote extends SequentialCommandGroup {
 
         addCommands(
 
-			new ShooterTimedShoot(shooter, 0.5),
+			new SimpleShooterTimedShoot(shooter, 0.5),
 
 			new StartingPositionTwoPickupSecondNote(container, drivetrain, roller),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
 
-			new ShooterTimedShoot(shooter, 0.5),
+			new SimpleShooterTimedShoot(shooter, 0.5),
 
 			new StartingPositionTwoPickupLeftThirdNote(container, drivetrain, roller),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),
 
-			new ShooterTimedShoot(shooter, 0.5),
+			new SimpleShooterTimedShoot(shooter, 0.5),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createLeaveAfterShootLeftThirdNoteTrajectory(container))
 

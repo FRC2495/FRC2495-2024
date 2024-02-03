@@ -29,17 +29,17 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
             new DrivetrainSwerveRelative(drivetrain, container, createShootPreloadTrajectory(container)),
 
-            new ShooterTimedShoot(shooter, 0.5),
+            new SimpleShooterTimedShoot(shooter, 0.5),
 
             new StartingPositionOnePickupSecondNote(container, drivetrain, roller),
             
-            new ShooterTimedShoot(shooter, 0.5), // will have to change in some way to compensate for the distance
+            new SimpleShooterTimedShoot(shooter, 0.5), // will have to change in some way to compensate for the distance
 
             new StartingPositionOnePickupThirdNote(container, drivetrain, roller),
 
             new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
 
-			new ShooterTimedShoot(shooter, 0.5) // will have to change in some way to compensate for the distance
+			new SimpleShooterTimedShoot(shooter, 0.5) // will have to change in some way to compensate for the distance
 
         ); 
   

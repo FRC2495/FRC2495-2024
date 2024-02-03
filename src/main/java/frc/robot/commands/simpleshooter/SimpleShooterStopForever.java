@@ -8,11 +8,11 @@ import frc.robot.subsystems.SimpleShooter;
 /**
  *
  */
-public class ShooterStopForever extends Command {
+public class SimpleShooterStopForever extends Command {
 
 	private SimpleShooter shooter;
 
-	public ShooterStopForever(SimpleShooter shooter) {
+	public SimpleShooterStopForever(SimpleShooter shooter) {
 		this.shooter = shooter;
 		addRequirements(shooter);
 	}
