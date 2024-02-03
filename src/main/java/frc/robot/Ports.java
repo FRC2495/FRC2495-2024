@@ -241,8 +241,8 @@ public class Ports {
 		 * USB cameras
 		 */
 		public static class UsbCamera {
-			public static final int PRIMARY_CAMERA = 0;
-			public static final int BOTTOM_CAMERA = 1;
+			public static final int FLOOR_CAMERA = 0;
+			public static final int SHOOTER_CAMERA = 1;
 			public static final int TOP_CAMERA = 2;
 		}
 }

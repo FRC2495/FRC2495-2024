@@ -20,7 +20,7 @@ import frc.robot.interfaces.*;
 /**
  * The {@code Shooter} class contains fields and methods pertaining to the function of the roller.
  */
-public class SimpleShooter extends SubsystemBase implements IShooter{
+public class SimpleShooter extends SubsystemBase implements ISimpleShooter{
 	/**
 	 * 
 	 */
