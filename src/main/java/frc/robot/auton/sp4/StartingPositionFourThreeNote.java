@@ -23,7 +23,7 @@ import frc.robot.auton.sp1.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionFourThreeNote extends SequentialCommandGroup {
 
-    public StartingPositionFourThreeNote(RobotContainer container, Elevator elevator, Drawer drawer, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, Mouth mouth){
+    public StartingPositionFourThreeNote(RobotContainer container, Elevator elevator, Drawer drawer, SwerveDrivetrain drivetrain, Roller roller, SimpleShooter shooter, Neck neck, Mouth mouth){
 
         addCommands(
 

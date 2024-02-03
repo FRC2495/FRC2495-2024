@@ -57,7 +57,7 @@ import frc.robot.subsystems.Roller;
 import frc.robot.subsystems.Compressor;
 import frc.robot.subsystems.Mouth;
 import frc.robot.subsystems.Indicator;
-import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.SimpleShooter;
 
 import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.elevator.*;
@@ -187,7 +187,7 @@ public class RobotContainer {
 
 	private final CANSparkMax shooter_follower = new CANSparkMax(Ports.CAN.SHOOTER_FOLLOWER, MotorType.kBrushless);
 
-	private final /*I*/Shooter shooter = new Shooter(shooter_master, shooter_follower);
+	private final /*I*/SimpleShooter shooter = new SimpleShooter(shooter_master, shooter_follower);
 
 	// pneumatic devices
 

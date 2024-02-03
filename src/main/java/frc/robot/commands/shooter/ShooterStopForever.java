@@ -3,16 +3,16 @@ package frc.robot.commands.shooter;
 
 import edu.wpi.first.wpilibj2.command.Command;
 
-import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.SimpleShooter;
 
 /**
  *
  */
 public class ShooterStopForever extends Command {
 
-	private Shooter shooter;
+	private SimpleShooter shooter;
 
-	public ShooterStopForever(Shooter shooter) {
+	public ShooterStopForever(SimpleShooter shooter) {
 		this.shooter = shooter;
 		addRequirements(shooter);
 	}

@@ -3,16 +3,16 @@ package frc.robot.commands.shooter;
 
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 
-import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.SimpleShooter;
 
 /**
  *
  */
 public class ShooterStop extends InstantCommand {
 
-	private Shooter shooter;
+	private SimpleShooter shooter;
 
-	public ShooterStop(Shooter shooter) {
+	public ShooterStop(SimpleShooter shooter) {
 		this.shooter = shooter;
 		addRequirements(shooter);
 	}

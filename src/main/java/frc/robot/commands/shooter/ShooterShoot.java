@@ -13,16 +13,16 @@ package frc.robot.commands.shooter;
 
 import edu.wpi.first.wpilibj2.command.Command;
 
-import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.SimpleShooter;
 
 /**
  *
  */
 public class ShooterShoot extends Command {
 
-	private Shooter shooter;
+	private SimpleShooter shooter;
 
-	public ShooterShoot(Shooter shooter) {
+	public ShooterShoot(SimpleShooter shooter) {
 		this.shooter = shooter;
 		addRequirements(shooter);
 	}

@@ -9,19 +9,19 @@ package frc.robot.commands.shooter;
 
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 
-import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.SimpleShooter;
 
 /**
  * Add your docs here.
  */
 public class ShooterTimedTake extends WaitCommand {
 
-	private Shooter shooter;
+	private SimpleShooter shooter;
 
 	/**
 	 * Add your docs here.
 	 */
-	public ShooterTimedTake(Shooter shooter, double timeout) {
+	public ShooterTimedTake(SimpleShooter shooter, double timeout) {
 		super(timeout);
 		this.shooter = shooter;
 		addRequirements(shooter);

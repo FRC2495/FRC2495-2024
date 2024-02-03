@@ -20,7 +20,7 @@ import frc.robot.interfaces.*;
 /**
  * The {@code Shooter} class contains fields and methods pertaining to the function of the roller.
  */
-public class Shooter extends SubsystemBase implements IShooter{
+public class SimpleShooter extends SubsystemBase implements IShooter{
 	/**
 	 * 
 	 */
@@ -47,7 +47,7 @@ public class Shooter extends SubsystemBase implements IShooter{
 	boolean isShooting;
 	
 		
-	public Shooter(CANSparkMax shooter_in, CANSparkMax shooter_follower_in) {
+	public SimpleShooter(CANSparkMax shooter_in, CANSparkMax shooter_follower_in) {
 		
 		shooter = shooter_in;
 		shooter_follower = shooter_follower_in;
