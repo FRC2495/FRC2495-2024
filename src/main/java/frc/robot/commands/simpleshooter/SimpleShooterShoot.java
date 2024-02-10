@@ -27,7 +27,7 @@ public class SimpleShooterShoot extends Command {
 		addRequirements(shooter);
 	}
 
-	// Called just before this Command runs the first time
+	// Called just before this Command runs the fist time
 	@Override
 	public void initialize() {
 		System.out.println("ShooterShoot: initialize");

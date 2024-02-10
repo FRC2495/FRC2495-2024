@@ -36,10 +36,10 @@ public final class Constants {
 		public static final double ROTATIONAL_SLEW_RATE = 2.0; // 20.0; //2.0; // percent per second (1 = 100%)
 
 		// Chassis configuration
-		public static final double TRACK_WIDTH_METERS = Units.inchesToMeters(21.75);
+		public static final double TRACK_WIDTH_METERS = Units.inchesToMeters(18.75);
 		
 		// Distance between centers of right and left wheels on robot
-		public static final double WHEEL_BASE_METERS = Units.inchesToMeters(21.75);
+		public static final double WHEEL_BASE_METERS = Units.inchesToMeters(18.75);
 		
 		// Distance between front and back wheels on robot
 		public static final SwerveDriveKinematics DRIVE_KINEMATICS = new SwerveDriveKinematics(
