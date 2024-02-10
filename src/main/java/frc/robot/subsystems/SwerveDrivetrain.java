@@ -32,7 +32,8 @@ public class SwerveDrivetrain extends SubsystemBase {
 
 	public static final double FRONT_LEFT_VIRTUAL_OFFSET_RADIANS = -2.736; // adjust as needed so that virtual (turn) position of wheel is zero when straight
 	public static final double FRONT_RIGHT_VIRTUAL_OFFSET_RADIANS = -2.415; // adjust as needed so that virtual (turn) position of wheel is zero when straight
-	public static final double REAR_LEFT_VIRTUAL_OFFSET_RADIANS = +1.874; // adjust as needed so that virtual (turn) position of wheel is zero when straight
+	
+	public static final double REAR_LEFT_VIRTUAL_OFFSET_RADIANS = -1.278; // adjust as needed so that virtual (turn) position of wheel is zero when straight
 	public static final double REAR_RIGHT_VIRTUAL_OFFSET_RADIANS = +0.404; // adjust as needed so that virtual (turn) position of wheel is zero when straight
 
 	public static final int GYRO_ORIENTATION = -1; // might be able to merge with kGyroReversed
