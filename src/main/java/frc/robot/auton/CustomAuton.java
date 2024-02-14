@@ -13,6 +13,7 @@ import frc.robot.RobotContainer;
 import frc.robot.auton.sp1.StartingPositionOneThreeNote;
 import frc.robot.auton.sp2.StartingPositionTwoPickupSecondNote;
 import frc.robot.auton.sp2.StartingPositionTwoTwoNote;
+import frc.robot.auton.sp3.StartingPositionThreeThreeNote;
 import frc.robot.auton.sp4.StartingPositionFourThreeNote;
 //import frc.robot.auton.common.*;
 //import frc.robot.auton.sp2.*;
@@ -225,7 +226,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_MIDLINE:
-								//TODO
+								addCommands(new StartingPositionThreeThreeNote(container, elevator, drawer, drivetrain, roller, shooter, neck, mouth));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_WING:
 								//TODO

@@ -29,19 +29,17 @@ public class StartingPositionTwoTwoNote extends SequentialCommandGroup {
 
 			new SimpleShooterTimedShoot(shooter, 0.5),
 
-            //new StartingPositionTwoPickupSecondNote(container, drivetrain, roller),
+            new StartingPositionTwoPickupSecondNote(container, drivetrain, roller),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
 
-			new SimpleShooterTimedShoot(shooter, 0.5)
+			new SimpleShooterTimedShoot(shooter, 0.5),
 
-			//new DrivetrainSwerveRelative(drivetrain, container, createLeaveAfterShootSecondNoteTrajectory(container))
+			new DrivetrainSwerveRelative(drivetrain, container, createLeaveAfterShootSecondNoteTrajectory(container))
 
         ); 
   
     }
-
-
 
     
     public Trajectory createShootSecondNoteTrajectory(RobotContainer container) {
@@ -52,8 +50,8 @@ public class StartingPositionTwoTwoNote extends SequentialCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.STARTING_POSITION_2_X_VALUE-AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_X, AutonConstants.STARTING_POSITION_2_Y_VALUE-AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_Y, Rotation2d.fromDegrees(180)),
-            container.createReverseTrajectoryConfig());
+			new Pose2d(AutonConstants.STARTING_POSITION_3_X_VALUE-AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_X, AutonConstants.STARTING_POSITION_3_Y_VALUE-AutonConstants.STARTING_POSITION_3_Y_VALUE, Rotation2d.fromDegrees(180)),
+            container.createTrajectoryConfig());
 
 		return trajectory;
 	}
@@ -62,7 +60,7 @@ public class StartingPositionTwoTwoNote extends SequentialCommandGroup {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
-			new Pose2d(AutonConstants.STARTING_POSITION_2_X_VALUE-AutonConstants.STARTING_POSITION_2_X_VALUE, AutonConstants.STARTING_POSITION_2_Y_VALUE, Rotation2d.fromDegrees(180)),
+			new Pose2d(AutonConstants.STARTING_POSITION_2_X_VALUE-AutonConstants.STARTING_POSITION_2_X_VALUE, AutonConstants.STARTING_POSITION_2_Y_VALUE-AutonConstants.STARTING_POSITION_2_Y_VALUE, Rotation2d.fromDegrees(180)),
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward

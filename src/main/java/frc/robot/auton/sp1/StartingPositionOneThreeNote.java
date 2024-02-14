@@ -27,13 +27,19 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
         addCommands(
 
+			new DrivetrainTimedTurnUsingPIDController(drivetrain, 145, 2),
+
             new DrivetrainSwerveRelative(drivetrain, container, createShootPreloadTrajectory(container)),
 
             new SimpleShooterTimedShoot(shooter, 0.5),
 
+			new DrivetrainTimedTurnUsingPIDController(drivetrain, -35, 2),
+
             new StartingPositionOnePickupSecondNote(container, drivetrain, roller),
             
             new SimpleShooterTimedShoot(shooter, 0.5), // will have to change in some way to compensate for the distance
+
+			new DrivetrainTimedTurnUsingPIDController(drivetrain, 65, 2),
 
             new StartingPositionOnePickupThirdNote(container, drivetrain, roller),
 
@@ -53,7 +59,7 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_AREA_TO_SHOOT_PRELOAD_X-AutonConstants.STARTING_POSITION_1_X_VALUE, AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_AREA_TO_SHOOT_PRELOAD_Y-AutonConstants.STARTING_POSITION_1_Y_VALUE, Rotation2d.fromDegrees(120)),
+			new Pose2d(AutonConstants.STARTING_POSITION_1_X_VALUE-AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_AREA_TO_SHOOT_PRELOAD_X, AutonConstants.STARTING_POSITION_1_Y_VALUE-AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_AREA_TO_SHOOT_PRELOAD_Y, Rotation2d.fromDegrees(180)),
             container.createReverseTrajectoryConfig());
 
 		return trajectory;
