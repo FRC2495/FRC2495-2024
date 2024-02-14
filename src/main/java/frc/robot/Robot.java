@@ -174,6 +174,8 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Vertical Offset to Target", m_robotContainer.getCamera().getVerticalOffsetToCompositeTarget());
 		SmartDashboard.putNumber("Filtered Vertical Offset to Target", m_robotContainer.getCamera().getFilteredVerticalOffsetToCompositeTarget());
 
+		SmartDashboard.putBoolean("NoteSensor isEnergized", m_robotContainer.getNoteSensor().isEnergized());
+
 		SmartDashboard.putBoolean("Elevator Forward Limit Switch", m_robotContainer.getElevator().getForwardLimitSwitchState());
 		SmartDashboard.putBoolean("Elevator Reverse Limit Switch", m_robotContainer.getElevator().getReverseLimitSwitchState());
 		SmartDashboard.putNumber("Elevator Enc Position", m_robotContainer.getElevator().getEncoderPosition());

@@ -161,6 +161,8 @@ public class RobotContainer {
 
 	private final ICamera camera = new LimelightCamera();
 
+	private final NoteSensor noteSensor = new NoteSensor(Ports.Digital.NOTE_SENSOR);
+
 	// motorized devices
 
 	private final SwerveDrivetrain drivetrain = new SwerveDrivetrain();
@@ -594,6 +596,11 @@ public class RobotContainer {
 	public ICamera getCamera()
 	{
 		return camera;
+	}
+
+	public NoteSensor getNoteSensor()
+	{
+		return noteSensor;
 	}
 
 	public SwerveDrivetrain getDrivetrain()

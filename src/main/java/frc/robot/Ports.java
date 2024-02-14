@@ -24,7 +24,7 @@ public class Ports {
 		 */
 		public static class Digital {
 			public static final int CHECK_PRESSURE = 0;
-			
+			public static final int NOTE_SENSOR = 1;
 		}
 		
 		/**

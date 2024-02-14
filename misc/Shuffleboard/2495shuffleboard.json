@@ -353,9 +353,7 @@
               "_showGlyph": false,
               "Game/Game": "k2024Crescendo",
               "Visuals/Robot Icon Size": 50.0,
-              "Visuals/Show Outside Circles": true,
-              "Colors/centeredTrajectory": "#008000FF",
-              "Colors/trajectory": "#FFFFFFFF"
+              "Visuals/Show Outside Circles": true
             }
           },
           "9,2": {
@@ -880,9 +878,7 @@
               "_showGlyph": false,
               "Game/Game": "k2024Crescendo",
               "Visuals/Robot Icon Size": 50.0,
-              "Visuals/Show Outside Circles": true,
-              "Colors/centeredTrajectory": "#008000FF",
-              "Colors/trajectory": "#FFFFFFFF"
+              "Visuals/Show Outside Circles": true
             }
           }
         }
@@ -1267,9 +1263,7 @@
               "_showGlyph": false,
               "Game/Game": "k2024Crescendo",
               "Visuals/Robot Icon Size": 50.0,
-              "Visuals/Show Outside Circles": true,
-              "Colors/centeredTrajectory": "#008000FF",
-              "Colors/trajectory": "#FFFFFFFF"
+              "Visuals/Show Outside Circles": true
             }
           },
           "7,2": {
@@ -1606,6 +1600,21 @@
               "_type": "Boolean Box",
               "_source0": "network_table:///SmartDashboard/isSuperFlat",
               "_title": "SmartDashboard/isSuperFlat",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "3,2": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/NoteSensor isEnergized",
+              "_title": "SmartDashboard/NoteSensor isEnergized",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
@@ -2571,9 +2580,7 @@
               "_showGlyph": false,
               "Game/Game": "k2024Crescendo",
               "Visuals/Robot Icon Size": 50.0,
-              "Visuals/Show Outside Circles": true,
-              "Colors/centeredTrajectory": "#008000FF",
-              "Colors/trajectory": "#FFFFFFFF"
+              "Visuals/Show Outside Circles": true
             }
           },
           "7,0": {
