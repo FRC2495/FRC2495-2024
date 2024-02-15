@@ -64,7 +64,7 @@ public class Roller extends SubsystemBase implements IRoller{
 		// Only the motor leads are inverted. This feature ensures that sensor phase and limit switches will properly match the LED pattern
 		// (when LEDs are green => forward limit switch and soft limits are being checked).
 		roller.setInverted(false);
-		roller_follower.setInverted(true);  // TODO comment out if switching to Talon FX
+		roller_follower.setInverted(false);  // TODO comment out if switching to Talon FX
 
 		// Both the Talon SRX and Victor SPX have a follower feature that allows the motor controllers to mimic another motor controller's output.
 		// Users will still need to set the motor controller's direction, and neutral mode.
