@@ -410,11 +410,11 @@ public class RobotContainer {
 			.onTrue(new ElevatorMoveUpWithStallDetection(elevator));
 
 
-		copilotGamepad.leftBumper()
+		/*copilotGamepad.leftBumper()
 			.onTrue(new NeckSafeMoveUpWithStallDetection(neck, mouth, getCopilotGamepad()));
 
 		copilotGamepad.rightBumper()
-			.onTrue(new NeckMoveDownWithStallDetection(neck));
+			.onTrue(new NeckMoveDownWithStallDetection(neck));*/
 
 
 		copilotGamepad.leftStick()

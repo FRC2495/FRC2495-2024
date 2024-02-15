@@ -48,7 +48,7 @@ public class Shooter extends SubsystemBase implements IShooter{
 	static final double SHOOT_PROPORTIONAL_GAIN = 0.25;
 	static final double SHOOT_INTEGRAL_GAIN = 0.001;
 	static final double SHOOT_DERIVATIVE_GAIN = 20.0;
-	static final double SHOOT_FEED_FORWARD = 1023.0/30000.0; // 1023 = Talon SRX full motor output, max measured velocity ~ 30000 native units per 100ms
+	static final double SHOOT_FEED_FORWARD = 1023.0/16000.0; // 1023 = Talon SRX full motor output, max measured velocity ~ 16000 native units per 100ms
 
 	public static final double TICK_PER_100MS_THRESH = 1;
 
