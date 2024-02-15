@@ -54,6 +54,7 @@ import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Drawer;
 import frc.robot.subsystems.Neck;
 import frc.robot.subsystems.Roller;
+import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Compressor;
 import frc.robot.subsystems.Mouth;
 import frc.robot.subsystems.Indicator;
@@ -64,9 +65,8 @@ import frc.robot.commands.elevator.*;
 import frc.robot.commands.drawer.*;
 import frc.robot.commands.neck.*;
 import frc.robot.commands.roller.*;
-import frc.robot.commands.simpleshooter.SimpleShooterShoot;
-import frc.robot.commands.simpleshooter.SimpleShooterStopForever;
-import frc.robot.commands.simpleshooter.SimpleShooterTake;
+import frc.robot.commands.simpleshooter.*;
+import frc.robot.commands.shooter.*;
 import frc.robot.interfaces.ICamera;
 import frc.robot.commands.mouth.*;
 import frc.robot.commands.indicator.*;
@@ -185,11 +185,15 @@ public class RobotContainer {
 
 	private final /*I*/Roller roller = new Roller(roller_master);
 
-	private final CANSparkMax shooter_master = new CANSparkMax(Ports.CAN.SHOOTER_MASTER, MotorType.kBrushless);
+	//private final CANSparkMax shooter_master = new CANSparkMax(Ports.CAN.SHOOTER_MASTER, MotorType.kBrushless);
 
-	private final CANSparkMax shooter_follower = new CANSparkMax(Ports.CAN.SHOOTER_FOLLOWER, MotorType.kBrushless);
+	//private final CANSparkMax shooter_follower = new CANSparkMax(Ports.CAN.SHOOTER_FOLLOWER, MotorType.kBrushless);
 
-	private final /*I*/SimpleShooter shooter = new SimpleShooter(shooter_master, shooter_follower);
+	//private final /*I*/SimpleShooter shooter = new SimpleShooter(shooter_master, shooter_follower);
+
+	private final WPI_TalonFX shooter_master = new WPI_TalonFX(Ports.CAN.SHOOTER_MASTER);
+	
+	private final /*I*/Shooter shooter = new Shooter(shooter_master);
 
 	// pneumatic devices
 
@@ -295,7 +299,7 @@ public class RobotContainer {
 		
 		roller.setDefaultCommand(new RollerStopForever(roller)); // we stop by default
 
-		shooter.setDefaultCommand(new SimpleShooterStopForever(shooter)); // we stop by default
+		shooter.setDefaultCommand(new ShooterStopForever(shooter)); // we stop by default
 
 		compressor.checkCompressor(); //we compress in the background
 
@@ -382,13 +386,13 @@ public class RobotContainer {
 			.onTrue(new AlmostEverythingStop(elevator, drawer, neck, roller));
 
 
-		copilotGamepad.leftTrigger()
+		/*copilotGamepad.leftTrigger()
 			//.onTrue(new DrawerRetractWithStallDetection(drawer));
-			.whileTrue(new SimpleShooterTake(shooter));
+			.whileTrue(new ShooterTake(shooter));*/
 
 		copilotGamepad.rightTrigger()
 			//.onTrue(new DrawerExtendWithStallDetection(drawer));
-			.whileTrue(new SimpleShooterShoot(shooter));
+			.whileTrue(new ShooterShootHigh(shooter));
 
 
 		copilotGamepad.povDown()
@@ -631,6 +635,11 @@ public class RobotContainer {
 	public Mouth getMouth()
 	{
 		return mouth;
+	}
+
+	public Shooter getShooter()
+	{
+		return shooter;
 	}
 
 	public Joystick getMainJoystick()

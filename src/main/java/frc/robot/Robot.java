@@ -216,6 +216,10 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putString("Mouth Position", m_robotContainer.getMouth().getPosition().toString());
 		SmartDashboard.putBoolean("Mouth isDangerous", m_robotContainer.getMouth().isDangerous());
 
+		SmartDashboard.putBoolean("Shooter IsShooting?",  m_robotContainer.getShooter().isShooting());
+		SmartDashboard.putNumber("Shooter Enc Velocity", m_robotContainer.getShooter().getEncoderVelocity());
+		SmartDashboard.putNumber("Shooter Rpm", m_robotContainer.getShooter().getRpm());
+		SmartDashboard.putNumber("Shooter Preset Rpm", m_robotContainer.getShooter().getPresetRpm());
 
 		SmartDashboard.putString("Auton selected", m_robotContainer.getAutonChooser().getSelected());	
 		SmartDashboard.putString("Game piece", m_robotContainer.getGamePieceChooser().getSelected());

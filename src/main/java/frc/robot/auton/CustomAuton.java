@@ -44,7 +44,7 @@ public class CustomAuton extends SequentialCommandGroup {
     */
     public CustomAuton(String gamePiece_in, String startPosition_in, String mainTarget_in, String cameraOption_in,
             String sonarOption_in, String autonOption_in, SwerveDrivetrain drivetrain, RobotContainer container,
-			Elevator elevator, Drawer drawer, Roller roller, Neck neck, Mouth mouth, SimpleShooter shooter) {
+			Elevator elevator, Drawer drawer, Roller roller, Neck neck, Mouth mouth, Shooter shooter) {
 
 		gamePiece = gamePiece_in;
 		startPosition = startPosition_in;

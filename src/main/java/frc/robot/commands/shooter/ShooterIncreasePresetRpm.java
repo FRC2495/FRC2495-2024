@@ -18,6 +18,11 @@ public class ShooterIncreasePresetRpm extends InstantCommand {
 
 	private Shooter shooter;
 
+	public ShooterIncreasePresetRpm(Shooter shooter) {
+		this.shooter = shooter;
+		addRequirements(shooter);
+	}
+
 	@Override
 	public boolean runsWhenDisabled() {
 		return true;

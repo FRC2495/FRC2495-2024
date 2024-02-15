@@ -13,7 +13,7 @@ import frc.robot.RobotContainer;
 import frc.robot.auton.AutonConstants;
 import frc.robot.auton.common.*;
 import frc.robot.commands.drivetrain.*;
-import frc.robot.commands.simpleshooter.*;
+import frc.robot.commands.shooter.*;
 import frc.robot.commands.mouth.*;
 import frc.robot.subsystems.*;
 //import frc.robot.auton.sp2.*;
@@ -23,23 +23,23 @@ import frc.robot.subsystems.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionTwoLeftThreeNote extends SequentialCommandGroup {
 
-    public StartingPositionTwoLeftThreeNote(RobotContainer container, Elevator elevator, Drawer drawer, SwerveDrivetrain drivetrain, Roller roller, SimpleShooter shooter, Neck neck, Mouth mouth){
+    public StartingPositionTwoLeftThreeNote(RobotContainer container, Elevator elevator, Drawer drawer, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, Mouth mouth){
 
         addCommands(
 
-			new SimpleShooterTimedShoot(shooter, 0.5),
+			new ShooterTimedShootHigh(shooter, 0.5),
 
 			new StartingPositionTwoPickupSecondNote(container, drivetrain, roller),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
 
-			new SimpleShooterTimedShoot(shooter, 0.5),
+			new ShooterTimedShootHigh(shooter, 0.5),
 
 			new StartingPositionTwoPickupLeftThirdNote(container, drivetrain, roller),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),
 
-			new SimpleShooterTimedShoot(shooter, 0.5),
+			new ShooterTimedShootHigh(shooter, 0.5),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createLeaveAfterShootLeftThirdNoteTrajectory(container))
 

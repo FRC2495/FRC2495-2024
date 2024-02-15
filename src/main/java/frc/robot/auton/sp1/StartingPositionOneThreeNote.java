@@ -13,7 +13,7 @@ import frc.robot.RobotContainer;
 import frc.robot.auton.AutonConstants;
 import frc.robot.auton.common.*;
 import frc.robot.commands.drivetrain.*;
-import frc.robot.commands.simpleshooter.*;
+import frc.robot.commands.shooter.*;
 import frc.robot.commands.mouth.*;
 import frc.robot.subsystems.*;
 import frc.robot.auton.sp1.*;
@@ -23,7 +23,7 @@ import frc.robot.auton.sp1.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
-    public StartingPositionOneThreeNote(RobotContainer container, Elevator elevator, Drawer drawer, SwerveDrivetrain drivetrain, Roller roller, SimpleShooter shooter, Neck neck, Mouth mouth){
+    public StartingPositionOneThreeNote(RobotContainer container, Elevator elevator, Drawer drawer, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, Mouth mouth){
 
         addCommands(
 
@@ -31,13 +31,13 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
             new DrivetrainSwerveRelative(drivetrain, container, createShootPreloadTrajectory(container)),
 
-            new SimpleShooterTimedShoot(shooter, 0.5),
+            new ShooterTimedShootHigh(shooter, 0.5),
 
 			new DrivetrainTimedTurnUsingPIDController(drivetrain, -35, 2),
 
             new StartingPositionOnePickupSecondNote(container, drivetrain, roller),
             
-            new SimpleShooterTimedShoot(shooter, 0.5), // will have to change in some way to compensate for the distance
+            new ShooterTimedShootHigh(shooter, 0.5), // will have to change in some way to compensate for the distance
 
 			new DrivetrainTimedTurnUsingPIDController(drivetrain, 65, 2),
 
@@ -45,7 +45,7 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
             new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
 
-			new SimpleShooterTimedShoot(shooter, 0.5) // will have to change in some way to compensate for the distance
+			new ShooterTimedShootHigh(shooter, 0.5) // will have to change in some way to compensate for the distance
 
         ); 
   

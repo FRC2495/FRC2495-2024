@@ -36,12 +36,10 @@ public class Shooter extends SubsystemBase implements IShooter{
 
 	static final int TALON_TIMEOUT_MS = 20;
 	
-	BaseMotorController shooterLeft; 
+	BaseMotorController shooterMaster; 
 		
 	boolean isShooting;
 	
-	Robot robot;
-
 	// shoot settings
 	static final int PRIMARY_PID_LOOP = 0;
 
@@ -64,18 +62,16 @@ public class Shooter extends SubsystemBase implements IShooter{
 	static final int FX_INTEGRATED_SENSOR_TICKS_PER_ROTATION = 2048; // units per rotation
 	
 	
-	public Shooter(BaseMotorController shooterLeft_in, Robot robot_in) {
+	public Shooter(BaseMotorController shooterMaster_in) {
 		
-		shooterLeft = shooterLeft_in;
-		
-		robot = robot_in;
+		shooterMaster = shooterMaster_in;
 
-		shooterLeft.configFactoryDefault();
+		shooterMaster.configFactoryDefault();
 		
 		// Mode of operation during Neutral output may be set by using the setNeutralMode() function.
 		// As of right now, there are two options when setting the neutral mode of a motor controller,
 		// brake and coast.
-		shooterLeft.setNeutralMode(NeutralMode.Coast);
+		shooterMaster.setNeutralMode(NeutralMode.Coast);
 
 		// Sensors for motor controllers provide feedback about the position, velocity, and acceleration
 		// of the system using that motor controller.
@@ -83,18 +79,18 @@ public class Shooter extends SubsystemBase implements IShooter{
 		// This ensures the best resolution possible when performing closed-loops in firmware.
 		// CTRE Magnetic Encoder (relative/quadrature) =  4096 units per rotation
 		// FX Integrated Sensor = 2048 units per rotation
-		shooterLeft.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor,	PRIMARY_PID_LOOP, TALON_TIMEOUT_MS);
+		shooterMaster.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor,	PRIMARY_PID_LOOP, TALON_TIMEOUT_MS);
 
 		// Sensor phase is the term used to explain sensor direction.
 		// In order for limit switches and closed-loop features to function properly the sensor and motor has to be in-phase.
 		// This means that the sensor position must move in a positive direction as the motor controller drives positive output.  
-		shooterLeft.setSensorPhase(true);
+		shooterMaster.setSensorPhase(true);
 		
 		// Motor controller output direction can be set by calling the setInverted() function as seen below.
 		// Note: Regardless of invert value, the LEDs will blink green when positive output is requested (by robot code or firmware closed loop).
 		// Only the motor leads are inverted. This feature ensures that sensor phase and limit switches will properly match the LED pattern
 		// (when LEDs are green => forward limit switch and soft limits are being checked).
-		shooterLeft.setInverted(true);
+		shooterMaster.setInverted(true);
 		
 		// set peak output to max in case if had been reduced previously
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT);
@@ -118,14 +114,14 @@ public class Shooter extends SubsystemBase implements IShooter{
 	public void shootHigh() {
 		SwitchedCamera.setUsbCamera(Ports.UsbCamera.SHOOTER_CAMERA);
 
-		//shooterLeft.set(ControlMode.PercentOutput, +ALMOST_MAX_PCT_OUTPUT);
+		//shooterMaster.set(ControlMode.PercentOutput, +ALMOST_MAX_PCT_OUTPUT);
 
 		setPIDParameters();
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); //this has a global impact, so we reset in stop()
 
 		double targetVelocity_UnitsPer100ms = SHOOT_HIGH_RPM * FX_INTEGRATED_SENSOR_TICKS_PER_ROTATION / 600; // 1 revolution = TICKS_PER_ROTATION ticks, 1 min = 600 * 100 ms
 
-		shooterLeft.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
+		shooterMaster.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
 		
 		isShooting = true;
 	}
@@ -140,7 +136,7 @@ public class Shooter extends SubsystemBase implements IShooter{
 
 		double targetVelocity_UnitsPer100ms = SHOOT_LOW_RPM * FX_INTEGRATED_SENSOR_TICKS_PER_ROTATION / 600; // 1 revolution = TICKS_PER_ROTATION ticks, 1 min = 600 * 100 ms
 
-		shooterLeft.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
+		shooterMaster.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
 		
 		isShooting = true;
 	}
@@ -153,7 +149,7 @@ public class Shooter extends SubsystemBase implements IShooter{
 
 		double targetVelocity_UnitsPer100ms = custom_rpm * FX_INTEGRATED_SENSOR_TICKS_PER_ROTATION / 600; // 1 revolution = TICKS_PER_ROTATION ticks, 1 min = 600 * 100 ms
 
-		shooterLeft.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
+		shooterMaster.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
 		
 		isShooting = true;
 	}
@@ -166,7 +162,7 @@ public class Shooter extends SubsystemBase implements IShooter{
 
 		double targetVelocity_UnitsPer100ms = presetRpm * FX_INTEGRATED_SENSOR_TICKS_PER_ROTATION / 600; // 1 revolution = TICKS_PER_ROTATION ticks, 1 min = 600 * 100 ms
 
-		shooterLeft.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
+		shooterMaster.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
 		
 		isShooting = true;
 	}
@@ -187,7 +183,7 @@ public class Shooter extends SubsystemBase implements IShooter{
 	}
 	
 	public void stop() {
-		shooterLeft.set(ControlMode.PercentOutput, 0);
+		shooterMaster.set(ControlMode.PercentOutput, 0);
 
 		isShooting = false;
 
@@ -196,7 +192,7 @@ public class Shooter extends SubsystemBase implements IShooter{
 	
 	public void setPIDParameters()
 	{
-		shooterLeft.configAllowableClosedloopError(SLOT_0, TICK_PER_100MS_THRESH, TALON_TIMEOUT_MS);
+		shooterMaster.configAllowableClosedloopError(SLOT_0, TICK_PER_100MS_THRESH, TALON_TIMEOUT_MS);
 		
 		// P is the proportional gain. It modifies the closed-loop output by a proportion (the gain value)
 		// of the closed-loop error.
@@ -223,20 +219,20 @@ public class Shooter extends SubsystemBase implements IShooter{
 		// In order to calculate feed-forward, you will need to measure your motor's velocity at a specified percent output
 		// (preferably an output close to the intended operating range).
 			
-		shooterLeft.config_kP(SLOT_0, SHOOT_PROPORTIONAL_GAIN, TALON_TIMEOUT_MS);
-		shooterLeft.config_kI(SLOT_0, SHOOT_INTEGRAL_GAIN, TALON_TIMEOUT_MS);
-		shooterLeft.config_kD(SLOT_0, SHOOT_DERIVATIVE_GAIN, TALON_TIMEOUT_MS);	
-		shooterLeft.config_kF(SLOT_0, SHOOT_FEED_FORWARD, TALON_TIMEOUT_MS);
+		shooterMaster.config_kP(SLOT_0, SHOOT_PROPORTIONAL_GAIN, TALON_TIMEOUT_MS);
+		shooterMaster.config_kI(SLOT_0, SHOOT_INTEGRAL_GAIN, TALON_TIMEOUT_MS);
+		shooterMaster.config_kD(SLOT_0, SHOOT_DERIVATIVE_GAIN, TALON_TIMEOUT_MS);	
+		shooterMaster.config_kF(SLOT_0, SHOOT_FEED_FORWARD, TALON_TIMEOUT_MS);
 	}	
 		
 	// NOTE THAT THIS METHOD WILL IMPACT BOTH OPEN AND CLOSED LOOP MODES
 	public void setNominalAndPeakOutputs(double peakOutput)
 	{
-		shooterLeft.configPeakOutputForward(peakOutput, TALON_TIMEOUT_MS);
-		shooterLeft.configPeakOutputReverse(-peakOutput, TALON_TIMEOUT_MS);
+		shooterMaster.configPeakOutputForward(peakOutput, TALON_TIMEOUT_MS);
+		shooterMaster.configPeakOutputReverse(-peakOutput, TALON_TIMEOUT_MS);
 
-		shooterLeft.configNominalOutputForward(0, TALON_TIMEOUT_MS);
-		shooterLeft.configNominalOutputReverse(0, TALON_TIMEOUT_MS);
+		shooterMaster.configNominalOutputForward(0, TALON_TIMEOUT_MS);
+		shooterMaster.configNominalOutputReverse(0, TALON_TIMEOUT_MS);
 	}
 	
 	public boolean isShooting(){
@@ -246,17 +242,17 @@ public class Shooter extends SubsystemBase implements IShooter{
 	// for debug purpose only
 	public void joystickControl(Joystick joystick)
 	{
-		shooterLeft.set(ControlMode.PercentOutput, joystick.getY());
+		shooterMaster.set(ControlMode.PercentOutput, joystick.getY());
 	}
 
 	// in units per 100 ms
 	public int getEncoderVelocity() {
-		return (int) (shooterLeft.getSelectedSensorVelocity(PRIMARY_PID_LOOP));
+		return (int) (shooterMaster.getSelectedSensorVelocity(PRIMARY_PID_LOOP));
 	}
 
 	// in revolutions per minute
 	public int getRpm() {
-		return (int) (shooterLeft.getSelectedSensorVelocity(PRIMARY_PID_LOOP)*600/FX_INTEGRATED_SENSOR_TICKS_PER_ROTATION);  // 1 min = 600 * 100 ms, 1 revolution = TICKS_PER_ROTATION ticks 
+		return (int) (shooterMaster.getSelectedSensorVelocity(PRIMARY_PID_LOOP)*600/FX_INTEGRATED_SENSOR_TICKS_PER_ROTATION);  // 1 min = 600 * 100 ms, 1 revolution = TICKS_PER_ROTATION ticks 
 	}
 }
 
