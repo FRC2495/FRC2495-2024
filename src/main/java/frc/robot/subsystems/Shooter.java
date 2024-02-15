@@ -60,6 +60,8 @@ public class Shooter extends SubsystemBase implements IShooter{
 	private double presetRpm = SHOOT_HIGH_RPM; // preset rpm
 
 	static final double PRESET_DELTA_RPM = 100.0; // by what we increase/decrease by default
+
+	static final int FX_INTEGRATED_SENSOR_TICKS_PER_ROTATION = 2048; // units per rotation
 	
 	
 	public Shooter(BaseMotorController shooterLeft_in, Robot robot_in) {
@@ -80,8 +82,8 @@ public class Shooter extends SubsystemBase implements IShooter{
 		// Note: With Phoenix framework, position units are in the natural units of the sensor.
 		// This ensures the best resolution possible when performing closed-loops in firmware.
 		// CTRE Magnetic Encoder (relative/quadrature) =  4096 units per rotation
-		shooterLeft.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative,
-				PRIMARY_PID_LOOP, TALON_TIMEOUT_MS); 
+		// FX Integrated Sensor = 2048 units per rotation
+		shooterLeft.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor,	PRIMARY_PID_LOOP, TALON_TIMEOUT_MS);
 
 		// Sensor phase is the term used to explain sensor direction.
 		// In order for limit switches and closed-loop features to function properly the sensor and motor has to be in-phase.
@@ -121,7 +123,7 @@ public class Shooter extends SubsystemBase implements IShooter{
 		setPIDParameters();
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); //this has a global impact, so we reset in stop()
 
-		double targetVelocity_UnitsPer100ms = SHOOT_HIGH_RPM * 4096 / 600; // 1 revolution = 4096 ticks, 1 min = 600 * 100 ms
+		double targetVelocity_UnitsPer100ms = SHOOT_HIGH_RPM * FX_INTEGRATED_SENSOR_TICKS_PER_ROTATION / 600; // 1 revolution = TICKS_PER_ROTATION ticks, 1 min = 600 * 100 ms
 
 		shooterLeft.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
 		
@@ -136,7 +138,7 @@ public class Shooter extends SubsystemBase implements IShooter{
 		setPIDParameters();
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); //this has a global impact, so we reset in stop()
 
-		double targetVelocity_UnitsPer100ms = SHOOT_LOW_RPM * 4096 / 600; // 1 revolution = 4096 ticks, 1 min = 600 * 100 ms
+		double targetVelocity_UnitsPer100ms = SHOOT_LOW_RPM * FX_INTEGRATED_SENSOR_TICKS_PER_ROTATION / 600; // 1 revolution = TICKS_PER_ROTATION ticks, 1 min = 600 * 100 ms
 
 		shooterLeft.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
 		
@@ -149,7 +151,7 @@ public class Shooter extends SubsystemBase implements IShooter{
 		setPIDParameters();
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); //this has a global impact, so we reset in stop()
 
-		double targetVelocity_UnitsPer100ms = custom_rpm * 4096 / 600; // 1 revolution = 4096 ticks, 1 min = 600 * 100 ms
+		double targetVelocity_UnitsPer100ms = custom_rpm * FX_INTEGRATED_SENSOR_TICKS_PER_ROTATION / 600; // 1 revolution = TICKS_PER_ROTATION ticks, 1 min = 600 * 100 ms
 
 		shooterLeft.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
 		
@@ -162,7 +164,7 @@ public class Shooter extends SubsystemBase implements IShooter{
 		setPIDParameters();
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); //this has a global impact, so we reset in stop()
 
-		double targetVelocity_UnitsPer100ms = presetRpm * 4096 / 600; // 1 revolution = 4096 ticks, 1 min = 600 * 100 ms
+		double targetVelocity_UnitsPer100ms = presetRpm * FX_INTEGRATED_SENSOR_TICKS_PER_ROTATION / 600; // 1 revolution = TICKS_PER_ROTATION ticks, 1 min = 600 * 100 ms
 
 		shooterLeft.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
 		
@@ -254,7 +256,7 @@ public class Shooter extends SubsystemBase implements IShooter{
 
 	// in revolutions per minute
 	public int getRpm() {
-		return (int) (shooterLeft.getSelectedSensorVelocity(PRIMARY_PID_LOOP)*600/4096);  // 1 min = 600 * 100 ms, 1 revolution = 4096 ticks 
+		return (int) (shooterLeft.getSelectedSensorVelocity(PRIMARY_PID_LOOP)*600/FX_INTEGRATED_SENSOR_TICKS_PER_ROTATION);  // 1 min = 600 * 100 ms, 1 revolution = TICKS_PER_ROTATION ticks 
 	}
 }
 
