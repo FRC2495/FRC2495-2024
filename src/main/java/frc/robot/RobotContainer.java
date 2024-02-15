@@ -182,9 +182,10 @@ public class RobotContainer {
 	private final /*I*/Neck neck = new Neck(neck_master);
 
 	//private final CANSparkMax roller_master = new CANSparkMax(Ports.CAN.ROLLER, MotorType.kBrushless);
-	private final WPI_TalonSRX roller_master = new WPI_TalonSRX(Ports.CAN.ROLLER);
+	private final WPI_TalonSRX roller_master = new WPI_TalonSRX(Ports.CAN.ROLLER_MASTER);
+	private final WPI_TalonSRX roller_follower = new WPI_TalonSRX(Ports.CAN.ROLLER_FOLLOWER);
 
-	private final /*I*/Roller roller = new Roller(roller_master);
+	private final /*I*/Roller roller = new Roller(roller_master, roller_follower);
 
 	//private final CANSparkMax shooter_master = new CANSparkMax(Ports.CAN.SHOOTER_MASTER, MotorType.kBrushless);
 

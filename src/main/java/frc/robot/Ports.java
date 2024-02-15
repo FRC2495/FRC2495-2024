@@ -157,7 +157,8 @@ public class Ports {
 			public static final int ELEVATOR_FOLLOWER = 10;
 			public static final int DRAWER = 11;
 			public static final int NECK = 12;
-			public static final int ROLLER = 13;
+			public static final int ROLLER_MASTER = 13;
+			public static final int ROLLER_FOLLOWER = 16;
 			public static final int SHOOTER_MASTER = 14;
 			public static final int SHOOTER_FOLLOWER = 15;
 		}
