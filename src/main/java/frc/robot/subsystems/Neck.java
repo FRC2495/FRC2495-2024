@@ -6,11 +6,12 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
-//import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
+import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
 import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.StatusFrame;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.ParamEnum;
 
@@ -72,7 +73,7 @@ public class Neck extends SubsystemBase implements INeck {
 	boolean isReallyStalled;
 	
 	WPI_TalonFX neck;
-	//BaseMotorController neck_follower;
+	BaseMotorController neck_follower;
 	
 	double tac;
 
@@ -82,18 +83,18 @@ public class Neck extends SubsystemBase implements INeck {
 	Robot robot; 
 	
 	
-	public Neck(WPI_TalonFX neck_in/*, BaseMotorController neck_follower_in*/) {
+	public Neck(WPI_TalonFX neck_in, BaseMotorController neck_follower_in) {
 		neck = neck_in;
-		//neck_follower = neck_follower_in;
+		neck_follower = neck_follower_in;
 		
 		neck.configFactoryDefault();
-		//neck_follower.configFactoryDefault();
+		neck_follower.configFactoryDefault();
 
 		// Mode of operation during Neutral output may be set by using the setNeutralMode() function.
 		// As of right now, there are two options when setting the neutral mode of a motor controller,
 		// brake and coast.	
 		neck.setNeutralMode(NeutralMode.Brake);
-		//neck_follower.setNeutralMode(NeutralMode.Brake);
+		neck_follower.setNeutralMode(NeutralMode.Brake);
 		
 		// Sensor phase is the term used to explain sensor direction.
 		// In order for limit switches and closed-loop features to function properly the sensor and motor has to be in-phase.
@@ -110,19 +111,19 @@ public class Neck extends SubsystemBase implements INeck {
 		// Only the motor leads are inverted. This feature ensures that sensor phase and limit switches will properly match the LED pattern
 		// (when LEDs are green => forward limit switch and soft limits are being checked). 	
 		neck.setInverted(false); // invert if required
-		//neck_follower.setInverted(false);
+		neck_follower.setInverted(true);
 
 		// Both the Talon SRX and Victor SPX have a follower feature that allows the motor controllers to mimic another motor controller's output.
 		// Users will still need to set the motor controller's direction, and neutral mode.
 		// The method follow() allows users to create a motor controller follower of not only the same model, but also other models
 		// , talon to talon, victor to victor, talon to victor, and victor to talon.
-		//neck_follower.follow(neck);
+		neck_follower.follow(neck);
 
 		// Motor controllers that are followers can set Status 1 and Status 2 to 255ms(max) using setStatusFramePeriod.
 		// The Follower relies on the master status frame allowing its status frame to be slowed without affecting performance.
 		// This is a useful optimization to manage CAN bus utilization.
-		//neckfollower.setStatusFramePeriod(StatusFrame.Status_1_General, 255, TALON_TIMEOUT_MS);
-		//neckFollower.setStatusFramePeriod(StatusFrame.Status_2_Feedback0, 255, TALON_TIMEOUT_MS);
+		neck_follower.setStatusFramePeriod(StatusFrame.Status_1_General, 255, TALON_TIMEOUT_MS);
+		neck_follower.setStatusFramePeriod(StatusFrame.Status_2_Feedback0, 255, TALON_TIMEOUT_MS);
 
 		setPIDParameters();
 		

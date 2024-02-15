@@ -178,8 +178,9 @@ public class RobotContainer {
 	private final /*I*/Elevator elevator = new Elevator(elevator_master, elevator_follower);
 
 	private final WPI_TalonFX neck_master = new WPI_TalonFX(Ports.CAN.NECK_MASTER);
+	private final WPI_TalonFX neck_follower = new WPI_TalonFX(Ports.CAN.NECK_FOLLOWER);
 	
-	private final /*I*/Neck neck = new Neck(neck_master);
+	private final /*I*/Neck neck = new Neck(neck_master, neck_follower);
 
 	//private final CANSparkMax roller_master = new CANSparkMax(Ports.CAN.ROLLER, MotorType.kBrushless);
 	private final WPI_TalonSRX roller_master = new WPI_TalonSRX(Ports.CAN.ROLLER_MASTER);
