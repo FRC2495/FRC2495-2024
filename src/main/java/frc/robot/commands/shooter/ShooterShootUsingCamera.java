@@ -11,7 +11,7 @@
 
 package frc.robot.commands.shooter;
 
-import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.Command;
 
 import frc.robot.subsystems.Shooter;
 //import frc.robot.util.Magic;
@@ -19,7 +19,7 @@ import frc.robot.subsystems.Shooter;
 /**
  *
  */
-public class ShooterShootUsingCamera extends InstantCommand {
+public class ShooterShootUsingCamera extends Command {
 
 	private Shooter shooter;
 
