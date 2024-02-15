@@ -353,7 +353,7 @@ public class RobotContainer {
 			.whileTrue(new NeckJoystickControl(neck, drivetrain, getMainJoystick()));
 		
 		joyMain.button(9)
-			.whileTrue(new DrawerJoystickControl(drawer, drivetrain, getMainJoystick()));
+			.whileTrue(new ShooterJoystickControl(shooter, drivetrain, getMainJoystick()));
 		
 		joyMain.button(10)
 			.whileTrue(new ElevatorJoystickControl(elevator, drivetrain, getMainJoystick()));
