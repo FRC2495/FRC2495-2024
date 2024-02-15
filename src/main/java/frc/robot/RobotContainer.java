@@ -177,7 +177,7 @@ public class RobotContainer {
 
 	private final /*I*/Elevator elevator = new Elevator(elevator_master, elevator_follower);
 
-	private final WPI_TalonFX neck_master = new WPI_TalonFX(Ports.CAN.NECK);
+	private final WPI_TalonFX neck_master = new WPI_TalonFX(Ports.CAN.NECK_MASTER);
 	
 	private final /*I*/Neck neck = new Neck(neck_master);
 
