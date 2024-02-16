@@ -17,21 +17,24 @@ import frc.robot.commands.shooter.*;
 import frc.robot.commands.mouth.*;
 import frc.robot.subsystems.*;
 import frc.robot.auton.sp1.*;
+import frc.robot.interfaces.*;
 
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
-    public StartingPositionOneThreeNote(RobotContainer container, Elevator elevator, Drawer drawer, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, Mouth mouth){
+    public StartingPositionOneThreeNote(RobotContainer container, Elevator elevator, Drawer drawer, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, Mouth mouth, ICamera camera){
 
         addCommands(
 
-			new DrivetrainTimedTurnUsingPIDController(drivetrain, 145, 2),
+			new DrivetrainTurnUsingCamera(drivetrain, camera),
+
+			//new DrivetrainTimedTurnUsingPIDController(drivetrain, 145, 2),
 
             new DrivetrainSwerveRelative(drivetrain, container, createShootPreloadTrajectory(container)),
 
-            new ShooterTimedShootHigh(shooter, 0.5),
+            new ShooterTimedShootHigh(shooter, 0.5), // will have to change in some way to compensate for the distance
 
 			new DrivetrainTimedTurnUsingPIDController(drivetrain, -35, 2),
 
@@ -39,7 +42,7 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
             
             new ShooterTimedShootHigh(shooter, 0.5), // will have to change in some way to compensate for the distance
 
-			new DrivetrainTimedTurnUsingPIDController(drivetrain, 65, 2),
+			//new DrivetrainTimedTurnUsingPIDController(drivetrain, 65, 2),
 
             new StartingPositionOnePickupThirdNote(container, drivetrain, roller),
 
@@ -73,7 +76,7 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_THIRD_NOTE_PICKUP_TO_SHOOT_THIRD_NOTE_X, AutonConstants.DISTANCE_FROM_THIRD_NOTE_PICKUP_TO_SHOOT_THIRD_NOTE_Y, Rotation2d.fromDegrees(155)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_THIRD_NOTE_PICKUP_TO_SHOOT_THIRD_NOTE_X, AutonConstants.DISTANCE_FROM_THIRD_NOTE_PICKUP_TO_SHOOT_THIRD_NOTE_Y, Rotation2d.fromDegrees(125)),
             container.createReverseTrajectoryConfig());
 
 		return trajectory;

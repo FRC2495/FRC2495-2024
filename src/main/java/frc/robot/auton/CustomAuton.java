@@ -15,6 +15,7 @@ import frc.robot.auton.sp2.StartingPositionTwoPickupSecondNote;
 import frc.robot.auton.sp2.StartingPositionTwoTwoNote;
 import frc.robot.auton.sp3.StartingPositionThreeThreeNote;
 import frc.robot.auton.sp4.StartingPositionFourThreeNote;
+import frc.robot.interfaces.*;
 //import frc.robot.auton.common.*;
 //import frc.robot.auton.sp2.*;
 //import frc.robot.auton.blue.*;
@@ -44,7 +45,7 @@ public class CustomAuton extends SequentialCommandGroup {
     */
     public CustomAuton(String gamePiece_in, String startPosition_in, String mainTarget_in, String cameraOption_in,
             String sonarOption_in, String autonOption_in, SwerveDrivetrain drivetrain, RobotContainer container,
-			Elevator elevator, Drawer drawer, Roller roller, Neck neck, Mouth mouth, Shooter shooter) {
+			Elevator elevator, Drawer drawer, Roller roller, Neck neck, Mouth mouth, Shooter shooter, ICamera camera) {
 
 		gamePiece = gamePiece_in;
 		startPosition = startPosition_in;
@@ -100,7 +101,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_MIDLINE:
-								addCommands(new StartingPositionOneThreeNote(container, elevator, drawer, drivetrain, roller, shooter, neck, mouth));
+								addCommands(new StartingPositionOneThreeNote(container, elevator, drawer, drivetrain, roller, shooter, neck, mouth, camera));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_WING:
 								//TODO
@@ -226,7 +227,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_MIDLINE:
-								addCommands(new StartingPositionThreeThreeNote(container, elevator, drawer, drivetrain, roller, shooter, neck, mouth));
+								addCommands(new StartingPositionThreeThreeNote(container, elevator, drawer, drivetrain, roller, shooter, neck, mouth, camera));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_WING:
 								//TODO
