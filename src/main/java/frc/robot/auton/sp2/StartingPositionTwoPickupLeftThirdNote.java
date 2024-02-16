@@ -29,6 +29,8 @@ public class StartingPositionTwoPickupLeftThirdNote extends ParallelCommandGroup
 
 			new RollerTimedRoll(roller, 3),
 
+			new DrivetrainTimedTurnUsingPIDController(drivetrain, 90, .3),
+
             new DrivetrainSwerveRelative(drivetrain, container, createPickupLeftThirdNoteTrajectory(container))
             
         ); 
@@ -44,8 +46,8 @@ public class StartingPositionTwoPickupLeftThirdNote extends ParallelCommandGroup
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_X-AutonConstants.STARTING_POSITION_2_X_VALUE-AutonConstants.STARTING_POSITION_2_X_VALUE, AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_Y-AutonConstants.STARTING_POSITION_2_Y_VALUE, Rotation2d.fromDegrees(90)),
-            container.createReverseTrajectoryConfig());
+			new Pose2d(AutonConstants.STARTING_POSITION_2_X_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_X, AutonConstants.STARTING_POSITION_2_Y_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_Y, Rotation2d.fromDegrees(180)),
+            container.createTrajectoryConfig());
 
 		return trajectory;
 	}	

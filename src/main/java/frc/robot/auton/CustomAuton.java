@@ -145,7 +145,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_MIDLINE:
-								addCommands(new StartingPositionTwoTwoNote(container, elevator, drawer, drivetrain, roller, shooter, neck, mouth));
+								addCommands(new StartingPositionTwoTwoNote(container, drivetrain, roller, shooter, neck));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_WING:
 								//TODO
@@ -208,7 +208,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_MIDLINE:
-								addCommands(new StartingPositionTwoTwoNote(container, elevator, drawer, drivetrain, roller, shooter, neck, mouth));
+								addCommands(new StartingPositionTwoTwoNote(container, drivetrain, roller, shooter, neck));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_WING:
 								//TODO
