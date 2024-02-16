@@ -51,7 +51,7 @@ import frc.robot.interfaces.IRoller;*/
 
 import frc.robot.subsystems.SwerveDrivetrain;
 import frc.robot.subsystems.Elevator;
-import frc.robot.subsystems.Drawer;
+//import frc.robot.subsystems.Drawer;
 import frc.robot.subsystems.Neck;
 import frc.robot.subsystems.Roller;
 import frc.robot.subsystems.Shooter;
@@ -62,7 +62,7 @@ import frc.robot.subsystems.SimpleShooter;
 
 import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.elevator.*;
-import frc.robot.commands.drawer.*;
+//import frc.robot.commands.drawer.*;
 import frc.robot.commands.neck.*;
 import frc.robot.commands.roller.*;
 import frc.robot.commands.simpleshooter.*;
@@ -167,9 +167,9 @@ public class RobotContainer {
 
 	private final SwerveDrivetrain drivetrain = new SwerveDrivetrain();
 
-	private final WPI_TalonSRX drawer_master = new WPI_TalonSRX(Ports.CAN.DRAWER);
+	/*private final WPI_TalonSRX drawer_master = new WPI_TalonSRX(Ports.CAN.DRAWER);
 
-	private final /*I*/Drawer drawer = new Drawer(drawer_master);
+	private final Drawer drawer = new Drawer(drawer_master);*/
 
 	private final WPI_TalonSRX elevator_master = new WPI_TalonSRX(Ports.CAN.ELEVATOR_MASTER);
 
@@ -386,7 +386,7 @@ public class RobotContainer {
 			.onTrue(new DrivetrainAndGyroReset(drivetrain));
 
 		copilotGamepad.start()
-			.onTrue(new AlmostEverythingStop(elevator, drawer, neck, roller));
+			.onTrue(new AlmostEverythingStop(elevator, neck, roller));
 
 
 		/*copilotGamepad.leftTrigger()
@@ -445,11 +445,11 @@ public class RobotContainer {
 		copilotGamepad.axisLessThan(RY,-GAMEPAD_AXIS_THRESHOLD)
 			.whileTrue(new NeckGamepadControl(neck, getCopilotGamepad()));
 
-		copilotGamepad.axisGreaterThan(RX,GAMEPAD_AXIS_THRESHOLD)
+		/*copilotGamepad.axisGreaterThan(RX,GAMEPAD_AXIS_THRESHOLD)
 			.whileTrue(new DrawerGamepadControl(drawer, getCopilotGamepad()));
 
 		copilotGamepad.axisLessThan(RX,-GAMEPAD_AXIS_THRESHOLD)
-			.whileTrue(new DrawerGamepadControl(drawer, getCopilotGamepad()));	
+			.whileTrue(new DrawerGamepadControl(drawer, getCopilotGamepad()));	*/
 			
 	}
 
@@ -516,7 +516,7 @@ public class RobotContainer {
 				//break;*/
 
 			case AUTON_CUSTOM:
-				return new CustomAuton(gamePieceSelected, startPosition, mainTarget, cameraOption, sonarOption, autonOption, drivetrain, this, elevator, drawer, roller, neck, mouth, shooter, camera);
+				return new CustomAuton(gamePieceSelected, startPosition, mainTarget, cameraOption, sonarOption, autonOption, drivetrain, this, elevator, roller, neck, mouth, shooter, camera);
 				//break;
 
 			case AUTON_DO_NOTHING:
@@ -620,10 +620,10 @@ public class RobotContainer {
 		return elevator;
 	}
 
-	public Drawer getDrawer()
+	/*public Drawer getDrawer()
 	{
 		return drawer;
-	}
+	}*/
 
 	public Neck getNeck()
 	{
