@@ -144,7 +144,7 @@ public class Roller extends SubsystemBase implements IRoller{
 		isShooting = false;
 	}
 
-	public void rollLowhRpm() {
+	public void rollLowRpm() {
 
 		setPIDParameters();
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); //this has a global impact, so we reset in stop()
