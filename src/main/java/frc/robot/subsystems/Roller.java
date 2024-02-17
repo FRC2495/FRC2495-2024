@@ -9,6 +9,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.StatusFrame;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
 import frc.robot.interfaces.*;
 //import frc.robot.RobotContainer;
@@ -44,6 +45,27 @@ public class Roller extends SubsystemBase implements IRoller{
 	boolean isRolling;
 	boolean isReleasing;
 	boolean isShooting;
+
+	// close loop settings
+	static final int PRIMARY_PID_LOOP = 0;
+
+	static final int SLOT_0 = 0;
+
+	static final double ROLL_PROPORTIONAL_GAIN = 0.25;
+	static final double ROLL_INTEGRAL_GAIN = 0.001;
+	static final double ROLL_DERIVATIVE_GAIN = 20.0;
+	static final double ROLL_FEED_FORWARD = 1023.0/30000.0; // 1023 = Talon SRX/FX full motor output, max measured velocity ~ 30000 native units per 100ms
+
+	public static final double TICK_PER_100MS_THRESH = 1;
+
+	static final double ROLL_HIGH_RPM = 3200.0;
+	static final double ROLL_LOW_RPM = 1500.0;
+
+	private double presetRpm = ROLL_HIGH_RPM; // preset rpm
+
+	static final double PRESET_DELTA_RPM = 100.0; // by what we increase/decrease by default
+
+	static final int CTRE_MAGNETIC_ENCODER_SENSOR_TICKS_PER_ROTATION = 4096; // units per rotation
 	
 		
 	public Roller(WPI_TalonSRX roller_in, BaseMotorController roller_follower_in) {
@@ -59,6 +81,19 @@ public class Roller extends SubsystemBase implements IRoller{
 		// brake and coast.
 		roller.setNeutralMode(NeutralMode.Coast);
 		roller_follower.setNeutralMode(NeutralMode.Coast);
+
+		// Sensors for motor controllers provide feedback about the position, velocity, and acceleration
+		// of the system using that motor controller.
+		// Note: With Phoenix framework, position units are in the natural units of the sensor.
+		// This ensures the best resolution possible when performing closed-loops in firmware.
+		// CTRE Magnetic Encoder (relative/quadrature) =  4096 units per rotation
+		// FX Integrated Sensor = 2048 units per rotation
+		roller.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, PRIMARY_PID_LOOP, TALON_TIMEOUT_MS);
+
+		// Sensor phase is the term used to explain sensor direction.
+		// In order for limit switches and closed-loop features to function properly the sensor and motor has to be in-phase.
+		// This means that the sensor position must move in a positive direction as the motor controller drives positive output.  
+		roller.setSensorPhase(true); // TODO flip if needed
 		
 		// Motor controller output direction can be set by calling the setInverted() function as seen below.
 		// Note: Regardless of invert value, the LEDs will blink green when positive output is requested (by robot code or firmware closed loop).
@@ -108,6 +143,20 @@ public class Roller extends SubsystemBase implements IRoller{
 		isReleasing = false;
 		isShooting = false;
 	}
+
+	public void rollLowhRpm() {
+
+		setPIDParameters();
+		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); //this has a global impact, so we reset in stop()
+
+		double targetVelocity_UnitsPer100ms = ROLL_LOW_RPM * CTRE_MAGNETIC_ENCODER_SENSOR_TICKS_PER_ROTATION / 600; // 1 revolution = TICKS_PER_ROTATION ticks, 1 min = 600 * 100 ms
+
+		roller.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
+		
+		isRolling = true;
+		isReleasing = false;
+		isShooting = false;
+	}
 	
 	public void release() {
 		//SwitchedCamera.setUsbCamera(Ports.UsbCamera.GRASPER_CAMERA);
@@ -129,6 +178,9 @@ public class Roller extends SubsystemBase implements IRoller{
 		isShooting = false;
 	}
 	
+	public double getEncoderPosition() {
+		return roller.getSelectedSensorPosition(PRIMARY_PID_LOOP);
+	}
 	
 	public void stop() {
 		roller.set(ControlMode.PercentOutput, 0);
@@ -136,8 +188,44 @@ public class Roller extends SubsystemBase implements IRoller{
 		isRolling = false;
 		isReleasing = false;
 		isShooting = false;
+
+		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); // we undo what me might have changed
 	}
-	
+
+	public void setPIDParameters()
+	{
+		roller.configAllowableClosedloopError(SLOT_0, TICK_PER_100MS_THRESH, TALON_TIMEOUT_MS);
+		
+		// P is the proportional gain. It modifies the closed-loop output by a proportion (the gain value)
+		// of the closed-loop error.
+		// P gain is specified in output unit per error unit.
+		// When tuning P, it's useful to estimate your starting value.
+		// If you want your mechanism to drive 50% output when the error is 4096 (one rotation when using CTRE Mag Encoder),
+		// then the calculated Proportional Gain would be (0.50 X 1023) / 4096 = ~0.125.
+		
+		// I is the integral gain. It modifies the closed-loop output according to the integral error
+		// (summation of the closed-loop error each iteration).
+		// I gain is specified in output units per integrated error.
+		// If your mechanism never quite reaches your target and using integral gain is viable,
+		// start with 1/100th of the Proportional Gain.
+		
+		// D is the derivative gain. It modifies the closed-loop output according to the derivative error
+		// (change in closed-loop error each iteration).
+		// D gain is specified in output units per derivative error.
+		// If your mechanism accelerates too abruptly, Derivative Gain can be used to smooth the motion.
+		// Typically start with 10x to 100x of your current Proportional Gain.
+
+		// Feed-Forward is typically used in velocity and motion profile/magic closed-loop modes.
+		// F gain is multiplied directly by the set point passed into the programming API.
+		// The result of this multiplication is in motor output units [-1023, 1023]. This allows the robot to feed-forward using the target set-point.
+		// In order to calculate feed-forward, you will need to measure your motor's velocity at a specified percent output
+		// (preferably an output close to the intended operating range).
+			
+		roller.config_kP(SLOT_0, ROLL_PROPORTIONAL_GAIN, TALON_TIMEOUT_MS);
+		roller.config_kI(SLOT_0, ROLL_INTEGRAL_GAIN, TALON_TIMEOUT_MS);
+		roller.config_kD(SLOT_0, ROLL_DERIVATIVE_GAIN, TALON_TIMEOUT_MS);	
+		roller.config_kF(SLOT_0, ROLL_FEED_FORWARD, TALON_TIMEOUT_MS);
+	}		
 		
 	// NOTE THAT THIS METHOD WILL IMPACT BOTH OPEN AND CLOSED LOOP MODES
 	public void setNominalAndPeakOutputs(double peakOutput)
@@ -167,7 +255,15 @@ public class Roller extends SubsystemBase implements IRoller{
 		roller.set(ControlMode.PercentOutput, -joystick.getY());
 	}
 
-	
+	// in units per 100 ms
+	public int getEncoderVelocity() {
+		return (int) (roller.getSelectedSensorVelocity(PRIMARY_PID_LOOP));
+	}
+
+	// in revolutions per minute
+	public int getRpm() {
+		return (int) (roller.getSelectedSensorVelocity(PRIMARY_PID_LOOP)*600/CTRE_MAGNETIC_ENCODER_SENSOR_TICKS_PER_ROTATION);  // 1 min = 600 * 100 ms, 1 revolution = TICKS_PER_ROTATION ticks 
+	}	
 }
 
 

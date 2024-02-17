@@ -48,7 +48,7 @@ public class Shooter extends SubsystemBase implements IShooter{
 	static final double SHOOT_PROPORTIONAL_GAIN = 0.25;
 	static final double SHOOT_INTEGRAL_GAIN = 0.001;
 	static final double SHOOT_DERIVATIVE_GAIN = 20.0;
-	static final double SHOOT_FEED_FORWARD = 1023.0/16000.0; // 1023 = Talon SRX full motor output, max measured velocity ~ 16000 native units per 100ms
+	static final double SHOOT_FEED_FORWARD = 1023.0/16000.0; // 1023 = Talon SRX/FX full motor output, max measured velocity ~ 16000 native units per 100ms
 
 	public static final double TICK_PER_100MS_THRESH = 1;
 
@@ -79,7 +79,7 @@ public class Shooter extends SubsystemBase implements IShooter{
 		// This ensures the best resolution possible when performing closed-loops in firmware.
 		// CTRE Magnetic Encoder (relative/quadrature) =  4096 units per rotation
 		// FX Integrated Sensor = 2048 units per rotation
-		shooterMaster.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor,	PRIMARY_PID_LOOP, TALON_TIMEOUT_MS);
+		shooterMaster.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, PRIMARY_PID_LOOP, TALON_TIMEOUT_MS);
 
 		// Sensor phase is the term used to explain sensor direction.
 		// In order for limit switches and closed-loop features to function properly the sensor and motor has to be in-phase.
