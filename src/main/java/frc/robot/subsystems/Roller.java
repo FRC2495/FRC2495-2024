@@ -25,7 +25,8 @@ public class Roller extends SubsystemBase implements IRoller{
 	static final double MAX_PCT_OUTPUT = 1.0;
 	static final double ALMOST_MAX_PCT_OUTPUT = 1.0;
 	static final double HALF_PCT_OUTPUT = 0.5;
-	static final double REDUCED_PCT_OUTPUT = 0.85;
+	static final double REDUCED_PCT_OUTPUT = 0.6; //.85
+	static final double SUPER_REDUCED_PCT_OUTPUT = 0.3;
 	//todo fix
 	
 	static final int WAIT_MS = 1000;
@@ -101,7 +102,7 @@ public class Roller extends SubsystemBase implements IRoller{
 	public void roll() {
 		//SwitchedCamera.setUsbCamera(Ports.UsbCamera.GRASPER_CAMERA);
 
-		roller.set(ControlMode.PercentOutput, REDUCED_PCT_OUTPUT);
+		roller.set(ControlMode.PercentOutput, -REDUCED_PCT_OUTPUT);
 		
 		isRolling = true;
 		isReleasing = false;
@@ -111,7 +112,7 @@ public class Roller extends SubsystemBase implements IRoller{
 	public void release() {
 		//SwitchedCamera.setUsbCamera(Ports.UsbCamera.GRASPER_CAMERA);
 
-		roller.set(ControlMode.PercentOutput, -ALMOST_MAX_PCT_OUTPUT);
+		roller.set(ControlMode.PercentOutput, SUPER_REDUCED_PCT_OUTPUT);
 		
 		isReleasing = true;
 		isRolling = false;
@@ -163,7 +164,7 @@ public class Roller extends SubsystemBase implements IRoller{
 	// for debug purpose only
 	public void joystickControl(Joystick joystick)
 	{
-		roller.set(ControlMode.PercentOutput, joystick.getY());
+		roller.set(ControlMode.PercentOutput, -joystick.getY());
 	}
 
 	
