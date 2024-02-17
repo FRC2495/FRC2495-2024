@@ -1918,7 +1918,7 @@
       }
     },
     {
-      "title": "DIAGElevatorAndDrawer",
+      "title": "DIAGElevator",
       "autoPopulate": false,
       "autoPopulatePrefix": "",
       "widgetPane": {
@@ -2014,137 +2014,6 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "8,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Drawer Enc Position",
-              "_title": "SmartDashboard/Drawer Enc Position",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "6,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Drawer IsMoving?",
-              "_title": "SmartDashboard/Drawer IsMoving?",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "5,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Drawer Forward Limit Switch",
-              "_title": "SmartDashboard/Drawer Forward Limit Switch",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "5,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Drawer Reverse Limit Switch",
-              "_title": "SmartDashboard/Drawer Reverse Limit Switch",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "9,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Drawer Target",
-              "_title": "SmartDashboard/Drawer Target",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "7,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Drawer isStalled?",
-              "_title": "SmartDashboard/Drawer isStalled?",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "6,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Drawer isExtended",
-              "_title": "SmartDashboard/Drawer isExtended",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "6,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Drawer isRetracted",
-              "_title": "SmartDashboard/Drawer isRetracted",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "6,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Drawer isMidway",
-              "_title": "SmartDashboard/Drawer isMidway",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
           "1,1": {
             "size": [
               1,
@@ -2199,21 +2068,6 @@
               "_type": "Boolean Box",
               "_source0": "network_table:///SmartDashboard/Elevator isDangerous",
               "_title": "SmartDashboard/Elevator isDangerous",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "5,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Drawer isDangerous",
-              "_title": "SmartDashboard/Drawer isDangerous",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
@@ -2442,7 +2296,7 @@
       }
     },
     {
-      "title": "DIAGMouthAndRoller",
+      "title": "DIAGRoller",
       "autoPopulate": false,
       "autoPopulatePrefix": "",
       "widgetPane": {
@@ -2452,7 +2306,7 @@
         "vgap": 16.0,
         "titleType": 0,
         "tiles": {
-          "7,0": {
+          "2,0": {
             "size": [
               2,
               1
@@ -2467,7 +2321,7 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "5,0": {
+          "0,0": {
             "size": [
               2,
               1
@@ -2476,34 +2330,6 @@
               "_type": "Boolean Box",
               "_source0": "network_table:///SmartDashboard/Roller IsRolling?",
               "_title": "SmartDashboard/Roller IsRolling?",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
-          "2,0": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Mouth Position",
-              "_title": "SmartDashboard/Mouth Position",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "0,0": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Mouth isDangerous",
-              "_title": "SmartDashboard/Mouth isDangerous",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",

@@ -45,7 +45,7 @@ public class CustomAuton extends SequentialCommandGroup {
     */
     public CustomAuton(String gamePiece_in, String startPosition_in, String mainTarget_in, String cameraOption_in,
             String sonarOption_in, String autonOption_in, SwerveDrivetrain drivetrain, RobotContainer container,
-			Elevator elevator, Roller roller, Neck neck, Mouth mouth, Shooter shooter, ICamera camera) {
+			Elevator elevator, Roller roller, Neck neck, Shooter shooter, ICamera camera) {
 
 		gamePiece = gamePiece_in;
 		startPosition = startPosition_in;
@@ -101,7 +101,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_MIDLINE:
-								addCommands(new StartingPositionOneThreeNote(container, elevator, drivetrain, roller, shooter, neck, mouth, camera));
+								addCommands(new StartingPositionOneThreeNote(container, elevator, drivetrain, roller, shooter, neck, camera));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_WING:
 								//TODO
@@ -227,7 +227,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_MIDLINE:
-								addCommands(new StartingPositionThreeThreeNote(container, elevator, drivetrain, roller, shooter, neck, mouth, camera));
+								addCommands(new StartingPositionThreeThreeNote(container, elevator, drivetrain, roller, shooter, neck, camera));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_WING:
 								//TODO
@@ -290,7 +290,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_MIDLINE:
-								addCommands(new StartingPositionFourThreeNote(container, elevator, drivetrain, roller, shooter, neck, mouth));
+								addCommands(new StartingPositionFourThreeNote(container, elevator, drivetrain, roller, shooter, neck));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_WING:
 								//TODO

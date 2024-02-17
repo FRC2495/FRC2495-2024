@@ -56,7 +56,7 @@ import frc.robot.subsystems.Neck;
 import frc.robot.subsystems.Roller;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Compressor;
-import frc.robot.subsystems.Mouth;
+//import frc.robot.subsystems.Mouth;
 import frc.robot.subsystems.Indicator;
 import frc.robot.subsystems.SimpleShooter;
 
@@ -68,7 +68,7 @@ import frc.robot.commands.roller.*;
 import frc.robot.commands.simpleshooter.*;
 import frc.robot.commands.shooter.*;
 import frc.robot.interfaces.ICamera;
-import frc.robot.commands.mouth.*;
+//import frc.robot.commands.mouth.*;
 import frc.robot.commands.indicator.*;
 import frc.robot.commands.groups.*;
 //import frc.robot.commands.gamepad.*;
@@ -200,9 +200,9 @@ public class RobotContainer {
 
 	// pneumatic devices
 
-	private final Compressor compressor = new Compressor();
+	//private final Compressor compressor = new Compressor();
 
-	private final Mouth mouth = new Mouth();
+	//private final Mouth mouth = new Mouth();
 
 	// misc
 
@@ -304,7 +304,7 @@ public class RobotContainer {
 
 		shooter.setDefaultCommand(new ShooterStopForever(shooter)); // we stop by default
 
-		compressor.checkCompressor(); //we compress in the background
+		//compressor.checkCompressor(); //we compress in the background
 
 		indicator.setDefaultCommand(new IndicatorScrollRainbow(indicator)); // temp
 
@@ -376,11 +376,11 @@ public class RobotContainer {
 		copilotGamepad.b()
 			.whileTrue(new RollerRoll(roller));
 
-		copilotGamepad.x()
+		/*copilotGamepad.x()
 			.onTrue(new MouthSafeClose(mouth, neck, getCopilotGamepad()));
 
 		copilotGamepad.y()
-			.onTrue(new MouthOpen(mouth));
+			.onTrue(new MouthOpen(mouth));*/
 
 		copilotGamepad.back()
 			.onTrue(new DrivetrainAndGyroReset(drivetrain));
@@ -516,7 +516,7 @@ public class RobotContainer {
 				//break;*/
 
 			case AUTON_CUSTOM:
-				return new CustomAuton(gamePieceSelected, startPosition, mainTarget, cameraOption, sonarOption, autonOption, drivetrain, this, elevator, roller, neck, mouth, shooter, camera);
+				return new CustomAuton(gamePieceSelected, startPosition, mainTarget, cameraOption, sonarOption, autonOption, drivetrain, this, elevator, roller, neck, shooter, camera);
 				//break;
 
 			case AUTON_DO_NOTHING:
@@ -635,10 +635,10 @@ public class RobotContainer {
 		return roller;
 	}
 
-	public Mouth getMouth()
+	/*public Mouth getMouth()
 	{
 		return mouth;
-	}
+	}*/
 
 	public Shooter getShooter()
 	{
