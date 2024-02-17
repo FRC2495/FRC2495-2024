@@ -13,7 +13,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.interfaces.*;
 //import frc.robot.commands.shooter.*;
-import frc.robot.Robot;
 //import frc.robot.sensors.Sonar;
 import frc.robot.sensors.SwitchedCamera;
 import frc.robot.Ports;

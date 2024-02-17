@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.ControlMode;*/
 import com.revrobotics.CANSparkMax;
-import com.ctre.phoenix.motorcontrol.StatusFrame;
 import com.revrobotics.CANSparkBase.IdleMode;
 
 import frc.robot.interfaces.*;
