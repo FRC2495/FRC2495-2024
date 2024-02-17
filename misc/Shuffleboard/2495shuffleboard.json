@@ -2374,6 +2374,19 @@
               "Colors/Color when true": "#7CFC00FF",
               "Colors/Color when false": "#8B0000FF"
             }
+          },
+          "8,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Roller Preset Rpm",
+              "_title": "SmartDashboard/Roller Preset Rpm",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
           }
         }
       }

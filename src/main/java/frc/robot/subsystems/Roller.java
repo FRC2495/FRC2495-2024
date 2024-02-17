@@ -54,7 +54,7 @@ public class Roller extends SubsystemBase implements IRoller{
 	static final double ROLL_PROPORTIONAL_GAIN = 0.25;
 	static final double ROLL_INTEGRAL_GAIN = 0.001;
 	static final double ROLL_DERIVATIVE_GAIN = 20.0;
-	static final double ROLL_FEED_FORWARD = 1023.0/36000.0; // 1023 = Talon SRX/FX full motor output, max measured velocity ~ 30000 native units per 100ms
+	static final double ROLL_FEED_FORWARD = 1023.0/35000.0; // 1023 = Talon SRX/FX full motor output, max measured velocity ~ 30000 native units per 100ms
 
 	public static final double TICK_PER_100MS_THRESH = 1;
 
@@ -181,6 +181,11 @@ public class Roller extends SubsystemBase implements IRoller{
 	public double getEncoderPosition() {
 		return roller.getSelectedSensorPosition(PRIMARY_PID_LOOP);
 	}
+
+	public double getPresetRpm()
+	{
+		return presetRpm;
+	}
 	
 	public void stop() {
 		roller.set(ControlMode.PercentOutput, 0);
@@ -263,7 +268,14 @@ public class Roller extends SubsystemBase implements IRoller{
 	// in revolutions per minute
 	public int getRpm() {
 		return (int) (roller.getSelectedSensorVelocity(PRIMARY_PID_LOOP)*600/CTRE_MAGNETIC_ENCODER_SENSOR_TICKS_PER_ROTATION);  // 1 min = 600 * 100 ms, 1 revolution = TICKS_PER_ROTATION ticks 
-	}	
+	}
+
+	// MAKE SURE THAT YOU ARE NOT IN A CLOSED LOOP CONTROL MODE BEFORE CALLING THIS METHOD.
+	// OTHERWISE THIS IS EQUIVALENT TO MOVING TO THE DISTANCE TO THE CURRENT ZERO IN REVERSE! 
+	public void resetEncoder() {
+		roller.set(ControlMode.PercentOutput,0); // we stop AND MAKE SURE WE DO NOT MOVE WHEN SETTING POSITION
+		roller.setSelectedSensorPosition(0, PRIMARY_PID_LOOP, TALON_TIMEOUT_MS); // we mark the virtual zero
+	}
 }
 
 
