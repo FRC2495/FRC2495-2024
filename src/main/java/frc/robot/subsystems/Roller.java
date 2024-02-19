@@ -66,7 +66,7 @@ public class Roller extends SubsystemBase implements IRoller{
 	private final static int MOVE_ON_TARGET_MINIMUM_COUNT= 20; // number of times/iterations we need to be on target to really be on target
 
 	static final double ROLL_HIGH_RPM = 3200.0;
-	static final double ROLL_LOW_RPM = 1500.0;
+	static final double ROLL_LOW_RPM = 2000.0;
 
 	private double presetRpm = ROLL_HIGH_RPM; // preset rpm
 
@@ -194,7 +194,7 @@ public class Roller extends SubsystemBase implements IRoller{
 		setPIDParameters();
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); //this has a global impact, so we reset in stop()
 
-		double targetVelocity_UnitsPer100ms = ROLL_LOW_RPM * CTRE_MAGNETIC_ENCODER_SENSOR_TICKS_PER_ROTATION / 600; // 1 revolution = TICKS_PER_ROTATION ticks, 1 min = 600 * 100 ms
+		double targetVelocity_UnitsPer100ms = -ROLL_LOW_RPM * CTRE_MAGNETIC_ENCODER_SENSOR_TICKS_PER_ROTATION / 600; // 1 revolution = TICKS_PER_ROTATION ticks, 1 min = 600 * 100 ms
 
 		roller.set(ControlMode.Velocity, targetVelocity_UnitsPer100ms);
 		
