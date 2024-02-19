@@ -51,7 +51,7 @@ public class Shooter extends SubsystemBase implements IShooter{
 
 	public static final double TICK_PER_100MS_THRESH = 1;
 
-	static final double SHOOT_HIGH_RPM = 3200.0;
+	static final double SHOOT_HIGH_RPM = 4000.0;
 	static final double SHOOT_LOW_RPM = 1500.0;
 
 	private double presetRpm = SHOOT_HIGH_RPM; // preset rpm
