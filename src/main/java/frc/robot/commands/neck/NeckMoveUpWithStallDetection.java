@@ -8,7 +8,7 @@ import frc.robot.subsystems.Neck;
 /**
  *
  */
-/*public*/ class NeckMoveUpWithStallDetection extends Command {
+public class NeckMoveUpWithStallDetection extends Command {
 
 	private Neck neck;
 
