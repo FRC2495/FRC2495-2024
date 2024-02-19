@@ -381,12 +381,14 @@ public class RobotContainer {
 			//.onTrue(new RollerRollUntilNoteSensed(roller, getNoteSensor()));
 			//.onTrue(new RollerSmartRoll(roller, noteSensor));
 			//.onTrue(new RollerRollLowRpmUntilNoteSensed(roller, getNoteSensor()));
-			.onTrue(new RollerSuperSmartRoll(roller, noteSensor));
+			//.onTrue(new RollerSuperSmartRoll(roller, noteSensor));
+			.onTrue(new RollerReleaseShortDistance(roller));
 
 		copilotGamepad.y()
 			//.whileTrue(new RollerRollLowRpm(roller));
+			//.onTrue(new RollerRollLowRpmUntilNoteSensed(roller, getNoteSensor()));
 			//.onTrue(new RollerReleaseShortDistance(roller));
-			.onTrue(new RollerRollLowRpmUntilNoteSensed(roller, getNoteSensor()));
+			.onTrue(new RollerSuperSmartRoll(roller, noteSensor));
 			
 		copilotGamepad.back()
 			.onTrue(new DrivetrainAndGyroReset(drivetrain));
@@ -395,13 +397,14 @@ public class RobotContainer {
 			.onTrue(new AlmostEverythingStop(elevator, neck, roller));
 
 
-		/*copilotGamepad.leftTrigger()
+		copilotGamepad.leftTrigger()
 			//.onTrue(new DrawerRetractWithStallDetection(drawer));
-			.whileTrue(new ShooterTake(shooter));*/
+			//.whileTrue(new ShooterTake(shooter));
+			.whileTrue(new ShooterShootHigh(shooter));
 
 		copilotGamepad.rightTrigger()
 			//.onTrue(new DrawerExtendWithStallDetection(drawer));
-			.whileTrue(new ShooterShootHigh(shooter));
+			.whileTrue(new RollerRoll(roller));
 
 
 		copilotGamepad.povDown()
