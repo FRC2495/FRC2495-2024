@@ -1,7 +1,7 @@
 package frc.robot.sensors;
 
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
-import edu.wpi.first.wpilibj.interfaces.Accelerometer;
+//import edu.wpi.first.wpilibj.interfaces.Accelerometer;
 
 import edu.wpi.first.math.filter.LinearFilter;
 
