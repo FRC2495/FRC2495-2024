@@ -58,7 +58,7 @@ public class Roller extends SubsystemBase implements IRoller{
 	static final double ROLL_PROPORTIONAL_GAIN = 0.25;
 	static final double ROLL_INTEGRAL_GAIN = 0.001;
 	static final double ROLL_DERIVATIVE_GAIN = 20.0;
-	static final double ROLL_FEED_FORWARD = 1023.0/35000.0; // 1023 = Talon SRX/FX full motor output, max measured velocity ~ 30000 native units per 100ms
+	static final double ROLL_FEED_FORWARD = 1023.0/30000.0; // 1023 = Talon SRX/FX full motor output, max measured velocity ~ 30000 native units per 100ms
 
 	static final double TICK_THRESH = 2048;
 	public static final double TICK_PER_100MS_THRESH = 1;
@@ -66,7 +66,7 @@ public class Roller extends SubsystemBase implements IRoller{
 	private final static int MOVE_ON_TARGET_MINIMUM_COUNT= 20; // number of times/iterations we need to be on target to really be on target
 
 	static final double ROLL_HIGH_RPM = 3200.0;
-	static final double ROLL_LOW_RPM = 2000.0;
+	static final double ROLL_LOW_RPM = 3000.0;
 
 	private double presetRpm = ROLL_HIGH_RPM; // preset rpm
 

@@ -380,12 +380,14 @@ public class RobotContainer {
 			//.onTrue(new MouthSafeClose(mouth, neck, getCopilotGamepad()));
 			//.onTrue(new RollerRollUntilNoteSensed(roller, getNoteSensor()));
 			//.onTrue(new RollerSmartRoll(roller, noteSensor));
-			.onTrue(new RollerRollLowRpmUntilNoteSensed(roller, getNoteSensor()));
+			//.onTrue(new RollerRollLowRpmUntilNoteSensed(roller, getNoteSensor()));
+			.onTrue(new RollerSuperSmartRoll(roller, noteSensor));
 
 		copilotGamepad.y()
 			//.whileTrue(new RollerRollLowRpm(roller));
-			.onTrue(new RollerReleaseShortDistance(roller));
-
+			//.onTrue(new RollerReleaseShortDistance(roller));
+			.onTrue(new RollerRollLowRpmUntilNoteSensed(roller, getNoteSensor()));
+			
 		copilotGamepad.back()
 			.onTrue(new DrivetrainAndGyroReset(drivetrain));
 
