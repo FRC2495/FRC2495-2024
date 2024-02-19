@@ -20,7 +20,7 @@ import frc.robot.interfaces.*;
  * The {@code Roller} class contains fields and methods pertaining to the function of the roller.
  */
 public class Roller extends SubsystemBase implements IRoller{
-	public static final int LENGTH_OF_SHORT_DISTANCE_TICKS = 10000; 
+	public static final int LENGTH_OF_SHORT_DISTANCE_TICKS = 20000; 
 
 	static final double MAX_PCT_OUTPUT = 1.0;
 	static final double ALMOST_MAX_PCT_OUTPUT = 1.0;
@@ -60,7 +60,7 @@ public class Roller extends SubsystemBase implements IRoller{
 	static final double ROLL_DERIVATIVE_GAIN = 20.0;
 	static final double ROLL_FEED_FORWARD = 1023.0/35000.0; // 1023 = Talon SRX/FX full motor output, max measured velocity ~ 30000 native units per 100ms
 
-	static final double TICK_THRESH = 512;
+	static final double TICK_THRESH = 2048;
 	public static final double TICK_PER_100MS_THRESH = 1;
 
 	private final static int MOVE_ON_TARGET_MINIMUM_COUNT= 20; // number of times/iterations we need to be on target to really be on target
@@ -218,12 +218,15 @@ public class Roller extends SubsystemBase implements IRoller{
 	}
 
 	public void releaseShortDistance() {
+		stop(); // in case we were still doing something
+		
+		resetEncoder(); // set new virtual zero
 		
 		setPIDParameters();
 		System.out.println("Releasing");
 		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
 
-		tac = -LENGTH_OF_SHORT_DISTANCE_TICKS;
+		tac = +LENGTH_OF_SHORT_DISTANCE_TICKS;
 		
 		roller.set(ControlMode.Position,tac);
 		
@@ -262,6 +265,8 @@ public class Roller extends SubsystemBase implements IRoller{
 		isRolling = false;
 		isReleasing = false;
 		isShooting = false;
+
+		isMoving = false;
 
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); // we undo what me might have changed
 	}
@@ -342,6 +347,10 @@ public class Roller extends SubsystemBase implements IRoller{
 	public int getRpm() {
 		return (int) (roller.getSelectedSensorVelocity(PRIMARY_PID_LOOP)*600/CTRE_MAGNETIC_ENCODER_SENSOR_TICKS_PER_ROTATION);  // 1 min = 600 * 100 ms, 1 revolution = TICKS_PER_ROTATION ticks 
 	}
+
+	public double getTarget() {
+		return tac;
+	}	
 
 	// MAKE SURE THAT YOU ARE NOT IN A CLOSED LOOP CONTROL MODE BEFORE CALLING THIS METHOD.
 	// OTHERWISE THIS IS EQUIVALENT TO MOVING TO THE DISTANCE TO THE CURRENT ZERO IN REVERSE! 

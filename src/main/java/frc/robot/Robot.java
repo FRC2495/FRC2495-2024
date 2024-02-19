@@ -218,6 +218,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Roller Enc Velocity", m_robotContainer.getRoller().getEncoderVelocity());
 		SmartDashboard.putNumber("Roller Rpm", m_robotContainer.getRoller().getRpm());
 		SmartDashboard.putNumber("Roller Preset Rpm", m_robotContainer.getRoller().getPresetRpm());
+		SmartDashboard.putNumber("Roller Target", m_robotContainer.getRoller().getTarget());
 
 		/*SmartDashboard.putString("Mouth Position", m_robotContainer.getMouth().getPosition().toString());
 		SmartDashboard.putBoolean("Mouth isDangerous", m_robotContainer.getMouth().isDangerous());*/

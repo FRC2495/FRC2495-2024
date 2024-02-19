@@ -2334,9 +2334,9 @@
               "_showGlyph": false
             }
           },
-          "7,0": {
+          "8,1": {
             "size": [
-              1,
+              2,
               1
             ],
             "content": {
@@ -2401,6 +2401,19 @@
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
               "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "6,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Roller Target",
+              "_title": "SmartDashboard/Roller Target",
+              "_glyph": 148,
+              "_showGlyph": false
             }
           }
         }
@@ -2507,9 +2520,9 @@
         "vgap": 16.0,
         "titleType": 0,
         "tiles": {
-          "2,0": {
+          "5,1": {
             "size": [
-              1,
+              2,
               1
             ],
             "content": {
