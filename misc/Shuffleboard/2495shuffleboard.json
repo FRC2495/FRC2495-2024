@@ -2387,6 +2387,21 @@
               "_glyph": 148,
               "_showGlyph": false
             }
+          },
+          "2,2": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Roller IsMoving?",
+              "_title": "SmartDashboard/Roller IsMoving?",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
           }
         }
       }
@@ -2492,7 +2507,7 @@
         "vgap": 16.0,
         "titleType": 0,
         "tiles": {
-          "3,0": {
+          "2,0": {
             "size": [
               1,
               1
@@ -2505,9 +2520,9 @@
               "_showGlyph": false
             }
           },
-          "4,0": {
+          "3,0": {
             "size": [
-              1,
+              2,
               1
             ],
             "content": {

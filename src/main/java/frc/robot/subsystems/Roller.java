@@ -20,9 +20,8 @@ import frc.robot.interfaces.*;
  * The {@code Roller} class contains fields and methods pertaining to the function of the roller.
  */
 public class Roller extends SubsystemBase implements IRoller{
-	/**
-	 * 
-	 */
+	public static final int LENGTH_OF_SHORT_DISTANCE_TICKS = 10000; 
+
 	static final double MAX_PCT_OUTPUT = 1.0;
 	static final double ALMOST_MAX_PCT_OUTPUT = 1.0;
 	static final double HALF_PCT_OUTPUT = 0.5;
@@ -42,9 +41,14 @@ public class Roller extends SubsystemBase implements IRoller{
 	WPI_TalonSRX roller;
 	BaseMotorController roller_follower; 
 		
+	boolean isMoving;
 	boolean isRolling;
 	boolean isReleasing;
 	boolean isShooting;
+
+	double tac;
+
+	private int onTargetCount; // counter indicating how many times/iterations we were on target 
 
 	// close loop settings
 	static final int PRIMARY_PID_LOOP = 0;
@@ -56,7 +60,10 @@ public class Roller extends SubsystemBase implements IRoller{
 	static final double ROLL_DERIVATIVE_GAIN = 20.0;
 	static final double ROLL_FEED_FORWARD = 1023.0/35000.0; // 1023 = Talon SRX/FX full motor output, max measured velocity ~ 30000 native units per 100ms
 
+	static final double TICK_THRESH = 512;
 	public static final double TICK_PER_100MS_THRESH = 1;
+
+	private final static int MOVE_ON_TARGET_MINIMUM_COUNT= 20; // number of times/iterations we need to be on target to really be on target
 
 	static final double ROLL_HIGH_RPM = 3200.0;
 	static final double ROLL_LOW_RPM = 1500.0;
@@ -134,6 +141,42 @@ public class Roller extends SubsystemBase implements IRoller{
 
 	}
 
+	// This method should be called to assess the progress of a move
+	public boolean tripleCheckMove() {
+		if (isMoving) {
+			
+			double error = roller.getClosedLoopError(PRIMARY_PID_LOOP);
+			
+			boolean isOnTarget = (Math.abs(error) < TICK_THRESH);
+			
+			if (isOnTarget) { // if we are on target in this iteration 
+				onTargetCount++; // we increase the counter
+			} else { // if we are not on target in this iteration
+				if (onTargetCount > 0) { // even though we were on target at least once during a previous iteration
+					onTargetCount = 0; // we reset the counter as we are not on target anymore
+					System.out.println("Triple-check failed (roller moving).");
+				} else {
+					// we are definitely moving
+				}
+			}
+			
+			if (onTargetCount > MOVE_ON_TARGET_MINIMUM_COUNT) { // if we have met the minimum
+				isMoving = false;
+			}
+			
+			if (!isMoving) {
+				System.out.println("You have reached the target (roller moving).");
+				//drawer.set(ControlMode.PercentOutput,0);
+				if (isReleasing)	{
+					stop(); // adjust if needed
+				} else {
+					stop(); // adjust if needed
+				}
+			}
+		}
+		return isMoving; 
+	}
+
 	public void roll() {
 		//SwitchedCamera.setUsbCamera(Ports.UsbCamera.GRASPER_CAMERA);
 
@@ -142,6 +185,8 @@ public class Roller extends SubsystemBase implements IRoller{
 		isRolling = true;
 		isReleasing = false;
 		isShooting = false;
+
+		isMoving = false;
 	}
 
 	public void rollLowRpm() {
@@ -156,6 +201,8 @@ public class Roller extends SubsystemBase implements IRoller{
 		isRolling = true;
 		isReleasing = false;
 		isShooting = false;
+
+		isMoving = false;
 	}
 	
 	public void release() {
@@ -166,6 +213,26 @@ public class Roller extends SubsystemBase implements IRoller{
 		isReleasing = true;
 		isRolling = false;
 		isShooting = false;
+
+		isMoving = false;
+	}
+
+	public void releaseShortDistance() {
+		
+		setPIDParameters();
+		System.out.println("Releasing");
+		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
+
+		tac = -LENGTH_OF_SHORT_DISTANCE_TICKS;
+		
+		roller.set(ControlMode.Position,tac);
+		
+		isReleasing = true;
+		isRolling = false;
+		isShooting = false;
+
+		isMoving = true;
+		onTargetCount = 0;
 	}
 
 	public void shoot() {
@@ -173,9 +240,11 @@ public class Roller extends SubsystemBase implements IRoller{
 
 		roller.set(ControlMode.PercentOutput, -MAX_PCT_OUTPUT);
 		
-		isRolling = true;
+		isRolling = false;
 		isReleasing = false;
-		isShooting = false;
+		isShooting = true;
+
+		isMoving = false;
 	}
 	
 	public double getEncoderPosition() {
@@ -252,6 +321,10 @@ public class Roller extends SubsystemBase implements IRoller{
 
 	public boolean isShooting(){
 		return isShooting;
+	}
+
+	public boolean isMoving(){
+		return isMoving;
 	}
 
 	// for debug purpose only

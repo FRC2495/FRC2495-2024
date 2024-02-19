@@ -382,7 +382,8 @@ public class RobotContainer {
 			.onTrue(new RollerSmartRoll(roller, noteSensor));
 
 		copilotGamepad.y()
-			.whileTrue(new RollerRollLowRpm(roller));
+			//.whileTrue(new RollerRollLowRpm(roller));
+			.onTrue(new RollerReleaseShortDistance(roller));
 
 		copilotGamepad.back()
 			.onTrue(new DrivetrainAndGyroReset(drivetrain));
