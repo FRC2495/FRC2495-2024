@@ -17,6 +17,7 @@ import frc.robot.commands.shooter.*;
 import frc.robot.commands.mouth.*;
 import frc.robot.subsystems.*;
 import frc.robot.interfaces.*;
+import frc.robot.sensors.*;
 //import frc.robot.auton.sp2.*;
 
 
@@ -24,7 +25,7 @@ import frc.robot.interfaces.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionTwoLeftThreeNote extends SequentialCommandGroup {
 
-    public StartingPositionTwoLeftThreeNote(RobotContainer container, Elevator elevator, Drawer drawer, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, Mouth mouth, ICamera camera){
+    public StartingPositionTwoLeftThreeNote(RobotContainer container, Elevator elevator, Drawer drawer, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, Mouth mouth, ICamera camera, NoteSensor notesensor){
 
         addCommands(
 
@@ -36,7 +37,7 @@ public class StartingPositionTwoLeftThreeNote extends SequentialCommandGroup {
 
 			new ShooterTimedShootHigh(shooter, 0.5),*/
 
-			new StartingPositionTwoTwoNote(container, drivetrain, roller, shooter, neck),
+			new StartingPositionTwoTwoNote(container, drivetrain, roller, shooter, neck, notesensor),
 
 			new StartingPositionTwoPickupLeftThirdNote(container, drivetrain, roller),
 

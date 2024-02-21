@@ -8,22 +8,24 @@
 package frc.robot.commands.roller;
 
 import edu.wpi.first.wpilibj2.command.WaitCommand;
-
+import frc.robot.sensors.NoteSensor;
 import frc.robot.subsystems.Roller;
 
 /**
  * Add your docs here.
  */
-public class RollerTimedRoll extends WaitCommand {
+public class RollerTimedRollUntilNoteSensed extends WaitCommand {
 
 	private Roller roller;
+	private NoteSensor notesensor;
 
 	/**
 	 * Add your docs here.
 	 */
-	public RollerTimedRoll(Roller roller, double timeout) {
+	public RollerTimedRollUntilNoteSensed(Roller roller, double timeout, NoteSensor notesensor) {
 		super(timeout);
 		this.roller = roller;
+		this.notesensor = notesensor;
 		addRequirements(roller);
 		
 		
@@ -39,7 +41,7 @@ public class RollerTimedRoll extends WaitCommand {
 	// Called just before this Command runs the first time
 	@Override
 	public void initialize() {
-		System.out.println("RollerTimedRoll: initialize");
+		System.out.println("RollerTimedRollUntilNoteSensed: initialize");
 		super.initialize();
 		roller.roll();
 
@@ -51,11 +53,16 @@ public class RollerTimedRoll extends WaitCommand {
 		// nothing
 	}
 
+	@Override
+	public boolean isFinished() {
+		return notesensor.isEnergized();
+	}
+
 	// Called once after timeout
 	@Override
 	public void end(boolean interrupted) {
-		System.out.println("RollerTimedRoll: end");
-		roller.stop();
+		System.out.println("RollerTimedRollUntilNoteSensed: end");
+		
 		super.end(interrupted);
 	}
 }

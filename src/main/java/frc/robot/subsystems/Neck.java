@@ -33,6 +33,11 @@ public class Neck extends SubsystemBase implements INeck {
 	
 	public static final int ANGLE_TO_MIDWAY_TICKS = 90000;
 	public static final int ANGLE_TO_TRAVEL_TICKS = 180000; // todo set proper value
+
+
+	// shoot from podium : -65000 
+	// shoot from sub : -20000
+
 	
 	/*
 	!!! VIRTUAL_HOME_OFFSET_TICKS is important for moving up,     !!!

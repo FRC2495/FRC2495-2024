@@ -8,13 +8,13 @@ import frc.robot.subsystems.Shooter;
 /**
  * Add your docs here.
  */
-public class ShooterTimedShootHigh extends WaitCommand {
+public class ShooterTimedShootHighNoStop extends WaitCommand {
 	/**
 	 * Add your docs here.
 	 */
 	private Shooter shooter;
 
-	public ShooterTimedShootHigh(Shooter shooter, double timeout) {
+	public ShooterTimedShootHighNoStop(Shooter shooter, double timeout) {
 		super(timeout);
 		this.shooter = shooter;
 		addRequirements(shooter);
@@ -41,7 +41,7 @@ public class ShooterTimedShootHigh extends WaitCommand {
 	@Override
 	public void end(boolean interrupted) {
 		System.out.println("ShooterTimedShootHigh: end");
-		shooter.stop();
+		//shooter.stop();
 		super.end(interrupted);
 	}
 }

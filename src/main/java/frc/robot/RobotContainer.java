@@ -356,6 +356,7 @@ public class RobotContainer {
 			.whileTrue(new NeckJoystickControl(neck, drivetrain, getMainJoystick()));
 		
 		joyMain.button(9)
+
 			.whileTrue(new ShooterJoystickControl(shooter, drivetrain, getMainJoystick()));
 		
 		joyMain.button(10)
@@ -422,7 +423,7 @@ public class RobotContainer {
 
 		copilotGamepad.leftBumper()
 			//.onTrue(new NeckMoveUpWithStallDetection(neck));
-			.onTrue(new NeckMoveMidwayWithStallDetection(neck));
+			.onTrue(new NeckMoveUpWithStallDetection(neck));
 
 		copilotGamepad.rightBumper()
 			.onTrue(new NeckMoveDownWithStallDetection(neck));
@@ -526,7 +527,7 @@ public class RobotContainer {
 				//break;*/
 
 			case AUTON_CUSTOM:
-				return new CustomAuton(gamePieceSelected, startPosition, mainTarget, cameraOption, sonarOption, autonOption, drivetrain, this, elevator, roller, neck, shooter, camera);
+				return new CustomAuton(gamePieceSelected, startPosition, mainTarget, cameraOption, sonarOption, autonOption, drivetrain, this, elevator, roller, neck, shooter, camera, noteSensor);
 				//break;
 
 			case AUTON_DO_NOTHING:
