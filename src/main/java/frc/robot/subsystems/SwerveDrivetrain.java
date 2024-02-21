@@ -32,6 +32,8 @@ public class SwerveDrivetrain extends SubsystemBase {
 
 	// convention: screw head pointing left/port side
 
+	// callibration: manually move wheels so it's facing straight then record the number below, deploy code then enable :)
+
 	public static final double FRONT_LEFT_VIRTUAL_OFFSET_RADIANS = -2.406; // adjust as needed so that virtual (turn) position of wheel is zero when straight
 	public static final double REAR_LEFT_VIRTUAL_OFFSET_RADIANS = -1.243; // adjust as needed so that virtual (turn) position of wheel is zero when straight
 	
