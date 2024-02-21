@@ -28,7 +28,7 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
         addCommands(
 
-			new DrivetrainTurnUsingCamera(drivetrain, camera),
+			new DrivetrainTurnUsingCamera(drivetrain, camera), 
 
 			//new DrivetrainTimedTurnUsingPIDController(drivetrain, 145, 2),
 
@@ -41,14 +41,18 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 			new DrivetrainTimedTurnUsingPIDController(drivetrain, -35, 2),
 
             new StartingPositionOnePickupSecondNote(container, drivetrain, roller),
+
+			new DrivetrainTurnUsingCamera(drivetrain, camera), // test to see if it works without timer
             
             new ShooterTimedShootHigh(shooter, 0.5), // will have to change in some way to compensate for the distance
 
-			//new DrivetrainTimedTurnUsingPIDController(drivetrain, 65, 2),
+			new DrivetrainTimedTurnUsingPIDController(drivetrain, 65, 2),
 
             new StartingPositionOnePickupThirdNote(container, drivetrain, roller),
 
-            new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
+			new StartingPositionOneShootThirdNote(container, drivetrain, camera),
+
+            //new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
 
 			new ShooterTimedShootHigh(shooter, 0.5) // will have to change in some way to compensate for the distance
 
@@ -58,20 +62,7 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
     
     
-    public Trajectory createShootSecondNoteTrajectory(RobotContainer container) {
-		// An example trajectory to follow. All units in meters.
-		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
-			// Start at the origin facing the -X direction
-			new Pose2d(AutonConstants.DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_THIRD_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_THIRD_NOTE_PICKUP_Y, Rotation2d.fromDegrees(180)),
-			// Pass through these waypoints
-			List.of(),
-			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_THIRD_NOTE_PICKUP_TO_SHOOT_THIRD_NOTE_X, AutonConstants.DISTANCE_FROM_THIRD_NOTE_PICKUP_TO_SHOOT_THIRD_NOTE_Y, Rotation2d.fromDegrees(125)),
-            container.createReverseTrajectoryConfig());
-
-		return trajectory;
-	}
-
+    
 
 
 }
