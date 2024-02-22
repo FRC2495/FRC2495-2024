@@ -45,7 +45,7 @@ public class DrivetrainDriveUsingCamera extends Command {
 				drivetrain.drive(
 					-MathUtil.applyDeadband(joystick.getY(), JOYSTICK_AXIS_THRESHOLD),
 					-MathUtil.applyDeadband(joystick.getX(), JOYSTICK_AXIS_THRESHOLD),
-					-camera.getAngleToTurnToCompositeTarget()/90.00,
+					-camera.getAngleToTurnToTarget()/90.00,
 					true, true);
 	}
 

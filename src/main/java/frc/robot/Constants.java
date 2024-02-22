@@ -25,6 +25,32 @@ import edu.wpi.first.math.util.Units;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+
+	public static class APRILTAGS {
+
+		// in relation to standing at (0,0) and facing the red speaker
+		public static final int LEFT_BLUE_SOURCE = 1; 
+		public static final int RIGHT_BLUE_SOURCE = 2;
+		public static final int RIGHT_RED_SPEAKER = 3;
+		public static final int MIDDLE_RED_SPEAKER = 4;
+		public static final int RED_AMP = 5;
+		public static final int BLUE_AMP = 6;
+		public static final int MIDDLE_BLUE_SPEAKER = 7;
+		public static final int RIGHT_BLUE_SPEAKER = 8;
+		public static final int LEFT_BLUE_SOURCET_RED_SOURCE = 9;
+		public static final int RIGHT_RED_SOURCE = 10;
+		public static final int RIGHT_RED_TRAP = 11;
+		public static final int LEFT_RED_TRAP = 12;
+		public static final int CENTER_RED_TRAP = 13;
+		public static final int CENTER_BLUE_TRAP = 14;
+		public static final int LEFT_BLUE_TRAP = 15;
+		public static final int RIGHT_BLUE_TRAP = 16;
+	
+		public APRILTAGS() {
+		}
+	}
+
+
 	public static final class DrivetrainConstants {
 		// Driving Parameters - Note that these are not the maximum capable speeds of
 		// the robot, rather the allowed maximum speeds

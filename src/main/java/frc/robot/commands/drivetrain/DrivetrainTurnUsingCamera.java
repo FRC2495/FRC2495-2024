@@ -42,7 +42,7 @@ public class DrivetrainTurnUsingCamera extends Command {
 				drivetrain.drive(
 					-0,
 					-0,
-					-camera.getAngleToTurnToCompositeTarget()/90.00,
+					-camera.getAngleToTurnToTarget()/90.00,
 					true, true);
 	}
 
@@ -57,7 +57,7 @@ public class DrivetrainTurnUsingCamera extends Command {
 		boolean isTurningUsingCamera = true;
 		
 		{
-			boolean isOnTarget = Math.abs(camera.getAngleToTurnToCompositeTarget()/90.00) < 1.0;
+			boolean isOnTarget = Math.abs(camera.getAngleToTurnToTarget()/90.00) < 1.0;
 			
 			if (isOnTarget) { // if we are on target in this iteration 
 				onTargetCountTurningUsingCamera++; // we increase the counter

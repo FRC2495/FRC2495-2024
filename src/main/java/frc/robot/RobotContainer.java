@@ -159,7 +159,7 @@ public class RobotContainer {
 
 	private final HMAccelerometer accelerometer = new HMAccelerometer();
 
-	private final ICamera camera = new LimelightCamera();
+	private final ICamera camera = new ObjectDetectionCamera();
 
 	private final NoteSensor noteSensor = new NoteSensor(Ports.Digital.NOTE_SENSOR);
 

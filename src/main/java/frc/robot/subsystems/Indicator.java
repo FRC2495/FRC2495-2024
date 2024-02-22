@@ -117,11 +117,11 @@ public class Indicator extends SubsystemBase {
 
 	public void updateFromCamera() {
 
-		if (camera != null && camera.getNumberOfTargets() > 0) {
-			if (Math.abs(camera.getAngleToTurnToCompositeTarget()) < 5) { // displays green if in target
+		/*if (camera != null && camera.getNumberOfTargets() > 0) {
+			if (Math.abs(camera.getAngleToTurnToTarget()) < 5) { // displays green if in target
 				setGreen();
 			}
-			else if (Math.abs(camera.getAngleToTurnToCompositeTarget()) < 15) { // displays yellow if close to target
+			else if (Math.abs(camera.getAngleToTurnToTarget()) < 15) { // displays yellow if close to target
 				setYellow();
 			}
 			else { // displays red if far from target 
@@ -129,7 +129,7 @@ public class Indicator extends SubsystemBase {
 			}
 		} else { // no camera or no target, so arbitrarily displays blue 
 			setBlue();
-		}
+		}*/
 
 	}
 }

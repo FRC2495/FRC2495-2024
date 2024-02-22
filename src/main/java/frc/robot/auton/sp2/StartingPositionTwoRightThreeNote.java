@@ -8,7 +8,7 @@ import edu.wpi.first.math.trajectory.Trajectory;
 import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.RobotContainer;
 import frc.robot.auton.AutonConstants;
 import frc.robot.auton.common.*;
@@ -17,6 +17,7 @@ import frc.robot.commands.shooter.*;
 import frc.robot.sensors.NoteSensor;
 import frc.robot.commands.mouth.*;
 import frc.robot.commands.roller.RollerTimedRelease;
+import frc.robot.commands.roller.RollerTimedRoll;
 import frc.robot.subsystems.*;
 import frc.robot.sensors.*;
 //import frc.robot.auton.sp2.*;
@@ -30,17 +31,25 @@ public class StartingPositionTwoRightThreeNote extends SequentialCommandGroup {
 
         addCommands(
 
-			/*new ShooterTimedShootHigh(shooter, 0.5),
+			new ShooterTimedShootHighNoStop(shooter, 0.5),
 
-			new StartingPositionTwoPickupSecondNote(container, drivetrain, roller),
+			new RollerTimedRoll(roller, .2),
+
+			new ShooterStop(shooter),
+
+			new WaitCommand(1),
+
+            new StartingPositionTwoPickupSecondNote(container, drivetrain, roller, notesensor),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
 
-			new ShooterTimedShootHigh(shooter, 0.5),*/
+			new ShooterTimedShootHighNoStop(shooter, 0.5),
+			
+			new RollerTimedRoll(roller, .2),
 
-			new StartingPositionTwoTwoNote(container, drivetrain, roller, shooter, neck, notesensor),
+			new ShooterStop(shooter),
 
-			new StartingPositionTwoPickupRightThirdNote(container, drivetrain, roller),
+			new StartingPositionTwoPickupRightThirdNote(container, drivetrain, roller, notesensor),
 
 			new RollerTimedRelease(roller, 0),
 

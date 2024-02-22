@@ -66,7 +66,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void disabledPeriodic() {
 
-		m_robotContainer.getCamera().acquireTargets(false);
+		// m_robotContainer.getCamera().acquireTargets(false);
 
 		updateToSmartDash();
 	}
@@ -111,7 +111,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 
-		m_robotContainer.getCamera().acquireTargets(false);
+	//	m_robotContainer.getCamera().acquireTargets(false);
 
 		updateToSmartDash();
 	}
@@ -167,12 +167,15 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("AccurateRoll", m_robotContainer.getAccelerometer().getAccurateRoll());
 		SmartDashboard.putNumber("FilteredAccurateRoll", m_robotContainer.getAccelerometer().getFilteredAccurateRoll());
 
-		SmartDashboard.putNumber("Distance to Target", m_robotContainer.getCamera().getDistanceToCompositeTargetUsingVerticalFov());
+		/*SmartDashboard.putNumber("Distance to Target", m_robotContainer.getCamera().getDistanceToCompositeTargetUsingVerticalFov());
 		SmartDashboard.putNumber("Angle to Target", m_robotContainer.getCamera().getAngleToTurnToCompositeTarget());
 		SmartDashboard.putNumber("Distance to Target Using Horizontal FOV", m_robotContainer.getCamera().getDistanceToCompositeTargetUsingHorizontalFov());
 		SmartDashboard.putNumber("Filtered Distance to Target", m_robotContainer.getCamera().getFilteredDistanceToCompositeTarget());
 		SmartDashboard.putNumber("Vertical Offset to Target", m_robotContainer.getCamera().getVerticalOffsetToCompositeTarget());
-		SmartDashboard.putNumber("Filtered Vertical Offset to Target", m_robotContainer.getCamera().getFilteredVerticalOffsetToCompositeTarget());
+		SmartDashboard.putNumber("Filtered Vertical Offset to Target", m_robotContainer.getCamera().getFilteredVerticalOffsetToCompositeTarget());*/
+
+		SmartDashboard.putNumber("Distance to Target", m_robotContainer.getCamera().getDistanceToTarget());
+		SmartDashboard.putNumber("Angle to Target", m_robotContainer.getCamera().getAngleToTurnToTarget());
 
 		SmartDashboard.putBoolean("NoteSensor isEnergized", m_robotContainer.getNoteSensor().isEnergized());
 

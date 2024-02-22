@@ -15,7 +15,9 @@ import frc.robot.auton.common.*;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.shooter.*;
 import frc.robot.commands.mouth.*;
+import frc.robot.commands.roller.RollerSuperSmartRoll;
 import frc.robot.commands.roller.RollerTimedRoll;
+import frc.robot.sensors.*;
 import frc.robot.subsystems.*;
 
 
@@ -23,11 +25,11 @@ import frc.robot.subsystems.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionTwoPickupRightThirdNote extends ParallelCommandGroup {
 
-    public StartingPositionTwoPickupRightThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller){
+    public StartingPositionTwoPickupRightThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, NoteSensor notesensor){
 
         addCommands(
 
-			new RollerTimedRoll(roller, 3),
+			new RollerSuperSmartRoll(roller, notesensor),
 
 			new DrivetrainTimedTurnUsingPIDController(drivetrain, -90, .5),
 
