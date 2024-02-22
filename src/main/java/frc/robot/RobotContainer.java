@@ -331,7 +331,8 @@ public class RobotContainer {
 
 
 		joyMain.button(2)
-			.whileTrue(new DrivetrainSetXFormation(drivetrain));	
+			//.whileTrue(new DrivetrainSetXFormation(drivetrain));	
+			.whileTrue(new DrivetrainDriveUsingCamera(drivetrain, camera, getMainJoystick()));
 			
 		joyMain.button(3)
 			.onTrue(new MoveInLShapeInReverse(drivetrain, this, 3));
