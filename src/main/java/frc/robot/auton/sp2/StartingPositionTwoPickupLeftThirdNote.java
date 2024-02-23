@@ -17,21 +17,24 @@ import frc.robot.commands.shooter.*;
 import frc.robot.commands.mouth.*;
 import frc.robot.commands.roller.RollerTimedRoll;
 import frc.robot.subsystems.*;
+import frc.robot.interfaces.*;
 
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionTwoPickupLeftThirdNote extends ParallelCommandGroup {
 
-    public StartingPositionTwoPickupLeftThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller){
+    public StartingPositionTwoPickupLeftThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, ICamera camera){
 
         addCommands(
 
 			new RollerTimedRoll(roller, 3),
 
-			new DrivetrainTimedTurnUsingPIDController(drivetrain, 90, .3),
+			//new DrivetrainTimedTurnUsingPIDController(drivetrain, 90, .3),       use only if below doesnt work
 
-            new DrivetrainSwerveRelative(drivetrain, container, createPickupLeftThirdNoteTrajectory(container))
+            new DrivetrainSwerveRelative(drivetrain, container, createPickupLeftThirdNoteTrajectory(container)),
+
+			new DrivetrainTurnUsingCamera(drivetrain, camera)
             
         ); 
   
@@ -46,7 +49,7 @@ public class StartingPositionTwoPickupLeftThirdNote extends ParallelCommandGroup
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.STARTING_POSITION_2_X_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_X, AutonConstants.STARTING_POSITION_2_Y_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_Y, Rotation2d.fromDegrees(180)),
+			new Pose2d(AutonConstants.STARTING_POSITION_2_X_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_X, AutonConstants.STARTING_POSITION_2_Y_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_Y, Rotation2d.fromDegrees(90)),
             container.createTrajectoryConfig());
 
 		return trajectory;

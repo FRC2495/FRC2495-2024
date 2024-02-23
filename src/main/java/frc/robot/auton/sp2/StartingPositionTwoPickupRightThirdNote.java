@@ -19,21 +19,24 @@ import frc.robot.commands.roller.RollerSuperSmartRoll;
 import frc.robot.commands.roller.RollerTimedRoll;
 import frc.robot.sensors.*;
 import frc.robot.subsystems.*;
+import frc.robot.interfaces.*;
 
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionTwoPickupRightThirdNote extends ParallelCommandGroup {
 
-    public StartingPositionTwoPickupRightThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, NoteSensor notesensor){
+    public StartingPositionTwoPickupRightThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, NoteSensor notesensor, ICamera camera){
 
         addCommands(
 
 			new RollerSuperSmartRoll(roller, notesensor),
 
-			new DrivetrainTimedTurnUsingPIDController(drivetrain, -90, .5),
+			//new DrivetrainTimedTurnUsingPIDController(drivetrain, -90, .5),
 
             new DrivetrainSwerveRelative(drivetrain, container, createPickupRightThirdNoteTrajectory(container))
+
+			// new DrivetrainTurnUsingCamera(drivetrain, camera)  use if above doesn't work + test
             
         ); 
   
@@ -48,7 +51,7 @@ public class StartingPositionTwoPickupRightThirdNote extends ParallelCommandGrou
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_RIGHT_THIRD_NOTE_PICKUP_X-AutonConstants.STARTING_POSITION_2_X_VALUE, AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_RIGHT_THIRD_NOTE_PICKUP_Y-AutonConstants.STARTING_POSITION_2_Y_VALUE, Rotation2d.fromDegrees(180)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_RIGHT_THIRD_NOTE_PICKUP_X-AutonConstants.STARTING_POSITION_2_X_VALUE, AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_RIGHT_THIRD_NOTE_PICKUP_Y-AutonConstants.STARTING_POSITION_2_Y_VALUE, Rotation2d.fromDegrees(-90)),
             container.createReverseTrajectoryConfig());
 
 		return trajectory;
