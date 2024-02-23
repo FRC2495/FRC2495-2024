@@ -30,7 +30,7 @@ public class StartingPositionOneShootThirdNote extends ParallelCommandGroup {
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),   
 			
-			new DrivetrainTurnUsingCamera(drivetrain, camera)
+			new DrivetrainTurnUsingCamera(drivetrain, camera) // change to apriltag camera command
         ); 
   
     }

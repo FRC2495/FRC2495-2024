@@ -30,13 +30,7 @@ public class StartingPositionTwoTwoNote extends SequentialCommandGroup {
 
         addCommands(
 
-			new ShooterTimedShootHighNoStop(shooter, 0.5),
-
-			new RollerTimedRoll(roller, .2),
-
-			new ShooterStop(shooter),
-
-			new WaitCommand(1),
+			new ShootNote(shooter, roller),
 
             new StartingPositionTwoPickupSecondNote(container, drivetrain, roller, notesensor),
 

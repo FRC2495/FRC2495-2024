@@ -37,7 +37,7 @@ public class StartingPositionFourThreeNote extends SequentialCommandGroup {
             
             new ShooterTimedShootHigh(shooter, 0.5), // will have to change in some way to compensate for the distance
 
-            new StartingPositionOnePickupThirdNote(container, drivetrain, roller),
+            //new StartingPositionOnePickupThirdNote(container, drivetrain, roller),
 
             new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),
 

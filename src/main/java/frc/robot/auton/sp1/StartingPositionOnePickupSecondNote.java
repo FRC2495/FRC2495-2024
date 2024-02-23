@@ -39,11 +39,11 @@ public class StartingPositionOnePickupSecondNote extends ParallelCommandGroup {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
-			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_AREA_TO_SHOOT_PRELOAD_X-AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_AREA_TO_SHOOT_PRELOAD_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_AREA_TO_SHOOT_PRELOAD_Y-AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_AREA_TO_SHOOT_PRELOAD_Y, Rotation2d.fromDegrees(120)),
+			new Pose2d(AutonConstants.STARTING_POSITION_1_X_VALUE-AutonConstants.STARTING_POSITION_1_X_VALUE, AutonConstants.STARTING_POSITION_1_Y_VALUE-AutonConstants.STARTING_POSITION_1_Y_VALUE, Rotation2d.fromDegrees(180)),
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_AREA_TO_SHOOT_PRELOAD_X-AutonConstants.DISTANCE_FROM_AREA_TO_SHOOT_PRELOAD_TO_SECOND_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_AREA_TO_SHOOT_PRELOAD_Y-AutonConstants.DISTANCE_FROM_AREA_TO_SHOOT_PRELOAD_TO_SECOND_NOTE_PICKUP_Y, Rotation2d.fromDegrees(135)),
+			new Pose2d(AutonConstants.STARTING_POSITION_1_X_VALUE-AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_SECOND_NOTE_PICKUP_X, AutonConstants.STARTING_POSITION_1_Y_VALUE-AutonConstants.STARTING_POSITION_1_Y_VALUE, Rotation2d.fromDegrees(180)),
             container.createTrajectoryConfig());
 
 		return trajectory;

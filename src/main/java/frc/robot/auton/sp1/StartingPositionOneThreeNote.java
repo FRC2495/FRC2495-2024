@@ -15,6 +15,9 @@ import frc.robot.auton.common.*;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.shooter.*;
 import frc.robot.commands.mouth.*;
+import frc.robot.commands.neck.NeckMovePodiumWithStallDetection;
+import frc.robot.commands.neck.NeckMoveSubWithStallDetection;
+import frc.robot.commands.roller.RollerTimedRoll;
 import frc.robot.subsystems.*;
 import frc.robot.auton.sp1.*;
 import frc.robot.interfaces.*;
@@ -28,26 +31,27 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
         addCommands(
 
-        
+            new NeckMoveSubWithStallDetection(neck),
+
+            new ShootNote(shooter, roller),
+
+            new DrivetrainTurnUsingCamera(drivetrain, camera),
+            
 			//new DrivetrainTimedTurnUsingPIDController(drivetrain, 145, 2),
 
             //new DrivetrainSwerveRelative(drivetrain, container, createShootPreloadTrajectory(container)),
 
-			new StartingPositionOneShootFirstNote(container, drivetrain, camera),
-
-            new ShooterTimedShootHigh(shooter, 0.5), // will have to change in some way to compensate for the distance
-
-			new DrivetrainTimedTurnUsingPIDController(drivetrain, -35, 2),
-
             new StartingPositionOnePickupSecondNote(container, drivetrain, roller),
 
-			new DrivetrainTurnUsingCamera(drivetrain, camera), // test to see if it works without timer
+			new DrivetrainTurnUsingCamera(drivetrain, camera), // change to april tag camera command later 
             
-            new ShooterTimedShootHigh(shooter, 0.5), // will have to change in some way to compensate for the distance
+            new NeckMovePodiumWithStallDetection(neck), // check to see if this works later
 
-			new DrivetrainTimedTurnUsingPIDController(drivetrain, 65, 2),
+            new ShootNote(shooter, roller),
 
-            new StartingPositionOnePickupThirdNote(container, drivetrain, roller),
+			//new DrivetrainTimedTurnUsingPIDController(drivetrain, 65, 2),
+
+            new StartingPositionOnePickupThirdNote(container, drivetrain, roller, camera),
 
 			new StartingPositionOneShootThirdNote(container, drivetrain, camera),
 
