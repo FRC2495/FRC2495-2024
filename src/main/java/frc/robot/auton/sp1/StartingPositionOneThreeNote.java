@@ -28,8 +28,7 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
         addCommands(
 
-			new DrivetrainTurnUsingCamera(drivetrain, camera), 
-
+        
 			//new DrivetrainTimedTurnUsingPIDController(drivetrain, 145, 2),
 
             //new DrivetrainSwerveRelative(drivetrain, container, createShootPreloadTrajectory(container)),
