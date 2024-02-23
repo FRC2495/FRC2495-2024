@@ -1,4 +1,4 @@
-package frc.robot.auton.sp3;
+package frc.robot.auton.sp4;
 
 import java.util.List;
 
@@ -21,31 +21,29 @@ import frc.robot.subsystems.*;
 import frc.robot.sensors.*;
 
 
-// GP = game piece
-// Can be used to place one cube or one cone and either starting position one or two
-public class StartingPositionThreePickupSecondNote extends ParallelCommandGroup {
+public class StartingPositionFourPickupThirdNote extends ParallelCommandGroup {
 
-    public StartingPositionThreePickupSecondNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, NoteSensor notesensor){
+    public StartingPositionFourPickupThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, NoteSensor notesensor){
 
         addCommands(
 
 			new RollerSuperSmartRoll(roller, notesensor),
 
-            new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container))
+            new DrivetrainSwerveRelative(drivetrain, container, createPickupThirdNoteTrajectory(container))
             
         ); 
   
     }
    
-    public Trajectory createPickupSecondNoteTrajectory(RobotContainer container) {
+    public Trajectory createPickupThirdNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
-			new Pose2d(AutonConstants.STARTING_POSITION_3_X_VALUE-AutonConstants.STARTING_POSITION_3_X_VALUE, AutonConstants.STARTING_POSITION_3_Y_VALUE-AutonConstants.STARTING_POSITION_3_Y_VALUE, Rotation2d.fromDegrees(180.0)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_SECOND_PICKUP_X-AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_SECOND_PICKUP_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_SECOND_PICKUP_Y-AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_SECOND_PICKUP_Y, Rotation2d.fromDegrees(180)),
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.STARTING_POSITION_3_X_VALUE-AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_SECOND_NOTE_PICKUP_X, AutonConstants.STARTING_POSITION_3_Y_VALUE-AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_SECOND_NOTE_PICKUP_Y, Rotation2d.fromDegrees(60)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_SECOND_PICKUP_X-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_THIRD_PICKUP_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_SECOND_PICKUP_Y-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_THIRD_PICKUP_Y, Rotation2d.fromDegrees(120)),
             container.createTrajectoryConfig());
 
 		return trajectory;

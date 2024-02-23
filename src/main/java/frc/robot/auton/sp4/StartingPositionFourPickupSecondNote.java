@@ -15,19 +15,21 @@ import frc.robot.auton.common.*;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.shooter.*;
 import frc.robot.commands.mouth.*;
+import frc.robot.commands.roller.RollerSuperSmartRoll;
 import frc.robot.commands.roller.RollerTimedRoll;
 import frc.robot.subsystems.*;
+import frc.robot.sensors.*;
 
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionFourPickupSecondNote extends ParallelCommandGroup {
 
-    public StartingPositionFourPickupSecondNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller){
+    public StartingPositionFourPickupSecondNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, NoteSensor notesensor){
 
         addCommands(
 
-			new RollerTimedRoll(roller, 3),
+			new RollerSuperSmartRoll(roller, notesensor),
 
             new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container))
             
@@ -39,12 +41,12 @@ public class StartingPositionFourPickupSecondNote extends ParallelCommandGroup {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
-			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_SHOOT_PRELOAD_X-AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_SHOOT_PRELOAD_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_SHOOT_PRELOAD_Y-AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_SHOOT_PRELOAD_Y, Rotation2d.fromDegrees(40)),
+			new Pose2d(AutonConstants.STARTING_POSITION_4_X_VALUE-AutonConstants.STARTING_POSITION_4_X_VALUE, AutonConstants.STARTING_POSITION_4_Y_VALUE-AutonConstants.STARTING_POSITION_4_Y_VALUE, Rotation2d.fromDegrees(180)),
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_SHOOT_PRELOAD_TO_SECOND_PICKUP_X-AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_SHOOT_PRELOAD_X, AutonConstants.DISTANCE_FROM_SHOOT_PRELOAD_TO_SECOND_PICKUP_Y-AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_SHOOT_PRELOAD_Y, Rotation2d.fromDegrees(0)),
-            container.createReverseTrajectoryConfig());
+			new Pose2d(AutonConstants.STARTING_POSITION_4_X_VALUE-AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_SECOND_PICKUP_X, AutonConstants.STARTING_POSITION_4_Y_VALUE-AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_SECOND_PICKUP_Y, Rotation2d.fromDegrees(120)),
+            container.createTrajectoryConfig());
 
 		return trajectory;
 	}
