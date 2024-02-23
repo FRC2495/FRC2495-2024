@@ -38,7 +38,7 @@ public class StartingPositionSixThreeNote extends SequentialCommandGroup {
 
 			new ShooterTimedShootHigh(shooter, 0.5),
 
-			new StartingPositionThreePickupThirdNote(container, drivetrain, roller),
+			//new StartingPositionThreePickupThirdNote(container, drivetrain, roller, notesensor),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),
 

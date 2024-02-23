@@ -18,13 +18,14 @@ import frc.robot.commands.mouth.*;
 import frc.robot.interfaces.*;
 import frc.robot.subsystems.*;
 import frc.robot.auton.sp1.*;
+import frc.robot.sensors.*;
 
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 
-    public StartingPositionThreeThreeNote(RobotContainer container, Elevator elevator, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera camera){
+    public StartingPositionThreeThreeNote(RobotContainer container, Elevator elevator, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera camera, NoteSensor notesensor){
 
         addCommands(
 
@@ -38,14 +39,15 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 
 			new DrivetrainTimedTurnUsingPIDController(drivetrain, 35, .2),
 
-			new StartingPositionThreePickupSecondNote(container, drivetrain, roller),
+			new StartingPositionThreePickupSecondNote(container, drivetrain, roller, notesensor),
 
 			new StartingPositionThreeShootSecondNote(container, drivetrain, camera),
 
 			//new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
 
 			new ShooterTimedShootHigh(shooter, 0.5),
-			new StartingPositionThreePickupThirdNote(container, drivetrain, roller),
+
+			new StartingPositionThreePickupThirdNote(container, drivetrain, roller, notesensor),
 
 
 			//new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),
