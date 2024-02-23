@@ -32,12 +32,12 @@ public class AutonConstants {
     public static final double DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_Y = 6.46;
 
     // Starting Position Three = Three Note Distances (all in meters)
-    public static final double STARTING_POSITION_3_X_VALUE = 1.14;
-    public static final double STARTING_POSITION_3_Y_VALUE = 4.17;
-    public static final double DISTANCE_FROM_STARTING_POSITION_3_TO_SHOOT_PRELOAD_X = 2.08;
-    public static final double DISTANCE_FROM_STARTING_POSITION_3_TO_SHOOT_PRELOAD_Y = 4.17;
-    public static final double DISTANCE_FROM_SHOOT_PRELOAD_TO_SECOND_NOTE_PICKUP_X = 2.45;
-    public static final double DISTANCE_FROM_SHOOT_PRELOAD_TO_SECOND_NOTE_PICKUP_Y = 4.06;
+    public static final double STARTING_POSITION_3_X_VALUE = 0.68;
+    public static final double STARTING_POSITION_3_Y_VALUE = 4.39;
+    /*public static final double DISTANCE_FROM_STARTING_POSITION_3_TO_SHOOT_PRELOAD_X = 2.08;
+    public static final double DISTANCE_FROM_STARTING_POSITION_3_TO_SHOOT_PRELOAD_Y = 4.17;*/
+    public static final double DISTANCE_FROM_STARTING_POSITION_3_X_VALUE_TO_SECOND_NOTE_PICKUP_X = 2.45;
+    public static final double DISTANCE_FROM_STARTING_POSITION_3_X_VALUE_TO_SECOND_NOTE_PICKUP_Y = 4.12;
     public static final double DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_SHOOT_SECOND_NOTE_X = 2.08;
     public static final double DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_SHOOT_SECOND_NOTE_Y = 4.17;
     public static final double DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_THIRD_NOTE_PICKUP_X = 7.76;

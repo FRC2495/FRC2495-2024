@@ -15,6 +15,8 @@ import frc.robot.auton.common.*;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.shooter.*;
 import frc.robot.commands.mouth.*;
+import frc.robot.commands.neck.NeckMovePodiumWithStallDetection;
+import frc.robot.commands.neck.NeckMoveSubWithStallDetection;
 import frc.robot.interfaces.*;
 import frc.robot.subsystems.*;
 import frc.robot.auton.sp1.*;
@@ -33,28 +35,31 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 
             //new DrivetrainSwerveRelative(drivetrain, container, createShootPreloadTrajectory(container)),
 
-			new StartingPositionThreeShootFirstNote(container, drivetrain, camera),
+			new NeckMoveSubWithStallDetection(neck),
 
-            new ShooterTimedShootHigh(shooter, 0.5),
-
-			new DrivetrainTimedTurnUsingPIDController(drivetrain, 35, .2),
+			new ShootNote(shooter, roller),
 
 			new StartingPositionThreePickupSecondNote(container, drivetrain, roller, notesensor),
 
-			new StartingPositionThreeShootSecondNote(container, drivetrain, camera),
+			new DrivetrainTurnUsingCamera(drivetrain, camera), // change to april tag command
+
+			//new StartingPositionThreeShootSecondNote(container, drivetrain, camera),
 
 			//new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
 
-			new ShooterTimedShootHigh(shooter, 0.5),
+			new NeckMovePodiumWithStallDetection(neck), // check to see if this works later 
+
+			new ShootNote(shooter, roller),
 
 			new StartingPositionThreePickupThirdNote(container, drivetrain, roller, notesensor),
-
 
 			//new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),
 
 			new StartingPositionThreeShootThirdNote(container, drivetrain, camera),
 
-			new ShooterTimedShootHigh(shooter, 0.5)
+			new NeckMovePodiumWithStallDetection(neck),
+			
+			new ShootNote(shooter, roller)
 
         ); 
   
