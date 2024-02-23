@@ -16,6 +16,8 @@ import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.shooter.*;
 import frc.robot.sensors.NoteSensor;
 import frc.robot.commands.mouth.*;
+import frc.robot.commands.neck.NeckMoveDownWithStallDetection;
+import frc.robot.commands.neck.NeckMoveSubWithStallDetection;
 import frc.robot.commands.roller.RollerTimedRelease;
 import frc.robot.commands.roller.RollerTimedRoll;
 import frc.robot.subsystems.*;
@@ -32,19 +34,31 @@ public class StartingPositionTwoRightThreeNote extends SequentialCommandGroup {
 
         addCommands(
 
+			new NeckMoveSubWithStallDetection(neck),
+
 			new ShootNote(shooter, roller),
 
+			new NeckMoveDownWithStallDetection(neck),
+
             new StartingPositionTwoPickupSecondNote(container, drivetrain, roller, notesensor),
+
+			new NeckMoveSubWithStallDetection(neck),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
 
 			new ShootNote(shooter, roller),
 
+			new NeckMoveDownWithStallDetection(neck),
+
 			new StartingPositionTwoPickupRightThirdNote(container, drivetrain, roller, notesensor, camera),
+
+			new NeckMoveSubWithStallDetection(neck),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),
 
-			new ShooterTimedShootHigh(shooter, 0.5),
+			new ShootNote(shooter, roller),
+
+			new NeckMoveDownWithStallDetection(neck),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createLeaveAfterShootRightThirdNoteTrajectory(container))
 

@@ -15,6 +15,8 @@ import frc.robot.auton.common.*;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.shooter.*;
 import frc.robot.commands.mouth.*;
+import frc.robot.commands.neck.NeckMoveDownWithStallDetection;
+import frc.robot.commands.neck.NeckMoveSubWithStallDetection;
 import frc.robot.subsystems.*;
 import frc.robot.interfaces.*;
 import frc.robot.sensors.*;
@@ -29,23 +31,31 @@ public class StartingPositionTwoLeftThreeNote extends SequentialCommandGroup {
 
         addCommands(
 
-			/*new ShooterTimedShootHigh(shooter, 0.5),
+			new NeckMoveSubWithStallDetection(neck),
 
-			new StartingPositionTwoPickupSecondNote(container, drivetrain, roller),
+			new ShootNote(shooter, roller),
+
+			new NeckMoveDownWithStallDetection(neck),
+
+            new StartingPositionTwoPickupSecondNote(container, drivetrain, roller, notesensor),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
 
-			new ShooterTimedShootHigh(shooter, 0.5),*/
+			new ShootNote(shooter, roller),
 
-			new StartingPositionTwoTwoNote(container, drivetrain, roller, shooter, neck, notesensor),
+			new NeckMoveDownWithStallDetection(neck),
 
 			new StartingPositionTwoPickupLeftThirdNote(container, drivetrain, roller, camera, notesensor),
+
+			new NeckMoveSubWithStallDetection(neck),
 
 			//new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),
 
 			new StartingPositionTwoShootLeftThirdNote(container, drivetrain, camera),
 
-			new ShooterTimedShootHigh(shooter, 0.5),
+			new ShootNote(shooter, roller),
+
+			new NeckMoveDownWithStallDetection(neck),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createLeaveAfterShootLeftThirdNoteTrajectory(container))
 
@@ -53,7 +63,20 @@ public class StartingPositionTwoLeftThreeNote extends SequentialCommandGroup {
   
     }
 
-	
+	public Trajectory createShootSecondNoteTrajectory(RobotContainer container) {
+		// An example trajectory to follow. All units in meters.
+		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+			// Start at the origin facing the -X direction
+			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_X-AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_Y-AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_Y, Rotation2d.fromDegrees(180)),
+			// Pass through these waypoints
+			List.of(),
+			// End straight ahead of where we started, facing forward
+			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_X-AutonConstants.STARTING_POSITION_3_X_VALUE, AutonConstants.STARTING_POSITION_3_Y_VALUE-AutonConstants.STARTING_POSITION_3_Y_VALUE, Rotation2d.fromDegrees(180)),
+            container.createReverseTrajectoryConfig());
+
+		return trajectory;
+	}
+
 	public Trajectory createLeaveAfterShootLeftThirdNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
