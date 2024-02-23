@@ -39,7 +39,7 @@ public class StartingPositionTwoLeftThreeNote extends SequentialCommandGroup {
 
 			new StartingPositionTwoTwoNote(container, drivetrain, roller, shooter, neck, notesensor),
 
-			new StartingPositionTwoPickupLeftThirdNote(container, drivetrain, roller, camera),
+			new StartingPositionTwoPickupLeftThirdNote(container, drivetrain, roller, camera, notesensor),
 
 			//new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),
 
