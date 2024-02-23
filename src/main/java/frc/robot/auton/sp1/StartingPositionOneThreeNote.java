@@ -15,6 +15,7 @@ import frc.robot.auton.common.*;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.shooter.*;
 import frc.robot.commands.mouth.*;
+import frc.robot.commands.neck.NeckMoveDownWithStallDetection;
 import frc.robot.commands.neck.NeckMovePodiumWithStallDetection;
 import frc.robot.commands.neck.NeckMoveSubWithStallDetection;
 import frc.robot.commands.roller.RollerTimedRoll;
@@ -36,6 +37,8 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
             new ShootNote(shooter, roller),
 
+            new NeckMoveDownWithStallDetection(neck),
+
             new DrivetrainTurnUsingCamera(drivetrain, camera),
             
 			//new DrivetrainTimedTurnUsingPIDController(drivetrain, 145, 2),
@@ -44,21 +47,25 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
             new StartingPositionOnePickupSecondNote(container, drivetrain, roller, notesensor),
 
+            new NeckMovePodiumWithStallDetection(neck), // check to see if this works later 
+
 			new DrivetrainTurnUsingCamera(drivetrain, camera), // change to april tag camera command later 
-            
-            new NeckMovePodiumWithStallDetection(neck), // check to see if this works later
 
             new ShootNote(shooter, roller),
 
 			//new DrivetrainTimedTurnUsingPIDController(drivetrain, 65, 2),
 
+            new NeckMoveDownWithStallDetection(neck),
+
             new StartingPositionOnePickupThirdNote(container, drivetrain, roller, camera, notesensor),
+
+            new NeckMovePodiumWithStallDetection(neck),
 
 			new StartingPositionOneShootThirdNote(container, drivetrain, camera),
 
-            //new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
+            //new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)
 
-			new ShooterTimedShootHigh(shooter, 0.5) // will have to change in some way to compensate for the distance
+			new ShootNote(shooter, roller)
 
         ); 
   
