@@ -10,7 +10,7 @@ import frc.robot.interfaces.ICamera;
 /**
  *
  */
-public class DrivetrainDriveUsingCamera extends Command {
+public class DrivetrainDriveUsingObjectDetectionCamera extends Command {
 
 	private SwerveDrivetrain drivetrain;
 	private ICamera camera;
@@ -21,7 +21,7 @@ public class DrivetrainDriveUsingCamera extends Command {
 
 	public int onTargetCountTurningUsingCamera;
 
-	public DrivetrainDriveUsingCamera(SwerveDrivetrain drivetrain, ICamera camera, Joystick joystick) {
+	public DrivetrainDriveUsingObjectDetectionCamera(SwerveDrivetrain drivetrain, ICamera camera, Joystick joystick) {
 		this.drivetrain = drivetrain;
 		this.camera = camera;
 		this.joystick = joystick;
@@ -33,7 +33,7 @@ public class DrivetrainDriveUsingCamera extends Command {
 	// Called just before this Command runs the first time
 	@Override
 	public void initialize() {
-		System.out.println("DrivetrainDriveUsingCamera: initialize");
+		System.out.println("DrivetrainDriveUsingObjectDetectionCamera: initialize");
 		onTargetCountTurningUsingCamera = 0;
 	}
 
@@ -58,7 +58,7 @@ public class DrivetrainDriveUsingCamera extends Command {
 	// Called once after isFinished returns true
 	@Override
 	public void end(boolean interrupted) {
-		System.out.println("DrivetrainDriveUsingCamera: end");
+		System.out.println("DrivetrainDriveUsingObjectDetectionCamera: end");
 		drivetrain.stop();
 	}
 }

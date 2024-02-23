@@ -159,7 +159,9 @@ public class RobotContainer {
 
 	private final HMAccelerometer accelerometer = new HMAccelerometer();
 
-	private final ICamera camera = new ObjectDetectionCamera();
+	private final ICamera object_detection_camera = new ObjectDetectionCamera();
+
+	private final ICamera apriltag_camera = new AprilTagCamera();
 
 	private final NoteSensor noteSensor = new NoteSensor(Ports.Digital.NOTE_SENSOR);
 
@@ -329,10 +331,12 @@ public class RobotContainer {
 		joyMain.povDown()
 			.onTrue(new DrivetrainOppositeHeading(drivetrain));	
 
+		joyMain.button(1)
+			.whileTrue(new DrivetrainDriveUsingAprilTagCamera(drivetrain, apriltag_camera, getMainJoystick()));
 
 		joyMain.button(2)
 			//.whileTrue(new DrivetrainSetXFormation(drivetrain));	
-			.whileTrue(new DrivetrainDriveUsingCamera(drivetrain, camera, getMainJoystick()));
+			.whileTrue(new DrivetrainDriveUsingObjectDetectionCamera(drivetrain, object_detection_camera, getMainJoystick()));
 			
 		joyMain.button(3)
 			.onTrue(new MoveInLShapeInReverse(drivetrain, this, 3));
@@ -348,7 +352,7 @@ public class RobotContainer {
 		joyMain.button(6)
 			//.onTrue(new MoveInReverse(drivetrain, this, 3));
 			//.onTrue(new DrivetrainTurnAngleUsingPidController(drivetrain, 90));
-			.onTrue(new DrivetrainTurnUsingCamera(drivetrain, camera));
+			.onTrue(new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera));
 
 		joyMain.button(7)
 			.whileTrue(new RollerJoystickControl(roller, drivetrain, getMainJoystick()));
@@ -528,7 +532,7 @@ public class RobotContainer {
 				//break;*/
 
 			case AUTON_CUSTOM:
-				return new CustomAuton(gamePieceSelected, startPosition, mainTarget, cameraOption, sonarOption, autonOption, drivetrain, this, elevator, roller, neck, shooter, camera, noteSensor);
+				return new CustomAuton(gamePieceSelected, startPosition, mainTarget, cameraOption, sonarOption, autonOption, drivetrain, this, elevator, roller, neck, shooter, object_detection_camera, noteSensor);
 				//break;
 
 			case AUTON_DO_NOTHING:
@@ -612,9 +616,14 @@ public class RobotContainer {
 		return accelerometer;
 	}
 
-	public ICamera getCamera()
+	public ICamera getObjectDetectionCamera()
 	{
-		return camera;
+		return object_detection_camera;
+	}
+
+	public ICamera getAprilTagCamera()
+	{
+		return apriltag_camera;
 	}
 
 	public NoteSensor getNoteSensor()

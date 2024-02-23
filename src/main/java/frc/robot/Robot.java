@@ -174,8 +174,11 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Vertical Offset to Target", m_robotContainer.getCamera().getVerticalOffsetToCompositeTarget());
 		SmartDashboard.putNumber("Filtered Vertical Offset to Target", m_robotContainer.getCamera().getFilteredVerticalOffsetToCompositeTarget());*/
 
-		SmartDashboard.putNumber("Distance to Target", m_robotContainer.getCamera().getDistanceToTarget());
-		SmartDashboard.putNumber("Angle to Target", m_robotContainer.getCamera().getAngleToTurnToTarget());
+		SmartDashboard.putNumber("Distance to Target", m_robotContainer.getObjectDetectionCamera().getDistanceToTarget());
+		SmartDashboard.putNumber("Angle to Target", m_robotContainer.getObjectDetectionCamera().getAngleToTurnToTarget());
+
+		SmartDashboard.putNumber("Distance to AprilTag", m_robotContainer.getAprilTagCamera().getDistanceToTarget());
+		SmartDashboard.putNumber("Angle to AprilTag", m_robotContainer.getAprilTagCamera().getAngleToTurnToTarget());
 
 		SmartDashboard.putBoolean("NoteSensor isEnergized", m_robotContainer.getNoteSensor().isEnergized());
 

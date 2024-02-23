@@ -5,13 +5,13 @@
 package frc.robot.sensors;
 
 
-import org.photonvision.EstimatedRobotPose;
+//import org.photonvision.EstimatedRobotPose;
 import org.photonvision.PhotonCamera;
-import org.photonvision.PhotonPoseEstimator;
+//import org.photonvision.PhotonPoseEstimator;
 import org.photonvision.PhotonUtils;
-import org.photonvision.PhotonPoseEstimator.PoseStrategy;
+//import org.photonvision.PhotonPoseEstimator.PoseStrategy;
 import org.photonvision.targeting.PhotonPipelineResult;
-import org.photonvision.targeting.PhotonTrackedTarget;
+//import org.photonvision.targeting.PhotonTrackedTarget;
 
 
 import edu.wpi.first.math.util.Units;
@@ -44,22 +44,27 @@ public class ObjectDetectionCamera extends PhotonCamera implements ICamera {
 
     public double getPitch() {
         /* The pitch of the target in degrees (positive up). */
-        return getLatestResult().getBestTarget().getPitch();
+        return getLatestResult().hasTargets() ? 
+            getLatestResult().getBestTarget().getPitch() :
+            0.0;
     }
 
     public double getSkew() {
         /* The skew of the target in degrees (counter-clockwise positive). */
-        return getLatestResult().getBestTarget().getSkew();
+        return getLatestResult().hasTargets() ? 
+            getLatestResult().getBestTarget().getSkew()
+            :0.0;
     }
 
     public double getDistanceToTarget() {
         PhotonPipelineResult result = getLatestResult();
+
         if (result.hasTargets()) {
             double range = PhotonUtils.calculateDistanceToTargetMeters(
                 CAMERA_HEIGHT_METERS, TARGET_HEIGHT_METERS, CAMERA_PITCH_RADIANS, 
                 Units.degreesToRadians(result.getBestTarget().getPitch())
             );
-            return range;
+            return Units.metersToInches(range);
         }
         return 0.0;
     }
