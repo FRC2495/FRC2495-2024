@@ -57,7 +57,7 @@ public class DrivetrainTimedTurnUsingPIDController extends WaitCommand {
 	@Override
 	public void end(boolean interrupted) {
 		System.out.println("DrivetrainTimedTurnUsingPIDController: end");
-		
+		drivetrain.stop();
 		super.end(interrupted);
 	}
 }
