@@ -31,7 +31,7 @@ public class Neck extends SubsystemBase implements INeck {
 	
 	public static final double GEAR_RATIO = 3.0; // todo change if needed
 
-	public static final int ANGLE_TO_SUB_TICKS = 20000;
+	public static final int ANGLE_TO_SUB_TICKS = 30000;
 	public static final int ANGLE_TO_PODIUM_TICKS = 65000;
 	public static final int ANGLE_TO_MIDWAY_TICKS = 90000;
 	public static final int ANGLE_TO_TRAVEL_TICKS = 180000; // todo set proper value
