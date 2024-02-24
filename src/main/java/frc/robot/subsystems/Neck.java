@@ -46,7 +46,7 @@ public class Neck extends SubsystemBase implements INeck {
 	!!! if this is changed make sure to check to see if moveUp() works !!!
 	(it's used as an error margin for moving up, since we can't reliably check when it's up)
 	*/
-	static final double VIRTUAL_HOME_OFFSET_TICKS = 100; // position of virtual home compared to physical home
+	static final double VIRTUAL_HOME_OFFSET_TICKS = -4000; // position of virtual home compared to physical home
 	
 	static final double MAX_PCT_OUTPUT = 1.0; // ~full speed
 	
@@ -67,8 +67,8 @@ public class Neck extends SubsystemBase implements INeck {
 	static final double MOVE_INTEGRAL_GAIN = 0.0;
 	static final double MOVE_DERIVATIVE_GAIN = 0.0;
 	
-	static final int TALON_TICK_THRESH = 1024; //256;
-	static final double TICK_THRESH = 8192; //4096;	
+	static final int TALON_TICK_THRESH = 256;
+	static final double TICK_THRESH = 2048;	
 	public static final double TICK_PER_100MS_THRESH = 256;
 	
 	private final static int MOVE_ON_TARGET_MINIMUM_COUNT= 20; // number of times/iterations we need to be on target to really be on target

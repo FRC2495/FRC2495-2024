@@ -34,12 +34,14 @@ public class StartingPositionTwoTwoNote extends SequentialCommandGroup {
         addCommands(
 
 			new NeckHome(neck),
-			
+
 			new NeckMoveSubWithStallDetection(neck),
 
 			new ShootNote(shooter, roller),
 
 			new NeckMoveDownWithStallDetection(neck),
+
+			new WaitCommand(.5),
 
             new StartingPositionTwoPickupSecondNote(container, drivetrain, roller, notesensor),
 
