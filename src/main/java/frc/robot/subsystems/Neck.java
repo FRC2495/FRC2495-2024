@@ -61,6 +61,7 @@ public class Neck extends SubsystemBase implements INeck {
 	
 	static final double REDUCED_PCT_OUTPUT = 0.7;
 	static final double SUPER_REDUCED_PCT_OUTPUT = 0.5;
+	static final double HOMING_PCT_OUTPUT = 0.3; // ~homing speed
 	
 	static final double MOVE_PROPORTIONAL_GAIN = 0.06;
 	static final double MOVE_INTEGRAL_GAIN = 0.0;
@@ -78,6 +79,7 @@ public class Neck extends SubsystemBase implements INeck {
 	boolean isMoving;
 	boolean isMovingUp;
 	boolean isReallyStalled;
+	boolean isHoming;
 	
 	WPI_TalonFX neck;
 	BaseMotorController neck_follower;
@@ -162,6 +164,29 @@ public class Neck extends SubsystemBase implements INeck {
 	public void periodic() {
 		// Put code here to be run every loop
 
+	}
+
+	// homes the hinge
+	// we go down slowly until we hit the limit switch.
+	public void home() {
+		neck.set(ControlMode.PercentOutput,+HOMING_PCT_OUTPUT); // we start moving down
+		
+		isHoming = true;
+	}
+
+	// this method need to be called to assess the homing progress
+	// (and it takes care of going to step 2 if needed)
+	public boolean checkHome() {
+		if (isHoming) {
+			isHoming = !getForwardLimitSwitchState(); // we are not done until we reach the switch
+
+			if (!isHoming) {
+				System.out.println("You have reached the home.");
+				neck.set(ControlMode.PercentOutput,0); // turn power off
+			}
+		}
+
+		return isHoming();
 	}
 	
 	// This method should be called to assess the progress of a move
@@ -336,6 +361,7 @@ public class Neck extends SubsystemBase implements INeck {
 	public void stay() {	 		
 		isMoving = false;		
 		isMovingUp = false;
+		isHoming = false;
 	}
 	
 	public void stop() {	 
@@ -343,7 +369,8 @@ public class Neck extends SubsystemBase implements INeck {
 		neck.set(ControlMode.PercentOutput, 0);
 		
 		isMoving = false;
-		isMovingUp = false;		
+		isMovingUp = false;	
+		isHoming = false;	
 		
 		setNominalAndPeakOutputs(MAX_PCT_OUTPUT); // we undo what me might have changed
 	}	
@@ -389,6 +416,10 @@ public class Neck extends SubsystemBase implements INeck {
 		
 		neck.configNominalOutputForward(0, TALON_TIMEOUT_MS);
 		neck.configNominalOutputForward(0, TALON_TIMEOUT_MS);
+	}
+
+	public boolean isHoming() {
+		return isHoming;
 	}
 
 	public boolean isMoving() {

@@ -352,7 +352,8 @@ public class RobotContainer {
 		joyMain.button(6)
 			//.onTrue(new MoveInReverse(drivetrain, this, 3));
 			//.onTrue(new DrivetrainTurnAngleUsingPidController(drivetrain, 90));
-			.onTrue(new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera));
+			//.onTrue(new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera));
+			.whileTrue(new DrivetrainSetXFormation(drivetrain));
 
 		joyMain.button(7)
 			.whileTrue(new RollerJoystickControl(roller, drivetrain, getMainJoystick()));
@@ -397,10 +398,12 @@ public class RobotContainer {
 			.onTrue(new RollerSuperSmartRoll(roller, noteSensor));
 			
 		copilotGamepad.back()
-			.onTrue(new DrivetrainAndGyroReset(drivetrain));
+			//.onTrue(new DrivetrainAndGyroReset(drivetrain));
+			.onTrue(new AlmostEverythingStop(elevator, neck, roller, shooter));
 
 		copilotGamepad.start()
-			.onTrue(new AlmostEverythingStop(elevator, neck, roller));
+			//.onTrue(new AlmostEverythingStop(elevator, neck, roller));
+			.onTrue(new NeckHome(neck));
 
 
 		copilotGamepad.leftTrigger()
@@ -461,11 +464,13 @@ public class RobotContainer {
 		copilotGamepad.axisLessThan(RY,-GAMEPAD_AXIS_THRESHOLD)
 			.whileTrue(new NeckGamepadControl(neck, getCopilotGamepad()));
 
-		/*copilotGamepad.axisGreaterThan(RX,GAMEPAD_AXIS_THRESHOLD)
-			.whileTrue(new DrawerGamepadControl(drawer, getCopilotGamepad()));
+		copilotGamepad.axisGreaterThan(RX,GAMEPAD_AXIS_THRESHOLD)
+			//.whileTrue(new DrawerGamepadControl(drawer, getCopilotGamepad()));
+			.onTrue(new NeckMovePodiumWithStallDetection(neck));
 
 		copilotGamepad.axisLessThan(RX,-GAMEPAD_AXIS_THRESHOLD)
-			.whileTrue(new DrawerGamepadControl(drawer, getCopilotGamepad()));	*/
+			//.whileTrue(new DrawerGamepadControl(drawer, getCopilotGamepad()));
+			.onTrue(new NeckMoveSubWithStallDetection(neck));
 			
 	}
 

@@ -157,15 +157,15 @@ public class Robot extends TimedRobot {
 
 
 		SmartDashboard.putNumber("AccelZ", m_robotContainer.getAccelerometer().getAccelZ());
-		SmartDashboard.putNumber("FilteredAccelZ", m_robotContainer.getAccelerometer().getFilteredAccelZ());
+		//SmartDashboard.putNumber("FilteredAccelZ", m_robotContainer.getAccelerometer().getFilteredAccelZ());
 		SmartDashboard.putNumber("Tilt", m_robotContainer.getAccelerometer().getTilt());
-		SmartDashboard.putNumber("FilteredTilt", m_robotContainer.getAccelerometer().getFilteredTilt());
-		SmartDashboard.putNumber("AccurateTilt", m_robotContainer.getAccelerometer().getAccurateTilt());
+		//SmartDashboard.putNumber("FilteredTilt", m_robotContainer.getAccelerometer().getFilteredTilt());
+		//SmartDashboard.putNumber("AccurateTilt", m_robotContainer.getAccelerometer().getAccurateTilt());
 		SmartDashboard.putBoolean("isFlat", m_robotContainer.getAccelerometer().isFlat());
 		SmartDashboard.putBoolean("isSuperFlat", m_robotContainer.getAccelerometer().isSuperFlat());
 		SmartDashboard.putNumber("AccuratePitch", m_robotContainer.getAccelerometer().getAccuratePitch());
 		SmartDashboard.putNumber("AccurateRoll", m_robotContainer.getAccelerometer().getAccurateRoll());
-		SmartDashboard.putNumber("FilteredAccurateRoll", m_robotContainer.getAccelerometer().getFilteredAccurateRoll());
+		//SmartDashboard.putNumber("FilteredAccurateRoll", m_robotContainer.getAccelerometer().getFilteredAccurateRoll());
 
 		/*SmartDashboard.putNumber("Distance to Target", m_robotContainer.getCamera().getDistanceToCompositeTargetUsingVerticalFov());
 		SmartDashboard.putNumber("Angle to Target", m_robotContainer.getCamera().getAngleToTurnToCompositeTarget());
@@ -209,12 +209,13 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Neck Position", m_robotContainer.getNeck().getPosition());
 		SmartDashboard.putNumber("Neck Enc Position", m_robotContainer.getNeck().getEncoderPosition());
 		SmartDashboard.putBoolean("Neck IsMoving?", m_robotContainer.getNeck().isMoving());
+		SmartDashboard.putBoolean("Neck IsHoming?", m_robotContainer.getNeck().isHoming());
 		SmartDashboard.putNumber("Neck Target", m_robotContainer.getNeck().getTarget());
 		SmartDashboard.putBoolean("Neck isStalled?", m_robotContainer.getNeck().isStalled());
 		SmartDashboard.putBoolean("Neck isDown", m_robotContainer.getNeck().isDown());
 		SmartDashboard.putBoolean("Neck isMidway", m_robotContainer.getNeck().isMidway());
 		SmartDashboard.putBoolean("Neck isUp", m_robotContainer.getNeck().isUp());
-		SmartDashboard.putBoolean("Neck isDangerous", m_robotContainer.getNeck().isDangerous());
+		//SmartDashboard.putBoolean("Neck isDangerous", m_robotContainer.getNeck().isDangerous());
 
 		SmartDashboard.putBoolean("Roller IsRolling?", m_robotContainer.getRoller().isRolling());
 		SmartDashboard.putBoolean("Roller IsReleasing?", m_robotContainer.getRoller().isReleasing());
