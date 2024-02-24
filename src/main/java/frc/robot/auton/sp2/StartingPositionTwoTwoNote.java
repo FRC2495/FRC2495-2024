@@ -13,6 +13,7 @@ import frc.robot.RobotContainer;
 import frc.robot.auton.AutonConstants;
 import frc.robot.auton.common.*;
 import frc.robot.commands.drivetrain.*;
+import frc.robot.commands.neck.NeckHome;
 import frc.robot.commands.neck.NeckMoveDownWithStallDetection;
 import frc.robot.commands.neck.NeckMoveSubWithStallDetection;
 import frc.robot.commands.shooter.*;
@@ -32,6 +33,8 @@ public class StartingPositionTwoTwoNote extends SequentialCommandGroup {
 
         addCommands(
 
+			new NeckHome(neck),
+			
 			new NeckMoveSubWithStallDetection(neck),
 
 			new ShootNote(shooter, roller),

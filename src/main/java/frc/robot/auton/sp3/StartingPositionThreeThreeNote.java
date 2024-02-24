@@ -15,6 +15,7 @@ import frc.robot.auton.common.*;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.shooter.*;
 import frc.robot.commands.mouth.*;
+import frc.robot.commands.neck.NeckHome;
 import frc.robot.commands.neck.NeckMovePodiumWithStallDetection;
 import frc.robot.commands.neck.NeckMoveSubWithStallDetection;
 import frc.robot.interfaces.*;
@@ -30,6 +31,8 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
     public StartingPositionThreeThreeNote(RobotContainer container, Elevator elevator, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera object_detection_camera, ICamera apriltag_camera, NoteSensor notesensor){
 
         addCommands(
+
+			new NeckHome(neck),
 
 			//new DrivetrainTimedTurnUsingPIDController(drivetrain, -25, 2),
 
