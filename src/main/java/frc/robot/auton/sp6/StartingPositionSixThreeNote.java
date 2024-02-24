@@ -30,7 +30,7 @@ import frc.robot.interfaces.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionSixThreeNote extends SequentialCommandGroup {
 
-    public StartingPositionSixThreeNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, NoteSensor notesensor, ICamera camera){
+    public StartingPositionSixThreeNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, NoteSensor notesensor, ICamera object_detection_camera, ICamera apriltag_camera){
 
         addCommands(
 
@@ -46,7 +46,7 @@ public class StartingPositionSixThreeNote extends SequentialCommandGroup {
 
 			new NeckMovePodiumWithStallDetection(neck),
 
-			new DrivetrainTurnUsingCamera(drivetrain, camera),
+			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
 
 			//new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
 
@@ -60,9 +60,13 @@ public class StartingPositionSixThreeNote extends SequentialCommandGroup {
 
 			new NeckMovePodiumWithStallDetection(neck),
 
-			//new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),
+			new DrivetrainSwerveRelative(drivetrain, container, createAreaBeforeShootThirdNoteTrajectory(container)),
 
-			new ShooterTimedShootHigh(shooter, 0.5)
+			new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),
+
+			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
+
+			new ShootNote(shooter, roller)
 
         ); 
   
@@ -82,19 +86,33 @@ public class StartingPositionSixThreeNote extends SequentialCommandGroup {
 		return trajectory;
 	}
     
-	/*public Trajectory createShootThirdNoteTrajectory(RobotContainer container) {
+	public Trajectory createAreaBeforeShootThirdNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
-			new Pose2d(AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_THIRD_PICKUP_X-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_THIRD_PICKUP_X, AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_THIRD_PICKUP_Y-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_THIRD_PICKUP_Y, Rotation2d.fromDegrees(180.0)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_AREA_BEFORE_THIRD_PICKUP_TO_THIRD_PICKUP_X-AutonConstants.DISTANCE_FROM_AREA_BEFORE_THIRD_PICKUP_TO_THIRD_PICKUP_X, AutonConstants.DISTANCE_FROM_AREA_BEFORE_THIRD_PICKUP_TO_THIRD_PICKUP_Y-AutonConstants.DISTANCE_FROM_AREA_BEFORE_THIRD_PICKUP_TO_THIRD_PICKUP_Y, Rotation2d.fromDegrees(180.0)),
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_6_TO_SHOOT_PRELOAD_X-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_THIRD_PICKUP_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_6_TO_SHOOT_PRELOAD_Y-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_THIRD_PICKUP_Y, Rotation2d.fromDegrees(120)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_X-AutonConstants.DISTANCE_FROM_AREA_BEFORE_THIRD_PICKUP_TO_THIRD_PICKUP_X, AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_Y-AutonConstants.DISTANCE_FROM_AREA_BEFORE_THIRD_PICKUP_TO_THIRD_PICKUP_X, Rotation2d.fromDegrees(180)),
             container.createReverseTrajectoryConfig());
 
 		return trajectory;
-	}*/
+	}
+
+	public Trajectory createShootThirdNoteTrajectory(RobotContainer container) {
+		// An example trajectory to follow. All units in meters.
+		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+			// Start at the origin facing the -X direction
+			new Pose2d(AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_X-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_X, AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_Y-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_Y, Rotation2d.fromDegrees(180.0)),
+			// Pass through these waypoints
+			List.of(),
+			// End straight ahead of where we started, facing forward
+			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_NOTE_PICKUP_X-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_NOTE_PICKUP_Y-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_X, Rotation2d.fromDegrees(-35)),
+            container.createReverseTrajectoryConfig());
+
+		return trajectory;
+	}
 
 
 
