@@ -22,9 +22,9 @@ public class ObjectDetectionCamera extends PhotonCamera implements ICamera {
 
     //TODO: UPDATE CAM SETTINGS FOR NEW ROBOT
     private static final String DEFAULT_CAM_NAME = "ObjectDetectionCam";
-    private final double CAMERA_HEIGHT_METERS = 0.356; // height on robot (meters)
+    private final double CAMERA_HEIGHT_METERS = Units.inchesToMeters(15); // height on robot (meters)
     private final double TARGET_HEIGHT_METERS = 0.0; // may need to change 
-    private final double CAMERA_PITCH_RADIANS = -10.0 * (Math.PI / 180.0); // tilt of our camera (radians)
+    private final double CAMERA_PITCH_RADIANS = Units.degreesToRadians(-30.0); // tilt of our camera (radians)
 
     public ObjectDetectionCamera() {
         super(DEFAULT_CAM_NAME);
