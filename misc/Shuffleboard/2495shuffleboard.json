@@ -353,7 +353,9 @@
               "_showGlyph": false,
               "Game/Game": "k2024Crescendo",
               "Visuals/Robot Icon Size": 50.0,
-              "Visuals/Show Outside Circles": true
+              "Visuals/Show Outside Circles": true,
+              "Colors/centeredTrajectory": "#FFFFFFFF",
+              "Colors/trajectory": "#FFFFFFFF"
             }
           },
           "9,2": {
@@ -878,7 +880,9 @@
               "_showGlyph": false,
               "Game/Game": "k2024Crescendo",
               "Visuals/Robot Icon Size": 50.0,
-              "Visuals/Show Outside Circles": true
+              "Visuals/Show Outside Circles": true,
+              "Colors/centeredTrajectory": "#FFFFFFFF",
+              "Colors/trajectory": "#FFFFFFFF"
             }
           }
         }
@@ -1263,7 +1267,9 @@
               "_showGlyph": false,
               "Game/Game": "k2024Crescendo",
               "Visuals/Robot Icon Size": 50.0,
-              "Visuals/Show Outside Circles": true
+              "Visuals/Show Outside Circles": true,
+              "Colors/centeredTrajectory": "#FFFFFFFF",
+              "Colors/trajectory": "#FFFFFFFF"
             }
           },
           "7,2": {
@@ -1281,6 +1287,19 @@
               "Visuals/Starting angle": 180.0,
               "Visuals/Show tick mark ring": true,
               "Visuals/Counter clockwise": false
+            }
+          },
+          "9,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Alliance color",
+              "_title": "SmartDashboard/Alliance color",
+              "_glyph": 148,
+              "_showGlyph": false
             }
           }
         }
@@ -1837,6 +1856,36 @@
               "_title": "SmartDashboard/AccurateTilt",
               "_glyph": 148,
               "_showGlyph": false
+            }
+          },
+          "1,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Alliance color",
+              "_title": "SmartDashboard/Alliance color",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "1,1": {
+            "size": [
+              2,
+              2
+            ],
+            "content": {
+              "_type": "Gyro",
+              "_source0": "network_table:///SmartDashboard/Heading",
+              "_title": "SmartDashboard/Heading",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Visuals/Major tick spacing": 45.0,
+              "Visuals/Starting angle": 180.0,
+              "Visuals/Show tick mark ring": true,
+              "Visuals/Counter clockwise": false
             }
           }
         }
@@ -2396,7 +2445,9 @@
               "_showGlyph": false,
               "Game/Game": "k2024Crescendo",
               "Visuals/Robot Icon Size": 50.0,
-              "Visuals/Show Outside Circles": true
+              "Visuals/Show Outside Circles": true,
+              "Colors/centeredTrajectory": "#FFFFFFFF",
+              "Colors/trajectory": "#FFFFFFFF"
             }
           },
           "7,0": {

@@ -313,6 +313,26 @@ public class SwerveDrivetrain extends SubsystemBase {
 		m_gyro.setAngleAdjustment(180);
 	}
 
+	public void blueLeftSubHeading() {
+		m_gyro.reset();
+		m_gyro.setAngleAdjustment(240);
+	}
+
+	public void blueRightSubHeading() {
+		m_gyro.reset();
+		m_gyro.setAngleAdjustment(300);
+	}
+
+	public void redLeftSubHeading() {
+		m_gyro.reset();
+		m_gyro.setAngleAdjustment(60);
+	}
+
+	public void redRightSubHeading() {
+		m_gyro.reset();
+		m_gyro.setAngleAdjustment(120);
+	}
+
 	public void stop()
 	{
 		drive(0, 0, 0, false, false);

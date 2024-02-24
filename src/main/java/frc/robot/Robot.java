@@ -4,10 +4,15 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+
+import java.util.Optional;
+
 import edu.wpi.first.net.PortForwarder;
 
 /**
@@ -243,6 +248,10 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putString("Sonar option", m_robotContainer.getSonarOptionChooser().getSelected());
 		SmartDashboard.putString("Release chosen", m_robotContainer.getReleaseChooser().getSelected());
 		SmartDashboard.putString("Auton option", m_robotContainer.getAutonOptionChooser().getSelected());
+
+		Optional<Alliance> alliance = DriverStation.getAlliance();
+	    Alliance allianceColor = alliance.isPresent() ? alliance.get() : Alliance.Blue;
+		SmartDashboard.putString("Alliance color", allianceColor.toString());
 	}
 
 	@Override

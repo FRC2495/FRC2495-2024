@@ -331,6 +331,12 @@ public class RobotContainer {
 		joyMain.povDown()
 			.onTrue(new DrivetrainOppositeHeading(drivetrain));	
 
+		joyMain.povLeft()
+			.onTrue(new DrivetrainLeftSubHeading(drivetrain));	
+
+		joyMain.povRight()
+			.onTrue(new DrivetrainRightSubHeading(drivetrain));
+
 		joyMain.button(1)
 			.whileTrue(new DrivetrainDriveUsingAprilTagCamera(drivetrain, apriltag_camera, getMainJoystick()));
 
