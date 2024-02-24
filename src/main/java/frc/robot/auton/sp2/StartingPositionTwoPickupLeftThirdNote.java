@@ -26,7 +26,7 @@ import frc.robot.sensors.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionTwoPickupLeftThirdNote extends ParallelCommandGroup {
 
-    public StartingPositionTwoPickupLeftThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, ICamera camera, NoteSensor notesensor){
+    public StartingPositionTwoPickupLeftThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, ICamera object_detection_camera, NoteSensor notesensor){
 
         addCommands(
 
@@ -36,7 +36,7 @@ public class StartingPositionTwoPickupLeftThirdNote extends ParallelCommandGroup
 
             new DrivetrainSwerveRelative(drivetrain, container, createPickupLeftThirdNoteTrajectory(container)),
 
-			new DrivetrainTurnUsingCamera(drivetrain, camera)
+			new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera)
             
         ); 
   

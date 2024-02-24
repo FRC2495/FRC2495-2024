@@ -28,7 +28,7 @@ import frc.robot.interfaces.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionFourThreeNote extends SequentialCommandGroup {
 
-    public StartingPositionFourThreeNote(RobotContainer container, Elevator elevator, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera camera, NoteSensor notesensor){
+    public StartingPositionFourThreeNote(RobotContainer container, Elevator elevator, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera object_detection_camera, ICamera apriltag_camera, NoteSensor notesensor){
 
         addCommands(
 
@@ -40,7 +40,7 @@ public class StartingPositionFourThreeNote extends SequentialCommandGroup {
 
             new StartingPositionFourPickupSecondNote(container, drivetrain, roller, notesensor),
 
-			new DrivetrainTurnUsingCamera(drivetrain, camera), // change to april tag command later
+			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera), // change to april tag command later
 
 			new NeckMovePodiumWithStallDetection(neck),
 

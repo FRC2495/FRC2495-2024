@@ -24,13 +24,13 @@ import frc.robot.interfaces.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionTwoShootLeftThirdNote extends ParallelCommandGroup {
 
-    public StartingPositionTwoShootLeftThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, ICamera camera){
+    public StartingPositionTwoShootLeftThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, ICamera apriltag_camera){
 
         addCommands(
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),   
 			
-			new DrivetrainTurnUsingCamera(drivetrain, camera) // change to april tag command later
+			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera) // change to april tag command later
 			
         ); 
   

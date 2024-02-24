@@ -29,7 +29,7 @@ import frc.robot.sensors.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
-    public StartingPositionOneThreeNote(RobotContainer container, Elevator elevator, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera camera, NoteSensor notesensor){
+    public StartingPositionOneThreeNote(RobotContainer container, Elevator elevator, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera object_detection_camera, ICamera apriltag_camera, NoteSensor notesensor){
 
         addCommands(
 
@@ -39,7 +39,7 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
             new NeckMoveDownWithStallDetection(neck),
 
-            new DrivetrainTurnUsingCamera(drivetrain, camera),
+            new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera),
             
 			//new DrivetrainTimedTurnUsingPIDController(drivetrain, 145, 2),
 
@@ -49,7 +49,7 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
             new NeckMovePodiumWithStallDetection(neck), // check to see if this works later 
 
-			new DrivetrainTurnUsingCamera(drivetrain, camera), // change to april tag camera command later 
+			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera), // change to april tag camera command later 
 
             new ShootNote(shooter, roller),
 
@@ -57,11 +57,11 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
             new NeckMoveDownWithStallDetection(neck),
 
-            new StartingPositionOnePickupThirdNote(container, drivetrain, roller, camera, notesensor),
+            new StartingPositionOnePickupThirdNote(container, drivetrain, roller, object_detection_camera, notesensor),
 
             new NeckMovePodiumWithStallDetection(neck),
 
-			new StartingPositionOneShootThirdNote(container, drivetrain, camera),
+			new StartingPositionOneShootThirdNote(container, drivetrain, apriltag_camera),
 
             //new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)
 

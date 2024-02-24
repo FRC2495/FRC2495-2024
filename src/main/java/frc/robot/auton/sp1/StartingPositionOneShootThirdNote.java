@@ -22,13 +22,13 @@ import frc.robot.interfaces.*;
 
 public class StartingPositionOneShootThirdNote extends ParallelCommandGroup {
 
-    public StartingPositionOneShootThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, ICamera camera){
+    public StartingPositionOneShootThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, ICamera apriltag_camera){
 
         addCommands(
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),   
 			
-			new DrivetrainTurnUsingCamera(drivetrain, camera) // change to apriltag camera command
+			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera) // change to apriltag camera command
         ); 
   
     }
