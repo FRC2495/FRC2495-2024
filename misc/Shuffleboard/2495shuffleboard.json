@@ -2157,21 +2157,6 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "0,0": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Neck isDangerous",
-              "_title": "SmartDashboard/Neck isDangerous",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
           "4,0": {
             "size": [
               2,
@@ -2187,15 +2172,15 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "8,0": {
+          "0,0": {
             "size": [
               2,
               1
             ],
             "content": {
               "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/Elevator isDangerous",
-              "_title": "SmartDashboard/Elevator isDangerous",
+              "_source0": "network_table:///SmartDashboard/Neck IsHoming?",
+              "_title": "SmartDashboard/Neck IsHoming?",
               "_glyph": 148,
               "_showGlyph": false,
               "Colors/Color when true": "#7CFC00FF",
