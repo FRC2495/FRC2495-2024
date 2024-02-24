@@ -28,12 +28,12 @@ import frc.robot.sensors.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionTwoLeftThreeNote extends SequentialCommandGroup {
 
-    public StartingPositionTwoLeftThreeNote(RobotContainer container, Elevator elevator, Drawer drawer, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, Mouth mouth, ICamera camera, NoteSensor notesensor){
+    public StartingPositionTwoLeftThreeNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera object_detection_camera, ICamera apriltag_camera, NoteSensor notesensor){
 
         addCommands(
 
 			new NeckHome(neck),
-			
+
 			new NeckMoveSubWithStallDetection(neck),
 
 			new ShootNote(shooter, roller),
@@ -48,13 +48,13 @@ public class StartingPositionTwoLeftThreeNote extends SequentialCommandGroup {
 
 			new NeckMoveDownWithStallDetection(neck),
 
-			new StartingPositionTwoPickupLeftThirdNote(container, drivetrain, roller, camera, notesensor),
+			new StartingPositionTwoPickupLeftThirdNote(container, drivetrain, roller, object_detection_camera, notesensor),
 
 			new NeckMoveSubWithStallDetection(neck),
 
 			//new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),
 
-			new StartingPositionTwoShootLeftThirdNote(container, drivetrain, camera),
+			new StartingPositionTwoShootLeftThirdNote(container, drivetrain, apriltag_camera),
 
 			new ShootNote(shooter, roller),
 
@@ -74,7 +74,7 @@ public class StartingPositionTwoLeftThreeNote extends SequentialCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_X-AutonConstants.STARTING_POSITION_3_X_VALUE, AutonConstants.STARTING_POSITION_3_Y_VALUE-AutonConstants.STARTING_POSITION_3_Y_VALUE, Rotation2d.fromDegrees(180)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_X-AutonConstants.STARTING_POSITION_3_X_VALUE, AutonConstants.STARTING_POSITION_3_Y_VALUE-AutonConstants.STARTING_POSITION_3_Y_VALUE, Rotation2d.fromDegrees(-90)),
             container.createReverseTrajectoryConfig());
 
 		return trajectory;

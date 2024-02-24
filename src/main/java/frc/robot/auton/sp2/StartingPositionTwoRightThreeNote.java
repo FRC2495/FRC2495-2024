@@ -31,7 +31,7 @@ import frc.robot.interfaces.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionTwoRightThreeNote extends SequentialCommandGroup {
 
-    public StartingPositionTwoRightThreeNote(RobotContainer container, Elevator elevator, Drawer drawer, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, Mouth mouth, NoteSensor notesensor, ICamera camera){
+    public StartingPositionTwoRightThreeNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, NoteSensor notesensor, ICamera object_detection_camera){
 
         addCommands(
 
@@ -53,7 +53,7 @@ public class StartingPositionTwoRightThreeNote extends SequentialCommandGroup {
 
 			new NeckMoveDownWithStallDetection(neck),
 
-			new StartingPositionTwoPickupRightThirdNote(container, drivetrain, roller, notesensor, camera),
+			new StartingPositionTwoPickupRightThirdNote(container, drivetrain, roller, notesensor, object_detection_camera),
 
 			new NeckMoveSubWithStallDetection(neck),
 

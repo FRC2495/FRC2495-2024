@@ -14,6 +14,7 @@ import frc.robot.auton.sp1.*;
 import frc.robot.auton.sp2.*;
 import frc.robot.auton.sp3.*;
 import frc.robot.auton.sp4.*;
+import frc.robot.auton.sp6.StartingPositionSixThreeNote;
 import frc.robot.interfaces.*;
 //import frc.robot.auton.common.*;
 import frc.robot.subsystems.*;
@@ -140,10 +141,10 @@ public class CustomAuton extends SequentialCommandGroup {
 								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_MIDLINE:
-								addCommands(new StartingPositionTwoTwoNote(container, drivetrain, roller, shooter, neck, notesensor));
+								//todo
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_WING:
-								//TODO
+								addCommands(new StartingPositionTwoTwoNote(container, drivetrain, roller, shooter, neck, notesensor));
 								break;
 							default:
 								// nothing
@@ -159,10 +160,10 @@ public class CustomAuton extends SequentialCommandGroup {
 								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_MIDLINE:
-								//TODO
+								addCommands(new StartingPositionTwoLeftThreeNote(container, drivetrain, roller, shooter, neck, object_detection_camera, apriltag_camera, notesensor));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_WING:
-								//TODO
+								addCommands(new StartingPositionTwoRightThreeNote(container, drivetrain, roller, shooter, neck, notesensor, apriltag_camera));
 								break;
 							default:
 								// nothing
@@ -326,13 +327,13 @@ public class CustomAuton extends SequentialCommandGroup {
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
-								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
+								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_MIDLINE:
 								//TODO
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_WING:
-								//TODO
+								addCommands(new StartingPositionTwoTwoNote(container, drivetrain, roller, shooter, neck, notesensor));
 								break;
 							default:
 								// nothing
@@ -348,10 +349,10 @@ public class CustomAuton extends SequentialCommandGroup {
 								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_MIDLINE:
-								//TODO
+								addCommands(new StartingPositionTwoLeftThreeNote(container, drivetrain, roller, shooter, neck, object_detection_camera, apriltag_camera, notesensor));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_WING:
-								//TODO
+								addCommands(new StartingPositionTwoRightThreeNote(container, drivetrain, roller, shooter, neck, notesensor, object_detection_camera));
 								break;
 							default:
 								// nothing
@@ -412,7 +413,7 @@ public class CustomAuton extends SequentialCommandGroup {
 								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_MIDLINE:
-								//TODO
+								addCommands(new StartingPositionSixThreeNote(container, drivetrain, roller, shooter, neck, notesensor, object_detection_camera, apriltag_camera));
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_WING:
 								//TODO
