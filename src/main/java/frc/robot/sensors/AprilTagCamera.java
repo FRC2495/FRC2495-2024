@@ -39,7 +39,7 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
     public double getDistanceToTarget() {
         PhotonPipelineResult result = getLatestResult();
 
-        if (result.hasTargets()) {
+        if (result.hasTargets() && result.getBestTarget()!=null) {
             double range = PhotonUtils.calculateDistanceToTargetMeters(
                 CAMERA_HEIGHT_METERS, TARGET_HEIGHT_METERS, CAMERA_PITCH_RADIANS, 
                 Units.degreesToRadians(getPitch())
@@ -50,9 +50,11 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
     }
 
     public double getYaw() {
+        PhotonPipelineResult result = getLatestResult();
+
         /* The yaw of the target in degrees (positive right). */
-        return getLatestResult().hasTargets() ? 
-            getLatestResult().getBestTarget().getYaw():
+        return result.hasTargets() && result.getBestTarget()!=null? 
+            result.getBestTarget().getYaw():
             0.0;
     }
 
@@ -62,22 +64,28 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
     }
 
     public double getPitch() {
+        PhotonPipelineResult result = getLatestResult();
+
         /* The pitch of the target in degrees (positive up). */
-        return getLatestResult().hasTargets() ? 
-            getLatestResult().getBestTarget().getPitch():
+        return result.hasTargets() && result.getBestTarget()!=null? 
+            result.getBestTarget().getPitch():
             0.0;
     }
 
     public double getSkew() {
+        PhotonPipelineResult result = getLatestResult();
+
         /* The skew of the target in degrees (counter-clockwise positive). */
-        return getLatestResult().hasTargets() ? 
-            getLatestResult().getBestTarget().getSkew():
+        return result.hasTargets() && result.getBestTarget()!=null? 
+            result.getBestTarget().getSkew():
             0.0;
     }
 
     public int getApriltagID() {
-        return getLatestResult().hasTargets() ? 
-            getLatestResult().getBestTarget().getFiducialId():
+        PhotonPipelineResult result = getLatestResult();
+
+        return result.hasTargets() && result.getBestTarget()!=null? 
+            result.getBestTarget().getFiducialId():
             0;
     }
 }

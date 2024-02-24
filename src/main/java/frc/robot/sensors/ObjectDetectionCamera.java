@@ -31,9 +31,11 @@ public class ObjectDetectionCamera extends PhotonCamera implements ICamera {
     }
 
     public double getYaw() {
+        PhotonPipelineResult result = getLatestResult();
+
         /* The yaw of the target in degrees (positive right). */
-        return getLatestResult().hasTargets() ? 
-            getLatestResult().getBestTarget().getYaw() :
+        return result.hasTargets() && result.getBestTarget()!=null?  
+            result.getBestTarget().getYaw() :
             0.0;
     }
 
@@ -43,23 +45,27 @@ public class ObjectDetectionCamera extends PhotonCamera implements ICamera {
     }
 
     public double getPitch() {
+        PhotonPipelineResult result = getLatestResult();
+
         /* The pitch of the target in degrees (positive up). */
-        return getLatestResult().hasTargets() ? 
-            getLatestResult().getBestTarget().getPitch() :
+        return result.hasTargets() && result.getBestTarget()!=null? 
+            result.getBestTarget().getPitch() :
             0.0;
     }
 
     public double getSkew() {
+        PhotonPipelineResult result = getLatestResult();
+
         /* The skew of the target in degrees (counter-clockwise positive). */
-        return getLatestResult().hasTargets() ? 
-            getLatestResult().getBestTarget().getSkew()
+        return result.hasTargets() && result.getBestTarget()!=null? 
+            result.getBestTarget().getSkew()
             :0.0;
     }
 
     public double getDistanceToTarget() {
         PhotonPipelineResult result = getLatestResult();
 
-        if (result.hasTargets()) {
+        if (result.hasTargets() && result.getBestTarget()!=null) {
             double range = PhotonUtils.calculateDistanceToTargetMeters(
                 CAMERA_HEIGHT_METERS, TARGET_HEIGHT_METERS, CAMERA_PITCH_RADIANS, 
                 Units.degreesToRadians(result.getBestTarget().getPitch())
@@ -69,8 +75,4 @@ public class ObjectDetectionCamera extends PhotonCamera implements ICamera {
         return 0.0;
     }
     
-    // public Transform3d transformToNote() {
-    //     Transform3d pose = getLatestResult().getBestTarget().getBestCameraToTarget();
-    //     return pose;
-    // }
 }
