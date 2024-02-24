@@ -26,7 +26,7 @@ import frc.utils.SwerveUtils;
 import frc.robot.Ports;
 
 /**
- * The {@code Drivetrain} class contains fields and methods pertaining to the function of the drivetrain.
+ * The {@code SwerveDrivetrain} class contains fields and methods pertaining to the function of the drivetrain.
  */
 public class SwerveDrivetrain extends SubsystemBase {
 

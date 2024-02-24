@@ -8,7 +8,7 @@ import frc.robot.Ports;
 
 
 /**
- * The {@code Claw} class contains fields and methods pertaining to the function of the mouth.
+ * The {@code Mouth} class contains fields and methods pertaining to the function of the mouth.
  */
 public class Mouth extends SubsystemBase {
 	
