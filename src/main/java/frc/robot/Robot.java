@@ -160,7 +160,7 @@ public class Robot extends TimedRobot {
 		//SmartDashboard.putNumber("FilteredAccelZ", m_robotContainer.getAccelerometer().getFilteredAccelZ());
 		SmartDashboard.putNumber("Tilt", m_robotContainer.getAccelerometer().getTilt());
 		//SmartDashboard.putNumber("FilteredTilt", m_robotContainer.getAccelerometer().getFilteredTilt());
-		//SmartDashboard.putNumber("AccurateTilt", m_robotContainer.getAccelerometer().getAccurateTilt());
+		SmartDashboard.putNumber("AccurateTilt", m_robotContainer.getAccelerometer().getAccurateTilt());
 		SmartDashboard.putBoolean("isFlat", m_robotContainer.getAccelerometer().isFlat());
 		SmartDashboard.putBoolean("isSuperFlat", m_robotContainer.getAccelerometer().isSuperFlat());
 		SmartDashboard.putNumber("AccuratePitch", m_robotContainer.getAccelerometer().getAccuratePitch());

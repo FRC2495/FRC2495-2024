@@ -1351,7 +1351,7 @@
               "_showGlyph": false
             }
           },
-          "3,0": {
+          "2,0": {
             "size": [
               1,
               1
@@ -1364,20 +1364,7 @@
               "_showGlyph": false
             }
           },
-          "4,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Distance to Target Using Horizontal FOV",
-              "_title": "SmartDashboard/Distance to Target Using Horizontal FOV",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "5,0": {
+          "3,0": {
             "size": [
               1,
               1
@@ -1620,6 +1607,32 @@
               "Colors/Color when true": "#7CFC00FF",
               "Colors/Color when false": "#8B0000FF"
             }
+          },
+          "4,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Distance to AprilTag",
+              "_title": "SmartDashboard/Distance to AprilTag",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "5,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Angle to AprilTag",
+              "_title": "SmartDashboard/Angle to AprilTag",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
           }
         }
       }
@@ -1676,58 +1689,6 @@
               "_showGlyph": false
             }
           },
-          "8,4": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/limelight_PipelineName",
-              "_title": "SmartDashboard/limelight_PipelineName",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "6,4": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Distance to Target Using Horizontal FOV",
-              "_title": "SmartDashboard/Distance to Target Using Horizontal FOV",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "9,4": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Filtered Distance to Target",
-              "_title": "SmartDashboard/Filtered Distance to Target",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "7,4": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Filtered Vertical Offset to Target",
-              "_title": "SmartDashboard/Filtered Vertical Offset to Target",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
           "0,3": {
             "size": [
               1,
@@ -1743,32 +1704,6 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "9,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Brake Position",
-              "_title": "SmartDashboard/Brake Position",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "7,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Gearbox Position",
-              "_title": "SmartDashboard/Gearbox Position",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
           "3,4": {
             "size": [
               1,
@@ -1782,21 +1717,6 @@
               "_showGlyph": false
             }
           },
-          "8,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Boolean Box",
-              "_source0": "network_table:///SmartDashboard/isInCoastNeutralMode?",
-              "_title": "SmartDashboard/isInCoastNeutralMode?",
-              "_glyph": 148,
-              "_showGlyph": false,
-              "Colors/Color when true": "#7CFC00FF",
-              "Colors/Color when false": "#8B0000FF"
-            }
-          },
           "2,4": {
             "size": [
               1,
@@ -1806,32 +1726,6 @@
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/AccuratePitch",
               "_title": "SmartDashboard/AccuratePitch",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "1,4": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/AccurateTilt",
-              "_title": "SmartDashboard/AccurateTilt",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "4,4": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/FilteredAccurateRoll",
-              "_title": "SmartDashboard/FilteredAccurateRoll",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -1891,6 +1785,58 @@
               "fps": -1,
               "imageWidth": -1,
               "imageHeight": -1
+            }
+          },
+          "6,4": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Distance to Target",
+              "_title": "SmartDashboard/Distance to Target",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "9,3": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Distance to AprilTag",
+              "_title": "SmartDashboard/Distance to AprilTag",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "8,3": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Angle to AprilTag",
+              "_title": "SmartDashboard/Angle to AprilTag",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "1,4": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/AccurateTilt",
+              "_title": "SmartDashboard/AccurateTilt",
+              "_glyph": 148,
+              "_showGlyph": false
             }
           }
         }
