@@ -1,4 +1,4 @@
-package frc.robot.auton.sp2;
+package frc.robot.auton.common;
 
 import java.util.List;
 
@@ -6,44 +6,32 @@ import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.trajectory.Trajectory;
 import edu.wpi.first.math.trajectory.TrajectoryGenerator;
-import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 import frc.robot.RobotContainer;
 import frc.robot.auton.AutonConstants;
-import frc.robot.auton.common.*;
 import frc.robot.commands.drivetrain.*;
-import frc.robot.commands.shooter.*;
-import frc.robot.commands.mouth.*;
-import frc.robot.commands.roller.RollerSuperSmartRoll;
-import frc.robot.commands.roller.RollerTimedRoll;
-import frc.robot.sensors.*;
 import frc.robot.subsystems.*;
 import frc.robot.interfaces.*;
 
-
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
-public class StartingPositionTwoPickupRightThirdNote extends ParallelCommandGroup {
+public class DriveAndTurnToNote extends SequentialCommandGroup {
+	
+	public DriveAndTurnToNote(SwerveDrivetrain drivetrain, RobotContainer container, ICamera object_detection_camera) {
+		
+		addCommands(
 
-    public StartingPositionTwoPickupRightThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, NoteSensor notesensor, ICamera object_detection_camera){
+			new DrivetrainSwerveRelative(drivetrain, container, createPickupRightThirdNoteTrajectory(container)),
 
-        addCommands(
+			new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera),  //use if above doesn't work + test
 
-			new RollerSuperSmartRoll(roller, notesensor),
+			new DrivetrainSwerveRelative(drivetrain, container, createMoveForwardTrajectory(container))
 
-			//new DrivetrainTimedTurnUsingPIDController(drivetrain, -90, .5),
-
-			new DriveAndTurnToNote(drivetrain, container, object_detection_camera)
-
-            //new DrivetrainSwerveRelative(drivetrain, container, createPickupRightThirdNoteTrajectory(container))
-
-			//new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera)  //use if above doesn't work + test
-            
         ); 
   
     }
-   
     
     public Trajectory createPickupRightThirdNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
@@ -59,5 +47,18 @@ public class StartingPositionTwoPickupRightThirdNote extends ParallelCommandGrou
 		return trajectory;
 	}	
 
+	public Trajectory createMoveForwardTrajectory(RobotContainer container) {
+		// An example trajectory to follow. All units in meters.
+		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+			// Start at the origin facing the -X direction
+			new Pose2d(0, 0, Rotation2d.fromDegrees(180.0)),
+			// Pass through these waypoints
+			List.of(),
+			// End straight ahead of where we started, facing forward
+			new Pose2d(-AutonConstants.ONE_THIRD_OF_A_METER, -AutonConstants.ONE_THIRD_OF_A_METER, Rotation2d.fromDegrees(90)),
+            container.createTrajectoryConfig());
+
+		return trajectory;
+	}	
 
 }

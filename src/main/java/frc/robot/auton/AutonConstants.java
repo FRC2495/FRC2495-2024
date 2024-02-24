@@ -3,6 +3,7 @@ package frc.robot.auton;
 public class AutonConstants {
 
     // Fixed auton distances
+    public static final double ONE_THIRD_OF_A_METER = .33;
 
     // All Starting Position Distances
     public static final double DISTANCE_TO_PICKUP_NOTE_METERS = 5; // todo fix

@@ -64,7 +64,11 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
             new NeckMovePodiumWithStallDetection(neck),
 
-			new StartingPositionOneShootThirdNote(container, drivetrain, apriltag_camera),
+			//new StartingPositionOneShootThirdNote(container, drivetrain, apriltag_camera),
+
+            new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),   
+			
+			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera), // change to apriltag camera command
 
             //new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)
 
@@ -74,7 +78,19 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
   
     }
 
-    
+    public Trajectory createShootThirdNoteTrajectory(RobotContainer container) {
+		// An example trajectory to follow. All units in meters.
+		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+			// Start at the origin facing the -X direction
+			new Pose2d(AutonConstants.DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_THIRD_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_THIRD_NOTE_PICKUP_Y, Rotation2d.fromDegrees(180)),
+			// Pass through these waypoints
+			List.of(),
+			// End straight ahead of where we started, facing forward
+			new Pose2d(AutonConstants.DISTANCE_FROM_THIRD_NOTE_PICKUP_TO_SHOOT_THIRD_NOTE_X, AutonConstants.DISTANCE_FROM_THIRD_NOTE_PICKUP_TO_SHOOT_THIRD_NOTE_Y, Rotation2d.fromDegrees(125)),
+            container.createReverseTrajectoryConfig());
+
+		return trajectory;
+	}
     
     
 
