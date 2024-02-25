@@ -26,6 +26,8 @@ public class ShooterTimedShootUsingCamera extends WaitCommand {
 	/*@Override
 	public void initialize() {
 		//System.out.println("ShooterTimedShootUsingCamera: initialize");
+		super.initialize();
+		
 		//double distance = Robot.camera!=null?Robot.camera.getDistanceToCompositeTargetUsingHorizontalFov():100;
 		//double distance = Robot.camera!=null?Robot.camera.getFilteredDistanceToCompositeTarget():100;
 		
@@ -48,6 +50,7 @@ public class ShooterTimedShootUsingCamera extends WaitCommand {
 	public void end(boolean interrupted) {
 		System.out.println("ShooterTimedShootUsingCamera: end");
 		shooter.stop();
+		super.end(interrupted);
 	}
 
 }

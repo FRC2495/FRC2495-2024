@@ -18,7 +18,6 @@ import com.ctre.phoenix.ParamEnum;
 import frc.robot.interfaces.*;
 import frc.robot.RobotContainer;
 //import frc.robot.Ports;
-import frc.robot.Robot;
 
 
 /**
@@ -89,9 +88,9 @@ public class Neck extends SubsystemBase implements INeck {
 	private int onTargetCount; // counter indicating how many times/iterations we were on target
 	private int stalledCount; // counter indicating how many times/iterations we were stalled	
 
-	Robot robot; 
-	
-	
+	/**
+ 	* The {@code Neck} class contains fields and methods pertaining to the function of the neck.
+    */	
 	public Neck(WPI_TalonFX neck_in, BaseMotorController neck_follower_in) {
 		neck = neck_in;
 		neck_follower = neck_follower_in;

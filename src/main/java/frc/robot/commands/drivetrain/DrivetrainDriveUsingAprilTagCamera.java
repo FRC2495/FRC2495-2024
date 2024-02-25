@@ -17,9 +17,6 @@ public class DrivetrainDriveUsingAprilTagCamera extends Command {
 	private Joystick joystick;
 
 	public static final double JOYSTICK_AXIS_THRESHOLD = 0.15;
-	public final static int TURN_USING_CAMERA_ON_TARGET_MINIMUM_COUNT = 10;
-
-	public int onTargetCountTurningUsingCamera;
 
 	public DrivetrainDriveUsingAprilTagCamera(SwerveDrivetrain drivetrain, ICamera camera, Joystick joystick) {
 		this.drivetrain = drivetrain;
@@ -34,7 +31,6 @@ public class DrivetrainDriveUsingAprilTagCamera extends Command {
 	@Override
 	public void initialize() {
 		System.out.println("DrivetrainDriveUsingAprilTagCamera: initialize");
-		onTargetCountTurningUsingCamera = 0;
 	}
 
 
@@ -42,11 +38,11 @@ public class DrivetrainDriveUsingAprilTagCamera extends Command {
 	@Override
 	public void execute() {
 
-				drivetrain.drive(
-					-MathUtil.applyDeadband(joystick.getY(), JOYSTICK_AXIS_THRESHOLD),
-					-MathUtil.applyDeadband(joystick.getX(), JOYSTICK_AXIS_THRESHOLD),
-					-camera.getAngleToTurnToTarget()/90.00,
-					true, true);
+		drivetrain.drive(
+			-MathUtil.applyDeadband(joystick.getY(), JOYSTICK_AXIS_THRESHOLD),
+			-MathUtil.applyDeadband(joystick.getX(), JOYSTICK_AXIS_THRESHOLD),
+			-camera.getAngleToTurnToTarget()/90.00,
+			true, true);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
