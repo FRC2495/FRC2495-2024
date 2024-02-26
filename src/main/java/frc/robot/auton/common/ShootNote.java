@@ -22,7 +22,7 @@ public class ShootNote extends SequentialCommandGroup {
 
 			new ShooterStop(shooter),
 
-			new WaitCommand(1) // we wait so when we pick up the next note, it doesn't shoot up :)
+			new WaitCommand(.25) //.5 //1 // we wait so when we pick up the next note, it doesn't shoot up :)
                         
         ); 
   

@@ -34,9 +34,11 @@ public class StartingPositionTwoPickupLeftThirdNote extends ParallelCommandGroup
 
 			//new DrivetrainTimedTurnUsingPIDController(drivetrain, 90, .3),       use only if below doesnt work
 
-            new DrivetrainSwerveRelative(drivetrain, container, createPickupLeftThirdNoteTrajectory(container)),
+            //new DrivetrainSwerveRelative(drivetrain, container, createPickupLeftThirdNoteTrajectory(container)),
 
-			new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera)
+			new StartingPositionTwoDriveAndTurnToLeftNote(drivetrain, container, object_detection_camera)
+
+			//new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera)
             
         ); 
   

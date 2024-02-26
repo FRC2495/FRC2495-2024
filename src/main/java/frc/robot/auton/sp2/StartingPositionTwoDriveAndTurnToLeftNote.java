@@ -1,4 +1,4 @@
-package frc.robot.auton.common;
+package frc.robot.auton.sp2;
 
 import java.util.List;
 
@@ -17,13 +17,13 @@ import frc.robot.interfaces.*;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
-public class DriveAndTurnToNote extends SequentialCommandGroup {
+public class StartingPositionTwoDriveAndTurnToLeftNote extends SequentialCommandGroup {
 	
-	public DriveAndTurnToNote(SwerveDrivetrain drivetrain, RobotContainer container, ICamera object_detection_camera) {
+	public StartingPositionTwoDriveAndTurnToLeftNote(SwerveDrivetrain drivetrain, RobotContainer container, ICamera object_detection_camera) {
 		
 		addCommands(
 
-			new DrivetrainSwerveRelative(drivetrain, container, createPickupRightThirdNoteTrajectory(container)),
+			new DrivetrainSwerveRelative(drivetrain, container, createPickupLeftThirdNoteTrajectory(container)),
 
 			new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera),  //use if above doesn't work + test
 
@@ -33,7 +33,7 @@ public class DriveAndTurnToNote extends SequentialCommandGroup {
   
     }
     
-    public Trajectory createPickupRightThirdNoteTrajectory(RobotContainer container) {
+    public Trajectory createPickupLeftThirdNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -41,7 +41,7 @@ public class DriveAndTurnToNote extends SequentialCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.STARTING_POSITION_2_X_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_RIGHT_THIRD_NOTE_PICKUP_X, AutonConstants.STARTING_POSITION_2_Y_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_RIGHT_THIRD_NOTE_PICKUP_Y, Rotation2d.fromDegrees(90)),
+			new Pose2d(AutonConstants.STARTING_POSITION_2_X_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_X, AutonConstants.STARTING_POSITION_2_Y_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_Y, Rotation2d.fromDegrees(-90)),
             container.createTrajectoryConfig());
 
 		return trajectory;
@@ -55,7 +55,7 @@ public class DriveAndTurnToNote extends SequentialCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(-AutonConstants.ONE_THIRD_OF_A_METER, -AutonConstants.ONE_THIRD_OF_A_METER, Rotation2d.fromDegrees(90)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_X-AutonConstants.DISTANCE_TO_PICKUP_LEFT_THIRD_NOTE_X, AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_X-AutonConstants.DISTANCE_TO_PICKUP_LEFT_THIRD_NOTE_Y, Rotation2d.fromDegrees(180)),
             container.createTrajectoryConfig());
 
 		return trajectory;
