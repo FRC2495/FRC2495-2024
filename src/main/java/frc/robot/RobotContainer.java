@@ -173,9 +173,9 @@ public class RobotContainer {
 
 	private final Drawer drawer = new Drawer(drawer_master);*/
 
-	private final WPI_TalonSRX elevator_master = new WPI_TalonSRX(Ports.CAN.ELEVATOR_MASTER);
+	private final WPI_TalonFX elevator_master = new WPI_TalonFX(Ports.CAN.ELEVATOR_MASTER);
 
-	private final WPI_VictorSPX elevator_follower = new WPI_VictorSPX(Ports.CAN.ELEVATOR_FOLLOWER);
+	private final WPI_TalonFX elevator_follower = new WPI_TalonFX(Ports.CAN.ELEVATOR_FOLLOWER);
 
 	private final /*I*/Elevator elevator = new Elevator(elevator_master, elevator_follower);
 

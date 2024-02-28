@@ -14,7 +14,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.StatusFrame;
 import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.Joystick;
@@ -60,7 +60,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 
 	private final static int MOVE_STALLED_MINIMUM_COUNT = MOVE_ON_TARGET_MINIMUM_COUNT * 2 + 30; // number of times/iterations we need to be stalled to really be stalled
 
-	WPI_TalonSRX elevator; 
+	WPI_TalonFX elevator; 
 	BaseMotorController elevator_follower;
 	
 	boolean isMoving;
@@ -73,7 +73,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 	private int stalledCount; // counter indicating how many times/iterations we were stalled
 	
 	
-	public Elevator(WPI_TalonSRX elevator_in, BaseMotorController elevator_follower_in) {
+	public Elevator(WPI_TalonFX elevator_in, BaseMotorController elevator_follower_in) {
 		
 		elevator = elevator_in;
 		elevator_follower = elevator_follower_in;
@@ -91,7 +91,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 		// In order for limit switches and closed-loop features to function properly the sensor and motor has to be in-phase.
 		// This means that the sensor position must move in a positive direction as the motor controller drives positive output.
 		
-		elevator.setSensorPhase(false); // false for SRX // TODO switch to true if required if switching to Talon FX
+		elevator.setSensorPhase(true); // false for SRX // TODO switch to true if required if switching to Talon FX
 		
 		//Enable limit switches
 		elevator.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, TALON_TIMEOUT_MS);
@@ -132,7 +132,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 		// This ensures the best resolution possible when performing closed-loops in firmware.
 		// CTRE Magnetic Encoder (relative/quadrature) =  4096 units per rotation		
 		// FX Integrated Sensor = 2048 units per rotation
-		elevator.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, PRIMARY_PID_LOOP, TALON_TIMEOUT_MS); // .CTRE_MagEncoder_Relative for SRX // TODO switch to FeedbackDevice.IntegratedSensor if switching to Talon FX
+		elevator.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, PRIMARY_PID_LOOP, TALON_TIMEOUT_MS); // .CTRE_MagEncoder_Relative for SRX // TODO switch to FeedbackDevice.IntegratedSensor if switching to Talon FX
 		
 		// this will reset the encoder automatically when at or past the forward limit sensor
 		elevator.configSetParameter(ParamEnum.eClearPositionOnLimitF, 1, 0, 0, TALON_TIMEOUT_MS);
@@ -386,11 +386,11 @@ public class Elevator extends SubsystemBase implements IElevator {
 	}	
 
 	public boolean getForwardLimitSwitchState() {
-		return elevator.getSensorCollection().isFwdLimitSwitchClosed();
+		return elevator.getSensorCollection().isFwdLimitSwitchClosed()>0?true:false;
 	}
 
 	public boolean getReverseLimitSwitchState() {
-		return elevator.getSensorCollection().isRevLimitSwitchClosed();
+		return elevator.getSensorCollection().isRevLimitSwitchClosed()>0?true:false;
 	}
 
 	// MAKE SURE THAT YOU ARE NOT IN A CLOSED LOOP CONTROL MODE BEFORE CALLING THIS METHOD.
