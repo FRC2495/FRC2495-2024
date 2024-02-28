@@ -426,10 +426,12 @@ public class RobotContainer {
 			.onTrue(new ElevatorMoveDownWithStallDetection(elevator));
 
 		copilotGamepad.povLeft()
-			.onTrue(new ElevatorMoveMidwayWithStallDetection(elevator));
+			//.onTrue(new ElevatorMoveMidwayWithStallDetection(elevator));
+			.onTrue(new NeckMoveSubWithStallDetection(neck));
 
 		copilotGamepad.povRight()
-			.onTrue(new ElevatorMoveMidwayWithStallDetection(elevator));
+			//.onTrue(new ElevatorMoveMidwayWithStallDetection(elevator));
+			.onTrue(new NeckMovePodiumWithStallDetection(neck));
 
 		copilotGamepad.povUp()
 			.onTrue(new ElevatorMoveUpWithStallDetection(elevator));
@@ -470,13 +472,13 @@ public class RobotContainer {
 		copilotGamepad.axisLessThan(RY,-GAMEPAD_AXIS_THRESHOLD)
 			.whileTrue(new NeckGamepadControl(neck, getCopilotGamepad()));
 
-		copilotGamepad.axisGreaterThan(RX,GAMEPAD_AXIS_THRESHOLD)
+		copilotGamepad.axisGreaterThan(RX,GAMEPAD_AXIS_THRESHOLD);
 			//.whileTrue(new DrawerGamepadControl(drawer, getCopilotGamepad()));
-			.onTrue(new NeckMovePodiumWithStallDetection(neck));
+			//.onTrue(new NeckMovePodiumWithStallDetection(neck));
 
-		copilotGamepad.axisLessThan(RX,-GAMEPAD_AXIS_THRESHOLD)
+		copilotGamepad.axisLessThan(RX,-GAMEPAD_AXIS_THRESHOLD);
 			//.whileTrue(new DrawerGamepadControl(drawer, getCopilotGamepad()));
-			.onTrue(new NeckMoveSubWithStallDetection(neck));
+			//.onTrue(new NeckMoveSubWithStallDetection(neck));
 			
 	}
 
