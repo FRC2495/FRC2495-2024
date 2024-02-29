@@ -30,7 +30,7 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
     private static final String DEFAULT_CAM_NAME = "AprilTagCamera";
     private static final double CAMERA_HEIGHT_METERS =  Units.inchesToMeters(19);
     private static final double TARGET_HEIGHT_METERS = Units.inchesToMeters(54); // may need to change 
-    private static final int CAMERA_PITCH_RADIANS = 0; // tilt of our camera (radians)
+    private static final int CAMERA_PITCH_RADIANS = 20; // tilt of our camera (radians)
 
     public AprilTagCamera() {
         super(DEFAULT_CAM_NAME);
