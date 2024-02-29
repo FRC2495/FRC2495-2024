@@ -102,7 +102,7 @@ public class Elevator extends SubsystemBase implements IElevator {
 		// Note: Regardless of invert value, the LEDs will blink green when positive output is requested (by robot code or firmware closed loop).
 		// Only the motor leads are inverted. This feature ensures that sensor phase and limit switches will properly match the LED pattern
 		// (when LEDs are green => forward limit switch and soft limits are being checked).
-		elevator.setInverted(false);  // TODO switch to false if required if switching to Talon FX
+		elevator.setInverted(true);  // TODO switch to false if required if switching to Talon FX
 		elevator_follower.setInverted(true);  // TODO comment out if switching to Talon FX
 		
 		// Both the Talon SRX and Victor SPX have a follower feature that allows the motor controllers to mimic another motor controller's output.

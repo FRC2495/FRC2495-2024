@@ -422,8 +422,8 @@ public class RobotContainer {
 			.whileTrue(new RollerRoll(roller));
 
 
-		copilotGamepad.povDown()
-			.onTrue(new ElevatorMoveDownWithStallDetection(elevator));
+		/*copilotGamepad.povDown()
+			.onTrue(new ElevatorMoveDownWithStallDetection(elevator));*/
 
 		copilotGamepad.povLeft()
 			//.onTrue(new ElevatorMoveMidwayWithStallDetection(elevator));
@@ -433,8 +433,8 @@ public class RobotContainer {
 			//.onTrue(new ElevatorMoveMidwayWithStallDetection(elevator));
 			.onTrue(new NeckMovePodiumWithStallDetection(neck));
 
-		copilotGamepad.povUp()
-			.onTrue(new ElevatorMoveUpWithStallDetection(elevator));
+		/*copilotGamepad.povUp()
+			.onTrue(new ElevatorMoveUpWithStallDetection(elevator));*/
 
 
 		copilotGamepad.leftBumper()
