@@ -40,13 +40,13 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
 	}
 	
 	public double getDistanceToTarget() {
-		return getDistanceToBestTarget();
-		//return getDistanceToHighValueTarget();
+		//return getDistanceToBestTarget();
+		return getDistanceToHighValueTarget();
 	}
 
 	public double getAngleToTurnToTarget() {
-        return getAngleToTurnToBestTarget();
-		//return getAngleToTurnToHighValueTarget();
+        //return getAngleToTurnToBestTarget();
+		return getAngleToTurnToHighValueTarget();
     }
 
 
@@ -115,9 +115,18 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
 				int targetId = target.getFiducialId();
 
 				if (targetId == AprilTags.MIDDLE_RED_SPEAKER 
-					|| targetId == AprilTags.RED_AMP
-					|| targetId == AprilTags.BLUE_AMP
 					|| targetId == AprilTags.MIDDLE_BLUE_SPEAKER)
+				{
+					return target; // SUPER high value target found - more important than high value only
+				}
+			}
+
+            for (PhotonTrackedTarget target: targets) 
+			{
+				int targetId = target.getFiducialId();
+
+				if (targetId == AprilTags.RED_AMP
+					|| targetId == AprilTags.BLUE_AMP)
 				{
 					return target; // high value target found
 				}
