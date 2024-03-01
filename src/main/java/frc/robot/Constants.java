@@ -26,7 +26,7 @@ import edu.wpi.first.math.util.Units;
  */
 public final class Constants {
 
-	public static class APRILTAGS {
+	public static class AprilTags {
 
 		// facing the field elements (or from the driver station for the stages)
 		public static final int RIGHT_BLUE_SOURCE = 1; 
@@ -46,7 +46,7 @@ public final class Constants {
 		public static final int STAGE_LEFT_BLUE_TRAP = 15;
 		public static final int STAGE_RIGHT_BLUE_TRAP = 16;
 	
-		public APRILTAGS() {
+		public AprilTags() {
 		}
 	}
 
