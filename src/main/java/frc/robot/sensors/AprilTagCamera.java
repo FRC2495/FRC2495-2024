@@ -81,7 +81,7 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
             0.0;
     }
 
-    public int getApriltagID() {
+    public int getApriltagId() {
         PhotonPipelineResult result = getLatestResult();
 
         return result.hasTargets() && result.getBestTarget()!=null? 
