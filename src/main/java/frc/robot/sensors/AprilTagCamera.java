@@ -37,9 +37,20 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
 
     public AprilTagCamera() {
         super(DEFAULT_CAM_NAME);
+	}
+	
+	public double getDistanceToTarget() {
+		return getDistanceToBestTarget();
+		//return getDistanceToHighValueTarget();
+	}
+
+	public double getAngleToTurnToTarget() {
+        return getAngleToTurnToBestTarget();
+		//return getAngleToTurnToHighValueTarget();
     }
 
-    public double getDistanceToTarget() {
+
+    public double getDistanceToBestTarget() {
         PhotonPipelineResult result = getLatestResult();
 
         if (result.hasTargets() && result.getBestTarget()!=null) {
@@ -61,7 +72,7 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
             0.0;
     }
 
-    public double getAngleToTurnToTarget()
+    public double getAngleToTurnToBestTarget()
     {
         return +getYaw();
     }
@@ -91,6 +102,7 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
             result.getBestTarget().getFiducialId():
             0;
     }
+
 
 	public PhotonTrackedTarget getHighValueTarget(PhotonPipelineResult result) {
 
