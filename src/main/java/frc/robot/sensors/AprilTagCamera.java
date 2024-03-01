@@ -31,8 +31,8 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
 
     //TODO: UPDATE CAM SETTINGS FOR NEW ROBOT
     private static final String DEFAULT_CAM_NAME = "AprilTagCamera";
-    private static final double CAMERA_HEIGHT_METERS =  Units.inchesToMeters(19);
-    private static final double TARGET_HEIGHT_METERS = Units.inchesToMeters(54); // may need to change 
+    private static final double CAMERA_HEIGHT_METERS =  Units.inchesToMeters(18);
+    private static final double TARGET_HEIGHT_METERS = Units.inchesToMeters(60); // may need to change 
     private static final double CAMERA_PITCH_RADIANS = Units.degreesToRadians(+20.0); // tilt of our camera (radians)
 
     public AprilTagCamera() {
