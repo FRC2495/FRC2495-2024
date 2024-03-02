@@ -38,10 +38,14 @@ public class DrivetrainDriveUsingAprilTagCamera extends Command {
 	@Override
 	public void execute() {
 
+		double angle = camera.getAngleToTurnToTarget();
+
+		angle += 0.0; // apply offset in degrees to compensate for shooter being a bit crooked - TODO adjust as needed
+
 		drivetrain.drive(
 			-MathUtil.applyDeadband(joystick.getY(), JOYSTICK_AXIS_THRESHOLD),
 			-MathUtil.applyDeadband(joystick.getX(), JOYSTICK_AXIS_THRESHOLD),
-			-camera.getAngleToTurnToTarget()/90.00,
+			-angle/90.00,
 			true, true);
 	}
 
