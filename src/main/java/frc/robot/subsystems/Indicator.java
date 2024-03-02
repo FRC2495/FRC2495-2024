@@ -7,6 +7,8 @@
 
 package frc.robot.subsystems;
 
+import javax.xml.xpath.XPathExpressionException;
+
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -24,14 +26,16 @@ import frc.robot.Ports;
 public class Indicator extends SubsystemBase {
 	private AddressableLED led;
 	private AddressableLEDBuffer ledBuffer;
-	private ICamera camera;
+	private ICamera apriltag_camera;
+	private ICamera object_detection_camera;
 
 	// Store what the last hue of the first pixel is
 	private int rainbowFirstPixelHue;
 	
-	public Indicator(ICamera camera_in) 
+	public Indicator(ICamera apriltag_camera_in, ICamera object_detection_camera_in) 
 	{
-		camera = camera_in;
+		apriltag_camera = apriltag_camera_in;
+		object_detection_camera = object_detection_camera_in;
 		
 		led = new AddressableLED(Ports.PWM.LED_STRIP);
 
@@ -115,12 +119,17 @@ public class Indicator extends SubsystemBase {
 		setHue(120);
 	}
 
+	public void setPurple()
+	{
+		setHue(160);
+	}
+
 	public void updateFromCamera() {
 
-		if (camera == null) return;
+		if (apriltag_camera == null) return;
 
-		double distance = camera.getDistanceToTarget();  // will return 0.0 by convention if no target acquired
-		double angle = camera.getAngleToTurnToTarget(); // angle call not atomic with distance call, but good enough for this use case
+		double distance = apriltag_camera.getDistanceToTarget();  // will return 0.0 by convention if no target acquired
+		double angle = apriltag_camera.getAngleToTurnToTarget(); // angle call not atomic with distance call, but good enough for this use case
 		
 		if (distance > 0.0) { // if we saw something
 			if (Math.abs(angle) < 5) { // displays green if in target
@@ -133,7 +142,31 @@ public class Indicator extends SubsystemBase {
 				setRed();
 			}
 		} else { // no target, so arbitrarily displays blue 
-			setBlue();
+			//setBlue();
+
+
+			///////////
+			if (object_detection_camera == null) return;
+
+					double distance_note = object_detection_camera.getDistanceToTarget();  // will return 0.0 by convention if no target acquired
+					//double angle_note = object_detection_camera.getAngleToTurnToTarget(); // angle call not atomic with distance call, but good enough for this use case
+					
+					if (distance_note > 0.0) { // if we saw something
+						/*if (Math.abs(angle_note) < 5) { // displays green if in target
+							setGreen();
+						}
+						else if (Math.abs(angle_note) < 15) { // displays yellow if close to target
+							setYellow();
+						}
+						else { // displays red if far from target 
+							setRed();
+						}*/
+						setPurple();
+					} else { // no target, so arbitrarily displays blue 
+						setBlue();
+					}
+			//////////
+			
 		}
 
 	}

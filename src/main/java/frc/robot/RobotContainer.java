@@ -210,7 +210,7 @@ public class RobotContainer {
 
 	private final Field2d field = new Field2d(); //  a representation of the field
 
-	private final Indicator indicator = new Indicator(apriltag_camera);
+	private final Indicator indicator = new Indicator(apriltag_camera, object_detection_camera);
 
 	// The driver's and copilot's joystick(s) and controller(s)
 
