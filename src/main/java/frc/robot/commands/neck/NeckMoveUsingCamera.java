@@ -32,11 +32,14 @@ public class NeckMoveUsingCamera extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	public void execute() {
-		double distance = camera!=null? camera.getDistanceToTarget():36;
+		double distance = camera!=null? camera.getDistanceToTarget():0.0; // call will return 0.0 by convention if no target acquired
 
-		double magic_encoder_ticks = Magic.getEncoderCounts(distance);
+		if (distance != 0.0) // only moves neck if target is acquired - noop otherwise
+		{
+			double magic_encoder_ticks = Magic.getEncoderCounts(distance);
 
-		neck.moveCustom(magic_encoder_ticks);
+			neck.moveCustom(magic_encoder_ticks);
+		}
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
