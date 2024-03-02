@@ -4,6 +4,6 @@ public class Magic {
     
     public static double getEncoderCounts(double distance)
     {
-        return -(869 * distance - 6359);
+        return -(-6.8622*distance*distance+1542.1*distance-17642);
     }
 }
