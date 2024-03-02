@@ -1889,6 +1889,19 @@
               "imageWidth": 0,
               "imageHeight": 0
             }
+          },
+          "6,4": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Shooter Rpm",
+              "_title": "SmartDashboard/Shooter Rpm",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
           }
         }
       }
@@ -2237,6 +2250,45 @@
               "Colors/Color when true": "#7CFC00FF",
               "Colors/Color when false": "#8B0000FF"
             }
+          },
+          "9,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Shooter Rpm",
+              "_title": "SmartDashboard/Shooter Rpm",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "9,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Angle to AprilTag",
+              "_title": "SmartDashboard/Angle to AprilTag",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "9,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Distance to AprilTag",
+              "_title": "SmartDashboard/Distance to AprilTag",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
           }
         }
       }
@@ -2531,6 +2583,32 @@
               "_type": "Text View",
               "_source0": "network_table:///SmartDashboard/Shooter Rpm",
               "_title": "SmartDashboard/Shooter Rpm",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "8,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Distance to AprilTag",
+              "_title": "SmartDashboard/Distance to AprilTag",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "8,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Angle to AprilTag",
+              "_title": "SmartDashboard/Angle to AprilTag",
               "_glyph": 148,
               "_showGlyph": false
             }
