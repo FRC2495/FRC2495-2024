@@ -439,11 +439,12 @@ public class RobotContainer {
 			.onTrue(new NeckMoveUpWithStallDetection(neck));
 
 
-		/*copilotGamepad.leftBumper()
+		copilotGamepad.leftBumper()
 			//.onTrue(new NeckMoveUpWithStallDetection(neck));
-			.onTrue(new NeckMoveUpWithStallDetection(neck));
+			//.onTrue(new NeckMoveUpWithStallDetection(neck));
+			.whileTrue(new NeckMoveUsingCamera(neck, apriltag_camera));
 
-		copilotGamepad.rightBumper()
+		/*copilotGamepad.rightBumper()
 			.onTrue(new NeckMoveDownWithStallDetection(neck));*/
 
 

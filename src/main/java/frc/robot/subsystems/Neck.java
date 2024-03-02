@@ -281,6 +281,23 @@ public class Neck extends SubsystemBase implements INeck {
 		stalledCount = 0;
 	}
 
+	public void moveCustom(double encoder_ticks) {	
+
+		//setPIDParameters();
+		//System.out.println("Moving Custom");
+		
+		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
+
+		tac = encoder_ticks;
+		neck.set(ControlMode.Position,tac);
+		
+		isMoving = true;
+		isMovingUp = true;
+		onTargetCount = 0;
+		isReallyStalled = false;
+		stalledCount = 0;
+	}
+
 	public void moveMidway() {	
 
 		//setPIDParameters();
