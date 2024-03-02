@@ -30,7 +30,7 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+//import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 //import com.revrobotics.CANSparkMax;
 //import com.revrobotics.CANSparkLowLevel.MotorType;
 
@@ -93,6 +93,8 @@ public class RobotContainer {
 	public static final int RT = 3;
 	public static final int RX = 4;
 	public static final int RY = 5;
+
+	Command indicatorTimedScrollRainbow; // command to run while stating up and when disabled
 
 	// choosers (for auton)
 	
@@ -174,7 +176,6 @@ public class RobotContainer {
 	private final Drawer drawer = new Drawer(drawer_master);*/
 
 	private final WPI_TalonFX elevator_master = new WPI_TalonFX(Ports.CAN.ELEVATOR_MASTER);
-
 	private final WPI_TalonFX elevator_follower = new WPI_TalonFX(Ports.CAN.ELEVATOR_FOLLOWER);
 
 	private final /*I*/Elevator elevator = new Elevator(elevator_master, elevator_follower);
@@ -191,7 +192,6 @@ public class RobotContainer {
 	private final /*I*/Roller roller = new Roller(roller_master, roller_follower);
 
 	//private final CANSparkMax shooter_master = new CANSparkMax(Ports.CAN.SHOOTER_MASTER, MotorType.kBrushless);
-
 	//private final CANSparkMax shooter_follower = new CANSparkMax(Ports.CAN.SHOOTER_FOLLOWER, MotorType.kBrushless);
 
 	//private final /*I*/SimpleShooter shooter = new SimpleShooter(shooter_master, shooter_follower);
@@ -210,7 +210,7 @@ public class RobotContainer {
 
 	private final Field2d field = new Field2d(); //  a representation of the field
 
-	private final Indicator indicator = new Indicator(null);
+	private final Indicator indicator = new Indicator(apriltag_camera);
 
 	// The driver's and copilot's joystick(s) and controller(s)
 
@@ -308,8 +308,10 @@ public class RobotContainer {
 
 		//compressor.checkCompressor(); //we compress in the background
 
-		indicator.setDefaultCommand(new IndicatorScrollRainbow(indicator)); // temp
+		indicator.setDefaultCommand(new IndicatorIndicateUsingCamera(indicator)); // default command, only runs when robot is enabled
 
+		indicatorTimedScrollRainbow = new IndicatorTimedScrollRainbow(indicator,1);
+		indicatorTimedScrollRainbow.schedule(); // we schedule the command as we are starting up
 	}
 
 	/**

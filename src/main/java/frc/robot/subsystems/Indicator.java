@@ -117,19 +117,24 @@ public class Indicator extends SubsystemBase {
 
 	public void updateFromCamera() {
 
-		/*if (camera != null && camera.getNumberOfTargets() > 0) {
-			if (Math.abs(camera.getAngleToTurnToTarget()) < 5) { // displays green if in target
+		if (camera == null) return;
+
+		double distance = camera.getDistanceToTarget();  // will return 0.0 by convention if no target acquired
+		double angle = camera.getAngleToTurnToTarget(); // angle call not atomic with distance call, but good enough for this use case
+		
+		if (distance > 0.0) { // if we saw something
+			if (Math.abs(angle) < 5) { // displays green if in target
 				setGreen();
 			}
-			else if (Math.abs(camera.getAngleToTurnToTarget()) < 15) { // displays yellow if close to target
+			else if (Math.abs(angle) < 15) { // displays yellow if close to target
 				setYellow();
 			}
 			else { // displays red if far from target 
 				setRed();
 			}
-		} else { // no camera or no target, so arbitrarily displays blue 
+		} else { // no target, so arbitrarily displays blue 
 			setBlue();
-		}*/
+		}
 
 	}
 }
