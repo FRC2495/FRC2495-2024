@@ -50,7 +50,10 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
 		//double angle = getAngleToTurnToBestTarget();
 		double angle = getAngleToTurnToHighValueTarget();
 
-		angle += APRILTAG_CAMERA_SHOOTER_ALIGNMENT_CORRECTION_DEGREES; // apply offset in degrees to compensate for shooter being a bit crooked
+		if (angle != 0.0) // only if we can see a target, so we continue to return 0.0 if we don't see one.
+		{
+			angle += APRILTAG_CAMERA_SHOOTER_ALIGNMENT_CORRECTION_DEGREES; // apply offset in degrees to compensate for shooter being a bit crooked
+		}
 
 		return angle;
 	}
