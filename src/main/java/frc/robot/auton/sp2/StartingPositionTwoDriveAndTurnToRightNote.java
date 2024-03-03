@@ -33,7 +33,7 @@ public class StartingPositionTwoDriveAndTurnToRightNote extends SequentialComman
   
 	}
 	
-	public Trajectory createPickupRightThirdNoteTrajectory(RobotContainer container) {
+	public static Trajectory createPickupRightThirdNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -47,7 +47,7 @@ public class StartingPositionTwoDriveAndTurnToRightNote extends SequentialComman
 		return trajectory;
 	}	
 
-	public Trajectory createMoveForwardTrajectory(RobotContainer container) {
+	public static Trajectory createMoveForwardTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction

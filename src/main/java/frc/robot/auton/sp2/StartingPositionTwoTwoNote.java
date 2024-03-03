@@ -60,7 +60,7 @@ public class StartingPositionTwoTwoNote extends SequentialCommandGroup {
 	}
 
 	
-	public Trajectory createShootSecondNoteTrajectory(RobotContainer container) {
+	public static Trajectory createShootSecondNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -74,7 +74,7 @@ public class StartingPositionTwoTwoNote extends SequentialCommandGroup {
 		return trajectory;
 	}
 
-	public Trajectory createLeaveAfterShootSecondNoteTrajectory(RobotContainer container) {
+	public static Trajectory createLeaveAfterShootSecondNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction

@@ -45,7 +45,7 @@ public class StartingPositionTwoPickupLeftThirdNote extends ParallelCommandGroup
 	}
    
 	
-	public Trajectory createPickupLeftThirdNoteTrajectory(RobotContainer container) {
+	public static Trajectory createPickupLeftThirdNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction

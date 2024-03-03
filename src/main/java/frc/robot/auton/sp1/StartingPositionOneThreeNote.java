@@ -78,7 +78,7 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
   
 	}
 
-	public Trajectory createShootThirdNoteTrajectory(RobotContainer container) {
+	public static Trajectory createShootThirdNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
