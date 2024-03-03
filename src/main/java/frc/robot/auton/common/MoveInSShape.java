@@ -20,17 +20,17 @@ public class MoveInSShape extends SequentialCommandGroup {
 
 	private double distance;
 
-    public MoveInSShape(SwerveDrivetrain drivetrain, RobotContainer container, double distance) {
+	public MoveInSShape(SwerveDrivetrain drivetrain, RobotContainer container, double distance) {
 
 		this.distance = distance;
 
-        addCommands(
+		addCommands(
 
 			new DrivetrainSwerveRelative(drivetrain, container, createSShapeTrajectory(container))
-           
-        ); 
+		   
+		); 
   
-    }
+	}
 
 	public Trajectory createSShapeTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.

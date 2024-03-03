@@ -25,19 +25,19 @@ import frc.robot.sensors.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionSixPickupThirdNote extends ParallelCommandGroup {
 
-    public StartingPositionSixPickupThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, NoteSensor notesensor){
+	public StartingPositionSixPickupThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, NoteSensor notesensor){
 
-        addCommands(
+		addCommands(
 
 			new RollerSuperSmartRoll(roller, notesensor),
 
-            new DrivetrainSwerveRelative(drivetrain, container, createPickupThirdNoteTrajectory(container))
-            
-        ); 
+			new DrivetrainSwerveRelative(drivetrain, container, createPickupThirdNoteTrajectory(container))
+			
+		); 
   
-    }
+	}
    
-    public Trajectory createPickupThirdNoteTrajectory(RobotContainer container) {
+	public Trajectory createPickupThirdNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -46,7 +46,7 @@ public class StartingPositionSixPickupThirdNote extends ParallelCommandGroup {
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_X-AutonConstants.DISTANCE_FROM_AREA_BEFORE_THIRD_PICKUP_TO_THIRD_PICKUP_X, AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_X-AutonConstants.DISTANCE_FROM_AREA_BEFORE_THIRD_PICKUP_TO_THIRD_PICKUP_Y, Rotation2d.fromDegrees(145)),
-            container.createTrajectoryConfig());
+			container.createTrajectoryConfig());
 
 		return trajectory;
 	}

@@ -10,9 +10,9 @@ import frc.robot.subsystems.Drawer;
  */
 public class DrawerStop extends InstantCommand {
 
-    private Drawer drawer;
+	private Drawer drawer;
 	public DrawerStop(Drawer drawer) {
-        this.drawer = drawer;
+		this.drawer = drawer;
 		addRequirements(drawer);
 	} 
 

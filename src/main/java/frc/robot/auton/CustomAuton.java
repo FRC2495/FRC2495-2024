@@ -30,17 +30,17 @@ public class CustomAuton extends SequentialCommandGroup {
 	String autonOption;
 
 	/**
-     * Add your docs here.
-     * 
-     * @param gamePiece_in game piece
+	 * Add your docs here.
+	 * 
+	 * @param gamePiece_in game piece
 	 * @param startPosition_in starting position
-     * @param mainTarget_in    main target
-     * @param cameraOption_in  camera option
-     * @param sonarOption_in   sonar option
-     * @param autonOption_in   auton option
-    */
-    public CustomAuton(String gamePiece_in, String startPosition_in, String mainTarget_in, String cameraOption_in,
-            String sonarOption_in, String autonOption_in, SwerveDrivetrain drivetrain, RobotContainer container,
+	 * @param mainTarget_in    main target
+	 * @param cameraOption_in  camera option
+	 * @param sonarOption_in   sonar option
+	 * @param autonOption_in   auton option
+	*/
+	public CustomAuton(String gamePiece_in, String startPosition_in, String mainTarget_in, String cameraOption_in,
+			String sonarOption_in, String autonOption_in, SwerveDrivetrain drivetrain, RobotContainer container,
 			Elevator elevator, Roller roller, Neck neck, Shooter shooter, ICamera object_detection_camera, ICamera apriltag_camera, NoteSensor notesensor) {
 
 		gamePiece = gamePiece_in;
@@ -430,10 +430,10 @@ public class CustomAuton extends SequentialCommandGroup {
 						
 				}
 				break;
-            default:{
-                //nothing
-                break;
-            }
+			default:{
+				//nothing
+				break;
+			}
 			
 
 		} // end switch

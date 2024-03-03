@@ -26,20 +26,20 @@ import frc.robot.sensors.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionTwoPickupSecondNote extends ParallelCommandGroup {
 
-    public StartingPositionTwoPickupSecondNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, NoteSensor notesensor){
+	public StartingPositionTwoPickupSecondNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, NoteSensor notesensor){
 
-        addCommands(
+		addCommands(
 
 			new RollerSuperSmartRoll(roller, notesensor),
 
-            new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container))
-            
-        ); 
+			new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container))
+			
+		); 
   
-    }
+	}
    
-    
-    public Trajectory createPickupSecondNoteTrajectory(RobotContainer container) {
+	
+	public Trajectory createPickupSecondNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -48,7 +48,7 @@ public class StartingPositionTwoPickupSecondNote extends ParallelCommandGroup {
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.STARTING_POSITION_2_X_VALUE-AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_X, AutonConstants.STARTING_POSITION_2_Y_VALUE-AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_Y, Rotation2d.fromDegrees(180)),
-            container.createTrajectoryConfig());
+			container.createTrajectoryConfig());
 
 		return trajectory;
 	}	

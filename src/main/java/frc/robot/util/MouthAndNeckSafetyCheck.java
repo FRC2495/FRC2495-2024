@@ -15,16 +15,16 @@ import frc.robot.subsystems.Neck;
  */
 public class MouthAndNeckSafetyCheck implements BooleanSupplier
 {
-    private Mouth mouth;
-    private Neck neck;
+	private Mouth mouth;
+	private Neck neck;
 
-    public MouthAndNeckSafetyCheck(Mouth mouth, Neck neck) {
-        this.mouth = mouth;
+	public MouthAndNeckSafetyCheck(Mouth mouth, Neck neck) {
+		this.mouth = mouth;
 		this.neck = neck;
 	}
 
-    @Override
-    public boolean getAsBoolean() {
-        return !mouth.isDangerous() && !neck.isDangerous();
-    }
+	@Override
+	public boolean getAsBoolean() {
+		return !mouth.isDangerous() && !neck.isDangerous();
+	}
 }

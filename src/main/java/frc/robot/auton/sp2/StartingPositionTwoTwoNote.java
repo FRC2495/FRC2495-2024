@@ -29,9 +29,9 @@ import frc.robot.sensors.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionTwoTwoNote extends SequentialCommandGroup {
 
-    public StartingPositionTwoTwoNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, NoteSensor notesensor){
+	public StartingPositionTwoTwoNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, NoteSensor notesensor){
 
-        addCommands(
+		addCommands(
 
 			new NeckHome(neck),
 
@@ -43,7 +43,7 @@ public class StartingPositionTwoTwoNote extends SequentialCommandGroup {
 
 			new WaitCommand(.5),
 
-            new StartingPositionTwoPickupSecondNote(container, drivetrain, roller, notesensor),
+			new StartingPositionTwoPickupSecondNote(container, drivetrain, roller, notesensor),
 
 			new NeckMoveSubWithStallDetection(neck),
 
@@ -55,12 +55,12 @@ public class StartingPositionTwoTwoNote extends SequentialCommandGroup {
 
 			new DrivetrainSwerveRelative(drivetrain, container, createLeaveAfterShootSecondNoteTrajectory(container))
 
-        ); 
+		); 
   
-    }
+	}
 
-    
-    public Trajectory createShootSecondNoteTrajectory(RobotContainer container) {
+	
+	public Trajectory createShootSecondNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -69,7 +69,7 @@ public class StartingPositionTwoTwoNote extends SequentialCommandGroup {
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_X-AutonConstants.STARTING_POSITION_2_X_VALUE, AutonConstants.STARTING_POSITION_2_Y_VALUE-AutonConstants.STARTING_POSITION_2_Y_VALUE, Rotation2d.fromDegrees(180)),
-            container.createReverseTrajectoryConfig());
+			container.createReverseTrajectoryConfig());
 
 		return trajectory;
 	}
@@ -83,7 +83,7 @@ public class StartingPositionTwoTwoNote extends SequentialCommandGroup {
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.STARTING_POSITION_2_X_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEAVE_X, AutonConstants.STARTING_POSITION_2_Y_VALUE-AutonConstants.STARTING_POSITION_2_Y_VALUE, Rotation2d.fromDegrees(180)),
-            container.createTrajectoryConfig());
+			container.createTrajectoryConfig());
 
 		return trajectory;
 	}

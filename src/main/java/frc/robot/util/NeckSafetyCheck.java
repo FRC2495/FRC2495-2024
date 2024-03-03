@@ -14,14 +14,14 @@ import frc.robot.subsystems.Neck;
  */
 public class NeckSafetyCheck implements BooleanSupplier
 {
-    private Neck neck;
+	private Neck neck;
 
-    public NeckSafetyCheck(Neck neck) {
+	public NeckSafetyCheck(Neck neck) {
 		this.neck = neck;
 	}
 
-    @Override
-    public boolean getAsBoolean() {
-        return !neck.isDangerous();
-    }
+	@Override
+	public boolean getAsBoolean() {
+		return !neck.isDangerous();
+	}
 }

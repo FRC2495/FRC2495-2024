@@ -17,19 +17,19 @@ import frc.robot.subsystems.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class MoveForward extends SequentialCommandGroup {
 
-    private double distance;
+	private double distance;
 	
 	public MoveForward(SwerveDrivetrain drivetrain, RobotContainer container, double distance) {
 
-        this.distance = distance;
+		this.distance = distance;
 		
 		addCommands(
 			new DrivetrainSwerveRelative(drivetrain, container, createMoveForwardTrajectory(container))
-        ); 
+		); 
   
-    }
-    
-    public Trajectory createMoveForwardTrajectory(RobotContainer container) {
+	}
+	
+	public Trajectory createMoveForwardTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the +X direction

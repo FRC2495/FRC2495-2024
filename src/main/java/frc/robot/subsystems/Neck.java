@@ -90,7 +90,7 @@ public class Neck extends SubsystemBase implements INeck {
 
 	/**
  	* The {@code Neck} class contains fields and methods pertaining to the function of the neck.
-    */	
+	*/	
 	public Neck(WPI_TalonFX neck_in, BaseMotorController neck_follower_in) {
 		neck = neck_in;
 		neck_follower = neck_follower_in;

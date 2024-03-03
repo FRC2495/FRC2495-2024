@@ -11,12 +11,12 @@ import frc.robot.subsystems.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class CompletelyLeaveCommunity extends SequentialCommandGroup {
 
-    public CompletelyLeaveCommunity(SwerveDrivetrain drivetrain, RobotContainer container) {
+	public CompletelyLeaveCommunity(SwerveDrivetrain drivetrain, RobotContainer container) {
 
-        addCommands(
-            new MoveInReverse(drivetrain, container, AutonConstants.DISTANCE_FROM_STARTING_POSITION_TO_LEAVE_COMMUNITY_METERS)            
-        ); 
+		addCommands(
+			new MoveInReverse(drivetrain, container, AutonConstants.DISTANCE_FROM_STARTING_POSITION_TO_LEAVE_COMMUNITY_METERS)            
+		); 
   
-    }
+	}
    
 }

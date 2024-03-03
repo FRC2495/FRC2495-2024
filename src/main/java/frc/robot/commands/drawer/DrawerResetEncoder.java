@@ -9,10 +9,10 @@ import frc.robot.subsystems.Drawer;
  */
 public class DrawerResetEncoder extends InstantCommand {
 
-    private Drawer drawer;
+	private Drawer drawer;
 
 	public DrawerResetEncoder(Drawer drawer) {
-        this.drawer = drawer;
+		this.drawer = drawer;
 		addRequirements(drawer);
 	}
 

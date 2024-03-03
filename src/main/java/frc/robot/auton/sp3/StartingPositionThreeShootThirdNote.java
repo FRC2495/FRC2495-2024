@@ -24,18 +24,18 @@ import frc.robot.interfaces.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionThreeShootThirdNote extends ParallelCommandGroup {
 
-    public StartingPositionThreeShootThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, ICamera apriltag_camera){
+	public StartingPositionThreeShootThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, ICamera apriltag_camera){
 
-        addCommands(
+		addCommands(
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),
 			
 			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera) // change to april tag command later
-        ); 
+		); 
   
-    }
+	}
    
-    
+	
 	public Trajectory createShootThirdNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
@@ -45,7 +45,7 @@ public class StartingPositionThreeShootThirdNote extends ParallelCommandGroup {
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_THIRD_NOTE_PICKUP_TO_SHOOT_X-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_THIRD_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_THIRD_NOTE_PICKUP_TO_SHOOT_Y-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_THIRD_NOTE_PICKUP_Y, Rotation2d.fromDegrees(120)),
-            container.createReverseTrajectoryConfig());
+			container.createReverseTrajectoryConfig());
 
 		return trajectory;
 	}

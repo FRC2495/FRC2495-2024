@@ -29,11 +29,11 @@ public class StartingPositionTwoDriveAndTurnToLeftNote extends SequentialCommand
 
 			new DrivetrainSwerveRelative(drivetrain, container, createMoveForwardTrajectory(container))
 
-        ); 
+		); 
   
-    }
-    
-    public Trajectory createPickupLeftThirdNoteTrajectory(RobotContainer container) {
+	}
+	
+	public Trajectory createPickupLeftThirdNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -42,7 +42,7 @@ public class StartingPositionTwoDriveAndTurnToLeftNote extends SequentialCommand
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.STARTING_POSITION_2_X_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_X, AutonConstants.STARTING_POSITION_2_Y_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_Y, Rotation2d.fromDegrees(-90)),
-            container.createTrajectoryConfig());
+			container.createTrajectoryConfig());
 
 		return trajectory;
 	}	
@@ -56,7 +56,7 @@ public class StartingPositionTwoDriveAndTurnToLeftNote extends SequentialCommand
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_X-AutonConstants.DISTANCE_TO_PICKUP_LEFT_THIRD_NOTE_X, AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_X-AutonConstants.DISTANCE_TO_PICKUP_LEFT_THIRD_NOTE_Y, Rotation2d.fromDegrees(180)),
-            container.createTrajectoryConfig());
+			container.createTrajectoryConfig());
 
 		return trajectory;
 	}	

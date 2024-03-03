@@ -24,21 +24,21 @@ import frc.robot.sensors.*;
 
 public class StartingPositionOnePickupThirdNote extends ParallelCommandGroup {
 
-    public StartingPositionOnePickupThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, ICamera object_detection_camera, NoteSensor notesensor){
+	public StartingPositionOnePickupThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, ICamera object_detection_camera, NoteSensor notesensor){
 
-        addCommands(
+		addCommands(
 
 			new RollerSuperSmartRoll(roller, notesensor),
 
 			//new DrivetrainTurnUsingCamera(drivetrain, camera),     use only if below doesnt work 
 
-            new DrivetrainSwerveRelative(drivetrain, container, createPickupThirdNoteTrajectory(container))
+			new DrivetrainSwerveRelative(drivetrain, container, createPickupThirdNoteTrajectory(container))
  
-        ); 
+		); 
   
-    }
+	}
    
-    public Trajectory createPickupThirdNoteTrajectory(RobotContainer container) {
+	public Trajectory createPickupThirdNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -47,7 +47,7 @@ public class StartingPositionOnePickupThirdNote extends ParallelCommandGroup {
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_SECOND_NOTE_PICKUP_X-AutonConstants.DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_THIRD_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_SECOND_NOTE_PICKUP_Y-AutonConstants.DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_THIRD_NOTE_PICKUP_Y, Rotation2d.fromDegrees(65)),
-            container.createTrajectoryConfig());
+			container.createTrajectoryConfig());
 
 		return trajectory;
 	}

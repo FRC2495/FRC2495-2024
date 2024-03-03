@@ -23,19 +23,19 @@ import frc.robot.sensors.*;
 
 public class StartingPositionOnePickupSecondNote extends ParallelCommandGroup {
 
-    public StartingPositionOnePickupSecondNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, NoteSensor notesensor){
+	public StartingPositionOnePickupSecondNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, NoteSensor notesensor){
 
-        addCommands(
+		addCommands(
 
 			new RollerSuperSmartRoll(roller, notesensor),
 
-            new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container))
-            
-        ); 
+			new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container))
+			
+		); 
   
-    }
+	}
    
-    public Trajectory createPickupSecondNoteTrajectory(RobotContainer container) {
+	public Trajectory createPickupSecondNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -44,7 +44,7 @@ public class StartingPositionOnePickupSecondNote extends ParallelCommandGroup {
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.STARTING_POSITION_1_X_VALUE-AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_SECOND_NOTE_PICKUP_X, AutonConstants.STARTING_POSITION_1_Y_VALUE-AutonConstants.STARTING_POSITION_1_Y_VALUE, Rotation2d.fromDegrees(180)),
-            container.createTrajectoryConfig());
+			container.createTrajectoryConfig());
 
 		return trajectory;
 	}

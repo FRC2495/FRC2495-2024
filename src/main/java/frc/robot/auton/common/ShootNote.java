@@ -12,20 +12,20 @@ import frc.robot.subsystems.*;
 
 public class ShootNote extends SequentialCommandGroup {
 
-    public ShootNote(Shooter shooter, Roller roller) {
+	public ShootNote(Shooter shooter, Roller roller) {
 
-        addCommands(
+		addCommands(
 
-            new ShooterTimedShootHighNoStop(shooter, 0.5),
+			new ShooterTimedShootHighNoStop(shooter, 0.5),
 
 			new RollerTimedRoll(roller, .2),
 
 			new ShooterStop(shooter),
 
 			new WaitCommand(.25) //.5 //1 // we wait so when we pick up the next note, it doesn't shoot up :)
-                        
-        ); 
+						
+		); 
   
-    }
+	}
    
 }

@@ -30,9 +30,9 @@ import frc.robot.interfaces.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionSixThreeNote extends SequentialCommandGroup {
 
-    public StartingPositionSixThreeNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, NoteSensor notesensor, ICamera object_detection_camera, ICamera apriltag_camera){
+	public StartingPositionSixThreeNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, NoteSensor notesensor, ICamera object_detection_camera, ICamera apriltag_camera){
 
-        addCommands(
+		addCommands(
 
 			new NeckHome(neck),
 
@@ -40,7 +40,7 @@ public class StartingPositionSixThreeNote extends SequentialCommandGroup {
 
 			new ShootNote(shooter, roller),
 
-            new NeckMoveDownWithStallDetection(neck),
+			new NeckMoveDownWithStallDetection(neck),
 
 			new StartingPositionSixPickupSecondNote(container, drivetrain, roller, notesensor),
 
@@ -68,9 +68,9 @@ public class StartingPositionSixThreeNote extends SequentialCommandGroup {
 
 			new ShootNote(shooter, roller)
 
-        ); 
+		); 
   
-    }
+	}
 
 	public Trajectory createAreaBeforeThirdNotePickupTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
@@ -81,11 +81,11 @@ public class StartingPositionSixThreeNote extends SequentialCommandGroup {
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.STARTING_POSITION_6_X_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_X, AutonConstants.STARTING_POSITION_6_Y_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_Y, Rotation2d.fromDegrees(120)),
-            container.createTrajectoryConfig());
+			container.createTrajectoryConfig());
 
 		return trajectory;
 	}
-    
+	
 	public Trajectory createAreaBeforeShootThirdNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
@@ -95,7 +95,7 @@ public class StartingPositionSixThreeNote extends SequentialCommandGroup {
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_X-AutonConstants.DISTANCE_FROM_AREA_BEFORE_THIRD_PICKUP_TO_THIRD_PICKUP_X, AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_Y-AutonConstants.DISTANCE_FROM_AREA_BEFORE_THIRD_PICKUP_TO_THIRD_PICKUP_X, Rotation2d.fromDegrees(180)),
-            container.createReverseTrajectoryConfig());
+			container.createReverseTrajectoryConfig());
 
 		return trajectory;
 	}
@@ -109,7 +109,7 @@ public class StartingPositionSixThreeNote extends SequentialCommandGroup {
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_NOTE_PICKUP_X-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_NOTE_PICKUP_Y-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_X, Rotation2d.fromDegrees(-35)),
-            container.createReverseTrajectoryConfig());
+			container.createReverseTrajectoryConfig());
 
 		return trajectory;
 	}

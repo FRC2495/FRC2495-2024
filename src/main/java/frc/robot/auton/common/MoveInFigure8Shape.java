@@ -20,15 +20,15 @@ public class MoveInFigure8Shape extends SequentialCommandGroup {
 
 	private double sideLength;
 
-    public MoveInFigure8Shape(SwerveDrivetrain drivetrain, RobotContainer container, double sideLength) {
+	public MoveInFigure8Shape(SwerveDrivetrain drivetrain, RobotContainer container, double sideLength) {
 
-        this.sideLength = sideLength;
+		this.sideLength = sideLength;
 		
 		addCommands(
 			new DrivetrainSwerveRelative(drivetrain, container, createFigure8ShapeTrajectory(container))           
-        ); 
+		); 
 
-    }
+	}
 
 	public Trajectory createFigure8ShapeTrajectory(RobotContainer container) {
 	// An example trajectory to follow. All units in meters.

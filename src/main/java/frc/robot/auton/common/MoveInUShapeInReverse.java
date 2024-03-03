@@ -20,17 +20,17 @@ public class MoveInUShapeInReverse extends SequentialCommandGroup {
 
 	private double sideLength;
 
-    public MoveInUShapeInReverse(SwerveDrivetrain drivetrain, RobotContainer container, double sideLength) {
+	public MoveInUShapeInReverse(SwerveDrivetrain drivetrain, RobotContainer container, double sideLength) {
 
 		this.sideLength = sideLength;
 
-        addCommands(
+		addCommands(
 
 			new DrivetrainSwerveRelative(drivetrain, container, createUShapeInReverseTrajectory(container))
-           
-        ); 
+		   
+		); 
   
-    }
+	}
 
 	public Trajectory createUShapeInReverseTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.

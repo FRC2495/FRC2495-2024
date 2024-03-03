@@ -33,7 +33,7 @@ public class DrivetrainLeftSubHeading extends InstantCommand {
 		System.out.println("DrivetrainLeftSubHeading: initialize");
 
 		Optional<Alliance> alliance = DriverStation.getAlliance();
-	    Alliance allianceColor = alliance.isPresent() ? alliance.get() : Alliance.Blue;
+		Alliance allianceColor = alliance.isPresent() ? alliance.get() : Alliance.Blue;
 
 		if (allianceColor == Alliance.Blue)
 		{

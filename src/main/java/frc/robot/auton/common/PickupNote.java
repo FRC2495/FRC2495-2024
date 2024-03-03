@@ -17,18 +17,18 @@ import frc.robot.commands.roller.*;
 
 
 public class PickupNote extends ParallelCommandGroup{
-    
-    public PickupNote(SwerveDrivetrain drivetrain, RobotContainer container, Roller roller) {
+	
+	public PickupNote(SwerveDrivetrain drivetrain, RobotContainer container, Roller roller) {
 
-        addCommands(
+		addCommands(
 
-            new RollerTimedRoll(roller, .5),
+			new RollerTimedRoll(roller, .5),
 
-            new DrivetrainSwerveRelative(drivetrain, container, createAreaBeforeNotePickupTrajectory(container))        
-        );
-    }
-    
-    public Trajectory createAreaBeforeNotePickupTrajectory(RobotContainer container) {
+			new DrivetrainSwerveRelative(drivetrain, container, createAreaBeforeNotePickupTrajectory(container))        
+		);
+	}
+	
+	public Trajectory createAreaBeforeNotePickupTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction

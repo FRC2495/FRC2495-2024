@@ -19,15 +19,15 @@ public class MoveInGammaShape extends SequentialCommandGroup {
 
 	private double sideLength;
 
-    public MoveInGammaShape(SwerveDrivetrain drivetrain, RobotContainer container, double sideLength) {
+	public MoveInGammaShape(SwerveDrivetrain drivetrain, RobotContainer container, double sideLength) {
 
-        this.sideLength = sideLength;
+		this.sideLength = sideLength;
 		
 		addCommands(
 			new DrivetrainSwerveRelative(drivetrain, container, createGammaShapeTrajectory(container))           
-        ); 
+		); 
 
-    }
+	}
 
 	public Trajectory createGammaShapeTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.

@@ -29,16 +29,16 @@ import frc.robot.interfaces.ICamera;
 /** Wrapper for PhotonCamera class */
 public class AprilTagCamera extends PhotonCamera implements ICamera {
 
-    //TODO: UPDATE CAM SETTINGS FOR NEW ROBOT
-    private static final String DEFAULT_CAM_NAME = "AprilTagCamera";
-    private static final double CAMERA_HEIGHT_METERS =  Units.inchesToMeters(18);
-    private static final double TARGET_HEIGHT_METERS = Units.inchesToMeters(60); // may need to change 
-    private static final double CAMERA_PITCH_RADIANS = Units.degreesToRadians(+20.0); // tilt of our camera (radians)
+	//TODO: UPDATE CAM SETTINGS FOR NEW ROBOT
+	private static final String DEFAULT_CAM_NAME = "AprilTagCamera";
+	private static final double CAMERA_HEIGHT_METERS =  Units.inchesToMeters(18);
+	private static final double TARGET_HEIGHT_METERS = Units.inchesToMeters(60); // may need to change 
+	private static final double CAMERA_PITCH_RADIANS = Units.degreesToRadians(+20.0); // tilt of our camera (radians)
 
-    static final double APRILTAG_CAMERA_SHOOTER_ALIGNMENT_CORRECTION_DEGREES = 0.0; // apply offset in degrees to compensate for shooter being a bit crooked - TODO adjust as needed
+	static final double APRILTAG_CAMERA_SHOOTER_ALIGNMENT_CORRECTION_DEGREES = 0.0; // apply offset in degrees to compensate for shooter being a bit crooked - TODO adjust as needed
 
-    public AprilTagCamera() {
-        super(DEFAULT_CAM_NAME);
+	public AprilTagCamera() {
+		super(DEFAULT_CAM_NAME);
 	}
 	
 	public double getDistanceToTarget() {
@@ -47,72 +47,72 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
 	}
 
 	public double getAngleToTurnToTarget() {
-        //double angle = getAngleToTurnToBestTarget();
+		//double angle = getAngleToTurnToBestTarget();
 		double angle = getAngleToTurnToHighValueTarget();
 
-        angle += APRILTAG_CAMERA_SHOOTER_ALIGNMENT_CORRECTION_DEGREES; // apply offset in degrees to compensate for shooter being a bit crooked
+		angle += APRILTAG_CAMERA_SHOOTER_ALIGNMENT_CORRECTION_DEGREES; // apply offset in degrees to compensate for shooter being a bit crooked
 
-        return angle;
-    }
+		return angle;
+	}
 
 
-    public double getDistanceToBestTarget() {
-        PhotonPipelineResult result = getLatestResult();
+	public double getDistanceToBestTarget() {
+		PhotonPipelineResult result = getLatestResult();
 
-        if (result.hasTargets() && result.getBestTarget()!=null) {
-            double range = PhotonUtils.calculateDistanceToTargetMeters(
-                CAMERA_HEIGHT_METERS, TARGET_HEIGHT_METERS, CAMERA_PITCH_RADIANS, 
-                Units.degreesToRadians(result.getBestTarget().getPitch())
-                );
-            return Units.metersToInches(range);
-        }
-        return 0.0;
-    }
+		if (result.hasTargets() && result.getBestTarget()!=null) {
+			double range = PhotonUtils.calculateDistanceToTargetMeters(
+				CAMERA_HEIGHT_METERS, TARGET_HEIGHT_METERS, CAMERA_PITCH_RADIANS, 
+				Units.degreesToRadians(result.getBestTarget().getPitch())
+				);
+			return Units.metersToInches(range);
+		}
+		return 0.0;
+	}
 
-    public double getYaw() {
-        PhotonPipelineResult result = getLatestResult();
+	public double getYaw() {
+		PhotonPipelineResult result = getLatestResult();
 
-        /* The yaw of the target in degrees (positive right). */
-        return result.hasTargets() && result.getBestTarget()!=null? 
-            result.getBestTarget().getYaw():
-            0.0;
-    }
+		/* The yaw of the target in degrees (positive right). */
+		return result.hasTargets() && result.getBestTarget()!=null? 
+			result.getBestTarget().getYaw():
+			0.0;
+	}
 
-    public double getAngleToTurnToBestTarget()
-    {
-        return +getYaw();
-    }
+	public double getAngleToTurnToBestTarget()
+	{
+		return +getYaw();
+	}
 
-    public double getPitch() {
-        PhotonPipelineResult result = getLatestResult();
+	public double getPitch() {
+		PhotonPipelineResult result = getLatestResult();
 
-        /* The pitch of the target in degrees (positive up). */
-        return result.hasTargets() && result.getBestTarget()!=null? 
-            result.getBestTarget().getPitch():
-            0.0;
-    }
+		/* The pitch of the target in degrees (positive up). */
+		return result.hasTargets() && result.getBestTarget()!=null? 
+			result.getBestTarget().getPitch():
+			0.0;
+	}
 
-    public double getSkew() {
-        PhotonPipelineResult result = getLatestResult();
+	public double getSkew() {
+		PhotonPipelineResult result = getLatestResult();
 
-        /* The skew of the target in degrees (counter-clockwise positive). */
-        return result.hasTargets() && result.getBestTarget()!=null? 
-            result.getBestTarget().getSkew():
-            0.0;
-    }
+		/* The skew of the target in degrees (counter-clockwise positive). */
+		return result.hasTargets() && result.getBestTarget()!=null? 
+			result.getBestTarget().getSkew():
+			0.0;
+	}
 
-    public int getAprilTagId() {
-        PhotonPipelineResult result = getLatestResult();
+	public int getAprilTagId() {
+		PhotonPipelineResult result = getLatestResult();
 
-        return result.hasTargets() && result.getBestTarget()!=null? 
-            result.getBestTarget().getFiducialId():
-            0;
-    }
+		return result.hasTargets() && result.getBestTarget()!=null? 
+			result.getBestTarget().getFiducialId():
+			0;
+	}
 
 
 	public PhotonTrackedTarget getHighValueTarget(PhotonPipelineResult result) {
 
-        if (result.hasTargets()) {
+		if (result.hasTargets()) {
 
 			List<PhotonTrackedTarget> targets = result.getTargets();
 
@@ -127,7 +127,7 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
 				}
 			}
 
-            for (PhotonTrackedTarget target: targets) 
+			for (PhotonTrackedTarget target: targets) 
 			{
 				int targetId = target.getFiducialId();
 
@@ -139,30 +139,30 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
 			}
 		}
 
-        return null; // no high value target found
-    }
+		return null; // no high value target found
+	}
 
 	public double getDistanceToHighValueTarget() {
-        PhotonPipelineResult result = getLatestResult();
+		PhotonPipelineResult result = getLatestResult();
 
-        if (result.hasTargets() && getHighValueTarget(result)!=null) {
-            double range = PhotonUtils.calculateDistanceToTargetMeters(
-                CAMERA_HEIGHT_METERS, TARGET_HEIGHT_METERS, CAMERA_PITCH_RADIANS, 
-                Units.degreesToRadians(getHighValueTarget(result).getPitch())
-                );
-            return Units.metersToInches(range);
-        }
-        return 0.0;
-    }
+		if (result.hasTargets() && getHighValueTarget(result)!=null) {
+			double range = PhotonUtils.calculateDistanceToTargetMeters(
+				CAMERA_HEIGHT_METERS, TARGET_HEIGHT_METERS, CAMERA_PITCH_RADIANS, 
+				Units.degreesToRadians(getHighValueTarget(result).getPitch())
+				);
+			return Units.metersToInches(range);
+		}
+		return 0.0;
+	}
 
-    public double getAngleToTurnToHighValueTarget()
-    {
-        PhotonPipelineResult result = getLatestResult();
+	public double getAngleToTurnToHighValueTarget()
+	{
+		PhotonPipelineResult result = getLatestResult();
 
-        /* The yaw of the target in degrees (positive right). */
-        return result.hasTargets() && getHighValueTarget(result)!=null? 
-            getHighValueTarget(result).getYaw():
-            0.0;
-    }
+		/* The yaw of the target in degrees (positive right). */
+		return result.hasTargets() && getHighValueTarget(result)!=null? 
+			getHighValueTarget(result).getYaw():
+			0.0;
+	}
 }
 

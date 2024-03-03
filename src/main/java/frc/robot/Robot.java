@@ -250,7 +250,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putString("Auton option", m_robotContainer.getAutonOptionChooser().getSelected());
 
 		Optional<Alliance> alliance = DriverStation.getAlliance();
-	    Alliance allianceColor = alliance.isPresent() ? alliance.get() : Alliance.Blue;
+		Alliance allianceColor = alliance.isPresent() ? alliance.get() : Alliance.Blue;
 		SmartDashboard.putString("Alliance color", allianceColor.toString());
 	}
 

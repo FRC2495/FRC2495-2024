@@ -26,26 +26,26 @@ import frc.robot.sensors.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionTwoPickupLeftThirdNote extends ParallelCommandGroup {
 
-    public StartingPositionTwoPickupLeftThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, ICamera object_detection_camera, NoteSensor notesensor){
+	public StartingPositionTwoPickupLeftThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, ICamera object_detection_camera, NoteSensor notesensor){
 
-        addCommands(
+		addCommands(
 
 			new RollerSuperSmartRoll(roller, notesensor),
 
 			//new DrivetrainTimedTurnUsingPIDController(drivetrain, 90, .3),       use only if below doesnt work
 
-            //new DrivetrainSwerveRelative(drivetrain, container, createPickupLeftThirdNoteTrajectory(container)),
+			//new DrivetrainSwerveRelative(drivetrain, container, createPickupLeftThirdNoteTrajectory(container)),
 
 			new StartingPositionTwoDriveAndTurnToLeftNote(drivetrain, container, object_detection_camera)
 
 			//new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera)
-            
-        ); 
+			
+		); 
   
-    }
+	}
    
-    
-    public Trajectory createPickupLeftThirdNoteTrajectory(RobotContainer container) {
+	
+	public Trajectory createPickupLeftThirdNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -54,7 +54,7 @@ public class StartingPositionTwoPickupLeftThirdNote extends ParallelCommandGroup
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.STARTING_POSITION_2_X_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_X, AutonConstants.STARTING_POSITION_2_Y_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_Y, Rotation2d.fromDegrees(90)),
-            container.createTrajectoryConfig());
+			container.createTrajectoryConfig());
 
 		return trajectory;
 	}	

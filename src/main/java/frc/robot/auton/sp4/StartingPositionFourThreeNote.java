@@ -29,42 +29,42 @@ import frc.robot.interfaces.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionFourThreeNote extends SequentialCommandGroup {
 
-    public StartingPositionFourThreeNote(RobotContainer container, Elevator elevator, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera object_detection_camera, ICamera apriltag_camera, NoteSensor notesensor){
+	public StartingPositionFourThreeNote(RobotContainer container, Elevator elevator, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera object_detection_camera, ICamera apriltag_camera, NoteSensor notesensor){
 
-        addCommands(
+		addCommands(
 
 			new NeckHome(neck),
 			
-            new NeckMoveSubWithStallDetection(neck),
+			new NeckMoveSubWithStallDetection(neck),
 
-            new ShootNote(shooter, roller),
+			new ShootNote(shooter, roller),
 
 			new NeckMoveDownWithStallDetection(neck),
 
-            new StartingPositionFourPickupSecondNote(container, drivetrain, roller, notesensor),
+			new StartingPositionFourPickupSecondNote(container, drivetrain, roller, notesensor),
 
 			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera), // change to april tag command later
 
 			new NeckMovePodiumWithStallDetection(neck),
 
 			//new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
-            
-            new ShootNote(shooter, roller),
+			
+			new ShootNote(shooter, roller),
 
 			new NeckMoveDownWithStallDetection(neck),
 
-            //new StartingPositionOnePickupThirdNote(container, drivetrain, roller),
+			//new StartingPositionOnePickupThirdNote(container, drivetrain, roller),
 
 			new NeckMovePodiumWithStallDetection(neck),
 
-            new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),
+			new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),
 
 			new ShootNote(shooter, roller)
 
-        ); 
+		); 
   
-    }
-    
+	}
+	
    /* public Trajectory createShootSecondNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
@@ -74,7 +74,7 @@ public class StartingPositionFourThreeNote extends SequentialCommandGroup {
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_SECOND_PICKUP_TO_SHOOT_SECOND_NOTE_X-AutonConstants.DISTANCE_FROM_SHOOT_PRELOAD_TO_SECOND_PICKUP_X, AutonConstants.DISTANCE_FROM_SECOND_PICKUP_TO_SHOOT_SECOND_NOTE_Y-AutonConstants.DISTANCE_FROM_SHOOT_PRELOAD_TO_SECOND_PICKUP_Y, Rotation2d.fromDegrees(155)),
-            container.createReverseTrajectoryConfig());
+			container.createReverseTrajectoryConfig());
 
 		return trajectory;
 	}*/
@@ -88,7 +88,7 @@ public class StartingPositionFourThreeNote extends SequentialCommandGroup {
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_THIRD_PICKUP_TO_SHOOT_X-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_THIRD_PICKUP_X, AutonConstants.DISTANCE_FROM_THIRD_PICKUP_TO_SHOOT_Y-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_THIRD_PICKUP_Y, Rotation2d.fromDegrees(155)),
-            container.createReverseTrajectoryConfig());
+			container.createReverseTrajectoryConfig());
 
 		return trajectory;
 	}

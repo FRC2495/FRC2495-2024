@@ -14,14 +14,14 @@ import frc.robot.subsystems.Mouth;
  */
 public class MouthSafetyCheck implements BooleanSupplier
 {
-    private Mouth mouth;
+	private Mouth mouth;
 
-    public MouthSafetyCheck(Mouth mouth) {
+	public MouthSafetyCheck(Mouth mouth) {
 		this.mouth = mouth;
 	}
 
-    @Override
-    public boolean getAsBoolean() {
-        return !mouth.isDangerous();
-    }
+	@Override
+	public boolean getAsBoolean() {
+		return !mouth.isDangerous();
+	}
 }

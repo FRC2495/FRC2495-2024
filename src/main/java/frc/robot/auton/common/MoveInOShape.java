@@ -20,15 +20,15 @@ public class MoveInOShape extends SequentialCommandGroup {
 
 	private double sideLength;
 
-    public MoveInOShape(SwerveDrivetrain drivetrain, RobotContainer container, double sideLength) {
+	public MoveInOShape(SwerveDrivetrain drivetrain, RobotContainer container, double sideLength) {
 
-        this.sideLength = sideLength;
+		this.sideLength = sideLength;
 		
 		addCommands(
 			new DrivetrainSwerveRelative(drivetrain, container, createOShapeTrajectory(container))           
-        ); 
+		); 
 
-    }
+	}
 
 	public Trajectory createOShapeTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.

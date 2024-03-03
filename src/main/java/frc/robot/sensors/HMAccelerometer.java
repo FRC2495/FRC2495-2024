@@ -58,8 +58,8 @@ public class HMAccelerometer {
 			return Math.toDegrees(Math.atan(Math.sqrt(Math.pow(getAccelX(),2) + Math.pow(getAccelY(),2)) / getAccelZ()));
 		}
 		catch (ArithmeticException e) {
-            return 90; // if accelz is zero, we are dead
-        }
+			return 90; // if accelz is zero, we are dead
+		}
 	}
 
 	public double getAccuratePitch() {
@@ -69,8 +69,8 @@ public class HMAccelerometer {
 			return Math.toDegrees(Math.atan(getAccelX() / Math.sqrt(Math.pow(getAccelY(),2) + Math.pow(getAccelZ(),2))));
 		}
 		catch (ArithmeticException e) {
-            return 90; // if denominator is zero, we are dead
-        }
+			return 90; // if denominator is zero, we are dead
+		}
 	}
 
 	public double getAccurateRoll() {
@@ -80,8 +80,8 @@ public class HMAccelerometer {
 			return Math.toDegrees(Math.atan(getAccelY() / Math.sqrt(Math.pow(getAccelX(),2) + Math.pow(getAccelZ(),2))));
 		}
 		catch (ArithmeticException e) {
-            return 90; // if denominator is zero, we are dead
-        }
+			return 90; // if denominator is zero, we are dead
+		}
 	}
 
 	public double getFilteredAccurateRoll() {

@@ -14,9 +14,9 @@ public class Mouth extends SubsystemBase {
 	
 	static final int WAIT_MS = 1000;
 	
-    DoubleSolenoid lockedNot;
-    
-    public enum Position {
+	DoubleSolenoid lockedNot;
+	
+	public enum Position {
 		CLOSED, // The mouth is closed
 		OPEN, // The mouth is open
 		UNKNOWN;
