@@ -35,6 +35,8 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
     private static final double TARGET_HEIGHT_METERS = Units.inchesToMeters(60); // may need to change 
     private static final double CAMERA_PITCH_RADIANS = Units.degreesToRadians(+20.0); // tilt of our camera (radians)
 
+    static final double APRILTAG_CAMERA_SHOOTER_ALIGNMENT_CORRECTION_DEGREES = 0.0; // apply offset in degrees to compensate for shooter being a bit crooked - TODO adjust as needed
+
     public AprilTagCamera() {
         super(DEFAULT_CAM_NAME);
 	}
@@ -45,8 +47,12 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
 	}
 
 	public double getAngleToTurnToTarget() {
-        //return getAngleToTurnToBestTarget();
-		return getAngleToTurnToHighValueTarget();
+        //double angle = getAngleToTurnToBestTarget();
+		double angle = getAngleToTurnToHighValueTarget();
+
+        angle += APRILTAG_CAMERA_SHOOTER_ALIGNMENT_CORRECTION_DEGREES; // apply offset in degrees to compensate for shooter being a bit crooked
+
+        return angle;
     }
 
 
