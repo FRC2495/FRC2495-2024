@@ -3,8 +3,6 @@ package frc.robot.auton.common;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
-import frc.robot.RobotContainer;
-import frc.robot.auton.AutonConstants;
 import frc.robot.commands.roller.RollerTimedRoll;
 import frc.robot.commands.shooter.ShooterStop;
 import frc.robot.commands.shooter.ShooterTimedShootHighNoStop;
