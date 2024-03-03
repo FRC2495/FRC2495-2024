@@ -60,25 +60,41 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
 
 
 	public double getDistanceToBestTarget() {
-		PhotonPipelineResult result = getLatestResult();
+		try
+		{
+			PhotonPipelineResult result = getLatestResult();
 
-		if (result.hasTargets() && result.getBestTarget()!=null) {
-			double range = PhotonUtils.calculateDistanceToTargetMeters(
-				CAMERA_HEIGHT_METERS, TARGET_HEIGHT_METERS, CAMERA_PITCH_RADIANS, 
-				Units.degreesToRadians(result.getBestTarget().getPitch())
-				);
-			return Units.metersToInches(range);
+			if (result.hasTargets() && result.getBestTarget()!=null) {
+				double range = PhotonUtils.calculateDistanceToTargetMeters(
+					CAMERA_HEIGHT_METERS, TARGET_HEIGHT_METERS, CAMERA_PITCH_RADIANS, 
+					Units.degreesToRadians(result.getBestTarget().getPitch())
+					);
+				return Units.metersToInches(range);
+			}
+			return 0.0;
 		}
-		return 0.0;
+		catch(Exception x)
+		{
+			System.out.println("ERROR" + x.toString());
+			return 0.0;
+		}
 	}
 
 	public double getYaw() {
-		PhotonPipelineResult result = getLatestResult();
+		try
+		{
+			PhotonPipelineResult result = getLatestResult();
 
-		/* The yaw of the target in degrees (positive right). */
-		return result.hasTargets() && result.getBestTarget()!=null? 
-			result.getBestTarget().getYaw():
-			0.0;
+			/* The yaw of the target in degrees (positive right). */
+			return result.hasTargets() && result.getBestTarget()!=null? 
+				result.getBestTarget().getYaw():
+				0.0;
+		}
+		catch(Exception x)
+		{
+			System.out.println("ERROR" + x.toString());
+			return 0.0;
+		}	
 	}
 
 	public double getAngleToTurnToBestTarget()
@@ -87,29 +103,54 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
 	}
 
 	public double getPitch() {
-		PhotonPipelineResult result = getLatestResult();
+		try
+		{
+			PhotonPipelineResult result = getLatestResult();
 
-		/* The pitch of the target in degrees (positive up). */
-		return result.hasTargets() && result.getBestTarget()!=null? 
-			result.getBestTarget().getPitch():
-			0.0;
+			/* The pitch of the target in degrees (positive up). */
+			return result.hasTargets() && result.getBestTarget()!=null? 
+				result.getBestTarget().getPitch():
+				0.0;
+		}
+		catch(Exception x)
+		{
+			System.out.println("ERROR" + x.toString());
+			return 0.0;
+		}
+	
 	}
 
 	public double getSkew() {
-		PhotonPipelineResult result = getLatestResult();
+		try
+		{
+			PhotonPipelineResult result = getLatestResult();
 
-		/* The skew of the target in degrees (counter-clockwise positive). */
-		return result.hasTargets() && result.getBestTarget()!=null? 
-			result.getBestTarget().getSkew():
-			0.0;
+			/* The skew of the target in degrees (counter-clockwise positive). */
+			return result.hasTargets() && result.getBestTarget()!=null? 
+				result.getBestTarget().getSkew():
+				0.0;
+		}
+		catch(Exception x)
+		{
+			System.out.println("ERROR" + x.toString());
+			return 0.0;
+		}	
 	}
 
 	public int getAprilTagId() {
-		PhotonPipelineResult result = getLatestResult();
+		try
+		{
+			PhotonPipelineResult result = getLatestResult();
 
-		return result.hasTargets() && result.getBestTarget()!=null? 
-			result.getBestTarget().getFiducialId():
-			0;
+			return result.hasTargets() && result.getBestTarget()!=null? 
+				result.getBestTarget().getFiducialId():
+				0;
+		}
+		catch(Exception x)
+		{
+			System.out.println("ERROR" + x.toString());
+			return 0;
+		}
 	}
 
 
@@ -146,26 +187,42 @@ public class AprilTagCamera extends PhotonCamera implements ICamera {
 	}
 
 	public double getDistanceToHighValueTarget() {
-		PhotonPipelineResult result = getLatestResult();
+		try
+		{
+			PhotonPipelineResult result = getLatestResult();
 
-		if (result.hasTargets() && getHighValueTarget(result)!=null) {
-			double range = PhotonUtils.calculateDistanceToTargetMeters(
-				CAMERA_HEIGHT_METERS, TARGET_HEIGHT_METERS, CAMERA_PITCH_RADIANS, 
-				Units.degreesToRadians(getHighValueTarget(result).getPitch())
-				);
-			return Units.metersToInches(range);
+			if (result.hasTargets() && getHighValueTarget(result)!=null) {
+				double range = PhotonUtils.calculateDistanceToTargetMeters(
+					CAMERA_HEIGHT_METERS, TARGET_HEIGHT_METERS, CAMERA_PITCH_RADIANS, 
+					Units.degreesToRadians(getHighValueTarget(result).getPitch())
+					);
+				return Units.metersToInches(range);
+			}
+			return 0.0;
 		}
-		return 0.0;
+		catch(Exception x)
+		{
+			System.out.println("ERROR" + x.toString());
+			return 0.0;
+		}
 	}
 
 	public double getAngleToTurnToHighValueTarget()
 	{
-		PhotonPipelineResult result = getLatestResult();
+		try
+		{
+			PhotonPipelineResult result = getLatestResult();
 
-		/* The yaw of the target in degrees (positive right). */
-		return result.hasTargets() && getHighValueTarget(result)!=null? 
-			getHighValueTarget(result).getYaw():
-			0.0;
+			/* The yaw of the target in degrees (positive right). */
+			return result.hasTargets() && getHighValueTarget(result)!=null? 
+				getHighValueTarget(result).getYaw():
+				0.0;
+		}
+		catch(Exception x)
+		{
+			System.out.println("ERROR" + x.toString());
+			return 0.0;
+		}
 	}
 }
 
