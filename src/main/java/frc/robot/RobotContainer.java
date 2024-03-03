@@ -107,6 +107,7 @@ public class RobotContainer {
 	public static final String AUTON_SAMPLE_MOVE_IN_L_SHAPE_IN_REVERSE = "Sample Move In L Shape In Reverse";
 	public static final String AUTON_TEST_HARDCODED_MOVE_1 = "Test Hardcoded Move 1";
 	public static final String AUTON_TEST_HARDCODED_MOVE_2 = "Test Hardcoded Move 2";
+	public static final String AUTON_TEST_TRAJECTORY_GENERATION = "Test Trajectory Generation";
 	private String autonSelected;
 	private SendableChooser<String> autonChooser = new SendableChooser<>();
 
@@ -237,6 +238,7 @@ public class RobotContainer {
 		autonChooser.addOption("Sample Move In L Shape In Reverse", AUTON_SAMPLE_MOVE_IN_L_SHAPE_IN_REVERSE);
 		autonChooser.addOption("Test Hardcoded Move 1", AUTON_TEST_HARDCODED_MOVE_1);
 		autonChooser.addOption("Test Hardcoded Move 2", AUTON_TEST_HARDCODED_MOVE_2);
+		autonChooser.addOption("Test Trajectory Generation", AUTON_TEST_TRAJECTORY_GENERATION);
 		SmartDashboard.putData("Auto choices", autonChooser);
 
 		gamePieceChooser.setDefaultOption("None", GAME_PIECE_NONE);
@@ -547,6 +549,10 @@ public class RobotContainer {
 
 			/*case AUTON_TEST_HARDCODED_MOVE_2:
 				return new MoveInNonBumpKTurn(drivetrain, this);
+				//break;*/
+
+			case AUTON_TEST_TRAJECTORY_GENERATION:
+				return new TrajectoryGenerationTest(drivetrain, this, object_detection_camera, apriltag_camera);
 				//break;*/
 
 			case AUTON_CUSTOM:
