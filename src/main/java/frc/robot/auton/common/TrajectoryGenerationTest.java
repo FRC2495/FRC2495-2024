@@ -27,6 +27,10 @@ public class TrajectoryGenerationTest extends SequentialCommandGroup {
 
 			new MoveInFigure8Shape(drivetrain, container, 3)
 
+			//new MoveInGammaShape(drivetrain, container, 3)
+
+			//new MoveInLShapeInReverse(drivetrain, container, 3)
+
 
 			// another example, calling a method that generates a trajectory direcly:
 			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionOnePickupSecondNote.createPickupSecondNoteTrajectory(container))
