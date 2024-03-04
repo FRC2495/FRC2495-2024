@@ -37,8 +37,26 @@ public class MoveInFigure8Shape extends SequentialCommandGroup {
 		new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
 		// Pass through these two interior waypoints, making an 's' curve path
 		List.of(
-			new Translation2d(1.0*sideLength/3.0, -1.0*sideLength/3.0),
-		 	new Translation2d(2.0*sideLength/3.0, +1.0*sideLength/3.0)),
+			/*new Translation2d(+sideLength/4, -sideLength/4),
+			new Translation2d(0, -sideLength/2),
+			new Translation2d(-sideLength/4, -sideLength/4),
+
+			new Translation2d(0, 0),
+
+			new Translation2d(+sideLength/4, +sideLength/4),
+			new Translation2d(0, +sideLength/2),
+			new Translation2d(-sideLength/4, +sideLength/4)*/
+
+			new Translation2d(+sideLength/4, -sideLength/4),
+			new Translation2d(+sideLength/2, 0),
+			new Translation2d(+sideLength/4, +sideLength/4),
+
+			new Translation2d(0, 0),
+
+			new Translation2d(-sideLength/4, -sideLength/4),
+			new Translation2d(-sideLength/2, 0),
+			new Translation2d(-sideLength/4, +sideLength/4)
+			),
 		// End n meters straight ahead of where we started, facing forward
 		// https://docs.wpilib.org/en/stable/docs/software/advanced-controls/geometry/coordinate-systems.html
 		new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
