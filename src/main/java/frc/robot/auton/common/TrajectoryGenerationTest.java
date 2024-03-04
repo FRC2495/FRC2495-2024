@@ -25,7 +25,9 @@ public class TrajectoryGenerationTest extends SequentialCommandGroup {
 			// replace line below by whatever trajectory-generation command you want to test:
 			//new StartingPositionTwoDriveAndTurnToLeftNote(drivetrain, container, object_detection_camera)
 
-			new MoveInFigure8Shape(drivetrain, container, 3)
+			//new MoveIn8Shape(drivetrain, container, 3)
+
+			new MoveInInfinityShape(drivetrain, container, 3)
 
 			//new MoveInGammaShape(drivetrain, container, 3)
 

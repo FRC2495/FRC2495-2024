@@ -16,21 +16,21 @@ import frc.robot.subsystems.*;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
-public class MoveInFigure8Shape extends SequentialCommandGroup {
+public class MoveIn8Shape extends SequentialCommandGroup {
 
 	private double sideLength;
 
-	public MoveInFigure8Shape(SwerveDrivetrain drivetrain, RobotContainer container, double sideLength) {
+	public MoveIn8Shape(SwerveDrivetrain drivetrain, RobotContainer container, double sideLength) {
 
 		this.sideLength = sideLength;
 		
 		addCommands(
-			new DrivetrainSwerveRelative(drivetrain, container, createFigure8ShapeTrajectory(container))           
+			new DrivetrainSwerveRelative(drivetrain, container, create8ShapeTrajectory(container))           
 		); 
 
 	}
 
-	public Trajectory createFigure8ShapeTrajectory(RobotContainer container) {
+	public Trajectory create8ShapeTrajectory(RobotContainer container) {
 	// An example trajectory to follow. All units in meters.
 	Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 		// Start at the origin facing the +X direction
