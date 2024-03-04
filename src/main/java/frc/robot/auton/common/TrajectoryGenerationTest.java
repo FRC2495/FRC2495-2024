@@ -35,7 +35,35 @@ public class TrajectoryGenerationTest extends SequentialCommandGroup {
 
 			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoDriveAndTurnToLeftNote.createPickupLeftThirdNoteTrajectory(container))
 
-			new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoDriveAndTurnToLeftNote.createMoveForwardTrajectory(container))
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoDriveAndTurnToLeftNote.createMoveForwardTrajectory(container))
+
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoDriveAndTurnToRightNote.createPickupRightThirdNoteTrajectory(container))
+
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoDriveAndTurnToRightNote.createMoveForwardTrajectory(container))
+
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoLeftThreeNote.createShootSecondNoteTrajectory(container))
+
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoLeftThreeNote.createShootThirdNoteTrajectory(container))
+
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoLeftThreeNote.createLeaveAfterShootLeftThirdNoteTrajectory(container))
+
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoPickupLeftThirdNote.createPickupLeftThirdNoteTrajectory(container))
+
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoPickupRightThirdNote.createPickupRightThirdNoteTrajectory(container))
+
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoPickupSecondNote.createPickupSecondNoteTrajectory(container))
+
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoRightThreeNote.createShootSecondNoteTrajectory(container))
+
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoRightThreeNote.createShootThirdNoteTrajectory(container))
+
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoRightThreeNote.createLeaveAfterShootRightThirdNoteTrajectory(container))
+
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoShootLeftThirdNote.createShootThirdNoteTrajectory(container))
+
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoTwoNote.createShootSecondNoteTrajectory(container))
+
+			new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoTwoNote.createLeaveAfterShootSecondNoteTrajectory(container))
 		); 
   
 	}
