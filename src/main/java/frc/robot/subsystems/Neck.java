@@ -30,6 +30,7 @@ public class Neck extends SubsystemBase implements INeck {
 	
 	public static final double GEAR_RATIO = 3.0; // todo change if needed
 
+	public static final int ANGLE_TO_ACROSS_FIELD_TICKS = 10000;
 	public static final int ANGLE_TO_SUB_TICKS = 30000;
 	public static final int ANGLE_TO_PODIUM_TICKS = 65000;
 	public static final int ANGLE_TO_MIDWAY_TICKS = 90000;
@@ -323,6 +324,23 @@ public class Neck extends SubsystemBase implements INeck {
 		setNominalAndPeakOutputs(SUPER_REDUCED_PCT_OUTPUT);
 
 		tac = -ANGLE_TO_SUB_TICKS;
+		neck.set(ControlMode.Position,tac);
+		
+		isMoving = true;
+		isMovingUp = true;
+		onTargetCount = 0;
+		isReallyStalled = false;
+		stalledCount = 0;
+	}
+
+	public void moveAcrossField() {
+		
+		//setPIDParameters();
+		System.out.println("Moving Across Field");
+		
+		setNominalAndPeakOutputs(SUPER_REDUCED_PCT_OUTPUT);
+
+		tac = -ANGLE_TO_ACROSS_FIELD_TICKS;
 		neck.set(ControlMode.Position,tac);
 		
 		isMoving = true;
