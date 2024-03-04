@@ -43,7 +43,7 @@ public class StartingPositionOnePickupSecondNote extends ParallelCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.STARTING_POSITION_1_X_VALUE-AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_SECOND_NOTE_PICKUP_X, AutonConstants.STARTING_POSITION_1_Y_VALUE-AutonConstants.STARTING_POSITION_1_Y_VALUE, Rotation2d.fromDegrees(15)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_SECOND_NOTE_PICKUP_Y-AutonConstants.STARTING_POSITION_1_Y_VALUE, AutonConstants.STARTING_POSITION_1_X_VALUE-AutonConstants.DISTANCE_FROM_STARTING_POSITION_1_TO_SECOND_NOTE_PICKUP_X, Rotation2d.fromDegrees(-60)),
 			container.createTrajectoryConfig());
 
 		return trajectory;
