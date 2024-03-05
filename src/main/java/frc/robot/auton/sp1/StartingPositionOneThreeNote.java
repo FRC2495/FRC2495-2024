@@ -50,6 +50,8 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
 			new StartingPositionOnePickupSecondNote(container, drivetrain, roller, notesensor),
 
+			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)), 
+
 			new NeckMovePodiumWithStallDetection(neck), // check to see if this works later 
 
 			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera), // change to april tag camera command later 
@@ -96,6 +98,20 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 		return trajectory;
 	}*/
 
+	public static Trajectory createShootSecondNoteTrajectory(RobotContainer container) {
+		// An example trajectory to follow. All units in meters.
+		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+			// Start at the origin facing the -X direction
+			new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
+			// Pass through these waypoints
+			List.of(),
+			// End straight ahead of where we started, facing forward
+			new Pose2d(-AutonConstants.ONE_AND_A_HALF_METER, 0, Rotation2d.fromDegrees(0)),
+			container.createReverseTrajectoryConfig());
+
+		return trajectory;
+	}
+
 	public static Trajectory createShootThirdNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
@@ -109,6 +125,8 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
 		return trajectory;
 	}
+
+	
 	
 	
 

@@ -4,6 +4,7 @@ public class AutonConstants {
 
 	// Fixed auton distances
 	public static final double ONE_THIRD_OF_A_METER = .33;
+	public static final double ONE_AND_A_HALF_METER = 1.5;
 
 	// All Starting Position Distances
 	public static final double DISTANCE_TO_PICKUP_NOTE_METERS = 5; // todo fix
