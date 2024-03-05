@@ -57,10 +57,9 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 			new StartingPositionThreePickupThirdNote(container, drivetrain, roller, notesensor),
 
 			//new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),
-
-			new StartingPositionThreeShootThirdNote(container, drivetrain, apriltag_camera),
-
 			new NeckMovePodiumWithStallDetection(neck),
+			
+			new StartingPositionThreeDriveShootThirdNote(container, drivetrain, apriltag_camera),
 			
 			new ShootNote(shooter, roller)
 
