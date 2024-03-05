@@ -17,12 +17,12 @@ import frc.robot.subsystems.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class MoveInReverseAndHardRight extends SequentialCommandGroup {
 
-	private double forwardDistance;
+	private double reverseDistance;
 	private double rightDistance;
 
-	public MoveInReverseAndHardRight(SwerveDrivetrain drivetrain, RobotContainer container,  double forwardDistance, double rightDistance) {
+	public MoveInReverseAndHardRight(SwerveDrivetrain drivetrain, RobotContainer container,  double reverseDistance, double rightDistance) {
 
-		this.forwardDistance = forwardDistance;
+		this.reverseDistance = reverseDistance;
 		this.rightDistance = rightDistance;
 
 		addCommands(
@@ -42,7 +42,7 @@ public class MoveInReverseAndHardRight extends SequentialCommandGroup {
 			List.of(),
 			// End ahead of where we started, facing sideway
 			// https://docs.wpilib.org/en/stable/docs/software/advanced-controls/geometry/coordinate-systems.html
-			new Pose2d(+forwardDistance, +rightDistance, Rotation2d.fromDegrees(-90)),
+			new Pose2d(+reverseDistance, +rightDistance, Rotation2d.fromDegrees(-90)),
 			container.createReverseTrajectoryConfig());
 
 		return trajectory;
