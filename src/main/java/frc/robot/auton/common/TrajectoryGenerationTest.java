@@ -29,9 +29,13 @@ public class TrajectoryGenerationTest extends SequentialCommandGroup {
 
 			//new MoveInInfinityShape(drivetrain, container, 3)
 
-			//new MoveForwardAndHardLeft(drivetrain, container, 3, 1)
+			new MoveForwardAndHardLeft(drivetrain, container, 3, 1)
 
-			new MoveForwardAndHardRight(drivetrain, container, 3, 1)
+			//new MoveForwardAndHardRight(drivetrain, container, 3, 1)
+
+			//new MoveInReverseAndHardLeft(drivetrain, container, 3, 1)
+			
+			//new MoveInReverseAndHardRight(drivetrain, container, 3, 1)
 
 			//new MoveInGammaShape(drivetrain, container, 3)
 
