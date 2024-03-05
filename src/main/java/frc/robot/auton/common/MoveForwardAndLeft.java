@@ -28,12 +28,12 @@ public class MoveForwardAndLeft extends SequentialCommandGroup {
 		this.finalHeading = finalHeading;
 		
 		addCommands(
-			new DrivetrainSwerveRelative(drivetrain, container, createForwardAndHardLeftTrajectory(container))           
+			new DrivetrainSwerveRelative(drivetrain, container, createForwardAndLeftTrajectory(container))           
 		); 
 
 	}
 
-	public Trajectory createForwardAndHardLeftTrajectory(RobotContainer container) {
+	public Trajectory createForwardAndLeftTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the +X direction
