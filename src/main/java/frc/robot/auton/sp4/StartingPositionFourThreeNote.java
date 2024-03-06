@@ -41,19 +41,21 @@ public class StartingPositionFourThreeNote extends SequentialCommandGroup {
 
 			new NeckMoveDownWithStallDetection(neck),
 
-			new StartingPositionFourPickupSecondNote(container, drivetrain, roller, notesensor),
-
-			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera), // change to april tag command later
+			new StartingPositionFourPickupSecondNote(container, drivetrain, object_detection_camera, roller, notesensor),
 
 			new NeckMovePodiumWithStallDetection(neck),
 
-			//new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
+			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera), // change to april tag command later
+
+			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)), // test if needed 
 			
 			new ShootNote(shooter, roller),
 
 			new NeckMoveDownWithStallDetection(neck),
 
-			//new StartingPositionOnePickupThirdNote(container, drivetrain, roller),
+			new DrivetrainSwerveRelative(drivetrain, container, createAfterShootSecondNoteTrajectory(container)), // test if needed 
+
+			new StartingPositionFourPickupThirdNote(container, drivetrain, object_detection_camera, roller, notesensor),
 
 			new NeckMovePodiumWithStallDetection(neck),
 
@@ -65,19 +67,33 @@ public class StartingPositionFourThreeNote extends SequentialCommandGroup {
   
 	}
 	
-   /* public static Trajectory createShootSecondNoteTrajectory(RobotContainer container) {
+   public static Trajectory createShootSecondNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
-			new Pose2d(AutonConstants.DISTANCE_FROM_SHOOT_PRELOAD_TO_SECOND_PICKUP_X-AutonConstants.DISTANCE_FROM_SHOOT_PRELOAD_TO_SECOND_PICKUP_X, AutonConstants.DISTANCE_FROM_SHOOT_PRELOAD_TO_SECOND_PICKUP_Y-AutonConstants.DISTANCE_FROM_SHOOT_PRELOAD_TO_SECOND_PICKUP_Y, Rotation2d.fromDegrees(180)),
+			new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_SECOND_PICKUP_TO_SHOOT_SECOND_NOTE_X-AutonConstants.DISTANCE_FROM_SHOOT_PRELOAD_TO_SECOND_PICKUP_X, AutonConstants.DISTANCE_FROM_SECOND_PICKUP_TO_SHOOT_SECOND_NOTE_Y-AutonConstants.DISTANCE_FROM_SHOOT_PRELOAD_TO_SECOND_PICKUP_Y, Rotation2d.fromDegrees(155)),
+			new Pose2d(AutonConstants.ONE_METER, 0, Rotation2d.fromDegrees(0)),
+			container.createTrajectoryConfig());
+
+		return trajectory;
+	}
+
+	public static Trajectory createAfterShootSecondNoteTrajectory(RobotContainer container) {
+		// An example trajectory to follow. All units in meters.
+		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+			// Start at the origin facing the -X direction
+			new Pose2d(0, 0, Rotation2d.fromDegrees(180)),
+			// Pass through these waypoints
+			List.of(),
+			// End straight ahead of where we started, facing forward
+			new Pose2d(AutonConstants.ONE_METER, 0, Rotation2d.fromDegrees(180)),
 			container.createReverseTrajectoryConfig());
 
 		return trajectory;
-	}*/
+	}
 
 	public static Trajectory createShootThirdNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.

@@ -22,23 +22,21 @@ import frc.robot.subsystems.*;
 import frc.robot.sensors.*;
 
 
-public class StartingPositionFourPickupThirdNote extends ParallelCommandGroup {
+public class StartingPositionFourDrivePickupThirdNote extends SequentialCommandGroup {
 
-	public StartingPositionFourPickupThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, ICamera object_detection_camera, Roller roller, NoteSensor notesensor){
+	public StartingPositionFourDrivePickupThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, ICamera object_detection_camera){
 
 		addCommands(
 
-			new RollerSuperSmartRoll(roller, notesensor),
+			new DrivetrainSwerveRelative(drivetrain, container, createPickupThirdNoteTrajectory(container)),
 
-			//new DrivetrainSwerveRelative(drivetrain, container, createPickupThirdNoteTrajectory(container))
-
-			new StartingPositionFourDrivePickupThirdNote(container, drivetrain, object_detection_camera)
+			new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera)
 			
 		); 
   
 	}
    
-	/*public static Trajectory createPickupThirdNoteTrajectory(RobotContainer container) {
+	public static Trajectory createPickupThirdNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -50,7 +48,7 @@ public class StartingPositionFourPickupThirdNote extends ParallelCommandGroup {
 			container.createTrajectoryConfig());
 
 		return trajectory;
-	}*/
+	}
 
 
 }

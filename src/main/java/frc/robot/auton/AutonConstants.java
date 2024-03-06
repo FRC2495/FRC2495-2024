@@ -70,6 +70,8 @@ public class AutonConstants {
 	public static final double DISTANCE_FROM_SECOND_PICKUP_TO_SHOOT_SECOND_NOTE_Y = 6.71;*/
 	public static final double DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_THIRD_PICKUP_X = 8.62;
 	public static final double DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_THIRD_PICKUP_Y = 7.41;
+	public static final double DISTANCE_FROM_SHOOT_SECOND_TO_THIRD_PICKUP_X = 8.62;		// adjust
+	public static final double DISTANCE_FROM_SHOOT_SECOND_TO_THIRD_PICKUP_Y = 7.41;		// adjust 
 	public static final double DISTANCE_FROM_THIRD_PICKUP_TO_SHOOT_X = 12.55;
 	public static final double DISTANCE_FROM_THIRD_PICKUP_TO_SHOOT_Y = 6.77;
 

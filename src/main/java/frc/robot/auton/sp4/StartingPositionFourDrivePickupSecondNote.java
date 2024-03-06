@@ -22,23 +22,23 @@ import frc.robot.subsystems.*;
 import frc.robot.sensors.*;
 
 
-public class StartingPositionFourPickupThirdNote extends ParallelCommandGroup {
+// GP = game piece
+// Can be used to place one cube or one cone and either starting position one or two
+public class StartingPositionFourDrivePickupSecondNote extends SequentialCommandGroup {
 
-	public StartingPositionFourPickupThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, ICamera object_detection_camera, Roller roller, NoteSensor notesensor){
+	public StartingPositionFourDrivePickupSecondNote(RobotContainer container, SwerveDrivetrain drivetrain, ICamera object_detection_camera){
 
 		addCommands(
 
-			new RollerSuperSmartRoll(roller, notesensor),
+			new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container)),
 
-			//new DrivetrainSwerveRelative(drivetrain, container, createPickupThirdNoteTrajectory(container))
-
-			new StartingPositionFourDrivePickupThirdNote(container, drivetrain, object_detection_camera)
+			new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera)
 			
 		); 
   
 	}
    
-	/*public static Trajectory createPickupThirdNoteTrajectory(RobotContainer container) {
+	public static Trajectory createPickupSecondNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -46,11 +46,11 @@ public class StartingPositionFourPickupThirdNote extends ParallelCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_THIRD_PICKUP_X, -AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_THIRD_PICKUP_Y, Rotation2d.fromDegrees(-20)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_SECOND_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_SECOND_NOTE_PICKUP_Y, Rotation2d.fromDegrees(-60)),
 			container.createTrajectoryConfig());
 
 		return trajectory;
-	}*/
+	}
 
 
 }

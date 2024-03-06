@@ -14,6 +14,7 @@ import frc.robot.auton.AutonConstants;
 import frc.robot.auton.common.*;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.shooter.*;
+import frc.robot.interfaces.ICamera;
 import frc.robot.commands.mouth.*;
 import frc.robot.commands.roller.RollerSuperSmartRoll;
 import frc.robot.commands.roller.RollerTimedRoll;
@@ -25,19 +26,21 @@ import frc.robot.sensors.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionFourPickupSecondNote extends ParallelCommandGroup {
 
-	public StartingPositionFourPickupSecondNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, NoteSensor notesensor){
+	public StartingPositionFourPickupSecondNote(RobotContainer container, SwerveDrivetrain drivetrain, ICamera object_detection_camera, Roller roller, NoteSensor notesensor){
 
 		addCommands(
 
 			new RollerSuperSmartRoll(roller, notesensor),
 
-			new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container))
+			//new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container))
+
+			new StartingPositionFourDrivePickupSecondNote(container, drivetrain, object_detection_camera)
 			
 		); 
   
 	}
    
-	public static Trajectory createPickupSecondNoteTrajectory(RobotContainer container) {
+	/*public static Trajectory createPickupSecondNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -49,7 +52,7 @@ public class StartingPositionFourPickupSecondNote extends ParallelCommandGroup {
 			container.createTrajectoryConfig());
 
 		return trajectory;
-	}
+	}*/
 
 
 }
