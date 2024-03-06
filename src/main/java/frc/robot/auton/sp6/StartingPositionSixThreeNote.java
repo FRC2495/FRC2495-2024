@@ -56,7 +56,7 @@ public class StartingPositionSixThreeNote extends SequentialCommandGroup {
 
 			new DrivetrainSwerveRelative(drivetrain, container, createAreaBeforeThirdNotePickupTrajectory(container)),
 
-			new StartingPositionThreePickupThirdNote(container, drivetrain, roller, notesensor),
+			//new StartingPositionThreePickupThirdNote(container, drivetrain, roller, notesensor),
 
 			new NeckMovePodiumWithStallDetection(neck),
 

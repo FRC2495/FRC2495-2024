@@ -34,10 +34,6 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 
 			new NeckHome(neck),
 
-			//new DrivetrainTimedTurnUsingPIDController(drivetrain, -25, 2),
-
-            //new DrivetrainSwerveRelative(drivetrain, container, createShootPreloadTrajectory(container)),
-
 			new NeckMoveSubWithStallDetection(neck),
 
 			new ShootNote(shooter, roller),
@@ -54,9 +50,8 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 
 			new ShootNote(shooter, roller),
 
-			new StartingPositionThreePickupThirdNote(container, drivetrain, roller, notesensor),
-
-			//new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),
+			new StartingPositionThreePickupThirdNote(container, drivetrain, object_detection_camera, roller, notesensor),
+			
 			new NeckMovePodiumWithStallDetection(neck),
 			
 			new StartingPositionThreeDriveShootThirdNote(container, drivetrain, apriltag_camera),
