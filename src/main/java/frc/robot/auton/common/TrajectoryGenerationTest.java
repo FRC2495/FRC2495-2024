@@ -27,7 +27,7 @@ public class TrajectoryGenerationTest extends SequentialCommandGroup {
 
 			//new MoveIn8Shape(drivetrain, container, 3)
 
-			new MoveInInfinityShape(drivetrain, container, 3)
+			//new MoveInInfinityShape(drivetrain, container, 3)
 
 
 			//new MoveForwardAndHardLeft(drivetrain, container, 3, 1)
@@ -56,7 +56,7 @@ public class TrajectoryGenerationTest extends SequentialCommandGroup {
 			// another example, calling a method that generates a trajectory direcly:
 			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionOnePickupSecondNote.createPickupSecondNoteTrajectory(container))
 
-			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionOnePickupThirdNote.createPickupThirdNoteTrajectory(container))
+			new DrivetrainSwerveRelative(drivetrain, container, StartingPositionOnePickupThirdNote.createPickupThirdNoteTrajectory(container))
 
 			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionOneScoreTwoPickupThreeNote.createShootThirdNoteTrajectory(container))
 

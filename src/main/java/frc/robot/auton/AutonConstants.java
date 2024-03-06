@@ -4,6 +4,8 @@ public class AutonConstants {
 
 	// Fixed auton distances
 	public static final double ONE_THIRD_OF_A_METER = .33;
+	public static final double ONE_HALF_OF_A_METER = .5;
+	public static final double ONE_METER = 1.0;
 	public static final double ONE_AND_A_HALF_METER = 1.5;
 
 	// All Starting Position Distances
@@ -17,8 +19,8 @@ public class AutonConstants {
 	public static final double DISTANCE_FROM_STARTING_POSITION_1_TO_SECOND_NOTE_PICKUP_Y = 8.00;//6.75;
 	/*public static final double DISTANCE_FROM_AREA_TO_SHOOT_PRELOAD_TO_SECOND_NOTE_PICKUP_X = 2.65;
 	public static final double DISTANCE_FROM_AREA_TO_SHOOT_PRELOAD_TO_SECOND_NOTE_PICKUP_Y = 6.70;*/
-	public static final double DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_THIRD_NOTE_PICKUP_X = 7.94;
-	public static final double DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_THIRD_NOTE_PICKUP_Y = 7.44;
+	public static final double DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_AREA_BEFORE_THIRD_NOTE_PICKUP_X = 5;
+	public static final double DISTANCE_FROM_AREA_BEFORE_THIRD_NOTE_PICKUP_TO_THIRD_NOTE_PICKUP_X = .5;
 	public static final double DISTANCE_FROM_THIRD_NOTE_PICKUP_TO_SHOOT_THIRD_NOTE_X = 4.59;
 	public static final double DISTANCE_FROM_THIRD_NOTE_PICKUP_TO_SHOOT_THIRD_NOTE_Y = 6.93;
 
