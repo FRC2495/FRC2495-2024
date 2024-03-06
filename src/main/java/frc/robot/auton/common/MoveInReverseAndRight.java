@@ -13,7 +13,7 @@ import frc.robot.RobotContainer;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.subsystems.*;
 
-// moves in reverse and right, ending oreiented at specified heading
+// moves in reverse and right, ending oriented at specified heading
 public class MoveInReverseAndRight extends SequentialCommandGroup {
 
 	private double reverseDistance;

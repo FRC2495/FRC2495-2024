@@ -13,7 +13,7 @@ import frc.robot.RobotContainer;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.subsystems.*;
 
-// moves forward and right, ending oreiented at specified heading
+// moves forward and right, ending oriented at specified heading
 public class MoveForwardAndRight extends SequentialCommandGroup {
 
 	private double forwardDistance;
