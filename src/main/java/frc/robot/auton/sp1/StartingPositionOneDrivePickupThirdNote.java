@@ -22,7 +22,7 @@ import frc.robot.interfaces.*;
 import frc.robot.sensors.*;
 
 
-public class StartingPositionOneDrivePickupThirdNote extends ParallelCommandGroup {
+public class StartingPositionOneDrivePickupThirdNote extends SequentialCommandGroup {
 
 	public StartingPositionOneDrivePickupThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, ICamera object_detection_camera){
 
