@@ -30,7 +30,7 @@ public class StartingPositionThreeDriveShootThirdNote extends SequentialCommandG
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),
 			
-			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera) // change to april tag command later
+			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera) 
 		); 
   
 	}
@@ -54,7 +54,7 @@ public class StartingPositionThreeDriveShootThirdNote extends SequentialCommandG
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
-			new Pose2d(AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_THIRD_NOTE_PICKUP_X-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_THIRD_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_THIRD_NOTE_PICKUP_Y-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_THIRD_NOTE_PICKUP_Y, Rotation2d.fromDegrees(0)),
+			new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward

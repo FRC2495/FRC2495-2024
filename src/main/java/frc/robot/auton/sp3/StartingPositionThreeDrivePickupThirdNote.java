@@ -24,13 +24,13 @@ import frc.robot.sensors.*;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
-public class StartingPositionThreeDrivePickupSecondNote extends SequentialCommandGroup {
+public class StartingPositionThreeDrivePickupThirdNote extends SequentialCommandGroup {
 
-	public StartingPositionThreeDrivePickupSecondNote(RobotContainer container, SwerveDrivetrain drivetrain, ICamera object_detection_camera){
+	public StartingPositionThreeDrivePickupThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, ICamera object_detection_camera){
 
 		addCommands(
 
-			new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container)),
+			new DrivetrainSwerveRelative(drivetrain, container, createPickupThirdNoteTrajectory(container)),
 
 			new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera)
 			
@@ -52,7 +52,7 @@ public class StartingPositionThreeDrivePickupSecondNote extends SequentialComman
 		return trajectory;
 	}*/
 
-	public static Trajectory createPickupSecondNoteTrajectory(RobotContainer container) {
+	public static Trajectory createPickupThirdNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -60,7 +60,7 @@ public class StartingPositionThreeDrivePickupSecondNote extends SequentialComman
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.ONE_HALF_OF_A_METER, AutonConstants.DISTANCE_FROM_STARTING_POSITION_TO_SECOND_NOTE_PICKUP_Y, Rotation2d.fromDegrees(60)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_AFTER_SHOOT_SECOND_NOTE_TO_AREA_BEFORE_THIRD_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_AFTER_SHOOT_SECOND_NOTE_TO_AREA_BEFORE_THIRD_NOTE_PICKUP_Y, Rotation2d.fromDegrees(60)),
 			container.createTrajectoryConfig());
 
 		return trajectory;

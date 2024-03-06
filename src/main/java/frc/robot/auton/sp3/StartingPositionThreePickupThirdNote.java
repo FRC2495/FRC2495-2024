@@ -32,7 +32,7 @@ public class StartingPositionThreePickupThirdNote extends ParallelCommandGroup {
 
 			new RollerSuperSmartRoll(roller, notesensor),
 
-			new StartingPositionThreeDrivePickupSecondNote(container, drivetrain, object_detection_camera)
+			new StartingPositionThreeDrivePickupThirdNote(container, drivetrain, object_detection_camera)
 
 			//new DrivetrainSwerveRelative(drivetrain, container, createPickupThirdNoteTrajectory(container))
 			
@@ -54,7 +54,7 @@ public class StartingPositionThreePickupThirdNote extends ParallelCommandGroup {
 		return trajectory;
 	}*/
 
-	public static Trajectory createPickupThirdNoteTrajectory(RobotContainer container) {
+	/*public static Trajectory createPickupThirdNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -66,7 +66,7 @@ public class StartingPositionThreePickupThirdNote extends ParallelCommandGroup {
 			container.createTrajectoryConfig());
 
 		return trajectory;
-	}
+	}*/
 
 
 }
