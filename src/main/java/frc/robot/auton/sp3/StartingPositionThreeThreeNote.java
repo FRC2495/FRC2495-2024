@@ -40,6 +40,8 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 
 			new ShootNote(shooter, roller),
 
+			new NeckMoveDownWithStallDetection(neck),
+
 			new StartingPositionThreePickupSecondNote(container, drivetrain, object_detection_camera, roller, notesensor),
 
 			new NeckMoveSubWithStallDetection(neck), // moves neck up so note isnt dragging on the floor
