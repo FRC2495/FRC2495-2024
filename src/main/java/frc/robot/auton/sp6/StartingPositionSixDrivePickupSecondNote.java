@@ -24,35 +24,33 @@ import frc.robot.sensors.*;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
-public class StartingPositionSixPickupSecondNote extends ParallelCommandGroup {
+public class StartingPositionSixDrivePickupSecondNote extends SequentialCommandGroup {
 
-	public StartingPositionSixPickupSecondNote(RobotContainer container, SwerveDrivetrain drivetrain, ICamera object_detection_camera, Roller roller, NoteSensor notesensor){
+	public StartingPositionSixDrivePickupSecondNote(RobotContainer container, SwerveDrivetrain drivetrain, ICamera object_detection_camera){
 
 		addCommands(
 
-			new RollerSuperSmartRoll(roller, notesensor),
+			new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container)),
 
-			//new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container))
-
-			new StartingPositionSixDrivePickupSecondNote(container, drivetrain, object_detection_camera)
+			new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera)
 			
 		); 
   
 	}
    
-	/*public static Trajectory createPickupSecondNoteTrajectory(RobotContainer container) {
+	public static Trajectory createPickupSecondNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
-			new Pose2d(AutonConstants.STARTING_POSITION_6_X_VALUE-AutonConstants.STARTING_POSITION_6_X_VALUE, AutonConstants.STARTING_POSITION_6_Y_VALUE-AutonConstants.STARTING_POSITION_6_Y_VALUE, Rotation2d.fromDegrees(0)),
+			new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.STARTING_POSITION_6_X_VALUE-AutonConstants.DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_NOTE_PICKUP_X, AutonConstants.STARTING_POSITION_6_Y_VALUE-AutonConstants.DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_NOTE_PICKUP_Y, Rotation2d.fromDegrees(-300)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_PICKUP_X, -AutonConstants.DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_PICKUP_Y, Rotation2d.fromDegrees(-300)),
 			container.createTrajectoryConfig());
 
 		return trajectory;
-	}*/
+	}
 
 
 }

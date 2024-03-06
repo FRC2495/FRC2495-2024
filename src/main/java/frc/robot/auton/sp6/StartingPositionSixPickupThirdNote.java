@@ -41,11 +41,11 @@ public class StartingPositionSixPickupThirdNote extends ParallelCommandGroup {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
-			new Pose2d(AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_X-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_X, AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_Y-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_Y, Rotation2d.fromDegrees(0)),
+			new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_X-AutonConstants.DISTANCE_FROM_AREA_BEFORE_THIRD_PICKUP_TO_THIRD_PICKUP_X, AutonConstants.DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_X-AutonConstants.DISTANCE_FROM_AREA_BEFORE_THIRD_PICKUP_TO_THIRD_PICKUP_Y, Rotation2d.fromDegrees(-160)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_AFTER_SHOOT_SECOND_NOTE_TO_AREA_BEFORE_THIRD_NOTE_PICKUP_X, -AutonConstants.DISTANCE_FROM_AFTER_SHOOT_SECOND_NOTE_TO_AREA_BEFORE_THIRD_NOTE_PICKUP_Y, Rotation2d.fromDegrees(-160)),
 			container.createTrajectoryConfig());
 
 		return trajectory;
