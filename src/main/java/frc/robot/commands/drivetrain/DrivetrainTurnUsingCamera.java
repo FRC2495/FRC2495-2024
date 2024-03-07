@@ -57,7 +57,7 @@ public class DrivetrainTurnUsingCamera extends Command {
 		boolean isTurningUsingCamera = true;
 		
 		{
-			boolean isOnTarget = Math.abs(camera.getAngleToTurnToTarget()) < 1.0; // angle in degree, TODO adjust if 1 degree is too strict
+			boolean isOnTarget = Math.abs(camera.getAngleToTurnToTarget()) < 3.0; // angle in degree, TODO adjust as needed (probably no less than 1.0 and no more than 5.0)
 			
 			if (isOnTarget) { // if we are on target in this iteration 
 				onTargetCountTurningUsingCamera++; // we increase the counter
