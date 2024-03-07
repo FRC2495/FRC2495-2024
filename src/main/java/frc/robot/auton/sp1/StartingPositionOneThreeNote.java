@@ -15,6 +15,7 @@ import frc.robot.auton.common.*;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.neck.NeckHome;
 import frc.robot.commands.neck.NeckMoveDownWithStallDetection;
+import frc.robot.commands.neck.NeckMoveOptimalPositionForShooting;
 import frc.robot.commands.neck.NeckMovePodiumWithStallDetection;
 import frc.robot.commands.neck.NeckMoveStartingPositionOneSecondNoteWithStallDetection;
 import frc.robot.commands.neck.NeckMoveSubWithStallDetection;
@@ -42,17 +43,13 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
 			new NeckMoveDownWithStallDetection(neck),
 
-			//new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera),
-			
-			//new DrivetrainTimedTurnUsingPIDController(drivetrain, 145, 2),
-
-			//new DrivetrainSwerveRelative(drivetrain, container, createShootPreloadTrajectory(container)),
-
 			new StartingPositionOnePickupSecondNote(container, drivetrain, roller, notesensor),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)), 
 
-			new NeckMovePodiumWithStallDetection(neck), // check to see if this works later 
+			//new NeckMovePodiumWithStallDetection(neck), // check to see if this works later 
+
+			new NeckMoveOptimalPositionForShooting(neck, apriltag_camera),
 
 			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera), // change to april tag camera command later 
 

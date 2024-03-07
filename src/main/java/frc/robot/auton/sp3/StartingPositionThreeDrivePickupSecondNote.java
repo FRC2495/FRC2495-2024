@@ -30,9 +30,11 @@ public class StartingPositionThreeDrivePickupSecondNote extends SequentialComman
 
 		addCommands(
 
-			new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container)),
+			new DrivetrainSwerveRelative(drivetrain, container, createBeforePickupSecondNoteTrajectory(container)),
 
 			new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera)
+
+			//new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container))
 			
 		); 
   
@@ -52,6 +54,20 @@ public class StartingPositionThreeDrivePickupSecondNote extends SequentialComman
 		return trajectory;
 	}*/
 
+	public static Trajectory createBeforePickupSecondNoteTrajectory(RobotContainer container) {
+		// An example trajectory to follow. All units in meters.
+		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+			// Start at the origin facing the -X direction
+			new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
+			// Pass through these waypoints
+			List.of(),
+			// End straight ahead of where we started, facing forward
+			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_SECOND_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_TO_SECOND_NOTE_PICKUP_Y, Rotation2d.fromDegrees(80)),
+			container.createTrajectoryConfig());
+
+		return trajectory;
+	}
+
 	public static Trajectory createPickupSecondNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
@@ -60,7 +76,7 @@ public class StartingPositionThreeDrivePickupSecondNote extends SequentialComman
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.ONE_HALF_OF_A_METER, AutonConstants.DISTANCE_FROM_STARTING_POSITION_TO_SECOND_NOTE_PICKUP_Y, Rotation2d.fromDegrees(60)),
+			new Pose2d(AutonConstants.ONE_THIRD_OF_A_METER, 0, Rotation2d.fromDegrees(60)),
 			container.createTrajectoryConfig());
 
 		return trajectory;
