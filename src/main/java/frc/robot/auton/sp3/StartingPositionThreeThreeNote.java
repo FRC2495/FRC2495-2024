@@ -48,7 +48,7 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 
 			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
 
-			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
+			//new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
 			
 			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)), // remove if not needed later
 
