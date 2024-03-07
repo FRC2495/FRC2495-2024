@@ -353,7 +353,9 @@
               "_showGlyph": false,
               "Game/Game": "k2024Crescendo",
               "Visuals/Robot Icon Size": 50.0,
-              "Visuals/Show Outside Circles": true
+              "Visuals/Show Outside Circles": true,
+              "Colors/centeredTrajectory": "#FFFFFFFF",
+              "Colors/trajectory": "#FFFFFFFF"
             }
           },
           "9,2": {
@@ -878,7 +880,9 @@
               "_showGlyph": false,
               "Game/Game": "k2024Crescendo",
               "Visuals/Robot Icon Size": 50.0,
-              "Visuals/Show Outside Circles": true
+              "Visuals/Show Outside Circles": true,
+              "Colors/centeredTrajectory": "#FFFFFFFF",
+              "Colors/trajectory": "#FFFFFFFF"
             }
           }
         }
@@ -1263,7 +1267,9 @@
               "_showGlyph": false,
               "Game/Game": "k2024Crescendo",
               "Visuals/Robot Icon Size": 50.0,
-              "Visuals/Show Outside Circles": true
+              "Visuals/Show Outside Circles": true,
+              "Colors/centeredTrajectory": "#FFFFFFFF",
+              "Colors/trajectory": "#FFFFFFFF"
             }
           },
           "7,2": {
@@ -2499,7 +2505,9 @@
               "_showGlyph": false,
               "Game/Game": "k2024Crescendo",
               "Visuals/Robot Icon Size": 50.0,
-              "Visuals/Show Outside Circles": true
+              "Visuals/Show Outside Circles": true,
+              "Colors/centeredTrajectory": "#FFFFFFFF",
+              "Colors/trajectory": "#FFFFFFFF"
             }
           },
           "7,0": {

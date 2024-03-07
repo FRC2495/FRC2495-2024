@@ -46,7 +46,7 @@ public class StartingPositionSixDrivePickupSecondNote extends SequentialCommandG
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_PICKUP_X, -AutonConstants.DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_PICKUP_Y, Rotation2d.fromDegrees(-300)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_PICKUP_X, -AutonConstants.DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_PICKUP_Y, Rotation2d.fromDegrees(-320)),
 			container.createTrajectoryConfig());
 
 		return trajectory;
