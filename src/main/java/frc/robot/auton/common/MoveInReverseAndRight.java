@@ -13,8 +13,7 @@ import frc.robot.RobotContainer;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.subsystems.*;
 
-// GP = game piece
-// Can be used to place one cube or one cone and either starting position one or two
+// moves in reverse and right, ending oriented at specified heading
 public class MoveInReverseAndRight extends SequentialCommandGroup {
 
 	private double reverseDistance;

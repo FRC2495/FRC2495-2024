@@ -17,7 +17,7 @@ public class AutonConstants {
 	public static final double STARTING_POSITION_1_Y_VALUE = 6.55;
 	public static final double DISTANCE_FROM_STARTING_POSITION_1_TO_SECOND_NOTE_PICKUP_X = 2.71;
 	public static final double DISTANCE_FROM_STARTING_POSITION_1_TO_SECOND_NOTE_PICKUP_Y = 8.00;//6.75;
-	public static final double DISTANCE_FROM_STARTING_POSITION_1_TO_SECOND_LEFT_NOTE_PICKUP_X = 1.45;
+	public static final double DISTANCE_FROM_STARTING_POSITION_1_TO_SECOND_LEFT_NOTE_PICKUP_X = 1.3; //1.45;
 	public static final double DISTANCE_FROM_STARTING_POSITION_1_TO_SECOND_LEFT_NOTE_PICKUP_Y = 2.46;
 	/*public static final double DISTANCE_FROM_AREA_TO_SHOOT_PRELOAD_TO_SECOND_NOTE_PICKUP_X = 2.65;
 	public static final double DISTANCE_FROM_AREA_TO_SHOOT_PRELOAD_TO_SECOND_NOTE_PICKUP_Y = 6.70;*/
@@ -44,9 +44,10 @@ public class AutonConstants {
 	// Starting Position Three = Three Note Distances (all in meters)
 	public static final double STARTING_POSITION_3_X_VALUE = 0.59;
 	public static final double STARTING_POSITION_3_Y_VALUE = 4.47;
-	public static final double DISTANCE_FROM_STARTING_POSITION_3_TO_SECOND_NOTE_PICKUP_X = 2.58;
+	public static final double DISTANCE_FROM_STARTING_POSITION_3_TO_SECOND_NOTE_PICKUP_X = 1.15; //1.2 //2.58;
 	public static final double DISTANCE_FROM_STARTING_POSITION_3_TO_SECOND_NOTE_PICKUP_Y = 4.10;
-	public static final double DISTANCE_FROM_STARTING_POSITION_TO_SECOND_NOTE_PICKUP_Y = 2.00;
+	public static final double DISTANCE_FROM_STARTING_POSITION_TO_SECOND_NOTE_PICKUP_Y = 1.4; //1.5;
+	public static final double DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_SHOOT_SECOND_X = 1.3;
 	/*public static final double DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_SHOOT_SECOND_NOTE_X = 2.08;
 	public static final double DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_SHOOT_SECOND_NOTE_Y = 4.17;*/
 	public static final double DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_THIRD_NOTE_PICKUP_X = 7.95;
@@ -83,7 +84,7 @@ public class AutonConstants {
 	public static final double DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_NOTE_PICKUP_X = 14.14;
 	public static final double DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_NOTE_PICKUP_Y = 4.12;
 	public static final double DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_PICKUP_X = 0.50;
-	public static final double DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_PICKUP_Y = 1.65;
+	public static final double DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_PICKUP_Y = 1.35; //1.50
 	public static final double DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_X = 13.01;
 	public static final double DISTANCE_FROM_SHOOT_SECOND_TO_AREA_BEFORE_THIRD_PICKUP_Y = 1.60;
 	public static final double DISTANCE_FROM_AREA_BEFORE_THIRD_PICKUP_TO_THIRD_PICKUP_X = 8.83;

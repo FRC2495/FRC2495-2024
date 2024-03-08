@@ -46,6 +46,10 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 
 			new NeckMoveSubWithStallDetection(neck), // moves neck up so note isnt dragging on the floor
 
+			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
+
+			//new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
+			
 			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)), // remove if not needed later
 
 			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
@@ -54,9 +58,9 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 
 			new ShootNote(shooter, roller),
 
-			new NeckMoveDownWithStallDetection(neck),
+			new NeckMoveDownWithStallDetection(neck)
 
-			new DrivetrainSwerveRelative(drivetrain, container, createAfterShootSecondNoteTrajectory(container)), // test to see where robot ends up
+			/*new DrivetrainSwerveRelative(drivetrain, container, createAfterShootSecondNoteTrajectory(container)), // test to see where robot ends up
 
 			new StartingPositionThreePickupThirdNote(container, drivetrain, object_detection_camera, roller, notesensor),
 
@@ -66,7 +70,7 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 
 			new NeckMoveOptimalPositionForShooting(neck, apriltag_camera),
 			
-			new ShootNote(shooter, roller)
+			new ShootNote(shooter, roller)*/
 
         ); 
   
@@ -80,8 +84,8 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(-AutonConstants.ONE_METER, 0, Rotation2d.fromDegrees(0)),
-			container.createTrajectoryConfig());
+			new Pose2d(-AutonConstants.DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_SHOOT_SECOND_X, 0, Rotation2d.fromDegrees(0)),
+			container.createReverseTrajectoryConfig());
 
 		return trajectory;
 	}
@@ -94,7 +98,7 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.ONE_METER, 0, Rotation2d.fromDegrees(0)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_SHOOT_SECOND_X, 0, Rotation2d.fromDegrees(0)),
 			container.createTrajectoryConfig());
 
 		return trajectory;
