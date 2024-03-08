@@ -91,7 +91,7 @@ public class TrajectoryGenerationTest extends SequentialCommandGroup {
 
 			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoShootLeftThirdNote.createShootThirdNoteTrajectory(container))
 
-			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoTwoNote.createShootSecondNoteTrajectory(container))
+			new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoTwoNote.createShootSecondNoteTrajectory(container))
 
 			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoTwoNote.createLeaveAfterShootSecondNoteTrajectory(container))
 
@@ -105,7 +105,7 @@ public class TrajectoryGenerationTest extends SequentialCommandGroup {
 			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionThreeShootThirdNote.createShootThirdNoteTrajectory(container))
 
 
-			new DrivetrainSwerveRelative(drivetrain, container, StartingPositionFourDrivePickupSecondNote.createPickupSecondNoteTrajectory(container))
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionFourDrivePickupSecondNote.createPickupSecondNoteTrajectory(container))
 
 			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionFourPickupThirdNote.createPickupThirdNoteTrajectory(container))
 

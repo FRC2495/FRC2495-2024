@@ -29,6 +29,7 @@ public class AutonConstants {
 	// Starting Position Two = Two Note Distances (all in meters)
 	public static final double STARTING_POSITION_2_X_VALUE = 1.35; //1.35
 	public static final double STARTING_POSITION_2_Y_VALUE = 5.57;
+	public static final double DISTANCE_FROM_STARTING_POSITION_TO_SECOND_NOTE_PICKUP = 1.25;
 	public static final double DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_X = 2.60;
 	public static final double DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_Y = 5.57;
 	public static final double DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEAVE_X = 3.84;

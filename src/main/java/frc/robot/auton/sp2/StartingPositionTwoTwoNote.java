@@ -64,11 +64,11 @@ public class StartingPositionTwoTwoNote extends SequentialCommandGroup {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
-			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_X-AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_Y-AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_Y, Rotation2d.fromDegrees(180)),
+			new Pose2d(0, 0, Rotation2d.fromDegrees(180)),
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_2_TO_SECOND_NOTE_PICKUP_X-AutonConstants.STARTING_POSITION_2_X_VALUE, AutonConstants.STARTING_POSITION_2_Y_VALUE-AutonConstants.STARTING_POSITION_2_Y_VALUE, Rotation2d.fromDegrees(180)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_TO_SECOND_NOTE_PICKUP, 0, Rotation2d.fromDegrees(180)),
 			container.createReverseTrajectoryConfig());
 
 		return trajectory;
@@ -78,11 +78,11 @@ public class StartingPositionTwoTwoNote extends SequentialCommandGroup {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
-			new Pose2d(AutonConstants.STARTING_POSITION_2_X_VALUE-AutonConstants.STARTING_POSITION_2_X_VALUE, AutonConstants.STARTING_POSITION_2_Y_VALUE-AutonConstants.STARTING_POSITION_2_Y_VALUE, Rotation2d.fromDegrees(180)),
+			new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.STARTING_POSITION_2_X_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEAVE_X, AutonConstants.STARTING_POSITION_2_Y_VALUE-AutonConstants.STARTING_POSITION_2_Y_VALUE, Rotation2d.fromDegrees(180)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_LEFT_THIRD_NOTE_PICKUP_X, 0, Rotation2d.fromDegrees(0)),
 			container.createTrajectoryConfig());
 
 		return trajectory;
