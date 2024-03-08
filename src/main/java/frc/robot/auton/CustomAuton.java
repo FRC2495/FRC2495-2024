@@ -10,6 +10,7 @@ package frc.robot.auton;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 import frc.robot.RobotContainer;
+import frc.robot.auton.common.JustShootNote;
 import frc.robot.auton.sp1.*;
 import frc.robot.auton.sp2.*;
 import frc.robot.auton.sp3.*;
@@ -56,7 +57,7 @@ public class CustomAuton extends SequentialCommandGroup {
 					case RobotContainer.GAME_PIECE_1_NOTE:
 						switch (autonOption) {
 							case RobotContainer.AUTON_OPTION_JUST_SHOOT_NOTE:
-								//TODO
+								addCommands(new JustShootNote(neck, shooter, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
 								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
@@ -119,7 +120,7 @@ public class CustomAuton extends SequentialCommandGroup {
 					case RobotContainer.GAME_PIECE_1_NOTE:
 						switch (autonOption) {
 							case RobotContainer.AUTON_OPTION_JUST_SHOOT_NOTE:
-								//TODO
+								addCommands(new JustShootNote(neck, shooter, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
 								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
@@ -182,7 +183,7 @@ public class CustomAuton extends SequentialCommandGroup {
 					case RobotContainer.GAME_PIECE_1_NOTE:
 						switch (autonOption) {
 							case RobotContainer.AUTON_OPTION_JUST_SHOOT_NOTE:
-								//TODO
+								addCommands(new JustShootNote(neck, shooter, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
 								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
@@ -245,7 +246,7 @@ public class CustomAuton extends SequentialCommandGroup {
 					case RobotContainer.GAME_PIECE_1_NOTE:
 						switch (autonOption) {
 							case RobotContainer.AUTON_OPTION_JUST_SHOOT_NOTE:
-								//TODO
+								addCommands(new JustShootNote(neck, shooter, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
 								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
@@ -308,7 +309,7 @@ public class CustomAuton extends SequentialCommandGroup {
 					case RobotContainer.GAME_PIECE_1_NOTE:
 						switch (autonOption) {
 							case RobotContainer.AUTON_OPTION_JUST_SHOOT_NOTE:
-								//TODO
+								addCommands(new JustShootNote(neck, shooter, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
 								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
@@ -372,7 +373,7 @@ public class CustomAuton extends SequentialCommandGroup {
 					case RobotContainer.GAME_PIECE_1_NOTE:
 						switch (autonOption) {
 							case RobotContainer.AUTON_OPTION_JUST_SHOOT_NOTE:
-								//TODO
+								addCommands(new JustShootNote(neck, shooter, roller));
 								break;
 							case RobotContainer.AUTON_OPTION_LEAVE_COMMUNITY:
 								//addCommands(new DropTopCubeAndShrink(container, elevator, drawer, roller));
