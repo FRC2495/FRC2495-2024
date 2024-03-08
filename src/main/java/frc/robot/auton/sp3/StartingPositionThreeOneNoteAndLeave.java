@@ -28,9 +28,9 @@ import frc.robot.sensors.*;
 
 // GP = game piece
 // Can be used to place one cube or one cone and either starting position one or two
-public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
+public class StartingPositionThreeOneNoteAndLeave extends SequentialCommandGroup {
 
-    public StartingPositionThreeThreeNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera object_detection_camera, ICamera apriltag_camera, NoteSensor notesensor){
+    public StartingPositionThreeOneNoteAndLeave(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera object_detection_camera, NoteSensor notesensor){
 
         addCommands(
 
@@ -42,41 +42,15 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 
 			new NeckMoveDownWithStallDetection(neck),
 
-			new StartingPositionThreePickupSecondNote(container, drivetrain, object_detection_camera, roller, notesensor),
+			new DrivetrainSwerveRelative(drivetrain, container, createMoveAwayFromSpeakerTrajectory(container)),
 
-			new NeckMoveSubWithStallDetection(neck), // moves neck up so note isnt dragging on the floor
-
-			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
-
-			//new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
-			
-			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)), // remove if not needed later
-
-			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
-
-			new NeckMoveOptimalPositionForShooting(neck, apriltag_camera),
-
-			new ShootNote(shooter, roller),
-
-			new NeckMoveDownWithStallDetection(neck)
-
-			/*new DrivetrainSwerveRelative(drivetrain, container, createAfterShootSecondNoteTrajectory(container)), // test to see where robot ends up
-
-			new StartingPositionThreePickupThirdNote(container, drivetrain, object_detection_camera, roller, notesensor),
-
-			new NeckMovePodiumWithStallDetection(neck),
-			
-			new StartingPositionThreeDriveShootThirdNote(container, drivetrain, apriltag_camera),
-
-			new NeckMoveOptimalPositionForShooting(neck, apriltag_camera),
-			
-			new ShootNote(shooter, roller)*/
+			new DrivetrainSwerveRelative(drivetrain, container, createMoveTowardsMidlineNoteTrajectory(container))
 
         ); 
   
     }
 
-	public static Trajectory createShootSecondNoteTrajectory(RobotContainer container) {
+	public static Trajectory createMoveAwayFromSpeakerTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -84,13 +58,13 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(-AutonConstants.DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_SHOOT_SECOND_X, 0, Rotation2d.fromDegrees(0)),
-			container.createReverseTrajectoryConfig());
+			new Pose2d(0, -AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_BEFORE_MIDLINE_NOTE_PICKUP_Y, Rotation2d.fromDegrees(0)),
+			container.createTrajectoryConfig());
 
 		return trajectory;
 	}
 
-	public static Trajectory createAfterShootSecondNoteTrajectory(RobotContainer container) {
+	public static Trajectory createMoveTowardsMidlineNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -98,7 +72,7 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_SHOOT_SECOND_X, 0, Rotation2d.fromDegrees(0)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_BEFORE_MIDLINE_NOTE_PICKUP_X, 0, Rotation2d.fromDegrees(0)),
 			container.createTrajectoryConfig());
 
 		return trajectory;
