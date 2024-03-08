@@ -1,4 +1,4 @@
-package frc.robot.auton.sp3;
+package frc.robot.auton.sp4;
 
 import java.util.List;
 
@@ -26,11 +26,9 @@ import frc.robot.auton.sp1.*;
 import frc.robot.sensors.*;
 
 
-// GP = game piece
-// Can be used to place one cube or one cone and either starting position one or two
-public class StartingPositionThreeOneNoteAndLeave extends SequentialCommandGroup {
+public class StartingPositionFourOneNoteAndLeave extends SequentialCommandGroup {
 
-    public StartingPositionThreeOneNoteAndLeave(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera object_detection_camera, NoteSensor notesensor){
+    public StartingPositionFourOneNoteAndLeave(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera object_detection_camera, NoteSensor notesensor){
 
         addCommands(
 
@@ -42,9 +40,9 @@ public class StartingPositionThreeOneNoteAndLeave extends SequentialCommandGroup
 
 			new NeckMoveDownWithStallDetection(neck),
 
-			new DrivetrainSwerveRelative(drivetrain, container, createMoveAwayFromSpeakerTrajectory(container))
+			new DrivetrainSwerveRelative(drivetrain, container, createMoveAwayFromSpeakerTrajectory(container)),
 
-			//new DrivetrainSwerveRelative(drivetrain, container, createMoveTowardsMidlineNoteTrajectory(container))
+			new DrivetrainSwerveRelative(drivetrain, container, createMoveTowardsMidlineNoteTrajectory(container))
 
         ); 
   
@@ -58,13 +56,13 @@ public class StartingPositionThreeOneNoteAndLeave extends SequentialCommandGroup
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_BEFORE_MIDLINE_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_BEFORE_MIDLINE_NOTE_PICKUP_Y, Rotation2d.fromDegrees(0)),
-			container.createReverseTrajectoryConfig());
+			new Pose2d(0, -AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_BEFORE_MIDLINE_NOTE_PICKUP_Y, Rotation2d.fromDegrees(0)),
+			container.createTrajectoryConfig());
 
 		return trajectory;
 	}
 
-	/*public static Trajectory createMoveTowardsMidlineNoteTrajectory(RobotContainer container) {
+	public static Trajectory createMoveTowardsMidlineNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -72,11 +70,11 @@ public class StartingPositionThreeOneNoteAndLeave extends SequentialCommandGroup
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(, 0, Rotation2d.fromDegrees(0)),
+			new Pose2d(-AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_BEFORE_MIDLINE_NOTE_PICKUP_X, 0, Rotation2d.fromDegrees(0)),
 			container.createTrajectoryConfig());
 
 		return trajectory;
-	}*/
+	}
 
 
 }
