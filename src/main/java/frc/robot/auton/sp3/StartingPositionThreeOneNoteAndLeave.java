@@ -59,7 +59,7 @@ public class StartingPositionThreeOneNoteAndLeave extends SequentialCommandGroup
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_BEFORE_MIDLINE_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_BEFORE_MIDLINE_NOTE_PICKUP_Y, Rotation2d.fromDegrees(0)),
-			container.createReverseTrajectoryConfig());
+			container.createTrajectoryConfig());
 
 		return trajectory;
 	}
