@@ -26,21 +26,17 @@ import frc.robot.auton.sp1.*;
 import frc.robot.sensors.*;
 
 
-public class StartingPositionSixOneNoteAndLeave extends SequentialCommandGroup {
+// GP = game piece
+// Can be used to place one cube or one cone and either starting position one or two
+public class StartingPositionSixOneNoteAndPickupAtMidline extends SequentialCommandGroup {
 
-    public StartingPositionSixOneNoteAndLeave(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera object_detection_camera, NoteSensor notesensor){
+    public StartingPositionSixOneNoteAndPickupAtMidline(RobotContainer container, Elevator elevator, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera object_detection_camera, ICamera apriltag_camera, NoteSensor notesensor){
 
         addCommands(
 
-			new NeckHome(neck),
+			new StartingPositionSixOneNoteAndLeave(container, drivetrain, roller, shooter, neck, object_detection_camera, notesensor),
 
-			new NeckMoveSubWithStallDetection(neck),
-
-			new ShootNote(shooter, roller),
-
-			new NeckMoveDownWithStallDetection(neck),
-
-			new DrivetrainSwerveRelative(drivetrain, container, createMoveAwayFromSpeakerTrajectory(container))
+			new StartingPositionSixPickupMidlineNote(container, drivetrain, object_detection_camera, roller, notesensor)
 
         ); 
   
@@ -54,7 +50,7 @@ public class StartingPositionSixOneNoteAndLeave extends SequentialCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_BEFORE_MIDLINE_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_BEFORE_MIDLINE_NOTE_PICKUP_Y, Rotation2d.fromDegrees(0)),
+			new Pose2d(0, -AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_BEFORE_MIDLINE_NOTE_PICKUP_Y, Rotation2d.fromDegrees(0)),
 			container.createTrajectoryConfig());
 
 		return trajectory;
