@@ -103,7 +103,7 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(-AutonConstants.ONE_AND_A_HALF_METER, 0, Rotation2d.fromDegrees(0)),
+			new Pose2d(-AutonConstants.ONE_THIRD_OF_A_METER, 0, Rotation2d.fromDegrees(0)),
 			container.createReverseTrajectoryConfig());
 
 		return trajectory;
