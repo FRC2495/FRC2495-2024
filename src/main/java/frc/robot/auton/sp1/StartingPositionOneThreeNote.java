@@ -55,7 +55,7 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
 			//new NeckMoveUsingCamera(neck, apriltag_camera),
 
-			new NeckMoveStartingPositionOneSecondNoteWithStallDetection(neck),
+			new NeckMoveOptimalPositionForShooting(neck, apriltag_camera),
 
 			new ShootNote(shooter, roller),
 
