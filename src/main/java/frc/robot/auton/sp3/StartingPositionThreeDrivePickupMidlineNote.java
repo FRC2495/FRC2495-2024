@@ -30,15 +30,29 @@ public class StartingPositionThreeDrivePickupMidlineNote extends SequentialComma
 
 		addCommands(
 
-			new DrivetrainSwerveRelative(drivetrain, container, createPickupMidlineNoteTrajectory(container)),
+			new DrivetrainSwerveRelative(drivetrain, container, createPickupMidlineNoteTrajectory(container))
 
-			new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera),
+			//new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera),
 
-			new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container))
+			//new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container))
 			
 		); 
   
 	}
+
+	/*public static Trajectory createPickupMidlineNoteTrajectory(RobotContainer container) {
+		// An example trajectory to follow. All units in meters.
+		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+			// Start at the origin facing the -X direction
+			new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
+			// Pass through these waypoints
+			List.of(),
+			// End straight ahead of where we started, facing forward
+			new Pose2d(AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_X, -AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_Y, Rotation2d.fromDegrees(-80)),
+			container.createTrajectoryConfig());
+
+		return trajectory;
+	}*/
 
 	public static Trajectory createPickupMidlineNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
@@ -48,7 +62,7 @@ public class StartingPositionThreeDrivePickupMidlineNote extends SequentialComma
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_X, -AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_Y, Rotation2d.fromDegrees(-80)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_X, 0, Rotation2d.fromDegrees(0)),
 			container.createTrajectoryConfig());
 
 		return trajectory;
@@ -68,7 +82,7 @@ public class StartingPositionThreeDrivePickupMidlineNote extends SequentialComma
 		return trajectory;
 	}
 
-	public static Trajectory createPickupSecondNoteTrajectory(RobotContainer container) {
+	/*public static Trajectory createPickupSecondNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -80,7 +94,7 @@ public class StartingPositionThreeDrivePickupMidlineNote extends SequentialComma
 			container.createTrajectoryConfig());
 
 		return trajectory;
-	}
+	}*/
 
 
 }
