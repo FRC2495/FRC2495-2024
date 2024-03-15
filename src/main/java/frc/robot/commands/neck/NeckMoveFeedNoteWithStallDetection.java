@@ -8,11 +8,11 @@ import frc.robot.subsystems.Neck;
 /**
  *
  */
-public class NeckMoveStartingPositionOneSecondNoteWithStallDetection extends Command {
+public class NeckMoveFeedNoteWithStallDetection extends Command {
 
 	private Neck neck;
 
-	public NeckMoveStartingPositionOneSecondNoteWithStallDetection(Neck neck) {
+	public NeckMoveFeedNoteWithStallDetection(Neck neck) {
 		this.neck = neck;
 		addRequirements(neck);
 	}
@@ -20,8 +20,8 @@ public class NeckMoveStartingPositionOneSecondNoteWithStallDetection extends Com
 	// Called just before this Command runs the first time
 	@Override
 	public void initialize() {
-		System.out.println("NeckMoveStartingPositionOneSecondNoteWithStallDetection: initialize");
-		neck.moveToStartingPositionOneSecondNote();
+		System.out.println("moveToFeedNote: initialize");
+		neck.moveToFeedNote();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
@@ -39,7 +39,7 @@ public class NeckMoveStartingPositionOneSecondNoteWithStallDetection extends Com
 	// Called once after isFinished returns true
 	@Override
 	public void end(boolean interupted) {
-		System.out.println("NeckMoveStartingPositionOneSecondNoteWithStallDetection: end");
+		System.out.println("NeckMoveFeedNoteWithStallDetection: end");
 		neck.stay();  // we don't want to stop so we stay up...
 	}
 }

@@ -13,16 +13,12 @@ import frc.robot.RobotContainer;
 import frc.robot.auton.AutonConstants;
 import frc.robot.auton.common.*;
 import frc.robot.commands.drivetrain.*;
-import frc.robot.commands.shooter.*;
-import frc.robot.commands.mouth.*;
 import frc.robot.commands.neck.NeckHome;
 import frc.robot.commands.neck.NeckMoveDownWithStallDetection;
 import frc.robot.commands.neck.NeckMoveOptimalPositionForShooting;
 import frc.robot.commands.neck.NeckMovePodiumWithStallDetection;
 import frc.robot.commands.neck.NeckMoveSubWithStallDetection;
 import frc.robot.subsystems.*;
-import frc.robot.auton.sp1.*;
-import frc.robot.auton.sp3.StartingPositionThreePickupThirdNote;
 import frc.robot.sensors.*;
 import frc.robot.interfaces.*;
 

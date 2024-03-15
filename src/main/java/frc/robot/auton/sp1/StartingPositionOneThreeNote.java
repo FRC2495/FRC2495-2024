@@ -17,14 +17,11 @@ import frc.robot.commands.neck.NeckHome;
 import frc.robot.commands.neck.NeckMoveDownWithStallDetection;
 import frc.robot.commands.neck.NeckMoveOptimalPositionForShooting;
 import frc.robot.commands.neck.NeckMovePodiumWithStallDetection;
-import frc.robot.commands.neck.NeckMoveStartingPositionOneSecondNoteWithStallDetection;
 import frc.robot.commands.neck.NeckMoveSubWithStallDetection;
-import frc.robot.commands.neck.NeckMoveUsingCamera;
-import frc.robot.commands.roller.RollerTimedRoll;
 import frc.robot.subsystems.*;
-import frc.robot.auton.sp1.*;
 import frc.robot.interfaces.*;
 import frc.robot.sensors.*;
+
 
 
 // GP = game piece

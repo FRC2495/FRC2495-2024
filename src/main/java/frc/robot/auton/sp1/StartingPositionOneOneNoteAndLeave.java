@@ -17,7 +17,7 @@ import frc.robot.commands.neck.NeckHome;
 import frc.robot.commands.neck.NeckMoveDownWithStallDetection;
 import frc.robot.commands.neck.NeckMoveOptimalPositionForShooting;
 import frc.robot.commands.neck.NeckMovePodiumWithStallDetection;
-import frc.robot.commands.neck.NeckMoveStartingPositionOneSecondNoteWithStallDetection;
+import frc.robot.commands.neck.NeckMoveFeedNoteWithStallDetection;
 import frc.robot.commands.neck.NeckMoveSubWithStallDetection;
 import frc.robot.commands.neck.NeckMoveUsingCamera;
 import frc.robot.commands.roller.RollerTimedRoll;
