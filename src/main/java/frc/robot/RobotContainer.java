@@ -155,6 +155,7 @@ public class RobotContainer {
 	public static final String AUTON_OPTION_LEAVE_COMMUNITY = "Leave Community";
 	public static final String AUTON_OPTION_PICKUP_NOTE_AT_MIDLINE = "Pickup Note at Midline";
 	public static final String AUTON_OPTION_PICKUP_NOTE_AT_WING = "Pickup Note at Wing";
+	public static final String AUTON_OPTION_FEED_NOTE = "Feed Note";
 	private String autonOption;
 	private SendableChooser<String> autonOptionChooser = new SendableChooser<>();
 
@@ -279,6 +280,7 @@ public class RobotContainer {
 		autonOptionChooser.addOption("Leave Community", AUTON_OPTION_LEAVE_COMMUNITY);
 		autonOptionChooser.addOption("Pickup Note At Midline", AUTON_OPTION_PICKUP_NOTE_AT_MIDLINE);
 		autonOptionChooser.addOption("Pickup Note At Wing", AUTON_OPTION_PICKUP_NOTE_AT_WING);
+		autonOptionChooser.addOption("Feed Note", AUTON_OPTION_FEED_NOTE);
 	
 		SmartDashboard.putData("Auton options", autonOptionChooser);
 		
