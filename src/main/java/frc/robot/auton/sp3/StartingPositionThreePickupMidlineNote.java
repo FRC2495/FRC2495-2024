@@ -34,9 +34,9 @@ public class StartingPositionThreePickupMidlineNote extends ParallelCommandGroup
 
 			//new DrivetrainSwerveRelative(drivetrain, container, createPickupMidlineNoteTrajectory(container))
 
-			new StartingPositionThreeDrivePickupMidlineNote(container, drivetrain, object_detection_camera)
+			//new StartingPositionThreeDrivePickupMidlineNote(container, drivetrain, object_detection_camera)
 
-			
+			new DrivetrainSwerveRelative(drivetrain, container, createMoveTowardsMidlineNoteTrajectory(container))
 		); 
   
 	}
@@ -68,6 +68,21 @@ public class StartingPositionThreePickupMidlineNote extends ParallelCommandGroup
 
 		return trajectory;
 	}*/
+
+	
+	public static Trajectory createMoveTowardsMidlineNoteTrajectory(RobotContainer container) {
+		// An example trajectory to follow. All units in meters.
+		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+			// Start at the origin facing the -X direction
+			new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
+			// Pass through these waypoints
+			List.of(),
+			// End straight ahead of where we started, facing forward
+			new Pose2d(AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_X, -AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_Y, Rotation2d.fromDegrees(0)),
+			container.createTrajectoryConfig());
+
+		return trajectory;
+	}
 
 
 }
