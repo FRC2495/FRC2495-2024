@@ -34,13 +34,13 @@ public class StartingPositionThreeOneNoteAndLeave extends SequentialCommandGroup
 
         addCommands(
 
-			/*new NeckHome(neck),
+			new NeckHome(neck),
 
 			new NeckMoveSubWithStallDetection(neck),
 
 			new ShootNote(shooter, roller),
 
-			new NeckMoveDownWithStallDetection(neck),*/
+			new NeckMoveDownWithStallDetection(neck),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createMoveAwayFromSpeakerTrajectory(container))
 
