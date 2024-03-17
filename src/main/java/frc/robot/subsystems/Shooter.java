@@ -70,7 +70,7 @@ public class Shooter extends SubsystemBase implements IShooter{
 		// Mode of operation during Neutral output may be set by using the setNeutralMode() function.
 		// As of right now, there are two options when setting the neutral mode of a motor controller,
 		// brake and coast.
-		shooterMaster.setNeutralMode(NeutralMode.Coast);
+		shooterMaster.setNeutralMode(NeutralMode.Brake);
 
 		// Sensors for motor controllers provide feedback about the position, velocity, and acceleration
 		// of the system using that motor controller.

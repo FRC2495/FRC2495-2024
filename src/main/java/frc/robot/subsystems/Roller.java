@@ -26,7 +26,7 @@ public class Roller extends SubsystemBase implements IRoller{
 	static final double ALMOST_MAX_PCT_OUTPUT = 1.0;
 	static final double HALF_PCT_OUTPUT = 0.5;
 	static final double REDUCED_PCT_OUTPUT = 0.8;
-	static final double SUPER_REDUCED_PCT_OUTPUT = 0.3;
+	static final double SUPER_REDUCED_PCT_OUTPUT = 0.2; // 0.3
 	//todo fix
 	
 	static final int WAIT_MS = 1000;
