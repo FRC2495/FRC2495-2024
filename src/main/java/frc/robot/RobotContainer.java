@@ -587,6 +587,18 @@ public class RobotContainer {
 		return config;
 	}
 
+	public TrajectoryConfig createSlowTrajectoryConfig() {
+		// Create config for trajectory
+		TrajectoryConfig config = new TrajectoryConfig(
+			AutoConstants.REDUCED_SPEED_METERS_PER_SECOND,
+			AutoConstants.MAX_ACCELERATION_METERS_PER_SECOND_SQUARED)
+			// Add kinematics to ensure max speed is actually obeyed
+			.setKinematics(DrivetrainConstants.DRIVE_KINEMATICS);
+
+		return config;
+	}
+
+
 	public TrajectoryConfig createReverseTrajectoryConfig() {
 
 		TrajectoryConfig config = createTrajectoryConfig();

@@ -63,12 +63,12 @@ public class StartingPositionThreeDrivePickupSecondNote extends SequentialComman
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_SECOND_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_TO_SECOND_NOTE_PICKUP_Y, Rotation2d.fromDegrees(80)),
-			container.createTrajectoryConfig());
+			container.createSlowTrajectoryConfig());
 
 		return trajectory;
 	}
 
-	public static Trajectory createPickupSecondNoteTrajectory(RobotContainer container) {
+	/*public static Trajectory createPickupSecondNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -80,7 +80,7 @@ public class StartingPositionThreeDrivePickupSecondNote extends SequentialComman
 			container.createTrajectoryConfig());
 
 		return trajectory;
-	}
+	}*/
 
 
 }

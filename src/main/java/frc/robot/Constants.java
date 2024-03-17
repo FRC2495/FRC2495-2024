@@ -133,6 +133,8 @@ public final class Constants {
 		public static final double MAX_ANGULAR_SPEED_RADIANS_PER_SECOND = Math.PI;
 		public static final double MAX_ANGULAR_ACCELERATION_RADIANS_PER_SECOND_SQUARED = Math.PI;
 
+		public static final double REDUCED_SPEED_METERS_PER_SECOND = 2.0; //4.42; //3.0;
+
 		public static final double X_CONTROLLER_P = 1;
 		public static final double Y_CONTROLLER_P = 1;
 		public static final double THETA_CONTROLLER_P = 1;
