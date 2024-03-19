@@ -2,9 +2,7 @@ package frc.robot.auton.common;
 
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import edu.wpi.first.wpilibj2.command.WaitCommand;
-import frc.robot.commands.neck.NeckHome;
-import frc.robot.commands.neck.NeckMoveSubWithStallDetection;
+import frc.robot.commands.neck.*;
 import frc.robot.commands.roller.RollerTimedRoll;
 import frc.robot.commands.shooter.ShooterStop;
 import frc.robot.commands.shooter.ShooterTimedShootHighNoStop;
@@ -22,7 +20,9 @@ public class JustShootNote extends SequentialCommandGroup {
 
 			new ShooterTimedShootHighNoStop(shooter, 0.5),
 
-			new RollerTimedRoll(roller, .2)
+			new RollerTimedRoll(roller, .2),
+
+			new NeckMoveDownWithStallDetection(neck)
 						
 		); 
   
