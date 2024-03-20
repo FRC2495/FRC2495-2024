@@ -26,8 +26,6 @@ import frc.robot.auton.sp1.*;
 import frc.robot.sensors.*;
 
 
-// GP = game piece
-// Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionSixOneNoteAndPickupAtMidline extends SequentialCommandGroup {
 
     public StartingPositionSixOneNoteAndPickupAtMidline(RobotContainer container, Elevator elevator, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera object_detection_camera, ICamera apriltag_camera, NoteSensor notesensor){

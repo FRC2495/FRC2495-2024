@@ -20,8 +20,6 @@ import frc.robot.subsystems.*;
 import frc.robot.interfaces.*;
 
 
-// GP = game piece
-// Can be used to place one cube or one cone and either starting position one or two
 public class StartingPositionThreeShootThirdNote extends ParallelCommandGroup {
 
 	public StartingPositionThreeShootThirdNote(RobotContainer container, SwerveDrivetrain drivetrain, ICamera apriltag_camera){
