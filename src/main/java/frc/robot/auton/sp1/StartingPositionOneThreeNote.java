@@ -25,7 +25,7 @@ import frc.robot.sensors.*;
 
 public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
-	public StartingPositionOneThreeNote(RobotContainer container, Elevator elevator, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera object_detection_camera, ICamera apriltag_camera, NoteSensor notesensor){
+	public StartingPositionOneThreeNote(RobotContainer container, Elevator elevator, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera object_detection_camera, ICamera apriltag_camera, NoteSensor notesensor, NoteSensor noteSensorTwo){
 
 		addCommands(
 
@@ -37,7 +37,7 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
 			new NeckMoveDownWithStallDetection(neck),
 
-			new StartingPositionOnePickupSecondNote(container, drivetrain, roller, notesensor),
+			new StartingPositionOnePickupSecondNote(container, drivetrain, roller, notesensor, noteSensorTwo),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)), 
 

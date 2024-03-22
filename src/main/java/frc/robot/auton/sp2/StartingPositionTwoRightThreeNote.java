@@ -29,7 +29,7 @@ import frc.robot.interfaces.*;
 
 public class StartingPositionTwoRightThreeNote extends SequentialCommandGroup {
 
-	public StartingPositionTwoRightThreeNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, NoteSensor notesensor, ICamera object_detection_camera){
+	public StartingPositionTwoRightThreeNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, NoteSensor notesensor, NoteSensor noteSensorTwo, ICamera object_detection_camera){
 
 		addCommands(
 
@@ -41,7 +41,7 @@ public class StartingPositionTwoRightThreeNote extends SequentialCommandGroup {
 
 			new NeckMoveDownWithStallDetection(neck),
 
-			new StartingPositionTwoPickupSecondNote(container, drivetrain, roller, notesensor),
+			new StartingPositionTwoPickupSecondNote(container, drivetrain, roller, notesensor, noteSensorTwo),
 
 			new NeckMoveSubWithStallDetection(neck),
 
@@ -51,7 +51,7 @@ public class StartingPositionTwoRightThreeNote extends SequentialCommandGroup {
 
 			new NeckMoveDownWithStallDetection(neck),
 
-			new StartingPositionTwoPickupRightThirdNote(container, drivetrain, roller, notesensor, object_detection_camera),
+			new StartingPositionTwoPickupRightThirdNote(container, drivetrain, roller, notesensor, noteSensorTwo, object_detection_camera),
 
 			new NeckMoveSubWithStallDetection(neck),
 

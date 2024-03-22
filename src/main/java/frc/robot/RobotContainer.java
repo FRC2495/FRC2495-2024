@@ -411,7 +411,7 @@ public class RobotContainer {
 			//.whileTrue(new RollerRollLowRpm(roller));
 			//.onTrue(new RollerRollLowRpmUntilNoteSensed(roller, getNoteSensor()));
 			//.onTrue(new RollerReleaseShortDistance(roller));
-			.onTrue(new RollerSuperSmartRoll(roller, noteSensor));
+			.onTrue(new RollerSuperSmartRoll(roller, noteSensor, noteSensorTwo));
 			
 		copilotGamepad.back()
 			//.onTrue(new DrivetrainAndGyroReset(drivetrain));
@@ -564,7 +564,7 @@ public class RobotContainer {
 				//break;*/
 
 			case AUTON_CUSTOM:
-				return new CustomAuton(gamePieceSelected, startPosition, mainTarget, cameraOption, sonarOption, autonOption, drivetrain, this, elevator, roller, neck, shooter, object_detection_camera, apriltag_camera, noteSensor);
+				return new CustomAuton(gamePieceSelected, startPosition, mainTarget, cameraOption, sonarOption, autonOption, drivetrain, this, elevator, roller, neck, shooter, object_detection_camera, apriltag_camera, noteSensor, noteSensorTwo);
 				//break;
 
 			case AUTON_DO_NOTHING:

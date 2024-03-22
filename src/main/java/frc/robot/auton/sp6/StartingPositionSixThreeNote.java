@@ -25,7 +25,7 @@ import frc.robot.interfaces.*;
 
 public class StartingPositionSixThreeNote extends SequentialCommandGroup {
 
-	public StartingPositionSixThreeNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, NoteSensor notesensor, ICamera object_detection_camera, ICamera apriltag_camera){
+	public StartingPositionSixThreeNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, NoteSensor notesensor, NoteSensor noteSensorTwo, ICamera object_detection_camera, ICamera apriltag_camera){
 
 		addCommands(
 
@@ -37,7 +37,7 @@ public class StartingPositionSixThreeNote extends SequentialCommandGroup {
 
 			new NeckMoveDownWithStallDetection(neck),
 
-			new StartingPositionSixPickupSecondNote(container, drivetrain, object_detection_camera, roller, notesensor),
+			new StartingPositionSixPickupSecondNote(container, drivetrain, object_detection_camera, roller, notesensor, noteSensorTwo),
 
 			new NeckMovePodiumWithStallDetection(neck),
 
@@ -53,7 +53,7 @@ public class StartingPositionSixThreeNote extends SequentialCommandGroup {
 
 			//new DrivetrainSwerveRelative(drivetrain, container, createAreaBeforeThirdNotePickupTrajectory(container)),
 
-			new StartingPositionSixPickupThirdNote(container, drivetrain, roller, notesensor),
+			new StartingPositionSixPickupThirdNote(container, drivetrain, roller, notesensor, noteSensorTwo),
 
 			new NeckMovePodiumWithStallDetection(neck),
 

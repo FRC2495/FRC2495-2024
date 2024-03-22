@@ -30,11 +30,11 @@ import frc.robot.sensors.*;
 
 public class StartingPositionThreeOneNoteAndPickupAtMidlineAndFeed extends SequentialCommandGroup {
 
-	public StartingPositionThreeOneNoteAndPickupAtMidlineAndFeed(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera object_detection_camera, NoteSensor notesensor){
+	public StartingPositionThreeOneNoteAndPickupAtMidlineAndFeed(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera object_detection_camera, NoteSensor notesensor, NoteSensor noteSensorTwo){
 
 		addCommands(
 
-			new StartingPositionThreeOneNoteAndPickupAtMidline(container, drivetrain, roller, shooter, neck, object_detection_camera, object_detection_camera, notesensor),
+			new StartingPositionThreeOneNoteAndPickupAtMidline(container, drivetrain, roller, shooter, neck, object_detection_camera, object_detection_camera, notesensor, noteSensorTwo),
 
 			new NeckMoveFeedNoteWithStallDetection(neck),
 

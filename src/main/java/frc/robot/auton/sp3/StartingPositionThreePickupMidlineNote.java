@@ -24,11 +24,11 @@ import frc.robot.sensors.*;
 
 public class StartingPositionThreePickupMidlineNote extends ParallelCommandGroup {
 
-	public StartingPositionThreePickupMidlineNote(RobotContainer container, SwerveDrivetrain drivetrain, ICamera object_detection_camera, Roller roller, NoteSensor notesensor){
+	public StartingPositionThreePickupMidlineNote(RobotContainer container, SwerveDrivetrain drivetrain, ICamera object_detection_camera, Roller roller, NoteSensor notesensor, NoteSensor noteSensorTwo){
 
 		addCommands(
 
-			new RollerSuperSmartRoll(roller, notesensor),
+			new RollerSuperSmartRoll(roller, notesensor, noteSensorTwo),
 
 			//new DrivetrainSwerveRelative(drivetrain, container, createPickupMidlineNoteTrajectory(container))
 

@@ -10,11 +10,11 @@ import frc.robot.subsystems.*;
 // Can be used to place one cube or one cone and either starting position one or two
 public class RollerSuperSmartRoll extends SequentialCommandGroup {
 
-    public RollerSuperSmartRoll(Roller roller, NoteSensor notesensor){
+    public RollerSuperSmartRoll(Roller roller, NoteSensor notesensor, NoteSensor noteSensorTwo){
 
         addCommands(
 
-			new RollerRollLowRpmUntilNoteSensed(roller, notesensor),
+			new RollerRollLowRpmUntilNoteSensed(roller, notesensor, noteSensorTwo),
 
             new WaitCommand(0.5), // we wait for things to settle down
 

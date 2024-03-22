@@ -27,7 +27,7 @@ import frc.robot.sensors.*;
 
 public class StartingPositionTwoTwoNote extends SequentialCommandGroup {
 
-	public StartingPositionTwoTwoNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, NoteSensor notesensor){
+	public StartingPositionTwoTwoNote(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, NoteSensor notesensor, NoteSensor noteSensorTwo){
 
 		addCommands(
 
@@ -41,7 +41,7 @@ public class StartingPositionTwoTwoNote extends SequentialCommandGroup {
 
 			new WaitCommand(.5),
 
-			new StartingPositionTwoPickupSecondNote(container, drivetrain, roller, notesensor),
+			new StartingPositionTwoPickupSecondNote(container, drivetrain, roller, notesensor, noteSensorTwo),
 
 			new NeckMoveSubWithStallDetection(neck),
 

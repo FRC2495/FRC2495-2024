@@ -12,12 +12,15 @@ public class RollerRollLowRpmUntilNoteSensed extends Command {
 
 	private Roller roller;
 	private NoteSensor notesensor;
+	private NoteSensor notesensorTwo;
 
-	public RollerRollLowRpmUntilNoteSensed(Roller roller, NoteSensor notesensor) {
+	public RollerRollLowRpmUntilNoteSensed(Roller roller, NoteSensor notesensor, NoteSensor noteSensorTwo) {
 		this.roller = roller;
 		this.notesensor = notesensor;
+		this.notesensorTwo = notesensorTwo;
 		addRequirements(roller);
 	}
+
 
 	// Called just before this Command runs the first time
 	@Override
