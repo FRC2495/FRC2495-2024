@@ -29,13 +29,13 @@ public class StartingPositionFourPickupMidlineNote extends ParallelCommandGroup 
 
 			new RollerSuperSmartRoll(roller, notesensor),
 
-			new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container))
+			new DrivetrainSwerveRelative(drivetrain, container, createMoveTowardsMidlineNoteTrajectory(container))
 			
 		); 
   
 	}
    
-	public static Trajectory createPickupSecondNoteTrajectory(RobotContainer container) {
+	public static Trajectory createMoveTowardsMidlineNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -43,7 +43,7 @@ public class StartingPositionFourPickupMidlineNote extends ParallelCommandGroup 
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_BEFORE_SECOND_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_X, -AutonConstants.DISTANCE_FROM_BEFORE_SECOND_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_Y, Rotation2d.fromDegrees(-60)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_X, -AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_Y, Rotation2d.fromDegrees(0)),
 			container.createTrajectoryConfig());
 
 		return trajectory;

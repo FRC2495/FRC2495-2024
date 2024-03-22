@@ -54,6 +54,8 @@ public class AutonConstants {
 	public static final double STARTING_POSITION_3_Y_VALUE = 4.47;
 	public static final double DISTANCE_FROM_STARTING_POSITION_3_TO_SECOND_NOTE_PICKUP_X = 1.35; //1.2 //2.58;
 	public static final double DISTANCE_FROM_STARTING_POSITION_3_TO_SECOND_NOTE_PICKUP_Y = 4.10;
+	public static final double DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_SHOOT_SECOND_NOTE_X = 2; //1.2 //2.58;
+	public static final double DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_SHOOT_SECOND_NOTE_Y = 1.35;
 	public static final double DISTANCE_FROM_STARTING_POSITION_TO_SECOND_NOTE_PICKUP_Y = 1.5; //1.5;
 	public static final double DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_SHOOT_SECOND_X = 1.3;
 	public static final double DISTANCE_FROM_STARTING_POSITION_3_TO_BEFORE_MIDLINE_NOTE_PICKUP_X = 3;

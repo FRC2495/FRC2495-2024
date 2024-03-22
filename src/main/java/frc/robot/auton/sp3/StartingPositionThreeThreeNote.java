@@ -48,7 +48,7 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 
 			//new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
 			
-			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)), // remove if not needed later
+			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
 
 			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
 
@@ -78,6 +78,20 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
+			new Pose2d(0, 0, Rotation2d.fromDegrees(180)),
+			// Pass through these waypoints
+			List.of(),
+			// End straight ahead of where we started, facing forward
+			new Pose2d(AutonConstants.DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_SHOOT_SECOND_NOTE_X, -AutonConstants.DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_SHOOT_SECOND_NOTE_Y, Rotation2d.fromDegrees(100)),
+			container.createReverseTrajectoryConfig());
+
+		return trajectory;
+	}
+
+	/*public static Trajectory createShootSecondNoteTrajectory(RobotContainer container) {
+		// An example trajectory to follow. All units in meters.
+		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+			// Start at the origin facing the -X direction
 			new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
 			// Pass through these waypoints
 			List.of(),
@@ -86,9 +100,9 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 			container.createReverseTrajectoryConfig());
 
 		return trajectory;
-	}
+	}*/
 
-	public static Trajectory createAfterShootSecondNoteTrajectory(RobotContainer container) {
+	/*public static Trajectory createAfterShootSecondNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -100,7 +114,7 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 			container.createTrajectoryConfig());
 
 		return trajectory;
-	}
+	}*/
 
 
 }
