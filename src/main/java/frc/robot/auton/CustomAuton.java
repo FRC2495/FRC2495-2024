@@ -262,6 +262,9 @@ public class CustomAuton extends SequentialCommandGroup {
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_MIDLINE:
 								addCommands(new StartingPositionFourOneNoteAndPickupAtMidline(container, drivetrain, roller, shooter, neck, object_detection_camera, notesensor));
 								break;
+							case RobotContainer.AUTON_OPTION_FEED_NOTE:
+								addCommands(new StartingPositionFourOneNoteAndPickupAtMidlineAndFeed(container, drivetrain, roller, shooter, neck, object_detection_camera, notesensor));
+								break;
 							default:
 								// nothing
 								break;
