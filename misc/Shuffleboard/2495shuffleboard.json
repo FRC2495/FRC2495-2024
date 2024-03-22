@@ -1646,6 +1646,21 @@
               "_glyph": 148,
               "_showGlyph": false
             }
+          },
+          "3,3": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/NoteSensorTwo isEnergized",
+              "_title": "SmartDashboard/NoteSensorTwo isEnergized",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
           }
         }
       }

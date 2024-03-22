@@ -169,6 +169,8 @@ public class RobotContainer {
 
 	private final NoteSensor noteSensor = new NoteSensor(Ports.Digital.NOTE_SENSOR);
 
+	private final NoteSensor noteSensorTwo = new NoteSensor(Ports.Digital.NOTE_SENSOR_TWO);
+
 	// motorized devices
 
 	private final SwerveDrivetrain drivetrain = new SwerveDrivetrain();
@@ -671,6 +673,11 @@ public class RobotContainer {
 	public NoteSensor getNoteSensor()
 	{
 		return noteSensor;
+	}
+
+	public NoteSensor getNoteSensorTwo()
+	{
+		return noteSensorTwo;
 	}
 
 	public SwerveDrivetrain getDrivetrain()
