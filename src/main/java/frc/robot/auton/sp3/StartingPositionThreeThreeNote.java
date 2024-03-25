@@ -44,7 +44,7 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 
 			new NeckMoveSubWithStallDetection(neck), // moves neck up so note isnt dragging on the floor
 
-			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
+			//new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
 
 			//new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
 			
