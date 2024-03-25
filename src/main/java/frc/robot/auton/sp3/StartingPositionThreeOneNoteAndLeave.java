@@ -20,6 +20,7 @@ import frc.robot.commands.neck.NeckMoveDownWithStallDetection;
 import frc.robot.commands.neck.NeckMoveOptimalPositionForShooting;
 import frc.robot.commands.neck.NeckMovePodiumWithStallDetection;
 import frc.robot.commands.neck.NeckMoveSubWithStallDetection;
+import frc.robot.commands.roller.RollerTimedRoll;
 import frc.robot.interfaces.*;
 import frc.robot.subsystems.*;
 import frc.robot.auton.sp1.*;
@@ -36,7 +37,11 @@ public class StartingPositionThreeOneNoteAndLeave extends SequentialCommandGroup
 
 			new NeckMoveSubWithStallDetection(neck),
 
-			new ShootNote(shooter, roller),
+			new ShooterTimedShootHighNoStop(shooter, 0.5),
+
+			new RollerTimedRoll(roller, .2),
+
+			new ShooterStop(shooter),
 
 			new NeckMoveDownWithStallDetection(neck),
 
@@ -54,7 +59,7 @@ public class StartingPositionThreeOneNoteAndLeave extends SequentialCommandGroup
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_BEFORE_MIDLINE_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_BEFORE_MIDLINE_NOTE_PICKUP_Y, Rotation2d.fromDegrees(60)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_BEFORE_MIDLINE_NOTE_PICKUP_X, AutonConstants.ONE_METER, Rotation2d.fromDegrees(60)),
 			container.createTrajectoryConfig());
 
 		return trajectory;

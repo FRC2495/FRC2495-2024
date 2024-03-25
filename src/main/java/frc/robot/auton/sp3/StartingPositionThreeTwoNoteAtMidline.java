@@ -56,7 +56,7 @@ public class StartingPositionThreeTwoNoteAtMidline extends SequentialCommandGrou
 				// Pass through these waypoints
 				List.of(),
 				// End straight ahead of where we started, facing forward
-				new Pose2d(AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_NOTE_PICKUP_X, -AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_NOTE_PICKUP_Y, Rotation2d.fromDegrees(180)),
+				new Pose2d(AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_X, -AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_Y, Rotation2d.fromDegrees(180)),
 				container.createReverseTrajectoryConfig());
 	
 			return trajectory;
