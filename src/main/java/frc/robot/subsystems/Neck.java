@@ -33,7 +33,7 @@ public class Neck extends SubsystemBase implements INeck {
 	public static final int ANGLE_TO_ACROSS_FIELD_TICKS = 10000;
 	public static final int ANGLE_TO_SUB_TICKS = 30000;
 	public static final int ANGLE_TO_PODIUM_TICKS = 65000;
-	public static final int ANGLE_TO_FEED_NOTE_TICKS = 85000;// used to be sp1 second note neck position 53000;
+	public static final int ANGLE_TO_FEED_NOTE_TICKS = 65000; //85000 // used to be sp1 second note neck position 53000;
 	public static final int ANGLE_TO_MIDWAY_TICKS = 90000;
 	public static final int ANGLE_TO_TRAVEL_TICKS = 180000; // todo set proper value
 
