@@ -48,7 +48,7 @@ public class StartingPositionFourOneNoteAndLeave extends SequentialCommandGroup 
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_BEFORE_MIDLINE_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_3_TO_BEFORE_MIDLINE_NOTE_PICKUP_Y, Rotation2d.fromDegrees(60)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_AWAY_FROM_SPEAKER_X, AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_AWAY_FROM_SPEAKER_Y, Rotation2d.fromDegrees(60)),
 			container.createTrajectoryConfig());
 
 		return trajectory;

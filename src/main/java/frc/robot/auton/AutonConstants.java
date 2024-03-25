@@ -77,8 +77,10 @@ public class AutonConstants {
 	// Starting Position Four = Three Note Distances (all in meters)
 	public static final double STARTING_POSITION_4_X_VALUE = 15.89;
 	public static final double STARTING_POSITION_4_Y_VALUE = 6.62;
-	/*public static final double DISTANCE_FROM_STARTING_POSITION_4_TO_SHOOT_PRELOAD_X = 14.69;
-	public static final double DISTANCE_FROM_STARTING_POSITION_4_TO_SHOOT_PRELOAD_Y = 6.67;*/
+	public static final double DISTANCE_FROM_STARTING_POSITION_4_TO_AWAY_FROM_SPEAKER_X = 3;
+	public static final double DISTANCE_FROM_STARTING_POSITION_4_TO_AWAY_FROM_SPEAKER_Y = 4;//6;
+	public static final double DISTANCE_FROM_AWAY_FROM_SPEAKER_TO_MIDLINE_NOTE_PICKUP_X = 3;
+	public static final double DISTANCE_FROM_AWAY_FROM_SPEAKER_TO_MIDLINE_NOTE_PICKUP_Y = .5;
 	public static final double DISTANCE_FROM_STARTING_POSITION_4_TO_SECOND_NOTE_PICKUP_X = .3;
 	public static final double DISTANCE_FROM_STARTING_POSITION_4_TO_SECOND_NOTE_PICKUP_Y = 1.20;
 	public static final double DISTANCE_FROM_STARTING_POSITION_4_TO_SECOND_PICKUP_X = 13.95;

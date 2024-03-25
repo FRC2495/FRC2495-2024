@@ -40,7 +40,7 @@ public class StartingPositionThreeOneNoteAndPickupAtMidline extends SequentialCo
   
     }
 
-	public static Trajectory createMoveAwayFromSpeakerTrajectory(RobotContainer container) {
+	/*public static Trajectory createMoveAwayFromSpeakerTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -66,7 +66,7 @@ public class StartingPositionThreeOneNoteAndPickupAtMidline extends SequentialCo
 			container.createTrajectoryConfig());
 
 		return trajectory;
-	}
+	}*/
 
 
 }
