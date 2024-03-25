@@ -66,7 +66,8 @@ public class TrajectoryGenerationTest extends SequentialCommandGroup {
 
 			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionOneOneNoteAndPickupAtMidline.createPickupSecondNoteTrajectory(container))
 
-			new DrivetrainSwerveRelative(drivetrain, container, StartingPositionOneTwoNoteAtMidline.createShootSecondNoteTrajectory(container))
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionOneTwoNoteAtMidline.createShootSecondNoteTrajectory(container))
+
 			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionOneThreeNote.createShootSecondNoteTrajectory(container))
 
 			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionTwoDriveAndTurnToLeftNote.createPickupLeftThirdNoteTrajectory(container))
@@ -119,9 +120,13 @@ public class TrajectoryGenerationTest extends SequentialCommandGroup {
 
 			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionFourThreeNote.createShootThirdNoteTrajectory(container))
 
-			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionFourOneNoteAndLeave.createBeforePickupSecondNoteTrajectory(container))
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionFourOneNoteAndLeave.createMoveAwayFromSpeakerTrajectory(container))
 
-			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionFourPickupMidlineNote.createPickupSecondNoteTrajectory(container))
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionFourPickupMidlineNote.createMoveTowardsMidlineNoteTrajectory(container))
+
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionFourTwoNoteAtMidline.createAfterMidlineNotePickupTrajectory(container))
+
+			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionFourTwoNoteAtMidline.createMoveTowardsSpeakerTrajectory(container))
 
 
 			//new DrivetrainSwerveRelative(drivetrain, container, StartingPositionSixPickupSecondNote.createPickupSecondNoteTrajectory(container))
