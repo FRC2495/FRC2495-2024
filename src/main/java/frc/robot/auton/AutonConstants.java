@@ -99,8 +99,10 @@ public class AutonConstants {
 	// Starting Position Six = Three Note Distances (all in meters)
 	public static final double STARTING_POSITION_6_X_VALUE = 15.82;
 	public static final double STARTING_POSITION_6_Y_VALUE = 4.42;
-	/*public static final double DISTANCE_FROM_STARTING_POSITION_6_TO_SHOOT_PRELOAD_X = 14.56;
-	public static final double DISTANCE_FROM_STARTING_POSITION_6_TO_SHOOT_PRELOAD_Y = 4.17;*/
+	public static final double DISTANCE_FROM_STARTING_POSITION_6_TO_BEFORE_MIDLINE_NOTE_PICKUP_X = 6; //3;
+	public static final double DISTANCE_FROM_STARTING_POSITION_6_TO_BEFORE_MIDLINE_NOTE_PICKUP_Y = 8; //4; //6;
+	public static final double DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_NOTE_PICKUP_X = 3;
+	public static final double DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_NOTE_PICKUP_Y = .5;
 	public static final double DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_NOTE_PICKUP_X = 14.14;
 	public static final double DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_NOTE_PICKUP_Y = 4.12;
 	public static final double DISTANCE_FROM_STARTING_POSITION_6_TO_SECOND_PICKUP_X = 0.50;
