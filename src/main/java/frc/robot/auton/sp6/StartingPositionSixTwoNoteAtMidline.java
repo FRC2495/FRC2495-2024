@@ -54,11 +54,11 @@ public class StartingPositionSixTwoNoteAtMidline extends SequentialCommandGroup 
 			// An example trajectory to follow. All units in meters.
 			Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 				// Start at the origin facing the -X direction
-				new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
+				new Pose2d(0, 0, Rotation2d.fromDegrees(180)),
 				// Pass through these waypoints
 				List.of(),
 				// End straight ahead of where we started, facing forward
-				new Pose2d(AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_NOTE_PICKUP_X, -AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_NOTE_PICKUP_Y, Rotation2d.fromDegrees(0)),
+				new Pose2d(AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_NOTE_PICKUP_X, -AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_NOTE_PICKUP_Y, Rotation2d.fromDegrees(180)),
 				container.createReverseTrajectoryConfig());
 	
 			return trajectory;
@@ -72,7 +72,7 @@ public class StartingPositionSixTwoNoteAtMidline extends SequentialCommandGroup 
 				// Pass through these waypoints
 				List.of(),
 				// End straight ahead of where we started, facing forward
-				new Pose2d(AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_NOTE_PICKUP_Y, Rotation2d.fromDegrees(240)),
+				new Pose2d(AutonConstants.DISTANCE_FROM_AREA_AFTER_MIDLINE_NOTE_PICKUP_TO_TOWARDS_SPEAKER_X, AutonConstants.DISTANCE_FROM_AREA_AFTER_MIDLINE_NOTE_PICKUP_TO_TOWARDS_SPEAKER_Y, Rotation2d.fromDegrees(240)),
 				container.createReverseTrajectoryConfig());
 	
 			return trajectory;
