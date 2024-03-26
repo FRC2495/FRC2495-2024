@@ -17,6 +17,7 @@ import frc.robot.commands.shooter.*;
 import frc.robot.commands.mouth.*;
 import frc.robot.commands.neck.NeckHome;
 import frc.robot.commands.neck.NeckMoveDownWithStallDetection;
+import frc.robot.commands.neck.NeckMoveOptimalPositionForShooting;
 import frc.robot.commands.neck.NeckMovePodiumWithStallDetection;
 import frc.robot.commands.neck.NeckMoveSubWithStallDetection;
 import frc.robot.subsystems.*;
@@ -41,17 +42,23 @@ public class StartingPositionFourThreeNote extends SequentialCommandGroup {
 
 			new StartingPositionFourPickupSecondNote(container, drivetrain, object_detection_camera, roller, notesensor, noteSensorTwo),
 
-			new NeckMovePodiumWithStallDetection(neck),
+			/*new NeckMoveOptimalPositionForShooting(neck, apriltag_camera),
 
-			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera), // change to april tag command later
+			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),*/
+
+			new TurnToSpeaker(drivetrain, container, roller, neck, apriltag_camera),
+
+			new ShootNote(shooter, roller),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)), // test if needed 
+
+			new TurnToSpeaker(drivetrain, container, roller, neck, apriltag_camera),
 			
 			new ShootNote(shooter, roller),
 
-			new NeckMoveDownWithStallDetection(neck),
+			new NeckMoveDownWithStallDetection(neck)
 
-			new DrivetrainSwerveRelative(drivetrain, container, createAfterShootSecondNoteTrajectory(container)), // test if needed 
+			/*new DrivetrainSwerveRelative(drivetrain, container, createAfterShootSecondNoteTrajectory(container)), // test if needed 
 
 			new StartingPositionFourPickupThirdNote(container, drivetrain, object_detection_camera, roller, notesensor, noteSensorTwo),
 
@@ -59,7 +66,7 @@ public class StartingPositionFourThreeNote extends SequentialCommandGroup {
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootThirdNoteTrajectory(container)),
 
-			new ShootNote(shooter, roller)
+			new ShootNote(shooter, roller)*/
 
 		); 
   

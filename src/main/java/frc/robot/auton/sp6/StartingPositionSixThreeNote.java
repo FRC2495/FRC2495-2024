@@ -39,17 +39,19 @@ public class StartingPositionSixThreeNote extends SequentialCommandGroup {
 
 			new StartingPositionSixPickupSecondNote(container, drivetrain, object_detection_camera, roller, notesensor, noteSensorTwo),
 
-			new NeckMovePodiumWithStallDetection(neck),
+			/*new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
 
-			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
+			new NeckMoveOptimalPositionForShooting(neck, apriltag_camera),*/
+
+			new TurnToSpeaker(drivetrain, container, roller, neck, apriltag_camera),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
 
 			new ShootNote(shooter, roller),
 
-			new NeckMoveDownWithStallDetection(neck),
+			new NeckMoveDownWithStallDetection(neck)
 
-			new DrivetrainSwerveRelative(drivetrain, container, createAfterShootSecondNoteTrajectory(container)),
+			/*new DrivetrainSwerveRelative(drivetrain, container, createAfterShootSecondNoteTrajectory(container)),
 
 			//new DrivetrainSwerveRelative(drivetrain, container, createAreaBeforeThirdNotePickupTrajectory(container)),
 
@@ -65,7 +67,7 @@ public class StartingPositionSixThreeNote extends SequentialCommandGroup {
 
 			new NeckMoveOptimalPositionForShooting(neck, apriltag_camera),
 
-			new ShootNote(shooter, roller)
+			new ShootNote(shooter, roller)*/
 
 		); 
   

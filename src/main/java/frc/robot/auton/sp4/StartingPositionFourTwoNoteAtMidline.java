@@ -8,8 +8,11 @@ import edu.wpi.first.math.trajectory.Trajectory;
 import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.auton.AutonConstants;
+import frc.robot.auton.common.ShootNote;
+import frc.robot.auton.common.TurnToSpeaker;
 import frc.robot.auton.sp4.*;
 import frc.robot.commands.drivetrain.DrivetrainSwerveRelative;
+import frc.robot.commands.neck.NeckMoveDownWithStallDetection;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.*;
 import frc.robot.interfaces.*;
@@ -19,7 +22,7 @@ import frc.robot.sensors.*;
 
 public class StartingPositionFourTwoNoteAtMidline extends SequentialCommandGroup {
 
-	public StartingPositionFourTwoNoteAtMidline(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera object_detection_camera, NoteSensor notesensor, NoteSensor noteSensorTwo){
+	public StartingPositionFourTwoNoteAtMidline(RobotContainer container, SwerveDrivetrain drivetrain, Roller roller, Shooter shooter, Neck neck, ICamera object_detection_camera, ICamera apriltag_camera, NoteSensor notesensor, NoteSensor noteSensorTwo){
 
 		addCommands(
 
@@ -29,7 +32,13 @@ public class StartingPositionFourTwoNoteAtMidline extends SequentialCommandGroup
 
 			new DrivetrainSwerveRelative(drivetrain, container, createAfterMidlineNotePickupTrajectory(container)),
 
-			new DrivetrainSwerveRelative(drivetrain, container, createMoveTowardsSpeakerTrajectory(container))
+			new DrivetrainSwerveRelative(drivetrain, container, createMoveTowardsSpeakerTrajectory(container)),
+
+			new TurnToSpeaker(drivetrain, container, roller, neck, apriltag_camera),
+
+			new ShootNote(shooter, roller),
+
+			new NeckMoveDownWithStallDetection(neck)
 
 		); 
   

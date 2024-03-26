@@ -36,9 +36,11 @@ public class StartingPositionThreeTwoNoteAtMidline extends SequentialCommandGrou
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
 
-			new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
+			/*new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
 			
-			new NeckMoveOptimalPositionForShooting(neck, apriltag_camera),
+			new NeckMoveOptimalPositionForShooting(neck, apriltag_camera),*/
+
+			new TurnToSpeaker(drivetrain, container, roller, neck, apriltag_camera),
 
 			new ShootNote(shooter, roller),
 
