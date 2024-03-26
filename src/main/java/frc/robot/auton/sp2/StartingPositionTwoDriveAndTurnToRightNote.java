@@ -22,11 +22,11 @@ public class StartingPositionTwoDriveAndTurnToRightNote extends SequentialComman
 		
 		addCommands(
 
-			new DrivetrainSwerveRelative(drivetrain, container, createPickupRightThirdNoteTrajectory(container)),
+			new DrivetrainSwerveRelative(drivetrain, container, createPickupRightThirdNoteTrajectory(container))
 
-			new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera),  //use if above doesn't work + test
+			//new DrivetrainTurnUsingCamera(drivetrain, object_detection_camera),  //use if above doesn't work + test
 
-			new DrivetrainSwerveRelative(drivetrain, container, createMoveForwardTrajectory(container))
+			//new DrivetrainSwerveRelative(drivetrain, container, createMoveForwardTrajectory(container))
 
 		); 
   
@@ -36,17 +36,17 @@ public class StartingPositionTwoDriveAndTurnToRightNote extends SequentialComman
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
-			new Pose2d(AutonConstants.STARTING_POSITION_2_X_VALUE-AutonConstants.STARTING_POSITION_2_X_VALUE, AutonConstants.STARTING_POSITION_2_Y_VALUE-AutonConstants.STARTING_POSITION_2_Y_VALUE, Rotation2d.fromDegrees(180.0)),
+			new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.STARTING_POSITION_2_X_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_RIGHT_THIRD_NOTE_PICKUP_X, AutonConstants.STARTING_POSITION_2_Y_VALUE-AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_RIGHT_THIRD_NOTE_PICKUP_Y, Rotation2d.fromDegrees(90)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_RIGHT_THIRD_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_SHOOT_SECOND_NOTE_TO_RIGHT_THIRD_NOTE_PICKUP_Y, Rotation2d.fromDegrees(90)),
 			container.createTrajectoryConfig());
 
 		return trajectory;
 	}	
 
-	public static Trajectory createMoveForwardTrajectory(RobotContainer container) {
+	/*public static Trajectory createMoveForwardTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -58,6 +58,6 @@ public class StartingPositionTwoDriveAndTurnToRightNote extends SequentialComman
 			container.createTrajectoryConfig());
 
 		return trajectory;
-	}	
+	}	*/
 
 }
