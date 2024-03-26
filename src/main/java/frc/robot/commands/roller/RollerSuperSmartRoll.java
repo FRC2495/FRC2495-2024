@@ -6,8 +6,6 @@ import frc.robot.sensors.*;
 import frc.robot.subsystems.*;
 
 
-// GP = game piece
-// Can be used to place one cube or one cone and either starting position one or two
 public class RollerSuperSmartRoll extends SequentialCommandGroup {
 
     public RollerSuperSmartRoll(Roller roller, NoteSensor notesensor, NoteSensor noteSensorTwo){
