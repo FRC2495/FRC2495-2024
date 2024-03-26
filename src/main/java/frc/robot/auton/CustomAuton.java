@@ -16,6 +16,7 @@ import frc.robot.auton.sp2.*;
 import frc.robot.auton.sp3.*;
 import frc.robot.auton.sp4.*;
 import frc.robot.auton.sp6.StartingPositionSixOneNoteAndPickupAtMidline;
+import frc.robot.auton.sp6.StartingPositionSixOneNoteAndPickupAtMidlineAndFeed;
 import frc.robot.auton.sp6.StartingPositionSixThreeNote;
 import frc.robot.auton.sp6.StartingPositionSixTwoNoteAtMidline;
 import frc.robot.interfaces.*;
@@ -392,6 +393,9 @@ public class CustomAuton extends SequentialCommandGroup {
 								break;
 							case RobotContainer.AUTON_OPTION_PICKUP_NOTE_AT_MIDLINE:
 								addCommands(new StartingPositionSixOneNoteAndPickupAtMidline(container, drivetrain, roller, shooter, neck, object_detection_camera, apriltag_camera, notesensor, noteSensorTwo));
+								break;
+							case RobotContainer.AUTON_OPTION_FEED_NOTE:
+								addCommands(new StartingPositionSixOneNoteAndPickupAtMidlineAndFeed(container, drivetrain, roller, shooter, neck, object_detection_camera, apriltag_camera, notesensor, noteSensorTwo));
 								break;
 							default:
 								// nothing
