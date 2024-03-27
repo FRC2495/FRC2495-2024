@@ -18,7 +18,7 @@ import frc.robot.subsystems.*;
 import frc.robot.interfaces.*;
 import frc.robot.sensors.*;
 
-// when using this path, make sure to position the robot closer to the starting line so note isnt bumped into
+// when using this path, make sure to position the robot closer to the alliance station wall so note is picked up
 
 public class StartingPositionFourTwoNoteAtMidline extends SequentialCommandGroup {
 
@@ -52,7 +52,7 @@ public class StartingPositionFourTwoNoteAtMidline extends SequentialCommandGroup
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_AWAY_FROM_SPEAKER_TO_MIDLINE_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_AWAY_FROM_SPEAKER_TO_MIDLINE_NOTE_PICKUP_Y, Rotation2d.fromDegrees(180)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_MIDLINE_NOTE_PICKUP_TO_AREA_BEFORE_SHOOT_MIDLINE_NOTE_X, AutonConstants.DISTANCE_FROM_MIDLINE_NOTE_PICKUP_TO_AREA_BEFORE_SHOOT_MIDLINE_NOTE_Y, Rotation2d.fromDegrees(180)),
 			container.createReverseTrajectoryConfig());
 
 		return trajectory;
@@ -67,7 +67,7 @@ public class StartingPositionFourTwoNoteAtMidline extends SequentialCommandGroup
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_AWAY_FROM_SPEAKER_X, -AutonConstants.DISTANCE_FROM_STARTING_POSITION_4_TO_AWAY_FROM_SPEAKER_Y, Rotation2d.fromDegrees(120)),
+			new Pose2d(AutonConstants.DISTANCE_FROM_AFTER_MIDLINE_NOTE_PICKUP_TO_TOWARDS_SPEAKER_X, -AutonConstants.DISTANCE_FROM_AFTER_MIDLINE_NOTE_PICKUP_TO_TOWARDS_SPEAKER_Y, Rotation2d.fromDegrees(140)),
 			container.createReverseTrajectoryConfig());
 
 		return trajectory;
