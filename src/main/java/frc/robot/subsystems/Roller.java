@@ -221,6 +221,7 @@ public class Roller extends SubsystemBase implements IRoller{
 		stop(); // in case we were still doing something
 		
 		resetEncoder(); // set new virtual zero
+		resetEncoder(); // set new virtual zero TWICE
 		
 		setPIDParameters();
 		System.out.println("Releasing");
