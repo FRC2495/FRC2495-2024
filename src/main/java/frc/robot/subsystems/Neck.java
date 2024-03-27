@@ -62,7 +62,7 @@ public class Neck extends SubsystemBase implements INeck {
 	
 	static final double REDUCED_PCT_OUTPUT = 0.7;
 	static final double SUPER_REDUCED_PCT_OUTPUT = 0.5;
-	static final double HOMING_PCT_OUTPUT = 0.3; // ~homing speed
+	static final double HOMING_PCT_OUTPUT = 0.9;//0.7;//0.5;//0.3; // ~homing speed
 	
 	static final double MOVE_PROPORTIONAL_GAIN = 0.06;
 	static final double MOVE_INTEGRAL_GAIN = 0.0;
