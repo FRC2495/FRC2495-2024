@@ -579,6 +579,17 @@ public class RobotContainer {
 		} // end switch
 	}
 
+	public TrajectoryConfig createFastTrajectoryConfig() {
+		// Create config for trajectory
+		TrajectoryConfig config = new TrajectoryConfig(
+			AutoConstants.HIGH_SPEED_METERS_PER_SECOND,
+			AutoConstants.MAX_ACCELERATION_METERS_PER_SECOND_SQUARED)
+			// Add kinematics to ensure max speed is actually obeyed
+			.setKinematics(DrivetrainConstants.DRIVE_KINEMATICS);
+
+		return config;
+	}
+
 	public TrajectoryConfig createTrajectoryConfig() {
 		// Create config for trajectory
 		TrajectoryConfig config = new TrajectoryConfig(
@@ -605,6 +616,15 @@ public class RobotContainer {
 	public TrajectoryConfig createReverseTrajectoryConfig() {
 
 		TrajectoryConfig config = createTrajectoryConfig();
+
+		config.setReversed(true); // in reverse!
+
+		return config;
+	}
+
+	public TrajectoryConfig createFastReverseTrajectoryConfig() {
+
+		TrajectoryConfig config = createFastTrajectoryConfig();
 
 		config.setReversed(true); // in reverse!
 

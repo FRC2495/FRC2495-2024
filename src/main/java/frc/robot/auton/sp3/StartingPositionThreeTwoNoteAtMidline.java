@@ -4,6 +4,7 @@ import java.util.List;
 
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.trajectory.Trajectory;
 import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 
@@ -50,6 +51,22 @@ public class StartingPositionThreeTwoNoteAtMidline extends SequentialCommandGrou
   
 	}
 
+		/*public static Trajectory createShootSecondNoteTestTrajectory(RobotContainer container) {
+			// An example trajectory to follow. All units in meters.
+			Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+				// Start at the origin facing the -X direction
+				new Pose2d(0, 0, Rotation2d.fromDegrees(180)),
+				// Pass through these waypoints
+				List.of(
+					new Translation2d(AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_X, -AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_Y)
+				),
+				// End straight ahead of where we started, facing forward
+				new Pose2d(AutonConstants.DISTANCE_FROM_AFTER_MIDLINE_NOTE_PICKUP_TO_AREA_TOWARDS_SPEAKER_X, -AutonConstants.DISTANCE_FROM_AFTER_MIDLINE_NOTE_PICKUP_TO_AREA_TOWARDS_SPEAKER_Y, Rotation2d.fromDegrees(120)),
+				container.createFastReverseTrajectoryConfig());
+	
+			return trajectory;
+		}*/
+
 		public static Trajectory createAreaBeforeShootSecondNoteTrajectory(RobotContainer container) {
 			// An example trajectory to follow. All units in meters.
 			Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
@@ -59,7 +76,7 @@ public class StartingPositionThreeTwoNoteAtMidline extends SequentialCommandGrou
 				List.of(),
 				// End straight ahead of where we started, facing forward
 				new Pose2d(AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_X, -AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_Y, Rotation2d.fromDegrees(180)),
-				container.createReverseTrajectoryConfig());
+				container.createFastReverseTrajectoryConfig());
 	
 			return trajectory;
 		}
@@ -73,7 +90,7 @@ public class StartingPositionThreeTwoNoteAtMidline extends SequentialCommandGrou
 				List.of(),
 				// End straight ahead of where we started, facing forward
 				new Pose2d(AutonConstants.DISTANCE_FROM_AFTER_MIDLINE_NOTE_PICKUP_TO_AREA_TOWARDS_SPEAKER_X, -AutonConstants.DISTANCE_FROM_AFTER_MIDLINE_NOTE_PICKUP_TO_AREA_TOWARDS_SPEAKER_Y, Rotation2d.fromDegrees(120)),
-				container.createReverseTrajectoryConfig());
+				container.createFastReverseTrajectoryConfig());
 	
 			return trajectory;
 		}
