@@ -30,9 +30,11 @@ public class StartingPositionFourTwoNoteAtMidline extends SequentialCommandGroup
 
 			new StartingPositionFourPickupMidlineNote(container, drivetrain, roller, notesensor, noteSensorTwo),
 
-			new DrivetrainSwerveRelative(drivetrain, container, createAfterMidlineNotePickupTrajectory(container)),
+			//new DrivetrainSwerveRelative(drivetrain, container, createAfterMidlineNotePickupTrajectory(container)),
 
-			new DrivetrainSwerveRelative(drivetrain, container, createMoveTowardsSpeakerTrajectory(container)),
+			//new DrivetrainSwerveRelative(drivetrain, container, createMoveTowardsSpeakerTrajectory(container)),
+
+			new StartingPositionFourMoveToSpeakerAndMoveNeck(drivetrain, container, roller, neck, apriltag_camera),
 
 			new TurnToSpeaker(drivetrain, container, roller, neck, apriltag_camera),
 
@@ -53,7 +55,7 @@ public class StartingPositionFourTwoNoteAtMidline extends SequentialCommandGroup
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_MIDLINE_NOTE_PICKUP_TO_AREA_BEFORE_SHOOT_MIDLINE_NOTE_X, AutonConstants.DISTANCE_FROM_MIDLINE_NOTE_PICKUP_TO_AREA_BEFORE_SHOOT_MIDLINE_NOTE_Y, Rotation2d.fromDegrees(180)),
-			container.createReverseTrajectoryConfig());
+			container.createFastReverseTrajectoryConfig());
 
 		return trajectory;
 	}
@@ -68,7 +70,7 @@ public class StartingPositionFourTwoNoteAtMidline extends SequentialCommandGroup
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_AFTER_MIDLINE_NOTE_PICKUP_TO_TOWARDS_SPEAKER_X, -AutonConstants.DISTANCE_FROM_AFTER_MIDLINE_NOTE_PICKUP_TO_TOWARDS_SPEAKER_Y, Rotation2d.fromDegrees(140)),
-			container.createReverseTrajectoryConfig());
+			container.createFastReverseTrajectoryConfig());
 
 		return trajectory;
 	}
