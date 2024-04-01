@@ -55,7 +55,7 @@ public class RollerTimedRollUntilNoteSensed extends WaitCommand {
 
 	@Override
 	public boolean isFinished() {
-		return notesensor.isEnergized();
+		return !notesensor.isEnergized();
 	}
 
 	// Called once after timeout
