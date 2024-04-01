@@ -42,7 +42,7 @@ public class StartingPositionOneMoveToSpeakerAndMoveNeck extends ParallelRaceGro
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_TOWARDS_SPEAKER_X, AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_TOWARDS_SPEAKER_Y, Rotation2d.fromDegrees(220)),
-			container.createReverseTrajectoryConfig());
+			container.createFastReverseTrajectoryConfig());
 
 		return trajectory;
 	}

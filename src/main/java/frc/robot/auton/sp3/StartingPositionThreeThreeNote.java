@@ -85,7 +85,7 @@ public class StartingPositionThreeThreeNote extends SequentialCommandGroup {
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_SHOOT_SECOND_NOTE_X, -AutonConstants.DISTANCE_FROM_SECOND_NOTE_PICKUP_TO_SHOOT_SECOND_NOTE_Y, Rotation2d.fromDegrees(100)),
-			container.createReverseTrajectoryConfig());
+			container.createFastReverseTrajectoryConfig());
 
 		return trajectory;
 	}
