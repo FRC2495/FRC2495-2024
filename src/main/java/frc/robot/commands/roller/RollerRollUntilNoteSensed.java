@@ -28,7 +28,7 @@ public class RollerRollUntilNoteSensed extends Command {
 
 	@Override
 	public boolean isFinished() {
-		return notesensor.isEnergized();
+		return !notesensor.isEnergized();
 	}
 
 	@Override
