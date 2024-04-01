@@ -31,8 +31,8 @@ public class RollerRollLowRpmUntilNoteSensed extends Command {
 
 	@Override
 	public boolean isFinished() {
-		//return notesensor.isEnergized();
-		return !notesensor.isEnergized() || !noteSensorTwo.isEnergized();
+		return !notesensor.isEnergized();
+		//return !notesensor.isEnergized() || !noteSensorTwo.isEnergized();
 	}
 
 	@Override
