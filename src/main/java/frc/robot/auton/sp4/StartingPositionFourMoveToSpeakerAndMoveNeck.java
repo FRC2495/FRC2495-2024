@@ -10,6 +10,7 @@ import edu.wpi.first.math.trajectory.Trajectory;
 import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 
 import frc.robot.auton.AutonConstants;
+import frc.robot.auton.common.MoveNeckUpReleaseNoteAndAdjustToAprilTag;
 import frc.robot.interfaces.*;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.*;
@@ -23,7 +24,9 @@ public class StartingPositionFourMoveToSpeakerAndMoveNeck extends ParallelRaceGr
 
 		addCommands(
 
-			new NeckMoveUsingCamera(neck, apriltag_camera),
+			//new NeckMoveUsingCamera(neck, apriltag_camera),
+
+			new MoveNeckUpReleaseNoteAndAdjustToAprilTag(neck, roller, apriltag_camera),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createMoveTowardsSpeakerTrajectory(container))
 
