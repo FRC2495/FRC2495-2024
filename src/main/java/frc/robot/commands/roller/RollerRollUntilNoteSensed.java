@@ -12,10 +12,12 @@ public class RollerRollUntilNoteSensed extends Command {
 
 	private Roller roller;
 	private NoteSensor notesensor;
+	private NoteSensor noteSensorTwo;
 
-	public RollerRollUntilNoteSensed(Roller roller, NoteSensor notesensor) {
+	public RollerRollUntilNoteSensed(Roller roller, NoteSensor notesensor, NoteSensor noteSensorTwo) {
 		this.roller = roller;
 		this.notesensor = notesensor;
+		this.noteSensorTwo = noteSensorTwo;
 		addRequirements(roller);
 	}
 
@@ -28,7 +30,7 @@ public class RollerRollUntilNoteSensed extends Command {
 
 	@Override
 	public boolean isFinished() {
-		return !notesensor.isEnergized();
+		return !notesensor.isEnergized() || !noteSensorTwo.isEnergized();
 	}
 
 	@Override

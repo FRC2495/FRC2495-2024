@@ -7,11 +7,11 @@ import frc.robot.subsystems.*;
 
 public class RollerSmartRoll extends SequentialCommandGroup {
 
-    public RollerSmartRoll(Roller roller, NoteSensor notesensor){
+    public RollerSmartRoll(Roller roller, NoteSensor notesensor, NoteSensor noteSensorTwo){
 
         addCommands(
 
-			new RollerRollUntilNoteSensed(roller, notesensor),
+			new RollerRollUntilNoteSensed(roller, notesensor, noteSensorTwo),
 
             new RollerTimedRelease(roller, 0.1)
             

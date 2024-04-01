@@ -18,14 +18,16 @@ public class RollerTimedRollUntilNoteSensed extends WaitCommand {
 
 	private Roller roller;
 	private NoteSensor notesensor;
+	private NoteSensor noteSensorTwo;
 
 	/**
 	 * Add your docs here.
 	 */
-	public RollerTimedRollUntilNoteSensed(Roller roller, double timeout, NoteSensor notesensor) {
+	public RollerTimedRollUntilNoteSensed(Roller roller, double timeout, NoteSensor notesensor, NoteSensor noteSensorTwo) {
 		super(timeout);
 		this.roller = roller;
 		this.notesensor = notesensor;
+		this.noteSensorTwo = noteSensorTwo;
 		addRequirements(roller);
 		
 		
@@ -55,7 +57,7 @@ public class RollerTimedRollUntilNoteSensed extends WaitCommand {
 
 	@Override
 	public boolean isFinished() {
-		return !notesensor.isEnergized();
+		return !notesensor.isEnergized() || !noteSensorTwo.isEnergized();
 	}
 
 	// Called once after timeout
