@@ -33,7 +33,9 @@ public class StartingPositionThreeTwoNoteAtMidline extends SequentialCommandGrou
 
 			new StartingPositionThreePickupMidlineNote(container, drivetrain, object_detection_camera, roller, notesensor, noteSensorTwo),
 
-			new DrivetrainSwerveRelative(drivetrain, container, createAreaBeforeShootSecondNoteTrajectory(container)),
+			//new DrivetrainSwerveRelative(drivetrain, container, createAreaBeforeShootSecondNoteTrajectory(container)),
+
+			new StartingPositionThreeMoveToSpeakerAndMoveNeck(drivetrain, container, roller, neck, apriltag_camera),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
 
@@ -94,5 +96,7 @@ public class StartingPositionThreeTwoNoteAtMidline extends SequentialCommandGrou
 	
 			return trajectory;
 		}
+
+		
 
 }
