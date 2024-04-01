@@ -48,7 +48,7 @@ public class StartingPositionSixDrivePickupMidlineNote extends SequentialCommand
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_NOTE_PICKUP_X, -AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_NOTE_PICKUP_Y, Rotation2d.fromDegrees(0)),
-			container.createTrajectoryConfig());
+			container.createSlowTrajectoryConfig());
 			
 		return trajectory;
 	}
