@@ -33,7 +33,7 @@ public class StartingPositionOnePickupMidlineNote extends ParallelCommandGroup {
 
 			//new RollerRollUntilNoteSensed(roller, noteSensorTwo),
 
-			new RollerTimedRollUntilNoteSensed(roller, 1, noteSensorTwo),
+			new RollerTimedRollUntilNoteSensed(roller, 1, notesensor, noteSensorTwo),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container))
 			
