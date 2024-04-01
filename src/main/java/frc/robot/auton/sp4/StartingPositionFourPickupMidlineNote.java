@@ -30,7 +30,7 @@ public class StartingPositionFourPickupMidlineNote extends ParallelCommandGroup 
 
 			//new RollerSuperSmartRoll(roller, notesensor, noteSensorTwo),
 
-			new RollerRollUntilNoteSensed(roller, noteSensorTwo),
+			new RollerRollUntilNoteSensed(roller, notesensor, noteSensorTwo),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createMoveTowardsMidlineNoteTrajectory(container))
 			
