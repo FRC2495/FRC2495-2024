@@ -38,9 +38,11 @@ public class StartingPositionOneTwoNoteAtMidline extends SequentialCommandGroup 
 
 			new StartingPositionOnePickupMidlineNote(container, drivetrain, roller, notesensor, noteSensorTwo),
 
-			new DrivetrainSwerveRelative(drivetrain, container, createAreaBeforeShootSecondNoteTrajectory(container)),
+			//new DrivetrainSwerveRelative(drivetrain, container, createAreaBeforeShootSecondNoteTrajectory(container)),
 
-			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
+			//new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
+
+			new StartingPositionOneMoveToSpeakerAndMoveNeck(drivetrain, container, roller, neck, apriltag_camera),
 
 			/*new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
 			
@@ -56,7 +58,7 @@ public class StartingPositionOneTwoNoteAtMidline extends SequentialCommandGroup 
   
 	}
 
-		public static Trajectory createAreaBeforeShootSecondNoteTrajectory(RobotContainer container) {
+		/*public static Trajectory createAreaBeforeShootSecondNoteTrajectory(RobotContainer container) {
 			// An example trajectory to follow. All units in meters.
 			Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 				// Start at the origin facing the -X direction
@@ -82,6 +84,6 @@ public class StartingPositionOneTwoNoteAtMidline extends SequentialCommandGroup 
 				container.createReverseTrajectoryConfig());
 	
 			return trajectory;
-		}
+		}*/
 
 }

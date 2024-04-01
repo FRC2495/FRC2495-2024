@@ -15,6 +15,7 @@ import frc.robot.auton.common.*;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.shooter.*;
 import frc.robot.commands.mouth.*;
+import frc.robot.commands.roller.RollerRollUntilNoteSensed;
 import frc.robot.commands.roller.RollerSuperSmartRoll;
 import frc.robot.commands.roller.RollerTimedRoll;
 import frc.robot.subsystems.*;
@@ -27,7 +28,9 @@ public class StartingPositionOnePickupMidlineNote extends ParallelCommandGroup {
 
 		addCommands(
 
-			new RollerSuperSmartRoll(roller, notesensor, noteSensorTwo),
+			//new RollerSuperSmartRoll(roller, notesensor, noteSensorTwo),
+
+			new RollerRollUntilNoteSensed(roller, noteSensorTwo),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container))
 			
@@ -43,8 +46,8 @@ public class StartingPositionOnePickupMidlineNote extends ParallelCommandGroup {
 			// Pass through these waypoints
 			List.of(),
 			// End straight ahead of where we started, facing forward
-			new Pose2d(AutonConstants.DISTANCE_FROM_BEFORE_SECOND_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_X, -AutonConstants.DISTANCE_FROM_BEFORE_SECOND_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_Y, Rotation2d.fromDegrees(0)),
-			container.createTrajectoryConfig());
+			new Pose2d(AutonConstants.DISTANCE_FROM_BEFORE_SECOND_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_X, AutonConstants.DISTANCE_FROM_BEFORE_SECOND_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_Y, Rotation2d.fromDegrees(0)),
+			container.createSlowTrajectoryConfig());
 
 		return trajectory;
 	}

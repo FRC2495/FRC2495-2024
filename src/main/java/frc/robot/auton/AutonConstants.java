@@ -9,18 +9,20 @@ public class AutonConstants {
 	public static final double ONE_AND_A_HALF_METER = 1.5;
 
 	// All Starting Position Distances
-	public static final double DISTANCE_TO_PICKUP_NOTE_METERS = 5; // todo fix
-	public static final double DISTANCE_FROM_STARTING_POSITION_TO_LEAVE_COMMUNITY_METERS = 20; // todo fix
+	public static final double DISTANCE_TO_PICKUP_NOTE_METERS = .5; // todo fix
+	public static final double DISTANCE_FROM_STARTING_POSITION_TO_LEAVE_COMMUNITY_METERS = 5; // todo fix
 
 	// Starting Position One = Three Note Distances (all in meters prob)
 	public static final double STARTING_POSITION_1_X_VALUE = .25;//0.69;
 	public static final double STARTING_POSITION_1_Y_VALUE = 6.55;
 	public static final double DISTANCE_FROM_STARTING_POSITION_1_TO_SECOND_NOTE_PICKUP_X = 2.71;
 	public static final double DISTANCE_FROM_STARTING_POSITION_1_TO_SECOND_NOTE_PICKUP_Y = 8.00;//6.75;
-	public static final double DISTANCE_FROM_STARTING_POSITION_1_TO_BEFORE_SECOND_NOTE_PICKUP_X = 2;
-	public static final double DISTANCE_FROM_STARTING_POSITION_1_TO_BEFORE_SECOND_NOTE_PICKUP_Y = 1;
-	public static final double DISTANCE_FROM_BEFORE_SECOND_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_X = 5;
-	public static final double DISTANCE_FROM_BEFORE_SECOND_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_Y = 2;
+	public static final double DISTANCE_FROM_STARTING_POSITION_1_TO_BEFORE_MIDLINE_NOTE_PICKUP_X = 4.5; //2;
+	public static final double DISTANCE_FROM_STARTING_POSITION_1_TO_BEFORE_MIDLINE_NOTE_PICKUP_Y = 4.0; //1;
+	public static final double DISTANCE_FROM_BEFORE_SECOND_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_X = 1.5;//5;
+	public static final double DISTANCE_FROM_BEFORE_SECOND_NOTE_PICKUP_TO_MIDLINE_NOTE_PICKUP_Y = .5;//2;
+	public static final double DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_TOWARDS_SPEAKER_X = 6.7; //1.5;
+	public static final double DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_TOWARDS_SPEAKER_Y = 1.75;//.5;
 	public static final double DISTANCE_FROM_STARTING_POSITION_1_TO_SECOND_LEFT_NOTE_PICKUP_X = 1.3; //1.45;
 	public static final double DISTANCE_FROM_STARTING_POSITION_1_TO_SECOND_LEFT_NOTE_PICKUP_Y = 2.46;
 	public static final double DISTANCE_FROM_SECOND_LEFT_NOTE_PICKUP_TO_SHOOT_SECOND_NOTE_X = 1; //2.46; //1.45;
