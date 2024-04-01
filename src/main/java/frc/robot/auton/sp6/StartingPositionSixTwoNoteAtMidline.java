@@ -15,6 +15,7 @@ import frc.robot.auton.common.*;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.neck.NeckMoveDownWithStallDetection;
 import frc.robot.commands.neck.NeckMoveOptimalPositionForShooting;
+import frc.robot.commands.roller.RollerReleaseShortDistance;
 import frc.robot.subsystems.*;
 import frc.robot.auton.sp1.*;
 import frc.robot.interfaces.*;
@@ -32,9 +33,13 @@ public class StartingPositionSixTwoNoteAtMidline extends SequentialCommandGroup 
 
 			new StartingPositionSixPickupMidlineNote(container, drivetrain, object_detection_camera, roller, notesensor, noteSensorTwo),
 
-			new DrivetrainSwerveRelative(drivetrain, container, createAreaBeforeShootSecondNoteTrajectory(container)),
+			//new DrivetrainSwerveRelative(drivetrain, container, createAreaBeforeShootSecondNoteTrajectory(container)),
 
-			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
+			new StartingPositionSixMoveToSpeakerAndMoveNeck(drivetrain, container, roller, neck, apriltag_camera),
+
+			new RollerReleaseShortDistance(roller),
+
+			//new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)),
 
 			/*new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera),
 			
@@ -50,21 +55,7 @@ public class StartingPositionSixTwoNoteAtMidline extends SequentialCommandGroup 
   
 	}
 
-		public static Trajectory createAreaBeforeShootSecondNoteTrajectory(RobotContainer container) {
-			// An example trajectory to follow. All units in meters.
-			Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
-				// Start at the origin facing the -X direction
-				new Pose2d(0, 0, Rotation2d.fromDegrees(180)),
-				// Pass through these waypoints
-				List.of(),
-				// End straight ahead of where we started, facing forward
-				new Pose2d(AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_NOTE_PICKUP_X, -AutonConstants.DISTANCE_FROM_BEFORE_MIDLINE_NOTE_PICKUP_TO_NOTE_PICKUP_Y, Rotation2d.fromDegrees(180)),
-				container.createFastReverseTrajectoryConfig());
-	
-			return trajectory;
-		}
-
-		public static Trajectory createShootSecondNoteTrajectory(RobotContainer container) {
+		/*public static Trajectory createShootSecondNoteTrajectory(RobotContainer container) {
 			// An example trajectory to follow. All units in meters.
 			Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 				// Start at the origin facing the -X direction
@@ -76,6 +67,6 @@ public class StartingPositionSixTwoNoteAtMidline extends SequentialCommandGroup 
 				container.createFastReverseTrajectoryConfig());
 	
 			return trajectory;
-		}
+		}*/
 
 }

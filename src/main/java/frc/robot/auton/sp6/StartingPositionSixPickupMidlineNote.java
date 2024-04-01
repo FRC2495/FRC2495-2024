@@ -16,8 +16,10 @@ import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.shooter.*;
 import frc.robot.interfaces.ICamera;
 import frc.robot.commands.mouth.*;
+import frc.robot.commands.roller.RollerRollUntilNoteSensed;
 import frc.robot.commands.roller.RollerSuperSmartRoll;
 import frc.robot.commands.roller.RollerTimedRoll;
+import frc.robot.commands.roller.RollerTimedRollUntilNoteSensed;
 import frc.robot.subsystems.*;
 import frc.robot.sensors.*;
 
@@ -28,7 +30,9 @@ public class StartingPositionSixPickupMidlineNote extends ParallelCommandGroup {
 
 		addCommands(
 
-			new RollerSuperSmartRoll(roller, notesensor, noteSensorTwo),
+			//new RollerSuperSmartRoll(roller, notesensor, noteSensorTwo),
+
+			new RollerRollUntilNoteSensed(roller, notesensor, noteSensorTwo),
 
 			//new DrivetrainSwerveRelative(drivetrain, container, createPickupMidlineNoteTrajectory(container))
 

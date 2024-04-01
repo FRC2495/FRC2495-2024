@@ -28,12 +28,12 @@ public class StartingPositionSixMoveToSpeakerAndMoveNeck extends ParallelRaceGro
 
 			new MoveNeckUpReleaseNoteAndAdjustToAprilTag(neck, roller, apriltag_camera),
 
-			new DrivetrainSwerveRelative(drivetrain, container, createAreaBeforeShootSecondNoteTrajectory(container))
+			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container))
 
 		);
 	}
 	
-	public static Trajectory createAreaBeforeShootSecondNoteTrajectory(RobotContainer container) {
+	/*public static Trajectory createAreaBeforeShootSecondNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -45,9 +45,9 @@ public class StartingPositionSixMoveToSpeakerAndMoveNeck extends ParallelRaceGro
 			container.createFastReverseTrajectoryConfig());
 
 		return trajectory;
-	}
+	}*
 
-	public static Trajectory createShootMidlineNoteTrajectory(RobotContainer container) {
+	/*public static Trajectory createShootMidlineNoteTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -56,6 +56,20 @@ public class StartingPositionSixMoveToSpeakerAndMoveNeck extends ParallelRaceGro
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_MIDLINE_NOTE_PICKUP_TO_TOWARDS_SPEAKER_X, -AutonConstants.DISTANCE_FROM_MIDLINE_NOTE_PICKUP_TO_TOWARDS_SPEAKER_Y, Rotation2d.fromDegrees(120)),
+			container.createFastReverseTrajectoryConfig());
+
+		return trajectory;
+	}*/
+
+	public static Trajectory createShootSecondNoteTrajectory(RobotContainer container) {
+		// An example trajectory to follow. All units in meters.
+		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+			// Start at the origin facing the -X direction
+			new Pose2d(0, 0, Rotation2d.fromDegrees(180)),
+			// Pass through these waypoints
+			List.of(),
+			// End straight ahead of where we started, facing forward
+			new Pose2d(AutonConstants.DISTANCE_FROM_AREA_AFTER_MIDLINE_NOTE_PICKUP_TO_TOWARDS_SPEAKER_X, AutonConstants.DISTANCE_FROM_AREA_AFTER_MIDLINE_NOTE_PICKUP_TO_TOWARDS_SPEAKER_Y, Rotation2d.fromDegrees(220)),
 			container.createFastReverseTrajectoryConfig());
 
 		return trajectory;
