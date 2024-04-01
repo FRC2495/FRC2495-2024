@@ -15,6 +15,7 @@ import frc.robot.auton.common.*;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.shooter.*;
 import frc.robot.commands.mouth.*;
+import frc.robot.commands.roller.RollerRollUntilNoteSensed;
 import frc.robot.commands.roller.RollerSuperSmartRoll;
 import frc.robot.commands.roller.RollerTimedRoll;
 import frc.robot.subsystems.*;
@@ -27,7 +28,9 @@ public class StartingPositionOnePickupSecondNote extends ParallelCommandGroup {
 
 		addCommands(
 
-			new RollerSuperSmartRoll(roller, notesensor, noteSensorTwo),
+			//new RollerSuperSmartRoll(roller, notesensor, noteSensorTwo),
+
+			new RollerRollUntilNoteSensed(roller, noteSensorTwo),
 
 			new DrivetrainSwerveRelative(drivetrain, container, createPickupSecondNoteTrajectory(container))
 			

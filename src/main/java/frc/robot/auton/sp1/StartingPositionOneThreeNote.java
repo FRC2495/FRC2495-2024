@@ -39,7 +39,9 @@ public class StartingPositionOneThreeNote extends SequentialCommandGroup {
 
 			new StartingPositionOnePickupSecondNote(container, drivetrain, roller, notesensor, noteSensorTwo),
 
-			new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)), 
+			new StartingPositionOneMoveToSecondNoteSpeakerAndMoveNeck(drivetrain, container, roller, neck, apriltag_camera),
+
+			//new DrivetrainSwerveRelative(drivetrain, container, createShootSecondNoteTrajectory(container)), 
 
 			/*new DrivetrainTurnUsingCamera(drivetrain, apriltag_camera), // change to april tag camera command later 
 
