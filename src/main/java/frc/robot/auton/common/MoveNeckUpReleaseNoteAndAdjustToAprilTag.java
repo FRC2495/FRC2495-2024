@@ -15,7 +15,7 @@ public class MoveNeckUpReleaseNoteAndAdjustToAprilTag extends SequentialCommandG
 
 			new NeckMoveSubWithStallDetection(neck),
 
-			new RollerReleaseShortDistance(roller),
+			//new RollerReleaseShortDistance(roller),
 
 			new NeckMoveUsingCamera(neck, apriltag_camera)
 						
