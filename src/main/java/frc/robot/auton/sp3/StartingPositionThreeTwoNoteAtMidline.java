@@ -16,6 +16,7 @@ import frc.robot.auton.common.*;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.neck.NeckMoveDownWithStallDetection;
 import frc.robot.commands.neck.NeckMoveOptimalPositionForShooting;
+import frc.robot.commands.roller.RollerReleaseShortDistance;
 import frc.robot.subsystems.*;
 import frc.robot.auton.sp1.*;
 import frc.robot.interfaces.*;
@@ -44,6 +45,8 @@ public class StartingPositionThreeTwoNoteAtMidline extends SequentialCommandGrou
 			new NeckMoveOptimalPositionForShooting(neck, apriltag_camera),*/
 
 			new TurnToSpeaker(drivetrain, container, roller, neck, apriltag_camera),
+
+			new RollerReleaseShortDistance(roller),
 
 			new ShootNote(shooter, roller),
 

@@ -13,6 +13,7 @@ import frc.robot.auton.common.TurnToSpeaker;
 import frc.robot.auton.sp4.*;
 import frc.robot.commands.drivetrain.DrivetrainSwerveRelative;
 import frc.robot.commands.neck.NeckMoveDownWithStallDetection;
+import frc.robot.commands.roller.RollerReleaseShortDistance;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.*;
 import frc.robot.interfaces.*;
@@ -37,6 +38,8 @@ public class StartingPositionFourTwoNoteAtMidline extends SequentialCommandGroup
 			new StartingPositionFourMoveToSpeakerAndMoveNeck(drivetrain, container, roller, neck, apriltag_camera),
 
 			new TurnToSpeaker(drivetrain, container, roller, neck, apriltag_camera),
+
+			new RollerReleaseShortDistance(roller),
 
 			new ShootNote(shooter, roller),
 
