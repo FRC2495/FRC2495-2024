@@ -7,6 +7,7 @@ public class AutonConstants {
 	public static final double ONE_HALF_OF_A_METER = .5;
 	public static final double ONE_METER = 1.0;
 	public static final double ONE_AND_A_HALF_METER = 1.5;
+	public static final double TWO_METER = 2;
 
 	// All Starting Position Distances
 	public static final double DISTANCE_TO_PICKUP_NOTE_METERS = .5; // todo fix

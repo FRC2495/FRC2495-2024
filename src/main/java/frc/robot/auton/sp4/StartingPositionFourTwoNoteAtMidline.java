@@ -33,7 +33,7 @@ public class StartingPositionFourTwoNoteAtMidline extends SequentialCommandGroup
 
 			//new DrivetrainSwerveRelative(drivetrain, container, createAfterMidlineNotePickupTrajectory(container)),
 
-			//new DrivetrainSwerveRelative(drivetrain, container, createMoveTowardsSpeakerTrajectory(container)),
+			new DrivetrainSwerveRelative(drivetrain, container, createMoveTowardsSpeakerTrajectory(container)),
 
 			new StartingPositionFourMoveToSpeakerAndMoveNeck(drivetrain, container, roller, neck, apriltag_camera),
 
@@ -64,7 +64,7 @@ public class StartingPositionFourTwoNoteAtMidline extends SequentialCommandGroup
 	}
 
 
-	public static Trajectory createMoveTowardsSpeakerTrajectory(RobotContainer container) {
+	/*public static Trajectory createMoveTowardsSpeakerTrajectory(RobotContainer container) {
 		// An example trajectory to follow. All units in meters.
 		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
 			// Start at the origin facing the -X direction
@@ -73,6 +73,20 @@ public class StartingPositionFourTwoNoteAtMidline extends SequentialCommandGroup
 			List.of(),
 			// End straight ahead of where we started, facing forward
 			new Pose2d(AutonConstants.DISTANCE_FROM_AFTER_MIDLINE_NOTE_PICKUP_TO_TOWARDS_SPEAKER_X, -AutonConstants.DISTANCE_FROM_AFTER_MIDLINE_NOTE_PICKUP_TO_TOWARDS_SPEAKER_Y, Rotation2d.fromDegrees(140)),
+			container.createFastReverseTrajectoryConfig());
+
+		return trajectory;
+	}*/
+
+	public static Trajectory createMoveTowardsSpeakerTrajectory(RobotContainer container) {
+		// An example trajectory to follow. All units in meters.
+		Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+			// Start at the origin facing the -X direction
+			new Pose2d(0, 0, Rotation2d.fromDegrees(180)),
+			// Pass through these waypoints
+			List.of(),
+			// End straight ahead of where we started, facing forward
+			new Pose2d(AutonConstants.TWO_METER, 0, Rotation2d.fromDegrees(180)),
 			container.createFastReverseTrajectoryConfig());
 
 		return trajectory;
