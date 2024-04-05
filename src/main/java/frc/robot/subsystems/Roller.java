@@ -25,8 +25,10 @@ public class Roller extends SubsystemBase implements IRoller{
 	static final double MAX_PCT_OUTPUT = 1.0;
 	static final double ALMOST_MAX_PCT_OUTPUT = 1.0;
 	static final double HALF_PCT_OUTPUT = 0.5;
-	static final double REDUCED_PCT_OUTPUT = 0.8;
+	static final double REDUCED_PCT_OUTPUT = 0.6; //0.8;
+	static final double REDUCED_PCT_OUTPUT_SHORT_DISTANCE = 0.4;
 	static final double SUPER_REDUCED_PCT_OUTPUT = 0.2; // 0.3
+	
 	//todo fix
 	
 	static final int WAIT_MS = 1000;
@@ -56,8 +58,11 @@ public class Roller extends SubsystemBase implements IRoller{
 	static final int SLOT_0 = 0;
 
 	static final double ROLL_PROPORTIONAL_GAIN = 0.25;
+	static final double ROLL_PROPORTIONAL_GAIN_SHORT_DISTANCE = 0.1;
 	static final double ROLL_INTEGRAL_GAIN = 0.001;
+	static final double ROLL_INTEGRAL_GAIN_SHORT_DISTANCE = 0.0001;
 	static final double ROLL_DERIVATIVE_GAIN = 20.0;
+	static final double ROLL_DERIVATIVE_GAIN_SHORT_DISTANCE = 2.0;
 	static final double ROLL_FEED_FORWARD = 1023.0/30000.0; // 1023 = Talon SRX/FX full motor output, max measured velocity ~ 30000 native units per 100ms
 
 	static final double TICK_THRESH = 2048;
@@ -223,9 +228,9 @@ public class Roller extends SubsystemBase implements IRoller{
 		resetEncoder(); // set new virtual zero
 		resetEncoder(); // set new virtual zero TWICE
 		
-		setPIDParameters();
+		setPIDParametersShortDistance();
 		System.out.println("Releasing");
-		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT);
+		setNominalAndPeakOutputs(REDUCED_PCT_OUTPUT_SHORT_DISTANCE);
 
 		tac = +LENGTH_OF_SHORT_DISTANCE_TICKS;
 		
@@ -306,6 +311,42 @@ public class Roller extends SubsystemBase implements IRoller{
 		roller.config_kD(SLOT_0, ROLL_DERIVATIVE_GAIN, TALON_TIMEOUT_MS);	
 		roller.config_kF(SLOT_0, ROLL_FEED_FORWARD, TALON_TIMEOUT_MS);
 	}		
+
+
+	public void setPIDParametersShortDistance()
+	{
+		roller.configAllowableClosedloopError(SLOT_0, TICK_PER_100MS_THRESH, TALON_TIMEOUT_MS);
+		
+		// P is the proportional gain. It modifies the closed-loop output by a proportion (the gain value)
+		// of the closed-loop error.
+		// P gain is specified in output unit per error unit.
+		// When tuning P, it's useful to estimate your starting value.
+		// If you want your mechanism to drive 50% output when the error is 4096 (one rotation when using CTRE Mag Encoder),
+		// then the calculated Proportional Gain would be (0.50 X 1023) / 4096 = ~0.125.
+		
+		// I is the integral gain. It modifies the closed-loop output according to the integral error
+		// (summation of the closed-loop error each iteration).
+		// I gain is specified in output units per integrated error.
+		// If your mechanism never quite reaches your target and using integral gain is viable,
+		// start with 1/100th of the Proportional Gain.
+		
+		// D is the derivative gain. It modifies the closed-loop output according to the derivative error
+		// (change in closed-loop error each iteration).
+		// D gain is specified in output units per derivative error.
+		// If your mechanism accelerates too abruptly, Derivative Gain can be used to smooth the motion.
+		// Typically start with 10x to 100x of your current Proportional Gain.
+
+		// Feed-Forward is typically used in velocity and motion profile/magic closed-loop modes.
+		// F gain is multiplied directly by the set point passed into the programming API.
+		// The result of this multiplication is in motor output units [-1023, 1023]. This allows the robot to feed-forward using the target set-point.
+		// In order to calculate feed-forward, you will need to measure your motor's velocity at a specified percent output
+		// (preferably an output close to the intended operating range).
+			
+		roller.config_kP(SLOT_0, ROLL_PROPORTIONAL_GAIN_SHORT_DISTANCE, TALON_TIMEOUT_MS);
+		roller.config_kI(SLOT_0, ROLL_INTEGRAL_GAIN_SHORT_DISTANCE, TALON_TIMEOUT_MS);
+		roller.config_kD(SLOT_0, ROLL_DERIVATIVE_GAIN_SHORT_DISTANCE, TALON_TIMEOUT_MS);	
+		roller.config_kF(SLOT_0, ROLL_FEED_FORWARD, TALON_TIMEOUT_MS);
+	}	
 		
 	// NOTE THAT THIS METHOD WILL IMPACT BOTH OPEN AND CLOSED LOOP MODES
 	public void setNominalAndPeakOutputs(double peakOutput)
